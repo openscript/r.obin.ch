@@ -14,9 +14,9 @@ const siteUrl = process.env.SITE_URL || `https://example.com`;
 const configuration: GatsbyConfig = {
   pathPrefix: process.env.PATH_PREFIX || '/',
   siteMetadata: {
-    title: `Gatsby Starter Dogmatism`,
-    description: `This is a quite opinionated Gatsby starter.`,
-    author: `openscript`,
+    title: `Robins Website`,
+    description: ``,
+    author: `Robin Bühler`,
     siteUrl,
     version: packageJson.version,
     project: packageJson.name,

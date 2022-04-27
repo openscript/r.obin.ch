@@ -44,7 +44,7 @@ jobs:
       - name: Build website
         run: yarn build:with-prefix
         env:
-          PATH_PREFIX: '/gatsby-starter-dogmatism'
+          PATH_PREFIX: '/r.obin.ch'
           CI: true
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
