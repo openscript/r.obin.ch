@@ -8,10 +8,11 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const pathPrefix = '/r.obin.ch';
 const siteUrl = process.env.SITE_URL || `https://openscript.github.io/r.obin.ch`;
 
 const configuration: GatsbyConfig = {
-  pathPrefix: process.env.PATH_PREFIX || '/',
+  pathPrefix,
   siteMetadata: {
     title: `Robins website`,
     description: ``,
