@@ -2,7 +2,6 @@ import { GatsbyConfig } from 'gatsby';
 import path from 'path';
 import deCHMessages from './content/i18n/de-CH.json';
 import enUSMessages from './content/i18n/en-US.json';
-import zhCNMessages from './content/i18n/zh-CN.json';
 import packageJson from './package.json';
 
 require('dotenv').config({
@@ -102,12 +101,6 @@ const configuration: GatsbyConfig = {
             prefix: `de`,
             slugs: {},
             messages: deCHMessages,
-          },
-          {
-            locale: `zh-CN`,
-            prefix: `zh`,
-            slugs: {},
-            messages: zhCNMessages,
           },
         ],
       },
