@@ -45,6 +45,7 @@ jobs:
         run: yarn build:with-prefix
         env:
           PATH_PREFIX: '/r.obin.ch'
+          SITE_URL: 'https://openscript.github.io/r.obin.ch'
           CI: true
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
