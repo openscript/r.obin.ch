@@ -1,0 +1,5 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.framework.id": "gatsby"
+}

@@ -5,7 +5,5 @@
   "i18n-ally.keystyle": "flat",
   "i18n-ally.sortKeys": true,
   "i18n-ally.sourceLanguage": "en-US",
-  "i18n-ally.displayLanguage": "en-US",
-  "frontMatter.framework.id": "gatsby",
-  "frontMatter.content.publicFolder": "static"
+  "i18n-ally.displayLanguage": "en-US"
 }
