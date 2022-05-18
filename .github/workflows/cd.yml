@@ -31,16 +31,16 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Caching Gatsby
-        id: gatsby-cache-build
-        uses: actions/cache@v3
-        with:
-          path: |
-            public
-            .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-cache-
+      #      - name: Caching Gatsby
+      #        id: gatsby-cache-build
+      #        uses: actions/cache@v3
+      #        with:
+      #          path: |
+      #            public
+      #            .cache
+      #          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
+      #          restore-keys: |
+      #            ${{ runner.os }}-gatsby-cache-
       - name: Build website
         run: yarn build:with-prefix
         env:
