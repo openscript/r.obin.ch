@@ -1,5 +1,6 @@
 import { css, Theme } from '@emotion/react';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
+import { ReboundSection } from 'react-section-dividers';
 import LanguageSelector from './LanguageSelector';
 import MainNavigation from './MainNavigation';
 
@@ -19,10 +20,10 @@ type HeaderProps = {
 
 export function Header({ title }: HeaderProps) {
   return (
-    <header css={headerStyle}>
+    <ReboundSection as="header" position="bottom" rebound={25} height={20} css={headerStyle}>
       <LocalizedLink to="/">{title}</LocalizedLink>
       <MainNavigation />
       <LanguageSelector />
-    </header>
+    </ReboundSection>
   );
 }
