@@ -19,7 +19,7 @@ export function Header() {
   const intl = useIntl();
 
   return (
-    <ReboundSection as="header" position="bottom" rebound={25} height={20} css={headerStyle}>
+    <ReboundSection as="header" position="bottom" flip="both" rebound={20} height={30} css={headerStyle}>
       <LocalizedLink to="/">{intl.formatMessage({ id: 'title' })}</LocalizedLink>
       <MainNavigation />
       <LanguageSelector />
