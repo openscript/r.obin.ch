@@ -1,13 +1,12 @@
 import { Helmet } from 'react-helmet';
+import { useIntl } from 'react-intl';
 
-type DocumentProps = {
-  title: string;
-};
-
-export function Document({ title }: DocumentProps) {
+export function Document() {
+  const intl = useIntl();
   return (
     <Helmet>
-      <title>{title}</title>
+      <title>{intl.formatMessage({ id: 'title' })}</title>
+      <meta name="description" content={intl.formatMessage({ id: 'description' })} />
     </Helmet>
   );
 }

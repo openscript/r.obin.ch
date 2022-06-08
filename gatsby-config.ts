@@ -15,7 +15,7 @@ const configuration: GatsbyConfig = {
   pathPrefix,
   siteMetadata: {
     title: `Robins website`,
-    description: ``,
+    description: `On this website I collect interesting findings from my adventures in the world of bits and bytes and I share sometimes also things from the analogue reality.`,
     author: `Robin Bühler`,
     siteUrl,
     version: packageJson.version,

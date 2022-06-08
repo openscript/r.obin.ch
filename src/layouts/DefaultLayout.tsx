@@ -61,9 +61,9 @@ export function DefaultLayout({ children, theme }: DefaultLayoutProps) {
 
   return (
     <ThemeProvider theme={theme || defaultTheme}>
-      <Document title={data.site?.siteMetadata?.title || ''} />
+      <Document />
       <Global styles={globalStyles} />
-      <Header title={data.site?.siteMetadata?.title || ''} />
+      <Header />
       <Main>{children}</Main>
       <Footer author={data.site?.siteMetadata?.project || ''} version={data.site?.siteMetadata?.version || ''} />
     </ThemeProvider>
