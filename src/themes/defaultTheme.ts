@@ -4,7 +4,8 @@ export const defaultTheme: Theme = {
   colors: {
     primary: '#6a4a3c',
     secondary: '#eb6841',
-    white: '#eeeeee',
+    bright: '#eeeeee',
+    dark: '#333333',
   },
   fonts: {
     headings: "'Rajdhani', sans-serif",

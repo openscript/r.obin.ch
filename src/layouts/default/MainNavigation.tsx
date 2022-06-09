@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
 
-const navStyle = () => css`
+const navStyle = css`
   ul {
+    display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.4rem;
   }
 `;
 
