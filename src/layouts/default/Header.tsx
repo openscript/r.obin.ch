@@ -1,7 +1,7 @@
 import { css, Theme } from '@emotion/react';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import { useIntl } from 'react-intl';
 import { ReboundSection } from 'react-section-dividers';
+import Brand from './Brand';
 import LanguageSelector from './LanguageSelector';
 import MainNavigation from './MainNavigation';
 
@@ -12,15 +12,20 @@ const headerStyle = (theme: Theme) => css`
   height: 6rem;
   font-size: 2rem;
   font-weight: bold;
-  background-color: ${theme.secondaryColor};
+  background-color: ${theme.primaryColor};
+
+  a {
+    text-decoration: none;
+    color: ${theme.whiteColor};
+  }
 `;
 
 export function Header() {
-  const intl = useIntl();
-
   return (
     <ReboundSection as="header" position="bottom" flip="both" rebound={20} height={30} css={headerStyle}>
-      <LocalizedLink to="/">{intl.formatMessage({ id: 'title' })}</LocalizedLink>
+      <LocalizedLink to="/">
+        <Brand />
+      </LocalizedLink>
       <MainNavigation />
       <LanguageSelector />
     </ReboundSection>

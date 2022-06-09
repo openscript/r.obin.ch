@@ -54,14 +54,15 @@ const globalStyles = (theme: Theme) => css`
 
 type DefaultLayoutProps = PropsWithChildren<{
   theme?: Theme;
+  subtitle?: string;
 }>;
 
-export function DefaultLayout({ children, theme }: DefaultLayoutProps) {
+export function DefaultLayout({ children, theme, subtitle }: DefaultLayoutProps) {
   const data = useStaticQuery<DefaultLayoutQuery>(query);
 
   return (
     <ThemeProvider theme={theme || defaultTheme}>
-      <Document />
+      <Document subtitle={subtitle} />
       <Global styles={globalStyles} />
       <Header />
       <Main>{children}</Main>

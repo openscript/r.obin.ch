@@ -1,5 +1,7 @@
 {
+  "defaultSubtitle": "Über meine Abenteuer mit Bits und Bytes",
   "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
   "language": "Deutsch",
-  "title": "Robins Webseite"
+  "title": "Robin Bühler",
+  "titlePattern": "{subtitle} - {title}"
 }
