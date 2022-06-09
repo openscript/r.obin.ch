@@ -4,9 +4,16 @@ import { GatsbyBrowser, GatsbySSR, PluginOptions } from 'gatsby';
 
 declare module '@emotion/react' {
   export interface Theme {
-    primaryColor: string;
-    secondaryColor: string;
-    whiteColor: string;
+    colors: {
+      primary: string;
+      secondary: string;
+      white: string;
+    };
+    fonts: {
+      paragraph: string;
+      headings: string;
+      listings: string;
+    };
     breakpoints: {
       tiny: string;
       small: string;

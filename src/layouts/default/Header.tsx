@@ -12,11 +12,12 @@ const headerStyle = (theme: Theme) => css`
   height: 6rem;
   font-size: 2rem;
   font-weight: bold;
-  background-color: ${theme.primaryColor};
+  font-family: ${theme.fonts.headings};
+  background-color: ${theme.colors.primary};
 
   a {
     text-decoration: none;
-    color: ${theme.whiteColor};
+    color: ${theme.colors.white};
   }
 `;
 

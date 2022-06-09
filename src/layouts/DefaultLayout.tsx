@@ -38,7 +38,7 @@ const globalStyles = (theme: Theme) => css`
     flex-direction: column;
     flex-grow: 1;
     min-height: 100%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: ${theme.fonts.paragraph};
   }
 
   header,
@@ -49,6 +49,19 @@ const globalStyles = (theme: Theme) => css`
     @media (max-width: ${theme.breakpoints.tiny}) {
       padding: 0 1rem;
     }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${theme.fonts.headings};
+  }
+
+  code {
+    font-family: ${theme.fonts.listings};
   }
 `;
 
