@@ -6,6 +6,7 @@ declare module '@emotion/react' {
   export interface Theme {
     primaryColor: string;
     secondaryColor: string;
+    whiteColor: string;
     breakpoints: {
       tiny: string;
       small: string;
@@ -24,11 +25,6 @@ export type Translation = {
 export type SitePageContext = {
   translations?: Translation[];
   locale?: Maybe<Scalars['String']>;
-};
-
-type AlternativeLanguagePath = {
-  locale?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
 };
 
 type GatsbyBrowserWrapPageElementParams = Parameters<GatsbyBrowser['wrapPageElement']>;
