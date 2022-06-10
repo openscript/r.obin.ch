@@ -43,11 +43,22 @@ const globalStyles = (theme: Theme) => css`
 
   header,
   main,
-  footer {
+  footer,
+  #top-bar {
     padding: 0 10%;
 
     @media (max-width: ${theme.breakpoints.tiny}) {
       padding: 0 1rem;
+    }
+  }
+
+  header,
+  #top-bar {
+    font-family: ${theme.fonts.headings};
+
+    a {
+      text-decoration: none;
+      color: ${theme.colors.bright};
     }
   }
 

@@ -1119,7 +1119,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.18.0":
+"@babel/runtime@^7.17.8", "@babel/runtime@^7.18.0":
   version "7.18.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.3.tgz#c7b654b57f6f63cf7f8b418ac9ca04408c4579f4"
   integrity sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==
@@ -7344,10 +7344,10 @@ gatsby-plugin-i18n-l10n@4.6.2:
     limax "^3.0.0"
     path-browserify "^1.0.1"
 
-gatsby-plugin-image@2.16.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.16.0.tgz#b3fc58152efd866ffa5d20d36badef23151e7446"
-  integrity sha512-Vsw2HNBU7FYykiI+LMOWf7fJnO517FhCUkiPhbl77Dg2w4X7bNAtFQFOxfBzmrKqDDkJgEglVsdK8ntN1Jkslw==
+gatsby-plugin-image@2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.16.1.tgz#4c6f7f0fee0bdb304207ff6f2e92cff36b106f52"
+  integrity sha512-PnCcJG7sE85xQhCFIMRUJr42T0eLRBJsERfhgHHaiCjUfNbpV02eQ30Wt8i3s3T6Ci/xPJYdnnqM9nTqiCJbTQ==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/parser" "^7.15.5"
@@ -7456,10 +7456,10 @@ gatsby-plugin-react-helmet@5.16.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-sharp@4.16.0:
-  version "4.16.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.16.0.tgz#21af434f31909fd49b8a9452d18f731d47cf2758"
-  integrity sha512-erX5pPDserEUwSKaUznOZi4ge7Z10M00jSUO+5ixZoJSMx8F3fzQ6PDzFF3f0h5jJ3PDJky1d1rR6Bz1MkprCQ==
+gatsby-plugin-sharp@4.16.1:
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.16.1.tgz#47ac2cf8d2b375f2b26667214a67bccfd05c314f"
+  integrity sha512-XaeilX+SjLPIeE9JHS+vb5ozNa4IGCmjDr5CCv+Tae8CuRmS/q8ZYBQpu5I172mYKX6J0iDt0leMCL6D1MdWQA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@gatsbyjs/potrace" "^2.2.0"
@@ -11070,6 +11070,13 @@ pngjs@^3.0.0, pngjs@^3.3.3:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.4.0.tgz#99ca7d725965fb655814eaf65f38f12bbdbf555f"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
+polished@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.2.2.tgz#2529bb7c3198945373c52e34618c8fe7b1aa84d1"
+  integrity sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==
+  dependencies:
+    "@babel/runtime" "^7.17.8"
+
 postcss-calc@^8.2.3:
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/postcss-calc/-/postcss-calc-8.2.4.tgz#77b9c29bfcbe8a07ff6693dc87050828889739a5"
@@ -11682,10 +11689,10 @@ react-refresh@^0.9.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
-react-section-dividers@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-section-dividers/-/react-section-dividers-0.5.0.tgz#b2f3f6d7b4bce0e838a20a90c4587000b5f8702b"
-  integrity sha512-wH2Tv+n09c4gQehScsewUF218LMe01u2pSd0oMfPyOR2ySYjdAdXKrg7nIE5OS4iEk7tBMaeDV1AwWyZu2siRg==
+react-section-dividers@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-section-dividers/-/react-section-dividers-0.5.1.tgz#6ec97579af7141f3c7625b464faaf4f31f64a651"
+  integrity sha512-6VWBvqC/sVIM9XF6Jsai+dYO2UcCJBRNoLCEvdWmE4RuHHcyhpMXE297mthoqrv6ma1PvlIUl5KKP80QXdX5Tw==
 
 react-side-effect@^2.1.0:
   version "2.1.1"
