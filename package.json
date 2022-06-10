@@ -25,7 +25,6 @@
     "gatsby-remark-images": "6.16.0",
     "gatsby-source-filesystem": "4.16.0",
     "gatsby-transformer-sharp": "4.16.0",
-    "graphql": "16.5.0",
     "polished": "^4.2.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",

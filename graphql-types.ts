@@ -12,6 +12,7 @@ export type Scalars = {
   Float: number;
   /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
+  GatsbyImageData: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
@@ -585,28 +586,51 @@ export enum FileFieldsEnum {
   ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
   ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
   ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpGatsbyImageData = 'childImageSharp___gatsbyImageData',
   ChildImageSharpId = 'childImageSharp___id',
   ChildImageSharpInternalContent = 'childImageSharp___internal___content',
@@ -634,11 +658,17 @@ export enum FileFieldsEnum {
   ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
   ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
   ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
   ChildMdxBody = 'childMdx___body',
   ChildMdxChildren = 'childMdx___children',
@@ -656,6 +686,7 @@ export enum FileFieldsEnum {
   ChildMdxChildrenInternalType = 'childMdx___children___internal___type',
   ChildMdxChildrenParentChildren = 'childMdx___children___parent___children',
   ChildMdxChildrenParentId = 'childMdx___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxExcerpt = 'childMdx___excerpt',
   ChildMdxFieldsFilename = 'childMdx___fields___filename',
   ChildMdxFieldsKind = 'childMdx___fields___kind',
@@ -667,9 +698,52 @@ export enum FileFieldsEnum {
   ChildMdxFieldsTranslationsLocale = 'childMdx___fields___translations___locale',
   ChildMdxFieldsTranslationsPath = 'childMdx___fields___translations___path',
   ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
+  ChildMdxFrontmatterDate = 'childMdx___frontmatter___date',
+  ChildMdxFrontmatterFeaturedAbsolutePath = 'childMdx___frontmatter___featured___absolutePath',
+  ChildMdxFrontmatterFeaturedAccessTime = 'childMdx___frontmatter___featured___accessTime',
+  ChildMdxFrontmatterFeaturedAtime = 'childMdx___frontmatter___featured___atime',
+  ChildMdxFrontmatterFeaturedAtimeMs = 'childMdx___frontmatter___featured___atimeMs',
+  ChildMdxFrontmatterFeaturedBase = 'childMdx___frontmatter___featured___base',
+  ChildMdxFrontmatterFeaturedBirthTime = 'childMdx___frontmatter___featured___birthTime',
+  ChildMdxFrontmatterFeaturedBirthtime = 'childMdx___frontmatter___featured___birthtime',
+  ChildMdxFrontmatterFeaturedBirthtimeMs = 'childMdx___frontmatter___featured___birthtimeMs',
+  ChildMdxFrontmatterFeaturedBlksize = 'childMdx___frontmatter___featured___blksize',
+  ChildMdxFrontmatterFeaturedBlocks = 'childMdx___frontmatter___featured___blocks',
+  ChildMdxFrontmatterFeaturedChangeTime = 'childMdx___frontmatter___featured___changeTime',
+  ChildMdxFrontmatterFeaturedChildren = 'childMdx___frontmatter___featured___children',
+  ChildMdxFrontmatterFeaturedChildrenImageSharp = 'childMdx___frontmatter___featured___childrenImageSharp',
+  ChildMdxFrontmatterFeaturedChildrenMdx = 'childMdx___frontmatter___featured___childrenMdx',
+  ChildMdxFrontmatterFeaturedCtime = 'childMdx___frontmatter___featured___ctime',
+  ChildMdxFrontmatterFeaturedCtimeMs = 'childMdx___frontmatter___featured___ctimeMs',
+  ChildMdxFrontmatterFeaturedDev = 'childMdx___frontmatter___featured___dev',
+  ChildMdxFrontmatterFeaturedDir = 'childMdx___frontmatter___featured___dir',
+  ChildMdxFrontmatterFeaturedExt = 'childMdx___frontmatter___featured___ext',
+  ChildMdxFrontmatterFeaturedExtension = 'childMdx___frontmatter___featured___extension',
+  ChildMdxFrontmatterFeaturedGid = 'childMdx___frontmatter___featured___gid',
+  ChildMdxFrontmatterFeaturedId = 'childMdx___frontmatter___featured___id',
+  ChildMdxFrontmatterFeaturedIno = 'childMdx___frontmatter___featured___ino',
+  ChildMdxFrontmatterFeaturedMode = 'childMdx___frontmatter___featured___mode',
+  ChildMdxFrontmatterFeaturedModifiedTime = 'childMdx___frontmatter___featured___modifiedTime',
+  ChildMdxFrontmatterFeaturedMtime = 'childMdx___frontmatter___featured___mtime',
+  ChildMdxFrontmatterFeaturedMtimeMs = 'childMdx___frontmatter___featured___mtimeMs',
+  ChildMdxFrontmatterFeaturedName = 'childMdx___frontmatter___featured___name',
+  ChildMdxFrontmatterFeaturedNlink = 'childMdx___frontmatter___featured___nlink',
+  ChildMdxFrontmatterFeaturedPrettySize = 'childMdx___frontmatter___featured___prettySize',
+  ChildMdxFrontmatterFeaturedPublicUrl = 'childMdx___frontmatter___featured___publicURL',
+  ChildMdxFrontmatterFeaturedRdev = 'childMdx___frontmatter___featured___rdev',
+  ChildMdxFrontmatterFeaturedRelativeDirectory = 'childMdx___frontmatter___featured___relativeDirectory',
+  ChildMdxFrontmatterFeaturedRelativePath = 'childMdx___frontmatter___featured___relativePath',
+  ChildMdxFrontmatterFeaturedRoot = 'childMdx___frontmatter___featured___root',
+  ChildMdxFrontmatterFeaturedSize = 'childMdx___frontmatter___featured___size',
+  ChildMdxFrontmatterFeaturedSourceInstanceName = 'childMdx___frontmatter___featured___sourceInstanceName',
+  ChildMdxFrontmatterFeaturedUid = 'childMdx___frontmatter___featured___uid',
+  ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
   ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadings = 'childMdx___headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadingsDepth = 'childMdx___headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadingsValue = 'childMdx___headings___value',
   ChildMdxHtml = 'childMdx___html',
   ChildMdxId = 'childMdx___id',
@@ -698,6 +772,7 @@ export enum FileFieldsEnum {
   ChildMdxParentParentId = 'childMdx___parent___parent___id',
   ChildMdxRawBody = 'childMdx___rawBody',
   ChildMdxSlug = 'childMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxTableOfContents = 'childMdx___tableOfContents',
   ChildMdxTimeToRead = 'childMdx___timeToRead',
   ChildMdxWordCountParagraphs = 'childMdx___wordCount___paragraphs',
@@ -720,28 +795,51 @@ export enum FileFieldsEnum {
   ChildrenImageSharpChildrenInternalType = 'childrenImageSharp___children___internal___type',
   ChildrenImageSharpChildrenParentChildren = 'childrenImageSharp___children___parent___children',
   ChildrenImageSharpChildrenParentId = 'childrenImageSharp___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedAspectRatio = 'childrenImageSharp___fixed___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedBase64 = 'childrenImageSharp___fixed___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedHeight = 'childrenImageSharp___fixed___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedOriginalName = 'childrenImageSharp___fixed___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedSrc = 'childrenImageSharp___fixed___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedSrcSet = 'childrenImageSharp___fixed___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedSrcSetWebp = 'childrenImageSharp___fixed___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedSrcWebp = 'childrenImageSharp___fixed___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedTracedSvg = 'childrenImageSharp___fixed___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFixedWidth = 'childrenImageSharp___fixed___width',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidAspectRatio = 'childrenImageSharp___fluid___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidBase64 = 'childrenImageSharp___fluid___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidOriginalImg = 'childrenImageSharp___fluid___originalImg',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidOriginalName = 'childrenImageSharp___fluid___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidPresentationHeight = 'childrenImageSharp___fluid___presentationHeight',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidPresentationWidth = 'childrenImageSharp___fluid___presentationWidth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidSizes = 'childrenImageSharp___fluid___sizes',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidSrc = 'childrenImageSharp___fluid___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidSrcSet = 'childrenImageSharp___fluid___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidSrcSetWebp = 'childrenImageSharp___fluid___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidSrcWebp = 'childrenImageSharp___fluid___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpFluidTracedSvg = 'childrenImageSharp___fluid___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpGatsbyImageData = 'childrenImageSharp___gatsbyImageData',
   ChildrenImageSharpId = 'childrenImageSharp___id',
   ChildrenImageSharpInternalContent = 'childrenImageSharp___internal___content',
@@ -769,11 +867,17 @@ export enum FileFieldsEnum {
   ChildrenImageSharpParentInternalType = 'childrenImageSharp___parent___internal___type',
   ChildrenImageSharpParentParentChildren = 'childrenImageSharp___parent___parent___children',
   ChildrenImageSharpParentParentId = 'childrenImageSharp___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeAspectRatio = 'childrenImageSharp___resize___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeHeight = 'childrenImageSharp___resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeOriginalName = 'childrenImageSharp___resize___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeSrc = 'childrenImageSharp___resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeTracedSvg = 'childrenImageSharp___resize___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenImageSharpResizeWidth = 'childrenImageSharp___resize___width',
   ChildrenMdx = 'childrenMdx',
   ChildrenMdxBody = 'childrenMdx___body',
@@ -792,6 +896,7 @@ export enum FileFieldsEnum {
   ChildrenMdxChildrenInternalType = 'childrenMdx___children___internal___type',
   ChildrenMdxChildrenParentChildren = 'childrenMdx___children___parent___children',
   ChildrenMdxChildrenParentId = 'childrenMdx___children___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxExcerpt = 'childrenMdx___excerpt',
   ChildrenMdxFieldsFilename = 'childrenMdx___fields___filename',
   ChildrenMdxFieldsKind = 'childrenMdx___fields___kind',
@@ -803,9 +908,52 @@ export enum FileFieldsEnum {
   ChildrenMdxFieldsTranslationsLocale = 'childrenMdx___fields___translations___locale',
   ChildrenMdxFieldsTranslationsPath = 'childrenMdx___fields___translations___path',
   ChildrenMdxFileAbsolutePath = 'childrenMdx___fileAbsolutePath',
+  ChildrenMdxFrontmatterDate = 'childrenMdx___frontmatter___date',
+  ChildrenMdxFrontmatterFeaturedAbsolutePath = 'childrenMdx___frontmatter___featured___absolutePath',
+  ChildrenMdxFrontmatterFeaturedAccessTime = 'childrenMdx___frontmatter___featured___accessTime',
+  ChildrenMdxFrontmatterFeaturedAtime = 'childrenMdx___frontmatter___featured___atime',
+  ChildrenMdxFrontmatterFeaturedAtimeMs = 'childrenMdx___frontmatter___featured___atimeMs',
+  ChildrenMdxFrontmatterFeaturedBase = 'childrenMdx___frontmatter___featured___base',
+  ChildrenMdxFrontmatterFeaturedBirthTime = 'childrenMdx___frontmatter___featured___birthTime',
+  ChildrenMdxFrontmatterFeaturedBirthtime = 'childrenMdx___frontmatter___featured___birthtime',
+  ChildrenMdxFrontmatterFeaturedBirthtimeMs = 'childrenMdx___frontmatter___featured___birthtimeMs',
+  ChildrenMdxFrontmatterFeaturedBlksize = 'childrenMdx___frontmatter___featured___blksize',
+  ChildrenMdxFrontmatterFeaturedBlocks = 'childrenMdx___frontmatter___featured___blocks',
+  ChildrenMdxFrontmatterFeaturedChangeTime = 'childrenMdx___frontmatter___featured___changeTime',
+  ChildrenMdxFrontmatterFeaturedChildren = 'childrenMdx___frontmatter___featured___children',
+  ChildrenMdxFrontmatterFeaturedChildrenImageSharp = 'childrenMdx___frontmatter___featured___childrenImageSharp',
+  ChildrenMdxFrontmatterFeaturedChildrenMdx = 'childrenMdx___frontmatter___featured___childrenMdx',
+  ChildrenMdxFrontmatterFeaturedCtime = 'childrenMdx___frontmatter___featured___ctime',
+  ChildrenMdxFrontmatterFeaturedCtimeMs = 'childrenMdx___frontmatter___featured___ctimeMs',
+  ChildrenMdxFrontmatterFeaturedDev = 'childrenMdx___frontmatter___featured___dev',
+  ChildrenMdxFrontmatterFeaturedDir = 'childrenMdx___frontmatter___featured___dir',
+  ChildrenMdxFrontmatterFeaturedExt = 'childrenMdx___frontmatter___featured___ext',
+  ChildrenMdxFrontmatterFeaturedExtension = 'childrenMdx___frontmatter___featured___extension',
+  ChildrenMdxFrontmatterFeaturedGid = 'childrenMdx___frontmatter___featured___gid',
+  ChildrenMdxFrontmatterFeaturedId = 'childrenMdx___frontmatter___featured___id',
+  ChildrenMdxFrontmatterFeaturedIno = 'childrenMdx___frontmatter___featured___ino',
+  ChildrenMdxFrontmatterFeaturedMode = 'childrenMdx___frontmatter___featured___mode',
+  ChildrenMdxFrontmatterFeaturedModifiedTime = 'childrenMdx___frontmatter___featured___modifiedTime',
+  ChildrenMdxFrontmatterFeaturedMtime = 'childrenMdx___frontmatter___featured___mtime',
+  ChildrenMdxFrontmatterFeaturedMtimeMs = 'childrenMdx___frontmatter___featured___mtimeMs',
+  ChildrenMdxFrontmatterFeaturedName = 'childrenMdx___frontmatter___featured___name',
+  ChildrenMdxFrontmatterFeaturedNlink = 'childrenMdx___frontmatter___featured___nlink',
+  ChildrenMdxFrontmatterFeaturedPrettySize = 'childrenMdx___frontmatter___featured___prettySize',
+  ChildrenMdxFrontmatterFeaturedPublicUrl = 'childrenMdx___frontmatter___featured___publicURL',
+  ChildrenMdxFrontmatterFeaturedRdev = 'childrenMdx___frontmatter___featured___rdev',
+  ChildrenMdxFrontmatterFeaturedRelativeDirectory = 'childrenMdx___frontmatter___featured___relativeDirectory',
+  ChildrenMdxFrontmatterFeaturedRelativePath = 'childrenMdx___frontmatter___featured___relativePath',
+  ChildrenMdxFrontmatterFeaturedRoot = 'childrenMdx___frontmatter___featured___root',
+  ChildrenMdxFrontmatterFeaturedSize = 'childrenMdx___frontmatter___featured___size',
+  ChildrenMdxFrontmatterFeaturedSourceInstanceName = 'childrenMdx___frontmatter___featured___sourceInstanceName',
+  ChildrenMdxFrontmatterFeaturedUid = 'childrenMdx___frontmatter___featured___uid',
+  ChildrenMdxFrontmatterTags = 'childrenMdx___frontmatter___tags',
   ChildrenMdxFrontmatterTitle = 'childrenMdx___frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadings = 'childrenMdx___headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadingsDepth = 'childrenMdx___headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadingsValue = 'childrenMdx___headings___value',
   ChildrenMdxHtml = 'childrenMdx___html',
   ChildrenMdxId = 'childrenMdx___id',
@@ -834,6 +982,7 @@ export enum FileFieldsEnum {
   ChildrenMdxParentParentId = 'childrenMdx___parent___parent___id',
   ChildrenMdxRawBody = 'childrenMdx___rawBody',
   ChildrenMdxSlug = 'childrenMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxTableOfContents = 'childrenMdx___tableOfContents',
   ChildrenMdxTimeToRead = 'childrenMdx___timeToRead',
   ChildrenMdxWordCountParagraphs = 'childrenMdx___wordCount___paragraphs',
@@ -1052,6 +1201,13 @@ export type FloatQueryOperatorInput = {
   nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+export type GatsbyImageDataQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['GatsbyImageData']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  ne?: InputMaybe<Scalars['GatsbyImageData']>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+};
+
 export enum GatsbyImageFormat {
   Auto = 'AUTO',
   Avif = 'AVIF',
@@ -1132,7 +1288,7 @@ export type ImageSharp = Node & {
   children: Array<Node>;
   fixed?: Maybe<ImageSharpFixed>;
   fluid?: Maybe<ImageSharpFluid>;
-  gatsbyImageData: Scalars['JSON'];
+  gatsbyImageData: Scalars['GatsbyImageData'];
   id: Scalars['ID'];
   internal: Internal;
   original?: Maybe<ImageSharpOriginal>;
@@ -1320,28 +1476,51 @@ export enum ImageSharpFieldsEnum {
   ChildrenParentInternalType = 'children___parent___internal___type',
   ChildrenParentParentChildren = 'children___parent___parent___children',
   ChildrenParentParentId = 'children___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedAspectRatio = 'fixed___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedBase64 = 'fixed___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedHeight = 'fixed___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedOriginalName = 'fixed___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedSrc = 'fixed___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedSrcSet = 'fixed___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedSrcSetWebp = 'fixed___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedSrcWebp = 'fixed___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedTracedSvg = 'fixed___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FixedWidth = 'fixed___width',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidAspectRatio = 'fluid___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidBase64 = 'fluid___base64',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidOriginalImg = 'fluid___originalImg',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidOriginalName = 'fluid___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidPresentationHeight = 'fluid___presentationHeight',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidPresentationWidth = 'fluid___presentationWidth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidSizes = 'fluid___sizes',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidSrc = 'fluid___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidSrcSet = 'fluid___srcSet',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidSrcSetWebp = 'fluid___srcSetWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidSrcWebp = 'fluid___srcWebp',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FluidTracedSvg = 'fluid___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   GatsbyImageData = 'gatsbyImageData',
   Id = 'id',
   InternalContent = 'internal___content',
@@ -1393,11 +1572,17 @@ export enum ImageSharpFieldsEnum {
   ParentParentInternalType = 'parent___parent___internal___type',
   ParentParentParentChildren = 'parent___parent___parent___children',
   ParentParentParentId = 'parent___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeAspectRatio = 'resize___aspectRatio',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeHeight = 'resize___height',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeOriginalName = 'resize___originalName',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeSrc = 'resize___src',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeTracedSvg = 'resize___tracedSVG',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ResizeWidth = 'resize___width'
 }
 
@@ -1405,7 +1590,7 @@ export type ImageSharpFilterInput = {
   children?: InputMaybe<NodeFilterListInput>;
   fixed?: InputMaybe<ImageSharpFixedFilterInput>;
   fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   original?: InputMaybe<ImageSharpOriginalFilterInput>;
@@ -1738,6 +1923,7 @@ export enum MdxFieldsEnum {
   ChildrenParentInternalType = 'children___parent___internal___type',
   ChildrenParentParentChildren = 'children___parent___parent___children',
   ChildrenParentParentId = 'children___parent___parent___id',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   Excerpt = 'excerpt',
   FieldsFilename = 'fields___filename',
   FieldsKind = 'fields___kind',
@@ -1749,9 +1935,102 @@ export enum MdxFieldsEnum {
   FieldsTranslationsLocale = 'fields___translations___locale',
   FieldsTranslationsPath = 'fields___translations___path',
   FileAbsolutePath = 'fileAbsolutePath',
+  FrontmatterDate = 'frontmatter___date',
+  FrontmatterFeaturedAbsolutePath = 'frontmatter___featured___absolutePath',
+  FrontmatterFeaturedAccessTime = 'frontmatter___featured___accessTime',
+  FrontmatterFeaturedAtime = 'frontmatter___featured___atime',
+  FrontmatterFeaturedAtimeMs = 'frontmatter___featured___atimeMs',
+  FrontmatterFeaturedBase = 'frontmatter___featured___base',
+  FrontmatterFeaturedBirthTime = 'frontmatter___featured___birthTime',
+  FrontmatterFeaturedBirthtime = 'frontmatter___featured___birthtime',
+  FrontmatterFeaturedBirthtimeMs = 'frontmatter___featured___birthtimeMs',
+  FrontmatterFeaturedBlksize = 'frontmatter___featured___blksize',
+  FrontmatterFeaturedBlocks = 'frontmatter___featured___blocks',
+  FrontmatterFeaturedChangeTime = 'frontmatter___featured___changeTime',
+  FrontmatterFeaturedChildImageSharpChildren = 'frontmatter___featured___childImageSharp___children',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildImageSharpGatsbyImageData = 'frontmatter___featured___childImageSharp___gatsbyImageData',
+  FrontmatterFeaturedChildImageSharpId = 'frontmatter___featured___childImageSharp___id',
+  FrontmatterFeaturedChildMdxBody = 'frontmatter___featured___childMdx___body',
+  FrontmatterFeaturedChildMdxChildren = 'frontmatter___featured___childMdx___children',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildMdxExcerpt = 'frontmatter___featured___childMdx___excerpt',
+  FrontmatterFeaturedChildMdxFileAbsolutePath = 'frontmatter___featured___childMdx___fileAbsolutePath',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildMdxHeadings = 'frontmatter___featured___childMdx___headings',
+  FrontmatterFeaturedChildMdxHtml = 'frontmatter___featured___childMdx___html',
+  FrontmatterFeaturedChildMdxId = 'frontmatter___featured___childMdx___id',
+  FrontmatterFeaturedChildMdxMdxAst = 'frontmatter___featured___childMdx___mdxAST',
+  FrontmatterFeaturedChildMdxRawBody = 'frontmatter___featured___childMdx___rawBody',
+  FrontmatterFeaturedChildMdxSlug = 'frontmatter___featured___childMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildMdxTableOfContents = 'frontmatter___featured___childMdx___tableOfContents',
+  FrontmatterFeaturedChildMdxTimeToRead = 'frontmatter___featured___childMdx___timeToRead',
+  FrontmatterFeaturedChildren = 'frontmatter___featured___children',
+  FrontmatterFeaturedChildrenImageSharp = 'frontmatter___featured___childrenImageSharp',
+  FrontmatterFeaturedChildrenImageSharpChildren = 'frontmatter___featured___childrenImageSharp___children',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildrenImageSharpGatsbyImageData = 'frontmatter___featured___childrenImageSharp___gatsbyImageData',
+  FrontmatterFeaturedChildrenImageSharpId = 'frontmatter___featured___childrenImageSharp___id',
+  FrontmatterFeaturedChildrenMdx = 'frontmatter___featured___childrenMdx',
+  FrontmatterFeaturedChildrenMdxBody = 'frontmatter___featured___childrenMdx___body',
+  FrontmatterFeaturedChildrenMdxChildren = 'frontmatter___featured___childrenMdx___children',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildrenMdxExcerpt = 'frontmatter___featured___childrenMdx___excerpt',
+  FrontmatterFeaturedChildrenMdxFileAbsolutePath = 'frontmatter___featured___childrenMdx___fileAbsolutePath',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildrenMdxHeadings = 'frontmatter___featured___childrenMdx___headings',
+  FrontmatterFeaturedChildrenMdxHtml = 'frontmatter___featured___childrenMdx___html',
+  FrontmatterFeaturedChildrenMdxId = 'frontmatter___featured___childrenMdx___id',
+  FrontmatterFeaturedChildrenMdxMdxAst = 'frontmatter___featured___childrenMdx___mdxAST',
+  FrontmatterFeaturedChildrenMdxRawBody = 'frontmatter___featured___childrenMdx___rawBody',
+  FrontmatterFeaturedChildrenMdxSlug = 'frontmatter___featured___childrenMdx___slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
+  FrontmatterFeaturedChildrenMdxTableOfContents = 'frontmatter___featured___childrenMdx___tableOfContents',
+  FrontmatterFeaturedChildrenMdxTimeToRead = 'frontmatter___featured___childrenMdx___timeToRead',
+  FrontmatterFeaturedChildrenChildren = 'frontmatter___featured___children___children',
+  FrontmatterFeaturedChildrenId = 'frontmatter___featured___children___id',
+  FrontmatterFeaturedCtime = 'frontmatter___featured___ctime',
+  FrontmatterFeaturedCtimeMs = 'frontmatter___featured___ctimeMs',
+  FrontmatterFeaturedDev = 'frontmatter___featured___dev',
+  FrontmatterFeaturedDir = 'frontmatter___featured___dir',
+  FrontmatterFeaturedExt = 'frontmatter___featured___ext',
+  FrontmatterFeaturedExtension = 'frontmatter___featured___extension',
+  FrontmatterFeaturedGid = 'frontmatter___featured___gid',
+  FrontmatterFeaturedId = 'frontmatter___featured___id',
+  FrontmatterFeaturedIno = 'frontmatter___featured___ino',
+  FrontmatterFeaturedInternalContent = 'frontmatter___featured___internal___content',
+  FrontmatterFeaturedInternalContentDigest = 'frontmatter___featured___internal___contentDigest',
+  FrontmatterFeaturedInternalDescription = 'frontmatter___featured___internal___description',
+  FrontmatterFeaturedInternalFieldOwners = 'frontmatter___featured___internal___fieldOwners',
+  FrontmatterFeaturedInternalIgnoreType = 'frontmatter___featured___internal___ignoreType',
+  FrontmatterFeaturedInternalMediaType = 'frontmatter___featured___internal___mediaType',
+  FrontmatterFeaturedInternalOwner = 'frontmatter___featured___internal___owner',
+  FrontmatterFeaturedInternalType = 'frontmatter___featured___internal___type',
+  FrontmatterFeaturedMode = 'frontmatter___featured___mode',
+  FrontmatterFeaturedModifiedTime = 'frontmatter___featured___modifiedTime',
+  FrontmatterFeaturedMtime = 'frontmatter___featured___mtime',
+  FrontmatterFeaturedMtimeMs = 'frontmatter___featured___mtimeMs',
+  FrontmatterFeaturedName = 'frontmatter___featured___name',
+  FrontmatterFeaturedNlink = 'frontmatter___featured___nlink',
+  FrontmatterFeaturedParentChildren = 'frontmatter___featured___parent___children',
+  FrontmatterFeaturedParentId = 'frontmatter___featured___parent___id',
+  FrontmatterFeaturedPrettySize = 'frontmatter___featured___prettySize',
+  FrontmatterFeaturedPublicUrl = 'frontmatter___featured___publicURL',
+  FrontmatterFeaturedRdev = 'frontmatter___featured___rdev',
+  FrontmatterFeaturedRelativeDirectory = 'frontmatter___featured___relativeDirectory',
+  FrontmatterFeaturedRelativePath = 'frontmatter___featured___relativePath',
+  FrontmatterFeaturedRoot = 'frontmatter___featured___root',
+  FrontmatterFeaturedSize = 'frontmatter___featured___size',
+  FrontmatterFeaturedSourceInstanceName = 'frontmatter___featured___sourceInstanceName',
+  FrontmatterFeaturedUid = 'frontmatter___featured___uid',
+  FrontmatterTags = 'frontmatter___tags',
   FrontmatterTitle = 'frontmatter___title',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   Headings = 'headings',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   HeadingsDepth = 'headings___depth',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   HeadingsValue = 'headings___value',
   Html = 'html',
   Id = 'id',
@@ -1804,6 +2083,7 @@ export enum MdxFieldsEnum {
   ParentParentParentId = 'parent___parent___parent___id',
   RawBody = 'rawBody',
   Slug = 'slug',
+  /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   TableOfContents = 'tableOfContents',
   TimeToRead = 'timeToRead',
   WordCountParagraphs = 'wordCount___paragraphs',
@@ -1862,10 +2142,24 @@ export type MdxFilterListInput = {
 
 export type MdxFrontmatter = {
   __typename?: 'MdxFrontmatter';
+  date?: Maybe<Scalars['Date']>;
+  featured?: Maybe<File>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   title: Scalars['String'];
 };
 
+
+export type MdxFrontmatterDateArgs = {
+  difference?: InputMaybe<Scalars['String']>;
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<Scalars['String']>;
+};
+
 export type MdxFrontmatterFilterInput = {
+  date?: InputMaybe<DateQueryOperatorInput>;
+  featured?: InputMaybe<FileFilterInput>;
+  tags?: InputMaybe<StringQueryOperatorInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2184,7 +2478,7 @@ export type QueryImageSharpArgs = {
   children?: InputMaybe<NodeFilterListInput>;
   fixed?: InputMaybe<ImageSharpFixedFilterInput>;
   fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
   original?: InputMaybe<ImageSharpOriginalFilterInput>;
@@ -2217,6 +2511,7 @@ export type QueryMdxArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -2290,6 +2585,7 @@ export type Site = Node & {
   __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   children: Array<Node>;
+  graphqlTypegen?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
@@ -2607,6 +2903,7 @@ export enum SiteFieldsEnum {
   ChildrenParentInternalType = 'children___parent___internal___type',
   ChildrenParentParentChildren = 'children___parent___parent___children',
   ChildrenParentParentId = 'children___parent___parent___id',
+  GraphqlTypegen = 'graphqlTypegen',
   Host = 'host',
   Id = 'id',
   InternalContent = 'internal___content',
@@ -2671,6 +2968,7 @@ export enum SiteFieldsEnum {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   children?: InputMaybe<NodeFilterListInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   host?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -3534,7 +3832,7 @@ export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string | null, description?: string | null, siteUrl?: string | null, title?: string | null, version?: string | null, project?: string | null } | null } | null };
+export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string | null, description?: string | null, siteUrl?: string | null, title?: string | null, version?: string | null, project?: string | null } | null } | null, siteBuildMetadata?: { __typename?: 'SiteBuildMetadata', buildTime?: any | null } | null };
 
 export type IndexPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;

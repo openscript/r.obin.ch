@@ -20,6 +20,9 @@ const query = graphql`
         project
       }
     }
+    siteBuildMetadata {
+      buildTime
+    }
   }
 `;
 
