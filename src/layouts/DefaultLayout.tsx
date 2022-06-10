@@ -93,7 +93,7 @@ export function DefaultLayout({ children, theme, subtitle }: DefaultLayoutProps)
       <Global styles={globalStyles} />
       <Header />
       <Main>{children}</Main>
-      <Footer author={data.site?.siteMetadata?.project || ''} version={data.site?.siteMetadata?.version || ''} />
+      <Footer author={data.site?.siteMetadata?.project} version={data.site?.siteMetadata?.version} buildTime={data.siteBuildMetadata?.buildTime} />
     </ThemeProvider>
   );
 }

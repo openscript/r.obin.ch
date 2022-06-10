@@ -1,5 +1,5 @@
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type Maybe<T> = T;
+export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -3798,52 +3798,52 @@ export type WebPOptions = {
   quality?: InputMaybe<Scalars['Int']>;
 };
 
-export type GatsbyImageSharpFixedFragment = { __typename?: 'ImageSharpFixed', base64?: string | null, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixedFragment = { __typename?: 'ImageSharpFixed', base64?: string, width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = { __typename?: 'ImageSharpFixed', tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixed_TracedSvgFragment = { __typename?: 'ImageSharpFixed', tracedSVG?: string, width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_WithWebpFragment = { __typename?: 'ImageSharpFixed', base64?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFixed_WithWebpFragment = { __typename?: 'ImageSharpFixed', base64?: string, width: number, height: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string };
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = { __typename?: 'ImageSharpFixed', tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = { __typename?: 'ImageSharpFixed', tracedSVG?: string, width: number, height: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string };
 
 export type GatsbyImageSharpFixed_NoBase64Fragment = { __typename?: 'ImageSharpFixed', width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFixed', width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFixed', width: number, height: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string };
 
-export type GatsbyImageSharpFluidFragment = { __typename?: 'ImageSharpFluid', base64?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluidFragment = { __typename?: 'ImageSharpFluid', base64?: string, aspectRatio: number, src: string, srcSet: string, sizes: string };
 
 export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { __typename?: 'ImageSharpFluid', maxHeight: number, maxWidth: number };
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = { __typename?: 'ImageSharpFluid', tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluid_TracedSvgFragment = { __typename?: 'ImageSharpFluid', tracedSVG?: string, aspectRatio: number, src: string, srcSet: string, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebpFragment = { __typename?: 'ImageSharpFluid', base64?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_WithWebpFragment = { __typename?: 'ImageSharpFluid', base64?: string, aspectRatio: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { __typename?: 'ImageSharpFluid', tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { __typename?: 'ImageSharpFluid', tracedSVG?: string, aspectRatio: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string, sizes: string };
 
 export type GatsbyImageSharpFluid_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string, sizes: string };
 
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string | null, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string | null, path?: string | null } | null> | null } | null } }> } };
+export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } } }> } };
 
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string | null, description?: string | null, siteUrl?: string | null, title?: string | null, version?: string | null, project?: string | null } | null } | null, siteBuildMetadata?: { __typename?: 'SiteBuildMetadata', buildTime?: any | null } | null };
+export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string, description?: string, siteUrl?: string, title?: string, version?: string, project?: string } }, siteBuildMetadata?: { __typename?: 'SiteBuildMetadata', buildTime?: any } };
 
 export type IndexPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string } | null };
+export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string } };
 
 export type GenericPageQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type GenericPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string } | null };
+export type GenericPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string } };

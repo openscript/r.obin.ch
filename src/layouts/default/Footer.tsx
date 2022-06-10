@@ -10,14 +10,15 @@ const footerStyle = (theme: Theme) => css`
 `;
 
 type FooterProps = {
-  author: string;
-  version: string;
+  author?: string;
+  version?: string;
+  buildTime?: string;
 };
 
-export function Footer({ author, version }: FooterProps) {
+export function Footer({ author, version, buildTime }: FooterProps) {
   return (
     <ReboundSection as="footer" position="top" flip="both" rebound={80} height={30} css={footerStyle}>
-      {author} {version}
+      {author} {version} {buildTime}
     </ReboundSection>
   );
 }
