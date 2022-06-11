@@ -56,7 +56,8 @@ const globalStyles = (theme: Theme) => css`
   }
 
   header,
-  #top-bar {
+  #top-bar,
+  footer {
     font-family: ${theme.fonts.headings};
 
     a {

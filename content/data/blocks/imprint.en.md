@@ -2,12 +2,12 @@
 
 The identity of the owner is stated below.
 
-Robin Bühler\
-c/o openscript GmbH\
-Europastrasse 30\
+Robin Bühler  
+c/o openscript GmbH  
+Europastrasse 30  
 8152 Glattbrugg
 
-hi+r@obin.ch\
+hi+r@obin.ch  
 +41 44 520 54 67
 
 ### Limitation of liability

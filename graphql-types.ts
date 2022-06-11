@@ -3834,6 +3834,13 @@ export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string, description?: string, siteUrl?: string, title?: string, version?: string, project?: string } }, siteBuildMetadata?: { __typename?: 'SiteBuildMetadata', buildTime?: any } };
 
+export type ImprintPageQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ImprintPageQuery = { __typename?: 'Query', imprint?: { __typename?: 'Mdx', body: string } };
+
 export type IndexPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
 }>;
