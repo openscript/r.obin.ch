@@ -1,6 +1,5 @@
 import { css, Theme } from '@emotion/react';
-import styled from '@emotion/styled';
-import { FormattedDate, FormattedTime } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { ReboundSection } from 'react-section-dividers';
 import FooterNavigation from './FooterNavigation';
 
@@ -11,24 +10,28 @@ const footerStyle = (theme: Theme) => css`
   height: 8rem;
   color: ${theme.colors.bright};
   background-color: ${theme.colors.primary};
-  font-size: 1.2rem;
 `;
 
-const pageInfoStyles = (theme: Theme) => css``;
+const pageInfoStyles = css`
+  width: 12.5rem;
+`;
 
 type FooterProps = {
   author?: string;
+  project?: string;
   version?: string;
   buildTime?: string;
 };
 
-export function Footer({ author, version, buildTime }: FooterProps) {
+export function Footer({ author, project, version, buildTime }: FooterProps) {
+  const intl = useIntl();
   return (
     <ReboundSection as="footer" position="top" flip="both" rebound={80} height={30} css={footerStyle}>
       <div css={pageInfoStyles}>
-        {author} {version}
-        <FormattedDate value={buildTime} />
-        <FormattedTime value={buildTime} />
+        <FormattedMessage
+          id="pageInfoText"
+          values={{ project, author, version, time: intl.formatTime(buildTime), date: intl.formatDate(buildTime) }}
+        />
       </div>
       <FooterNavigation />
     </ReboundSection>

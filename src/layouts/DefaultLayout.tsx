@@ -36,7 +36,7 @@ const globalStyles = (theme: Theme) => css`
   #gatsby-focus-wrapper,
   main {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -94,7 +94,12 @@ export function DefaultLayout({ children, theme, subtitle }: DefaultLayoutProps)
       <Global styles={globalStyles} />
       <Header />
       <Main>{children}</Main>
-      <Footer author={data.site?.siteMetadata?.project} version={data.site?.siteMetadata?.version} buildTime={data.siteBuildMetadata?.buildTime} />
+      <Footer
+        author={data.site?.siteMetadata?.author}
+        project={data.site?.siteMetadata?.project}
+        version={data.site?.siteMetadata?.version}
+        buildTime={data.siteBuildMetadata?.buildTime}
+      />
     </ThemeProvider>
   );
 }

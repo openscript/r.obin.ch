@@ -2,8 +2,12 @@ import { css } from '@emotion/react';
 import { PropsWithChildren } from 'react';
 
 const mainStyle = () => css`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  *:first-child {
+    margin-top: 0;
+  }
 `;
 
 type MainProps = PropsWithChildren<{}>;
