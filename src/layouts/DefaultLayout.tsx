@@ -51,7 +51,15 @@ const globalStyles = (theme: Theme) => css`
     padding: 0 10%;
 
     @media (max-width: ${theme.breakpoints.tiny}) {
-      padding: 0 1rem;
+      padding: 0 2.5rem;
+    }
+
+    @media (min-width: ${theme.breakpoints.big}) {
+      padding: 0 15%;
+    }
+
+    @media (min-width: ${theme.breakpoints.huge}) {
+      padding: 0 20%;
     }
   }
 
