@@ -89,4 +89,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-cache-
       - name: Clean Gatsby cache
-        run yarn run gatsby clean
+        run: yarn run gatsby clean
