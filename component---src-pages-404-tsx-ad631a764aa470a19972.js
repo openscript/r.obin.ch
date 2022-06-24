@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkr_obin_ch=self.webpackChunkr_obin_ch||[]).push([[218],{3727:function(n,u,t){t.r(u),t.d(u,{default:function(){return i}});var e=t(7971),r=t(6786),c=t(1243);function i(){return(0,c.tZ)(r.H,null,"404",(0,c.tZ)(e.Z,{id:"language"}))}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-ad631a764aa470a19972.js.map
