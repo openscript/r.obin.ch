@@ -100,7 +100,9 @@ const configuration: GatsbyConfig = {
           {
             locale: `de-CH`,
             prefix: `de`,
-            slugs: {},
+            slugs: {
+              '/imprint': '/impressum',
+            },
             messages: deCHMessages,
           },
         ],
