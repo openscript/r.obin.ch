@@ -42,6 +42,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-cache-
       - name: Build website
+        id: build-website
+        run: yarn build:with-prefix
+        env:
+          PATH_PREFIX: '/r.obin.ch'
+          SITE_URL: 'https://openscript.github.io/r.obin.ch'
+          CI: true
+      - name: Clean Gatsby cache
+        id: clean-cache
+        if: failure() && steps.build-website.outcome != 'success'
+        run: yarn run gatsby clean
+      - name: Build website with clean cache
+        if: steps.clean-cache.outcome == 'success'
         run: yarn build:with-prefix
         env:
           PATH_PREFIX: '/r.obin.ch'
@@ -53,40 +65,3 @@ jobs:
           branch: gh-pages
           folder: public
           clean: true
-  clean-up-on-error:
-    name: Clean up cache on error
-    runs-on: ubuntu-latest
-    needs: [fail]
-    if: always()
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Use nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Activate dependency cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Caching Gatsby
-        id: gatsby-cache-build
-        uses: actions/cache@v3
-        with:
-          path: |
-            public
-            .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-cache-
-      - name: Clean Gatsby cache
-        run: yarn run gatsby clean
