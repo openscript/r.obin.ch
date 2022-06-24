@@ -50,6 +50,7 @@ jobs:
       - name: Build website
         id: build-website
         run: yarn build:with-prefix
+        continue-on-error: true
         env:
           PATH_PREFIX: '/r.obin.ch'
           SITE_URL: 'https://openscript.github.io/r.obin.ch'
@@ -57,12 +58,12 @@ jobs:
 
       - name: Clean Gatsby cache
         id: clean-cache
-        if: failure() && steps.build-website.outcome != 'success'
+        if: steps.build-website.outcome != 'success'
         run: yarn run gatsby clean
 
       - name: Build website with clean cache
         id: build-website-without-cache
-        if: failure() && steps.clean-cache.outcome == 'success'
+        if: steps.clean-cache.outcome == 'success'
         run: yarn build:with-prefix
         env:
           PATH_PREFIX: '/r.obin.ch'
@@ -71,7 +72,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
-        if: always() && (steps.build-website.outcome == 'success' || steps.build-website-without-cache.outcome == 'success')
+        if: steps.build-website.outcome == 'success' || steps.build-website-without-cache.outcome == 'success'
         with:
           branch: gh-pages
           folder: public
