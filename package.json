@@ -2,7 +2,7 @@
   "name": "r.obin.ch",
   "homepage": "https://github.com/openscript/r.obin.ch",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "On this website I collect interesting findings from my adventures in the world of bits and bytes and I share sometimes also things from the analogue reality.",
   "version": "0.1.0",
   "author": "openscript",
   "dependencies": {
@@ -25,6 +25,7 @@
     "gatsby-remark-images": "6.17.0",
     "gatsby-source-filesystem": "4.17.0",
     "gatsby-transformer-sharp": "4.17.0",
+    "gatsby-transformer-yaml": "^4.17.0",
     "polished": "4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

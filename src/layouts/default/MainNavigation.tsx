@@ -1,5 +1,19 @@
 import { css } from '@emotion/react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
+import { FormattedMessage } from 'react-intl';
+import { MainNavigationQuery } from '../../../graphql-types';
+
+const query = graphql`
+  query MainNavigation {
+    navigationYaml {
+      main {
+        path
+        key
+      }
+    }
+  }
+`;
 
 const navStyle = css`
   font-size: 1.4rem;
@@ -47,11 +61,21 @@ const navStyle = css`
 `;
 
 export default function MainNavigation() {
+  const navigation = useStaticQuery<MainNavigationQuery>(query);
   return (
     <nav css={navStyle}>
       <ul>
         <li>
-          <LocalizedLink to="/pages">Joho</LocalizedLink>
+          {navigation.navigationYaml?.main?.map(item => {
+            if (item.key && item.path) {
+              return (
+                <LocalizedLink to={item.path}>
+                  <FormattedMessage id={`navigation.main.${item.key}`} />
+                </LocalizedLink>
+              );
+            }
+            return null;
+          })}
         </li>
       </ul>
     </nav>

@@ -22,6 +22,8 @@ const configuration: GatsbyConfig = {
     project: packageJson.name,
   },
   plugins: [
+    `gatsby-transformer-yaml`,
+
     // Sources
     {
       resolve: `gatsby-source-filesystem`,
@@ -31,7 +33,6 @@ const configuration: GatsbyConfig = {
       },
     },
 
-    // Transformers
     `gatsby-transformer-sharp`,
 
     // Plugins

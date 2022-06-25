@@ -1,0 +1,12 @@
+footer:
+  - key: imprint
+    path: /imprint
+main:
+  - key: blog
+    path: /blog
+  - key: wiki
+    path: /wiki
+  - key: medias
+    path: /medias
+  - key: person
+    path: /person

@@ -422,11 +422,15 @@ export type File = Node & {
   childImageSharp?: Maybe<ImageSharp>;
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
   childMdx?: Maybe<Mdx>;
+  /** Returns the first child node of type NavigationYaml or null if there are no children of given type on this node */
+  childNavigationYaml?: Maybe<NavigationYaml>;
   children: Array<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type Mdx */
   childrenMdx?: Maybe<Array<Maybe<Mdx>>>;
+  /** Returns all children nodes filtered by type NavigationYaml */
+  childrenNavigationYaml?: Maybe<Array<Maybe<NavigationYaml>>>;
   ctime: Scalars['Date'];
   ctimeMs: Scalars['Float'];
   dev: Scalars['Int'];
@@ -713,6 +717,7 @@ export enum FileFieldsEnum {
   ChildMdxFrontmatterFeaturedChildren = 'childMdx___frontmatter___featured___children',
   ChildMdxFrontmatterFeaturedChildrenImageSharp = 'childMdx___frontmatter___featured___childrenImageSharp',
   ChildMdxFrontmatterFeaturedChildrenMdx = 'childMdx___frontmatter___featured___childrenMdx',
+  ChildMdxFrontmatterFeaturedChildrenNavigationYaml = 'childMdx___frontmatter___featured___childrenNavigationYaml',
   ChildMdxFrontmatterFeaturedCtime = 'childMdx___frontmatter___featured___ctime',
   ChildMdxFrontmatterFeaturedCtimeMs = 'childMdx___frontmatter___featured___ctimeMs',
   ChildMdxFrontmatterFeaturedDev = 'childMdx___frontmatter___featured___dev',
@@ -778,6 +783,50 @@ export enum FileFieldsEnum {
   ChildMdxWordCountParagraphs = 'childMdx___wordCount___paragraphs',
   ChildMdxWordCountSentences = 'childMdx___wordCount___sentences',
   ChildMdxWordCountWords = 'childMdx___wordCount___words',
+  ChildNavigationYamlChildren = 'childNavigationYaml___children',
+  ChildNavigationYamlChildrenChildren = 'childNavigationYaml___children___children',
+  ChildNavigationYamlChildrenChildrenChildren = 'childNavigationYaml___children___children___children',
+  ChildNavigationYamlChildrenChildrenId = 'childNavigationYaml___children___children___id',
+  ChildNavigationYamlChildrenId = 'childNavigationYaml___children___id',
+  ChildNavigationYamlChildrenInternalContent = 'childNavigationYaml___children___internal___content',
+  ChildNavigationYamlChildrenInternalContentDigest = 'childNavigationYaml___children___internal___contentDigest',
+  ChildNavigationYamlChildrenInternalDescription = 'childNavigationYaml___children___internal___description',
+  ChildNavigationYamlChildrenInternalFieldOwners = 'childNavigationYaml___children___internal___fieldOwners',
+  ChildNavigationYamlChildrenInternalIgnoreType = 'childNavigationYaml___children___internal___ignoreType',
+  ChildNavigationYamlChildrenInternalMediaType = 'childNavigationYaml___children___internal___mediaType',
+  ChildNavigationYamlChildrenInternalOwner = 'childNavigationYaml___children___internal___owner',
+  ChildNavigationYamlChildrenInternalType = 'childNavigationYaml___children___internal___type',
+  ChildNavigationYamlChildrenParentChildren = 'childNavigationYaml___children___parent___children',
+  ChildNavigationYamlChildrenParentId = 'childNavigationYaml___children___parent___id',
+  ChildNavigationYamlFooter = 'childNavigationYaml___footer',
+  ChildNavigationYamlFooterKey = 'childNavigationYaml___footer___key',
+  ChildNavigationYamlFooterPath = 'childNavigationYaml___footer___path',
+  ChildNavigationYamlId = 'childNavigationYaml___id',
+  ChildNavigationYamlInternalContent = 'childNavigationYaml___internal___content',
+  ChildNavigationYamlInternalContentDigest = 'childNavigationYaml___internal___contentDigest',
+  ChildNavigationYamlInternalDescription = 'childNavigationYaml___internal___description',
+  ChildNavigationYamlInternalFieldOwners = 'childNavigationYaml___internal___fieldOwners',
+  ChildNavigationYamlInternalIgnoreType = 'childNavigationYaml___internal___ignoreType',
+  ChildNavigationYamlInternalMediaType = 'childNavigationYaml___internal___mediaType',
+  ChildNavigationYamlInternalOwner = 'childNavigationYaml___internal___owner',
+  ChildNavigationYamlInternalType = 'childNavigationYaml___internal___type',
+  ChildNavigationYamlMain = 'childNavigationYaml___main',
+  ChildNavigationYamlMainKey = 'childNavigationYaml___main___key',
+  ChildNavigationYamlMainPath = 'childNavigationYaml___main___path',
+  ChildNavigationYamlParentChildren = 'childNavigationYaml___parent___children',
+  ChildNavigationYamlParentChildrenChildren = 'childNavigationYaml___parent___children___children',
+  ChildNavigationYamlParentChildrenId = 'childNavigationYaml___parent___children___id',
+  ChildNavigationYamlParentId = 'childNavigationYaml___parent___id',
+  ChildNavigationYamlParentInternalContent = 'childNavigationYaml___parent___internal___content',
+  ChildNavigationYamlParentInternalContentDigest = 'childNavigationYaml___parent___internal___contentDigest',
+  ChildNavigationYamlParentInternalDescription = 'childNavigationYaml___parent___internal___description',
+  ChildNavigationYamlParentInternalFieldOwners = 'childNavigationYaml___parent___internal___fieldOwners',
+  ChildNavigationYamlParentInternalIgnoreType = 'childNavigationYaml___parent___internal___ignoreType',
+  ChildNavigationYamlParentInternalMediaType = 'childNavigationYaml___parent___internal___mediaType',
+  ChildNavigationYamlParentInternalOwner = 'childNavigationYaml___parent___internal___owner',
+  ChildNavigationYamlParentInternalType = 'childNavigationYaml___parent___internal___type',
+  ChildNavigationYamlParentParentChildren = 'childNavigationYaml___parent___parent___children',
+  ChildNavigationYamlParentParentId = 'childNavigationYaml___parent___parent___id',
   Children = 'children',
   ChildrenImageSharp = 'childrenImageSharp',
   ChildrenImageSharpChildren = 'childrenImageSharp___children',
@@ -923,6 +972,7 @@ export enum FileFieldsEnum {
   ChildrenMdxFrontmatterFeaturedChildren = 'childrenMdx___frontmatter___featured___children',
   ChildrenMdxFrontmatterFeaturedChildrenImageSharp = 'childrenMdx___frontmatter___featured___childrenImageSharp',
   ChildrenMdxFrontmatterFeaturedChildrenMdx = 'childrenMdx___frontmatter___featured___childrenMdx',
+  ChildrenMdxFrontmatterFeaturedChildrenNavigationYaml = 'childrenMdx___frontmatter___featured___childrenNavigationYaml',
   ChildrenMdxFrontmatterFeaturedCtime = 'childrenMdx___frontmatter___featured___ctime',
   ChildrenMdxFrontmatterFeaturedCtimeMs = 'childrenMdx___frontmatter___featured___ctimeMs',
   ChildrenMdxFrontmatterFeaturedDev = 'childrenMdx___frontmatter___featured___dev',
@@ -988,6 +1038,51 @@ export enum FileFieldsEnum {
   ChildrenMdxWordCountParagraphs = 'childrenMdx___wordCount___paragraphs',
   ChildrenMdxWordCountSentences = 'childrenMdx___wordCount___sentences',
   ChildrenMdxWordCountWords = 'childrenMdx___wordCount___words',
+  ChildrenNavigationYaml = 'childrenNavigationYaml',
+  ChildrenNavigationYamlChildren = 'childrenNavigationYaml___children',
+  ChildrenNavigationYamlChildrenChildren = 'childrenNavigationYaml___children___children',
+  ChildrenNavigationYamlChildrenChildrenChildren = 'childrenNavigationYaml___children___children___children',
+  ChildrenNavigationYamlChildrenChildrenId = 'childrenNavigationYaml___children___children___id',
+  ChildrenNavigationYamlChildrenId = 'childrenNavigationYaml___children___id',
+  ChildrenNavigationYamlChildrenInternalContent = 'childrenNavigationYaml___children___internal___content',
+  ChildrenNavigationYamlChildrenInternalContentDigest = 'childrenNavigationYaml___children___internal___contentDigest',
+  ChildrenNavigationYamlChildrenInternalDescription = 'childrenNavigationYaml___children___internal___description',
+  ChildrenNavigationYamlChildrenInternalFieldOwners = 'childrenNavigationYaml___children___internal___fieldOwners',
+  ChildrenNavigationYamlChildrenInternalIgnoreType = 'childrenNavigationYaml___children___internal___ignoreType',
+  ChildrenNavigationYamlChildrenInternalMediaType = 'childrenNavigationYaml___children___internal___mediaType',
+  ChildrenNavigationYamlChildrenInternalOwner = 'childrenNavigationYaml___children___internal___owner',
+  ChildrenNavigationYamlChildrenInternalType = 'childrenNavigationYaml___children___internal___type',
+  ChildrenNavigationYamlChildrenParentChildren = 'childrenNavigationYaml___children___parent___children',
+  ChildrenNavigationYamlChildrenParentId = 'childrenNavigationYaml___children___parent___id',
+  ChildrenNavigationYamlFooter = 'childrenNavigationYaml___footer',
+  ChildrenNavigationYamlFooterKey = 'childrenNavigationYaml___footer___key',
+  ChildrenNavigationYamlFooterPath = 'childrenNavigationYaml___footer___path',
+  ChildrenNavigationYamlId = 'childrenNavigationYaml___id',
+  ChildrenNavigationYamlInternalContent = 'childrenNavigationYaml___internal___content',
+  ChildrenNavigationYamlInternalContentDigest = 'childrenNavigationYaml___internal___contentDigest',
+  ChildrenNavigationYamlInternalDescription = 'childrenNavigationYaml___internal___description',
+  ChildrenNavigationYamlInternalFieldOwners = 'childrenNavigationYaml___internal___fieldOwners',
+  ChildrenNavigationYamlInternalIgnoreType = 'childrenNavigationYaml___internal___ignoreType',
+  ChildrenNavigationYamlInternalMediaType = 'childrenNavigationYaml___internal___mediaType',
+  ChildrenNavigationYamlInternalOwner = 'childrenNavigationYaml___internal___owner',
+  ChildrenNavigationYamlInternalType = 'childrenNavigationYaml___internal___type',
+  ChildrenNavigationYamlMain = 'childrenNavigationYaml___main',
+  ChildrenNavigationYamlMainKey = 'childrenNavigationYaml___main___key',
+  ChildrenNavigationYamlMainPath = 'childrenNavigationYaml___main___path',
+  ChildrenNavigationYamlParentChildren = 'childrenNavigationYaml___parent___children',
+  ChildrenNavigationYamlParentChildrenChildren = 'childrenNavigationYaml___parent___children___children',
+  ChildrenNavigationYamlParentChildrenId = 'childrenNavigationYaml___parent___children___id',
+  ChildrenNavigationYamlParentId = 'childrenNavigationYaml___parent___id',
+  ChildrenNavigationYamlParentInternalContent = 'childrenNavigationYaml___parent___internal___content',
+  ChildrenNavigationYamlParentInternalContentDigest = 'childrenNavigationYaml___parent___internal___contentDigest',
+  ChildrenNavigationYamlParentInternalDescription = 'childrenNavigationYaml___parent___internal___description',
+  ChildrenNavigationYamlParentInternalFieldOwners = 'childrenNavigationYaml___parent___internal___fieldOwners',
+  ChildrenNavigationYamlParentInternalIgnoreType = 'childrenNavigationYaml___parent___internal___ignoreType',
+  ChildrenNavigationYamlParentInternalMediaType = 'childrenNavigationYaml___parent___internal___mediaType',
+  ChildrenNavigationYamlParentInternalOwner = 'childrenNavigationYaml___parent___internal___owner',
+  ChildrenNavigationYamlParentInternalType = 'childrenNavigationYaml___parent___internal___type',
+  ChildrenNavigationYamlParentParentChildren = 'childrenNavigationYaml___parent___parent___children',
+  ChildrenNavigationYamlParentParentId = 'childrenNavigationYaml___parent___parent___id',
   ChildrenChildren = 'children___children',
   ChildrenChildrenChildren = 'children___children___children',
   ChildrenChildrenChildrenChildren = 'children___children___children___children',
@@ -1112,9 +1207,11 @@ export type FileFilterInput = {
   changeTime?: InputMaybe<DateQueryOperatorInput>;
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
   childMdx?: InputMaybe<MdxFilterInput>;
+  childNavigationYaml?: InputMaybe<NavigationYamlFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
   childrenMdx?: InputMaybe<MdxFilterListInput>;
+  childrenNavigationYaml?: InputMaybe<NavigationYamlFilterListInput>;
   ctime?: InputMaybe<DateQueryOperatorInput>;
   ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
   dev?: InputMaybe<IntQueryOperatorInput>;
@@ -1966,6 +2063,10 @@ export enum MdxFieldsEnum {
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FrontmatterFeaturedChildMdxTableOfContents = 'frontmatter___featured___childMdx___tableOfContents',
   FrontmatterFeaturedChildMdxTimeToRead = 'frontmatter___featured___childMdx___timeToRead',
+  FrontmatterFeaturedChildNavigationYamlChildren = 'frontmatter___featured___childNavigationYaml___children',
+  FrontmatterFeaturedChildNavigationYamlFooter = 'frontmatter___featured___childNavigationYaml___footer',
+  FrontmatterFeaturedChildNavigationYamlId = 'frontmatter___featured___childNavigationYaml___id',
+  FrontmatterFeaturedChildNavigationYamlMain = 'frontmatter___featured___childNavigationYaml___main',
   FrontmatterFeaturedChildren = 'frontmatter___featured___children',
   FrontmatterFeaturedChildrenImageSharp = 'frontmatter___featured___childrenImageSharp',
   FrontmatterFeaturedChildrenImageSharpChildren = 'frontmatter___featured___childrenImageSharp___children',
@@ -1988,6 +2089,11 @@ export enum MdxFieldsEnum {
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   FrontmatterFeaturedChildrenMdxTableOfContents = 'frontmatter___featured___childrenMdx___tableOfContents',
   FrontmatterFeaturedChildrenMdxTimeToRead = 'frontmatter___featured___childrenMdx___timeToRead',
+  FrontmatterFeaturedChildrenNavigationYaml = 'frontmatter___featured___childrenNavigationYaml',
+  FrontmatterFeaturedChildrenNavigationYamlChildren = 'frontmatter___featured___childrenNavigationYaml___children',
+  FrontmatterFeaturedChildrenNavigationYamlFooter = 'frontmatter___featured___childrenNavigationYaml___footer',
+  FrontmatterFeaturedChildrenNavigationYamlId = 'frontmatter___featured___childrenNavigationYaml___id',
+  FrontmatterFeaturedChildrenNavigationYamlMain = 'frontmatter___featured___childrenNavigationYaml___main',
   FrontmatterFeaturedChildrenChildren = 'frontmatter___featured___children___children',
   FrontmatterFeaturedChildrenId = 'frontmatter___featured___children___id',
   FrontmatterFeaturedCtime = 'frontmatter___featured___ctime',
@@ -2238,6 +2344,248 @@ export type MdxWordCountFilterInput = {
   words?: InputMaybe<IntQueryOperatorInput>;
 };
 
+export type NavigationYaml = Node & {
+  __typename?: 'NavigationYaml';
+  children: Array<Node>;
+  footer?: Maybe<Array<Maybe<NavigationYamlFooter>>>;
+  id: Scalars['ID'];
+  internal: Internal;
+  main?: Maybe<Array<Maybe<NavigationYamlMain>>>;
+  parent?: Maybe<Node>;
+};
+
+export type NavigationYamlConnection = {
+  __typename?: 'NavigationYamlConnection';
+  distinct: Array<Scalars['String']>;
+  edges: Array<NavigationYamlEdge>;
+  group: Array<NavigationYamlGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  nodes: Array<NavigationYaml>;
+  pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type NavigationYamlConnectionDistinctArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlConnectionGroupArgs = {
+  field: NavigationYamlFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type NavigationYamlConnectionMaxArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlConnectionMinArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlConnectionSumArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+export type NavigationYamlEdge = {
+  __typename?: 'NavigationYamlEdge';
+  next?: Maybe<NavigationYaml>;
+  node: NavigationYaml;
+  previous?: Maybe<NavigationYaml>;
+};
+
+export enum NavigationYamlFieldsEnum {
+  Children = 'children',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenId = 'children___id',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  Footer = 'footer',
+  FooterKey = 'footer___key',
+  FooterPath = 'footer___path',
+  Id = 'id',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Main = 'main',
+  MainKey = 'main___key',
+  MainPath = 'main___path',
+  ParentChildren = 'parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentId = 'parent___id',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentParentId = 'parent___parent___parent___id'
+}
+
+export type NavigationYamlFilterInput = {
+  children?: InputMaybe<NodeFilterListInput>;
+  footer?: InputMaybe<NavigationYamlFooterFilterListInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  main?: InputMaybe<NavigationYamlMainFilterListInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+};
+
+export type NavigationYamlFilterListInput = {
+  elemMatch?: InputMaybe<NavigationYamlFilterInput>;
+};
+
+export type NavigationYamlFooter = {
+  __typename?: 'NavigationYamlFooter';
+  key?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+};
+
+export type NavigationYamlFooterFilterInput = {
+  key?: InputMaybe<StringQueryOperatorInput>;
+  path?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type NavigationYamlFooterFilterListInput = {
+  elemMatch?: InputMaybe<NavigationYamlFooterFilterInput>;
+};
+
+export type NavigationYamlGroupConnection = {
+  __typename?: 'NavigationYamlGroupConnection';
+  distinct: Array<Scalars['String']>;
+  edges: Array<NavigationYamlEdge>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+  group: Array<NavigationYamlGroupConnection>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  nodes: Array<NavigationYaml>;
+  pageInfo: PageInfo;
+  sum?: Maybe<Scalars['Float']>;
+  totalCount: Scalars['Int'];
+};
+
+
+export type NavigationYamlGroupConnectionDistinctArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlGroupConnectionGroupArgs = {
+  field: NavigationYamlFieldsEnum;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type NavigationYamlGroupConnectionMaxArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlGroupConnectionMinArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+
+export type NavigationYamlGroupConnectionSumArgs = {
+  field: NavigationYamlFieldsEnum;
+};
+
+export type NavigationYamlMain = {
+  __typename?: 'NavigationYamlMain';
+  key?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+};
+
+export type NavigationYamlMainFilterInput = {
+  key?: InputMaybe<StringQueryOperatorInput>;
+  path?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type NavigationYamlMainFilterListInput = {
+  elemMatch?: InputMaybe<NavigationYamlMainFilterInput>;
+};
+
+export type NavigationYamlSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<NavigationYamlFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 /** Node Interface */
 export type Node = {
   children: Array<Node>;
@@ -2300,6 +2648,7 @@ export type Query = {
   allFile: FileConnection;
   allImageSharp: ImageSharpConnection;
   allMdx: MdxConnection;
+  allNavigationYaml: NavigationYamlConnection;
   allSite: SiteConnection;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   allSiteFunction: SiteFunctionConnection;
@@ -2309,6 +2658,7 @@ export type Query = {
   file?: Maybe<File>;
   imageSharp?: Maybe<ImageSharp>;
   mdx?: Maybe<Mdx>;
+  navigationYaml?: Maybe<NavigationYaml>;
   site?: Maybe<Site>;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   siteFunction?: Maybe<SiteFunction>;
@@ -2346,6 +2696,14 @@ export type QueryAllMdxArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   skip?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<MdxSortInput>;
+};
+
+
+export type QueryAllNavigationYamlArgs = {
+  filter?: InputMaybe<NavigationYamlFilterInput>;
+  limit?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<NavigationYamlSortInput>;
 };
 
 
@@ -2442,9 +2800,11 @@ export type QueryFileArgs = {
   changeTime?: InputMaybe<DateQueryOperatorInput>;
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
   childMdx?: InputMaybe<MdxFilterInput>;
+  childNavigationYaml?: InputMaybe<NavigationYamlFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
   childrenMdx?: InputMaybe<MdxFilterListInput>;
+  childrenNavigationYaml?: InputMaybe<NavigationYamlFilterListInput>;
   ctime?: InputMaybe<DateQueryOperatorInput>;
   ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
   dev?: InputMaybe<IntQueryOperatorInput>;
@@ -2505,6 +2865,16 @@ export type QueryMdxArgs = {
   tableOfContents?: InputMaybe<JsonQueryOperatorInput>;
   timeToRead?: InputMaybe<IntQueryOperatorInput>;
   wordCount?: InputMaybe<MdxWordCountFilterInput>;
+};
+
+
+export type QueryNavigationYamlArgs = {
+  children?: InputMaybe<NodeFilterListInput>;
+  footer?: InputMaybe<NavigationYamlFooterFilterListInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  main?: InputMaybe<NavigationYamlMainFilterListInput>;
+  parent?: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -3833,6 +4203,16 @@ export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type DefaultLayoutQuery = { __typename?: 'Query', site?: { __typename?: 'Site', siteMetadata?: { __typename?: 'SiteSiteMetadata', author?: string, description?: string, siteUrl?: string, title?: string, version?: string, project?: string } }, siteBuildMetadata?: { __typename?: 'SiteBuildMetadata', buildTime?: any } };
+
+export type FooterNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterNavigationQuery = { __typename?: 'Query', navigationYaml?: { __typename?: 'NavigationYaml', footer?: Array<{ __typename?: 'NavigationYamlFooter', path?: string, key?: string }> } };
+
+export type MainNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MainNavigationQuery = { __typename?: 'Query', navigationYaml?: { __typename?: 'NavigationYaml', main?: Array<{ __typename?: 'NavigationYamlMain', path?: string, key?: string }> } };
 
 export type ImprintPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
