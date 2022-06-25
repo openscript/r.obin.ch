@@ -1,8 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { IndexPageQuery } from '../../graphql-types';
+import { IndexPageQuery, SitePageContext } from '../../graphql-types';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { SitePageContext } from '../types';
 
 export default function IndexPage({ data }: PageProps<IndexPageQuery, SitePageContext>) {
   return (
