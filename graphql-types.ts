@@ -4219,7 +4219,7 @@ export type ImprintPageQueryVariables = Exact<{
 }>;
 
 
-export type ImprintPageQuery = { __typename?: 'Query', imprint?: { __typename?: 'Mdx', body: string } };
+export type ImprintPageQuery = { __typename?: 'Query', imprint?: { __typename?: 'Mdx', body: string, tableOfContents?: any } };
 
 export type IndexPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;

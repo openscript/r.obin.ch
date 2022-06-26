@@ -23,3 +23,13 @@ declare module '@emotion/react' {
     };
   }
 }
+
+export type TableOfContentsItem = {
+  url: string;
+  title: string;
+  items?: TableOfContentsItem[];
+};
+
+export type TableOfContents = {
+  items: TableOfContentsItem[];
+};
