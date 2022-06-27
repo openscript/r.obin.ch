@@ -19,13 +19,20 @@ function TableOfContentsItem({ items }: TableOfContentsItemProps) {
 }
 
 type TableOfContentsProps = {
+  displayRootItem?: boolean;
   items: TableOfContentsType;
 };
 
-export function TableOfContents({ items }: TableOfContentsProps) {
+export function TableOfContents({ displayRootItem, items }: TableOfContentsProps) {
+  let preparedItems = items.items;
+
+  if (!displayRootItem && preparedItems.length === 1 && preparedItems[0].items !== undefined) {
+    preparedItems = preparedItems[0].items;
+  }
+
   return (
     <nav>
-      <TableOfContentsItem items={items.items} />
+      <TableOfContentsItem items={preparedItems} />
     </nav>
   );
 }
