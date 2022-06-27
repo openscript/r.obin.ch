@@ -65,18 +65,18 @@ export default function MainNavigation() {
   return (
     <nav css={navStyle}>
       <ul>
-        <li>
-          {navigation.navigationYaml?.main?.map(item => {
-            if (item.key && item.path) {
-              return (
+        {navigation.navigationYaml?.main?.map(item => {
+          if (item.key && item.path) {
+            return (
+              <li key={item.key}>
                 <LocalizedLink to={item.path}>
                   <FormattedMessage id={`navigation.main.${item.key}`} />
                 </LocalizedLink>
-              );
-            }
-            return null;
-          })}
-        </li>
+              </li>
+            );
+          }
+          return null;
+        })}
       </ul>
     </nav>
   );

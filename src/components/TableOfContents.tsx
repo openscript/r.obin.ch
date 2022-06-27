@@ -9,7 +9,7 @@ function TableOfContentsItem({ items }: TableOfContentsItemProps) {
   return (
     <ul>
       {items.map(item => (
-        <li>
+        <li key={item.url}>
           <Link to={item.url}>{item.title}</Link>
           {item.items && <TableOfContentsItem items={item.items} />}
         </li>

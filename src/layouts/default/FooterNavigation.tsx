@@ -29,18 +29,18 @@ export default function FooterNavigation() {
   return (
     <nav css={footerNavigationStyles}>
       <ul>
-        <li>
-          {navigation.navigationYaml?.footer?.map(item => {
-            if (item.key && item.path) {
-              return (
+        {navigation.navigationYaml?.footer?.map(item => {
+          if (item.key && item.path) {
+            return (
+              <li key={item.key}>
                 <LocalizedLink to={item.path}>
                   <FormattedMessage id={`navigation.footer.${item.key}`} />
                 </LocalizedLink>
-              );
-            }
-            return null;
-          })}
-        </li>
+              </li>
+            );
+          }
+          return null;
+        })}
       </ul>
     </nav>
   );
