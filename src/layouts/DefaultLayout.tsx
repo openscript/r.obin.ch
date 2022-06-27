@@ -1,12 +1,12 @@
 import { css, Global, Theme, ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { PropsWithChildren, ReactNode } from 'react';
+import { ElementType, PropsWithChildren } from 'react';
 import { DefaultLayoutQuery } from '../../graphql-types';
 import { defaultTheme } from '../themes/defaultTheme';
 import { Document } from './default/Document';
 import { Footer } from './default/Footer';
 import { Header } from './default/Header';
-import { Main } from './default/Main';
+import { Main } from './default/content/Main';
 
 const query = graphql`
   query DefaultLayout {
@@ -80,18 +80,46 @@ const globalStyles = (theme: Theme) => css`
   h4,
   h5,
   h6 {
+    line-height: 1em;
     font-family: ${theme.fonts.headings};
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  h2 {
+    margin-top: 2.5rem;
   }
 
   code {
     font-family: ${theme.fonts.listings};
+  }
+
+  aside {
+    width: 60rem;
+    padding-top: 3.2rem;
+
+    @media (max-width: ${theme.breakpoints.tiny}) {
+      width: auto;
+      padding-top: 0;
+    }
+
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    }
   }
 `;
 
 type DefaultLayoutProps = PropsWithChildren<{
   theme?: Theme;
   subtitle?: string;
-  contentWrapper?: ReactNode;
+  contentWrapper?: ElementType;
 }>;
 
 export function DefaultLayout({ children, theme, subtitle, contentWrapper: ContentWrapper }: DefaultLayoutProps) {
@@ -102,7 +130,7 @@ export function DefaultLayout({ children, theme, subtitle, contentWrapper: Conte
       <Document subtitle={subtitle} />
       <Global styles={globalStyles} />
       <Header />
-      {ContentWrapper ?? <Main>{children}</Main>}
+      {ContentWrapper ? <ContentWrapper>{children}</ContentWrapper> : <Main>{children}</Main>}
       <Footer
         author={data.site?.siteMetadata?.author}
         project={data.site?.siteMetadata?.project}

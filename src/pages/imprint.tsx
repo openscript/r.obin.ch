@@ -3,6 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { useIntl } from 'react-intl';
 import { ImprintPageQuery } from '../../graphql-types';
 import { TableOfContents } from '../components/TableOfContents';
+import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 type ImprintPageProps = { data: ImprintPageQuery };
@@ -11,7 +12,7 @@ export default function ImprintPage({ data }: ImprintPageProps) {
   const intl = useIntl();
   const title = intl.formatMessage({ id: 'pages.imprint.title' });
   return (
-    <DefaultLayout subtitle={title}>
+    <DefaultLayout subtitle={title} contentWrapper={MainWithAside}>
       <aside>
         <TableOfContents items={data.imprint?.tableOfContents} />
       </aside>
