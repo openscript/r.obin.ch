@@ -1,6 +1,6 @@
 import { css, Global, Theme, ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 import { DefaultLayoutQuery } from '../../graphql-types';
 import { defaultTheme } from '../themes/defaultTheme';
 import { Document } from './default/Document';
@@ -91,9 +91,10 @@ const globalStyles = (theme: Theme) => css`
 type DefaultLayoutProps = PropsWithChildren<{
   theme?: Theme;
   subtitle?: string;
+  contentWrapper?: ReactNode;
 }>;
 
-export function DefaultLayout({ children, theme, subtitle }: DefaultLayoutProps) {
+export function DefaultLayout({ children, theme, subtitle, contentWrapper: ContentWrapper }: DefaultLayoutProps) {
   const data = useStaticQuery<DefaultLayoutQuery>(query);
 
   return (
@@ -101,7 +102,7 @@ export function DefaultLayout({ children, theme, subtitle }: DefaultLayoutProps)
       <Document subtitle={subtitle} />
       <Global styles={globalStyles} />
       <Header />
-      <Main>{children}</Main>
+      {ContentWrapper ?? <Main>{children}</Main>}
       <Footer
         author={data.site?.siteMetadata?.author}
         project={data.site?.siteMetadata?.project}
