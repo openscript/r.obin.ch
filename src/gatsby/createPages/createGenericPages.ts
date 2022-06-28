@@ -10,6 +10,9 @@ export async function CreateGenericPages({ actions, graphql }: CreatePagesArgs) 
         edges {
           node {
             id
+            frontmatter {
+              template
+            }
             fields {
               path
               translations {
@@ -26,7 +29,7 @@ export async function CreateGenericPages({ actions, graphql }: CreatePagesArgs) 
   allPages.data?.allMdx.edges.forEach(p => {
     if (p.node.fields && p.node.fields.path) {
       createPage({
-        component: resolve('./src/templates/GenericPage.tsx'),
+        component: resolve(`./src/templates/${p.node.frontmatter?.template || 'GenericPage'}.tsx`),
         context: { id: p.node.id, translations: p.node.fields.translations },
         path: p.node.fields.path,
       });

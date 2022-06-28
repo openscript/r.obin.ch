@@ -4,13 +4,14 @@
   "language": "Deutsch",
   "navigation.footer.imprint": "Impressum",
   "navigation.main.blog": "Blog",
-  "navigation.main.wiki": "Wiki",
   "navigation.main.medias": "Medien",
   "navigation.main.person": "Person",
+  "navigation.main.wiki": "Wiki",
   "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
   "pages.imprint.title": "Impressum",
   "pages.notFound.content": "Anscheinend existiert die angeforderte Website nicht.",
   "pages.notFound.title": "Seite nicht gefunden",
+  "pages.person.title": "Person",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }

@@ -1,3 +1,8 @@
+---
+template: GenericPageWithAside
+title: Imprint
+---
+
 # Imprint
 
 The identity of the owner is stated below.

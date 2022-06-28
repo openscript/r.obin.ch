@@ -31,5 +31,5 @@ export type TableOfContentsItem = {
 };
 
 export type TableOfContents = {
-  items: TableOfContentsItem[];
+  items?: TableOfContentsItem[];
 };

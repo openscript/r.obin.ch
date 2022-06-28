@@ -24,6 +24,10 @@ type TableOfContentsProps = {
 };
 
 export function TableOfContents({ displayRootItem, items }: TableOfContentsProps) {
+  if (!items.items) {
+    return null;
+  }
+
   let preparedItems = items.items;
 
   if (!displayRootItem && preparedItems.length === 1 && preparedItems[0].items !== undefined) {

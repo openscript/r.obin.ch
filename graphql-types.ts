@@ -743,6 +743,7 @@ export enum FileFieldsEnum {
   ChildMdxFrontmatterFeaturedSourceInstanceName = 'childMdx___frontmatter___featured___sourceInstanceName',
   ChildMdxFrontmatterFeaturedUid = 'childMdx___frontmatter___featured___uid',
   ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
+  ChildMdxFrontmatterTemplate = 'childMdx___frontmatter___template',
   ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildMdxHeadings = 'childMdx___headings',
@@ -998,6 +999,7 @@ export enum FileFieldsEnum {
   ChildrenMdxFrontmatterFeaturedSourceInstanceName = 'childrenMdx___frontmatter___featured___sourceInstanceName',
   ChildrenMdxFrontmatterFeaturedUid = 'childrenMdx___frontmatter___featured___uid',
   ChildrenMdxFrontmatterTags = 'childrenMdx___frontmatter___tags',
+  ChildrenMdxFrontmatterTemplate = 'childrenMdx___frontmatter___template',
   ChildrenMdxFrontmatterTitle = 'childrenMdx___frontmatter___title',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   ChildrenMdxHeadings = 'childrenMdx___headings',
@@ -2131,6 +2133,7 @@ export enum MdxFieldsEnum {
   FrontmatterFeaturedSourceInstanceName = 'frontmatter___featured___sourceInstanceName',
   FrontmatterFeaturedUid = 'frontmatter___featured___uid',
   FrontmatterTags = 'frontmatter___tags',
+  FrontmatterTemplate = 'frontmatter___template',
   FrontmatterTitle = 'frontmatter___title',
   /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
   Headings = 'headings',
@@ -2251,6 +2254,7 @@ export type MdxFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   featured?: Maybe<File>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  template?: Maybe<Scalars['String']>;
   title: Scalars['String'];
 };
 
@@ -2266,6 +2270,7 @@ export type MdxFrontmatterFilterInput = {
   date?: InputMaybe<DateQueryOperatorInput>;
   featured?: InputMaybe<FileFilterInput>;
   tags?: InputMaybe<StringQueryOperatorInput>;
+  template?: InputMaybe<StringQueryOperatorInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -4197,7 +4202,7 @@ export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'Im
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } } }> } };
+export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, frontmatter?: { __typename?: 'MdxFrontmatter', template?: string }, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } } }> } };
 
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4234,3 +4239,10 @@ export type GenericPageQueryVariables = Exact<{
 
 
 export type GenericPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string } };
+
+export type GenericPageWithAsideQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };

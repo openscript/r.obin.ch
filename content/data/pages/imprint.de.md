@@ -1,3 +1,8 @@
+---
+template: GenericPageWithAside
+title: Impressum
+---
+
 # Impressum
 
 Unterhalb sind die Angaben zur Identität des Eigentümers zu finden.

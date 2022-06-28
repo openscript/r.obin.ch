@@ -11,6 +11,7 @@
   "pages.imprint.title": "Imprint",
   "pages.notFound.content": "It seems like the requested website doesn't exists.",
   "pages.notFound.title": "Page not found",
+  "pages.person.title": "Person",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }
