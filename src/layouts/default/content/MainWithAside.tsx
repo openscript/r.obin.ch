@@ -9,6 +9,27 @@ const mainWithAsideStyle = (theme: Theme) => css`
   @media (max-width: ${theme.breakpoints.tiny}) {
     flex-direction: column;
   }
+
+  article {
+    width: 100%;
+  }
+  aside {
+    width: 15rem;
+    padding-top: 3.2rem;
+
+    @media (max-width: ${theme.breakpoints.tiny}) {
+      width: auto;
+      padding-top: 0;
+    }
+
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    }
+  }
 `;
 
 type MainWithAsideProps = PropsWithChildren<{}>;

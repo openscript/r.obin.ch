@@ -96,24 +96,6 @@ const globalStyles = (theme: Theme) => css`
   code {
     font-family: ${theme.fonts.listings};
   }
-
-  aside {
-    width: 60rem;
-    padding-top: 3.2rem;
-
-    @media (max-width: ${theme.breakpoints.tiny}) {
-      width: auto;
-      padding-top: 0;
-    }
-
-    nav {
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-    }
-  }
 `;
 
 type DefaultLayoutProps = PropsWithChildren<{
