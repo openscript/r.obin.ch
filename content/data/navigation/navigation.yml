@@ -7,19 +7,19 @@ main:
   - key: wiki
     path: /wiki
   - key: medias
-    path: /medias
+    path: /medias'./'
   - key: person
     path: /person
 top:
   - key: openscript
     path: https://openscript.ch
-    icon: /statics/openscript.png
+    icon: './openscript.png'
   - key: github
     path: https://github.com/openscript
-    icon: /statics/github.png
+    icon: './github.png'
   - key: stackoverflow
     path: https://stackoverflow.com/users/371530/robin
-    icon: /statics/stackoverflow.png
+    icon: './stackoverflow.png'
   - key: linkedin
     path: https://www.linkedin.com/in/openscript/
-    icon: /statics/linkedin.png
+    icon: './linkedin.png'

@@ -6,7 +6,7 @@ import TopNavigation from './TopNavigation';
 const TopBarContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: ${({ theme }) => darken(-0.05, theme.colors.primary)};
   height: 1.5rem;
 `;

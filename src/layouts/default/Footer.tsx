@@ -13,7 +13,7 @@ const footerStyle = (theme: Theme) => css`
 `;
 
 const pageInfoStyles = css`
-  width: 12.5rem;
+  width: 13rem;
 `;
 
 type FooterProps = {

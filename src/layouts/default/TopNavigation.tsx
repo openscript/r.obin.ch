@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FormattedMessage } from 'react-intl';
 import { TopNavigationQuery } from '../../../graphql-types';
 
@@ -8,23 +9,43 @@ const query = graphql`
   query TopNavigation {
     navigationYaml {
       top {
-        path
         key
+        path
+        icon {
+          childImageSharp {
+            gatsbyImageData(width: 16, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
       }
     }
   }
 `;
 
 const navStyle = css`
-  font-size: 1.4rem;
-  margin-right: -1.6rem;
-
   ul {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
   }
+
+  li {
+    margin-right: 1rem;
+  }
+
+  a {
+    transition: 0.5s;
+    filter: grayscale(1);
+
+    &:hover {
+      filter: none;
+    }
+  }
+`;
+
+const iconStyle = css`
+  vertical-align: middle;
+  margin-right: 0.2rem;
 `;
 
 export default function TopNavigation() {
@@ -33,10 +54,12 @@ export default function TopNavigation() {
     <nav css={navStyle}>
       <ul>
         {navigation.navigationYaml?.top?.map(item => {
-          if (item.key && item.path) {
+          const icon = getImage(item.icon?.childImageSharp?.gatsbyImageData);
+          if (item.key && item.path && icon) {
             return (
               <li key={item.key}>
                 <LocalizedLink to={item.path}>
+                  <GatsbyImage image={icon} alt="joho" css={iconStyle} />
                   <FormattedMessage id={`navigation.top.${item.key}`} />
                 </LocalizedLink>
               </li>
