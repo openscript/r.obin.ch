@@ -828,6 +828,9 @@ export enum FileFieldsEnum {
   ChildNavigationYamlParentInternalType = 'childNavigationYaml___parent___internal___type',
   ChildNavigationYamlParentParentChildren = 'childNavigationYaml___parent___parent___children',
   ChildNavigationYamlParentParentId = 'childNavigationYaml___parent___parent___id',
+  ChildNavigationYamlTop = 'childNavigationYaml___top',
+  ChildNavigationYamlTopKey = 'childNavigationYaml___top___key',
+  ChildNavigationYamlTopPath = 'childNavigationYaml___top___path',
   Children = 'children',
   ChildrenImageSharp = 'childrenImageSharp',
   ChildrenImageSharpChildren = 'childrenImageSharp___children',
@@ -1085,6 +1088,9 @@ export enum FileFieldsEnum {
   ChildrenNavigationYamlParentInternalType = 'childrenNavigationYaml___parent___internal___type',
   ChildrenNavigationYamlParentParentChildren = 'childrenNavigationYaml___parent___parent___children',
   ChildrenNavigationYamlParentParentId = 'childrenNavigationYaml___parent___parent___id',
+  ChildrenNavigationYamlTop = 'childrenNavigationYaml___top',
+  ChildrenNavigationYamlTopKey = 'childrenNavigationYaml___top___key',
+  ChildrenNavigationYamlTopPath = 'childrenNavigationYaml___top___path',
   ChildrenChildren = 'children___children',
   ChildrenChildrenChildren = 'children___children___children',
   ChildrenChildrenChildrenChildren = 'children___children___children___children',
@@ -2069,6 +2075,7 @@ export enum MdxFieldsEnum {
   FrontmatterFeaturedChildNavigationYamlFooter = 'frontmatter___featured___childNavigationYaml___footer',
   FrontmatterFeaturedChildNavigationYamlId = 'frontmatter___featured___childNavigationYaml___id',
   FrontmatterFeaturedChildNavigationYamlMain = 'frontmatter___featured___childNavigationYaml___main',
+  FrontmatterFeaturedChildNavigationYamlTop = 'frontmatter___featured___childNavigationYaml___top',
   FrontmatterFeaturedChildren = 'frontmatter___featured___children',
   FrontmatterFeaturedChildrenImageSharp = 'frontmatter___featured___childrenImageSharp',
   FrontmatterFeaturedChildrenImageSharpChildren = 'frontmatter___featured___childrenImageSharp___children',
@@ -2096,6 +2103,7 @@ export enum MdxFieldsEnum {
   FrontmatterFeaturedChildrenNavigationYamlFooter = 'frontmatter___featured___childrenNavigationYaml___footer',
   FrontmatterFeaturedChildrenNavigationYamlId = 'frontmatter___featured___childrenNavigationYaml___id',
   FrontmatterFeaturedChildrenNavigationYamlMain = 'frontmatter___featured___childrenNavigationYaml___main',
+  FrontmatterFeaturedChildrenNavigationYamlTop = 'frontmatter___featured___childrenNavigationYaml___top',
   FrontmatterFeaturedChildrenChildren = 'frontmatter___featured___children___children',
   FrontmatterFeaturedChildrenId = 'frontmatter___featured___children___id',
   FrontmatterFeaturedCtime = 'frontmatter___featured___ctime',
@@ -2357,6 +2365,7 @@ export type NavigationYaml = Node & {
   internal: Internal;
   main?: Maybe<Array<Maybe<NavigationYamlMain>>>;
   parent?: Maybe<Node>;
+  top?: Maybe<Array<Maybe<NavigationYamlTop>>>;
 };
 
 export type NavigationYamlConnection = {
@@ -2498,7 +2507,10 @@ export enum NavigationYamlFieldsEnum {
   ParentParentInternalOwner = 'parent___parent___internal___owner',
   ParentParentInternalType = 'parent___parent___internal___type',
   ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentParentId = 'parent___parent___parent___id'
+  ParentParentParentId = 'parent___parent___parent___id',
+  Top = 'top',
+  TopKey = 'top___key',
+  TopPath = 'top___path'
 }
 
 export type NavigationYamlFilterInput = {
@@ -2508,6 +2520,7 @@ export type NavigationYamlFilterInput = {
   internal?: InputMaybe<InternalFilterInput>;
   main?: InputMaybe<NavigationYamlMainFilterListInput>;
   parent?: InputMaybe<NodeFilterInput>;
+  top?: InputMaybe<NavigationYamlTopFilterListInput>;
 };
 
 export type NavigationYamlFilterListInput = {
@@ -2589,6 +2602,21 @@ export type NavigationYamlMainFilterListInput = {
 export type NavigationYamlSortInput = {
   fields?: InputMaybe<Array<InputMaybe<NavigationYamlFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type NavigationYamlTop = {
+  __typename?: 'NavigationYamlTop';
+  key?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+};
+
+export type NavigationYamlTopFilterInput = {
+  key?: InputMaybe<StringQueryOperatorInput>;
+  path?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type NavigationYamlTopFilterListInput = {
+  elemMatch?: InputMaybe<NavigationYamlTopFilterInput>;
 };
 
 /** Node Interface */
@@ -2880,6 +2908,7 @@ export type QueryNavigationYamlArgs = {
   internal?: InputMaybe<InternalFilterInput>;
   main?: InputMaybe<NavigationYamlMainFilterListInput>;
   parent?: InputMaybe<NodeFilterInput>;
+  top?: InputMaybe<NavigationYamlTopFilterListInput>;
 };
 
 
@@ -4219,12 +4248,10 @@ export type MainNavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MainNavigationQuery = { __typename?: 'Query', navigationYaml?: { __typename?: 'NavigationYaml', main?: Array<{ __typename?: 'NavigationYamlMain', path?: string, key?: string }> } };
 
-export type ImprintPageQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-}>;
+export type TopNavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ImprintPageQuery = { __typename?: 'Query', imprint?: { __typename?: 'Mdx', body: string, tableOfContents?: any } };
+export type TopNavigationQuery = { __typename?: 'Query', navigationYaml?: { __typename?: 'NavigationYaml', top?: Array<{ __typename?: 'NavigationYamlTop', path?: string, key?: string }> } };
 
 export type IndexPageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;

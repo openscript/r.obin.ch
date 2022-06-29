@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { darken } from 'polished';
 import LanguageSelector from './LanguageSelector';
+import TopNavigation from './TopNavigation';
 
 const TopBarContainer = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ const TopBarContainer = styled.div`
 export default function TopBar() {
   return (
     <TopBarContainer id="top-bar">
+      <TopNavigation />
       <LanguageSelector />
     </TopBarContainer>
   );

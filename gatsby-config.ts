@@ -33,11 +33,11 @@ const configuration: GatsbyConfig = {
       },
     },
 
-    `gatsby-transformer-sharp`,
-
     // Plugins
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-plugin-mdx',
@@ -68,7 +68,6 @@ const configuration: GatsbyConfig = {
         cssPropOptimization: true,
       },
     },
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
