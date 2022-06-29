@@ -32,6 +32,8 @@ export function TableOfContents({ displayRootItem, items }: TableOfContentsProps
 
   if (!displayRootItem && preparedItems.length === 1 && preparedItems[0].items !== undefined) {
     preparedItems = preparedItems[0].items;
+  } else {
+    return null;
   }
 
   return (
