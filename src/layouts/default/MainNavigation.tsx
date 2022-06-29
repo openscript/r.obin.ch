@@ -26,7 +26,15 @@ const navStyle = css`
     margin: 0;
   }
 
+  li {
+    margin-left: 0.5rem;
+  }
+
   a {
+    &.active {
+      font-weight: bold;
+    }
+
     ::before {
       content: '<';
       transform: translateX(20px);
@@ -44,6 +52,7 @@ const navStyle = css`
       transition: opacity 0.5s, transform 0.3s;
       display: inline-block;
       opacity: 0;
+      font-weight: normal;
     }
 
     &.active::before,
