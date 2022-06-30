@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FormattedMessage } from 'react-intl';
 import { TopNavigationQuery } from '../../../graphql-types';
@@ -58,10 +57,10 @@ export default function TopNavigation() {
           if (item.key && item.path && icon) {
             return (
               <li key={item.key}>
-                <LocalizedLink to={item.path}>
+                <Link to={item.path}>
                   <GatsbyImage image={icon} alt="joho" css={iconStyle} />
                   <FormattedMessage id={`navigation.top.${item.key}`} />
-                </LocalizedLink>
+                </Link>
               </li>
             );
           }
