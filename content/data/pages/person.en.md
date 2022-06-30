@@ -3,8 +3,6 @@ template: GenericPageWithAside
 title: Person
 ---
 
-# Toll dich zu treffen! Ich heisse Robin.
+# Great to meet you! I'm Robin.
 
-Tests
-
-## Joho
+Test
