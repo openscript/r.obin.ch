@@ -1,6 +1,6 @@
 ---
 title: WLAN mit OpenWRT-Router erweitern
-date: '2021-08-07T17:44:02.166Z'
+publishedAt: '2021-08-07T17:44:02.166Z'
 tags:
   - OpenWRT
   - Router

@@ -1,6 +1,6 @@
 ---
 title: Wie altmodisch, ein Blog!
-date: 2020-12-24 18:21:00 +1
+publishedAt: 2020-12-24 18:21:00 +1
 tags:
   - Projects
 ---

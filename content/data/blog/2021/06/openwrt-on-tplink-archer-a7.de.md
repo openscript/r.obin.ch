@@ -1,6 +1,6 @@
 ---
 title: OpenWRT auf TP-Link Archer A7 installieren
-date: 2021-06-29 11:26:28 +1
+publishedAt: 2021-06-29 11:26:28 +1
 tags:
   - OpenWRT
   - Router

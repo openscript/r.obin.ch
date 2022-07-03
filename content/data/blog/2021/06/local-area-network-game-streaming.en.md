@@ -1,6 +1,6 @@
 ---
 title: Game Streaming on LAN from Windows to Linux
-date: 2021-06-05 19:06:22 +1
+publishedAt: 2021-06-05 19:06:22 +1
 tags:
   - Game Streaming
   - Linux

@@ -1,6 +1,6 @@
 ---
 title: Extend a wireless lan with a OpenWRT router
-date: '2021-08-07T17:44:02.166Z'
+publishedAt: '2021-08-07T17:44:02.166Z'
 tags:
   - OpenWRT
   - Router
