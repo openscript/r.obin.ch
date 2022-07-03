@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { CreateBlogPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
-export async function CreateBlogPages({ graphql, actions }: CreatePagesArgs) {
+export async function createBlogPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
 
   const pages = await graphql<CreateBlogPagesQuery>(`
@@ -23,7 +23,7 @@ export async function CreateBlogPages({ graphql, actions }: CreatePagesArgs) {
   }
 
   const postCountPerLocale = pages.data.allMdx.nodes.reduce<Record<string, number>>((prev, curr) => {
-    if (curr.fields?.locale && curr.fields.pathPrefix) {
+    if (curr.fields?.locale) {
       const newCount = prev[curr.fields.locale] + 1 || 1;
       return { ...prev, [curr.fields.locale]: newCount };
     }
@@ -34,17 +34,24 @@ export async function CreateBlogPages({ graphql, actions }: CreatePagesArgs) {
     const pageCount = Math.ceil(postCountPerLocale[locale] / CONFIGURATION.PAGINATION.ITEMS_PER_PAGE);
     const locales = Object.keys(postCountPerLocale);
 
-    Array.from({ length: pageCount + 1 }).forEach((_, i) => {
-      const path = i === 0 ? `${CONFIGURATION.PATHS.BLOG}/${i}` : CONFIGURATION.PATHS.BLOG;
+    Array.from({ length: pageCount }).forEach((_, i) => {
+      const path = i === 0 ? CONFIGURATION.PATHS.BLOG : `${CONFIGURATION.PATHS.BLOG}/${i}`;
 
       createPage({
         component: resolve('./src/templates/Blog.tsx'),
         context: {
+          // pagination
+          limit: CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
+          skip: i * CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
+          pageCount,
+          currentPage: i + 1,
+          // localization
           locale,
+          basePath: path,
           referTranslations: locales,
           adjustPath: true,
         },
-        path,
+        path: `/${locale}${path}`,
       });
     });
   });

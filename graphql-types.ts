@@ -4410,7 +4410,7 @@ export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'Im
 export type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string, pathPrefix?: string } }> } };
+export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
 
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4443,6 +4443,15 @@ export type IndexPageQueryVariables = Exact<{
 
 
 export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string } };
+
+export type BlogPageQueryVariables = Exact<{
+  locale: Scalars['String'];
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type GenericPageQueryVariables = Exact<{
   id: Scalars['String'];
