@@ -19,5 +19,7 @@ jobs:
         run: yarn check:types
       - name: Check formatting
         run: yarn check:format
+      - name: Run tests
+        run: yarn test
       - name: Try to build
         run: yarn build
