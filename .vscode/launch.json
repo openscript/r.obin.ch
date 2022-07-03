@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Gatsby develop",
+      "name": "Gatsby: Develop",
       "type": "pwa-node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/gatsby",
@@ -11,13 +11,21 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "Gatsby build",
+      "name": "Gatsby: Build",
       "type": "pwa-node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/gatsby",
       "args": ["build"],
       "runtimeArgs": ["--nolazy"],
       "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug: Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--inspect-brk", "${workspaceRoot}/node_modules/.bin/jest", "--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
