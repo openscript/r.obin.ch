@@ -702,7 +702,6 @@ export enum FileFieldsEnum {
   ChildMdxFieldsTranslationsLocale = 'childMdx___fields___translations___locale',
   ChildMdxFieldsTranslationsPath = 'childMdx___fields___translations___path',
   ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
-  ChildMdxFrontmatterDate = 'childMdx___frontmatter___date',
   ChildMdxFrontmatterFeaturedAbsolutePath = 'childMdx___frontmatter___featured___absolutePath',
   ChildMdxFrontmatterFeaturedAccessTime = 'childMdx___frontmatter___featured___accessTime',
   ChildMdxFrontmatterFeaturedAtime = 'childMdx___frontmatter___featured___atime',
@@ -742,6 +741,7 @@ export enum FileFieldsEnum {
   ChildMdxFrontmatterFeaturedSize = 'childMdx___frontmatter___featured___size',
   ChildMdxFrontmatterFeaturedSourceInstanceName = 'childMdx___frontmatter___featured___sourceInstanceName',
   ChildMdxFrontmatterFeaturedUid = 'childMdx___frontmatter___featured___uid',
+  ChildMdxFrontmatterPublishedAt = 'childMdx___frontmatter___publishedAt',
   ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
   ChildMdxFrontmatterTemplate = 'childMdx___frontmatter___template',
   ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
@@ -1000,7 +1000,6 @@ export enum FileFieldsEnum {
   ChildrenMdxFieldsTranslationsLocale = 'childrenMdx___fields___translations___locale',
   ChildrenMdxFieldsTranslationsPath = 'childrenMdx___fields___translations___path',
   ChildrenMdxFileAbsolutePath = 'childrenMdx___fileAbsolutePath',
-  ChildrenMdxFrontmatterDate = 'childrenMdx___frontmatter___date',
   ChildrenMdxFrontmatterFeaturedAbsolutePath = 'childrenMdx___frontmatter___featured___absolutePath',
   ChildrenMdxFrontmatterFeaturedAccessTime = 'childrenMdx___frontmatter___featured___accessTime',
   ChildrenMdxFrontmatterFeaturedAtime = 'childrenMdx___frontmatter___featured___atime',
@@ -1040,6 +1039,7 @@ export enum FileFieldsEnum {
   ChildrenMdxFrontmatterFeaturedSize = 'childrenMdx___frontmatter___featured___size',
   ChildrenMdxFrontmatterFeaturedSourceInstanceName = 'childrenMdx___frontmatter___featured___sourceInstanceName',
   ChildrenMdxFrontmatterFeaturedUid = 'childrenMdx___frontmatter___featured___uid',
+  ChildrenMdxFrontmatterPublishedAt = 'childrenMdx___frontmatter___publishedAt',
   ChildrenMdxFrontmatterTags = 'childrenMdx___frontmatter___tags',
   ChildrenMdxFrontmatterTemplate = 'childrenMdx___frontmatter___template',
   ChildrenMdxFrontmatterTitle = 'childrenMdx___frontmatter___title',
@@ -2118,7 +2118,6 @@ export enum MdxFieldsEnum {
   FieldsTranslationsLocale = 'fields___translations___locale',
   FieldsTranslationsPath = 'fields___translations___path',
   FileAbsolutePath = 'fileAbsolutePath',
-  FrontmatterDate = 'frontmatter___date',
   FrontmatterFeaturedAbsolutePath = 'frontmatter___featured___absolutePath',
   FrontmatterFeaturedAccessTime = 'frontmatter___featured___accessTime',
   FrontmatterFeaturedAtime = 'frontmatter___featured___atime',
@@ -2218,6 +2217,7 @@ export enum MdxFieldsEnum {
   FrontmatterFeaturedSize = 'frontmatter___featured___size',
   FrontmatterFeaturedSourceInstanceName = 'frontmatter___featured___sourceInstanceName',
   FrontmatterFeaturedUid = 'frontmatter___featured___uid',
+  FrontmatterPublishedAt = 'frontmatter___publishedAt',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterTemplate = 'frontmatter___template',
   FrontmatterTitle = 'frontmatter___title',
@@ -2337,15 +2337,15 @@ export type MdxFilterListInput = {
 
 export type MdxFrontmatter = {
   __typename?: 'MdxFrontmatter';
-  date?: Maybe<Scalars['Date']>;
   featured?: Maybe<File>;
+  publishedAt?: Maybe<Scalars['Date']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   template?: Maybe<Scalars['String']>;
   title: Scalars['String'];
 };
 
 
-export type MdxFrontmatterDateArgs = {
+export type MdxFrontmatterPublishedAtArgs = {
   difference?: InputMaybe<Scalars['String']>;
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -2353,8 +2353,8 @@ export type MdxFrontmatterDateArgs = {
 };
 
 export type MdxFrontmatterFilterInput = {
-  date?: InputMaybe<DateQueryOperatorInput>;
   featured?: InputMaybe<FileFilterInput>;
+  publishedAt?: InputMaybe<DateQueryOperatorInput>;
   tags?: InputMaybe<StringQueryOperatorInput>;
   template?: InputMaybe<StringQueryOperatorInput>;
   title?: InputMaybe<StringQueryOperatorInput>;
@@ -4406,6 +4406,11 @@ export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { __typename?: 'I
 export type GatsbyImageSharpFluid_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, sizes: string };
 
 export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string, sizes: string };
+
+export type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string, pathPrefix?: string } }> } };
 
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
