@@ -2,7 +2,7 @@ import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
 import { AllGenericPagesQuery } from '../../../graphql-types';
 
-export async function CreateGenericPages({ actions, graphql }: CreatePagesArgs) {
+export async function createGenericPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
   const allPages = await graphql<AllGenericPagesQuery>(`
     query AllGenericPages {
