@@ -10,10 +10,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
   GatsbyImageData: any;
-  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
 
@@ -4412,6 +4410,11 @@ export type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
 
+export type CreateBlogPostPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateBlogPostPagesQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
+
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4452,6 +4455,13 @@ export type BlogPageQueryVariables = Exact<{
 
 
 export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
+
+export type BlogPostPageQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type BlogPostPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string } };
 
 export type GenericPageQueryVariables = Exact<{
   id: Scalars['String'];
