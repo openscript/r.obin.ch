@@ -23,17 +23,19 @@ type TableOfContentsProps = {
   items: TableOfContentsType;
 };
 
-export function TableOfContents({ displayRootItem, items }: TableOfContentsProps) {
+export function TableOfContents({ displayRootItem = false, items }: TableOfContentsProps) {
   if (!items.items) {
     return null;
   }
 
   let preparedItems = items.items;
 
-  if (!displayRootItem && preparedItems.length === 1 && preparedItems[0].items !== undefined) {
-    preparedItems = preparedItems[0].items;
-  } else {
+  if (!displayRootItem && preparedItems.length <= 1 && !Array.isArray(preparedItems[0].items)) {
     return null;
+  }
+
+  if (!displayRootItem && Array.isArray(preparedItems[0].items)) {
+    preparedItems = preparedItems[0].items;
   }
 
   return (

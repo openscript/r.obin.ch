@@ -11,9 +11,10 @@ const mainWithAsideStyle = (theme: Theme) => css`
   }
 
   article {
-    width: 100%;
+    width: calc(100% - 15rem);
   }
   aside {
+    min-width: 15rem;
     width: 15rem;
     padding-top: 3.2rem;
 

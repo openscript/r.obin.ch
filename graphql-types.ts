@@ -4461,7 +4461,7 @@ export type BlogPostPageQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string } };
+export type BlogPostPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
 
 export type GenericPageQueryVariables = Exact<{
   id: Scalars['String'];
