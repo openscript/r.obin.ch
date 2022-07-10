@@ -95,6 +95,7 @@ describe('CreateBlogPages', () => {
       expect.objectContaining({
         context: {
           adjustPath: true,
+          basePath: '/blog',
           currentPage: 1,
           limit: 20,
           locale: 'de-CH',
@@ -102,7 +103,7 @@ describe('CreateBlogPages', () => {
           referTranslations: ['de-CH', 'en-US'],
           skip: 0,
         },
-        path: '/blog',
+        path: '/de-CH/blog',
       })
     );
     expect(createBlogPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
@@ -110,6 +111,7 @@ describe('CreateBlogPages', () => {
       expect.objectContaining({
         context: {
           adjustPath: true,
+          basePath: '/blog',
           currentPage: 1,
           limit: 20,
           locale: 'en-US',
@@ -117,7 +119,7 @@ describe('CreateBlogPages', () => {
           referTranslations: ['de-CH', 'en-US'],
           skip: 0,
         },
-        path: '/blog',
+        path: '/en-US/blog',
       })
     );
   });
