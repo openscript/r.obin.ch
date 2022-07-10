@@ -34,15 +34,7 @@ For the following reasons, I finally decided on the Nvidias solution, because:
 
 Setting up the host under Windows 10 is very simple. For this, [GeForce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/) has to be installed. After that, Gamestream can be activated in the settings under Shield.
 
-Activate Nvidia Gamestream](enable-gamestream.png)
-
-In Shield TV, the computer can now be connected for Gamestream in the menu. To do this, a confirmation code must be entered on the host computer.
-
-## Setting up Nvidia Gamestream and Moonlight
-
-Setting up the host under Windows 10 is very simple. For this, [GeForce Experience](https://www.nvidia.com/en-us/geforce/geforce-experience/) has to be installed. After that, Gamestream can be activated in the settings under Shield.
-
-Activate Nvidia Gamestream](enable-gamestream.png)
+![Activate Nvidia Gamestream](enable-gamestream.png)
 
 In Shield TV, the computer can now be connected for Gamestream in the menu. To do this, a confirmation code must be entered on the host computer.
 
