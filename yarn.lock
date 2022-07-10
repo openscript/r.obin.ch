@@ -1056,7 +1056,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.18.6"
     "@babel/plugin-transform-react-pure-annotations" "^7.18.6"
 
-"@babel/preset-typescript@^7.15.0", "@babel/preset-typescript@^7.16.7", "@babel/preset-typescript@^7.18.6":
+"@babel/preset-typescript@7.18.6", "@babel/preset-typescript@^7.15.0", "@babel/preset-typescript@^7.16.7":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.18.6.tgz#ce64be3e63eddc44240c6358daefac17b3186399"
   integrity sha512-s9ik86kXBAnD760aybBucdpnLsAt0jK1xqJn2juOn9lkOvSHV60os5hxoVJsPzMQxvnUJFAlkont2DvvaYEBtQ==
@@ -3476,7 +3476,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^28.1.4":
+"@types/jest@28.1.4":
   version "28.1.4"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-28.1.4.tgz#a11ee6c8fd0b52c19c9c18138b78bbcc201dad5a"
   integrity sha512-telv6G5N7zRJiLcI3Rs3o+ipZ28EnE+7EvF0pSrt2pZOMnAVI/f+6/LucDxOvcBcTeTL3JMF744BbVQAVBUQRA==
@@ -3621,7 +3621,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-test-renderer@^18.0.0":
+"@types/react-test-renderer@18.0.0":
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-18.0.0.tgz#7b7f69ca98821ea5501b21ba24ea7b6139da2243"
   integrity sha512-C7/5FBJ3g3sqUahguGi03O79b8afNeSD6T8/GU50oQrJCU0bVCCGQHaGKUbg2Ce8VQEEqTw8/HiS6lXHHdgkdQ==
@@ -4404,7 +4404,7 @@ babel-extract-comments@^1.0.0:
   dependencies:
     babylon "^6.18.0"
 
-babel-jest@^28.1.2:
+babel-jest@28.1.2, babel-jest@^28.1.2:
   version "28.1.2"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-28.1.2.tgz#2b37fb81439f14d34d8b2cc4a4bd7efabf9acbfe"
   integrity sha512-pfmoo6sh4L/+5/G2OOfQrGJgvH7fTa1oChnuYH2G/6gA+JwDvO8PELwvwnofKBMNrQsam0Wy/Rw+QSrBNewq2Q==
@@ -4615,7 +4615,7 @@ babel-preset-fbjs@^3.4.0:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^2.18.0:
+babel-preset-gatsby@2.18.0, babel-preset-gatsby@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-2.18.0.tgz#768c77f26e0616935b5340e2df6d79cdbc1ef2dc"
   integrity sha512-b6BJEl0MlA/nh+IkTJRgvPEgdN09Pu34Szo5dE4QYvQa66++EqfQUK5huqr+FgZJedPPYYbRY2SgKlRXev5QIQ==
@@ -8711,7 +8711,7 @@ idb-keyval@^3.2.0:
   resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-3.2.0.tgz#cbbf354deb5684b6cdc84376294fc05932845bd6"
   integrity sha512-slx8Q6oywCCSfKgPgL0sEsXtPVnSbTLWpyiDcu6msHOyKOLari1TD1qocXVCft80umnkk3/Qqh3lwoFt8T/BPQ==
 
-identity-obj-proxy@^3.0.0:
+identity-obj-proxy@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
   integrity sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA==
@@ -9750,7 +9750,7 @@ jest-worker@^28.1.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^28.1.2:
+jest@28.1.2:
   version "28.1.2"
   resolved "https://registry.yarnpkg.com/jest/-/jest-28.1.2.tgz#451ff24081ce31ca00b07b60c61add13aa96f8eb"
   integrity sha512-Tuf05DwLeCh2cfWCQbcz9UxldoDyiR1E9Igaei5khjonKncYdc6LDfynKCEWozK0oLE3GD+xKAo2u8x/0s6GOg==
@@ -12312,7 +12312,7 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.2.tgz#dc6345b9e8f9906dc2eeb68700b615e0b4fe752a"
   integrity sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==
 
-react-test-renderer@^18.2.0:
+react-test-renderer@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-18.2.0.tgz#1dd912bd908ff26da5b9fca4fd1c489b9523d37e"
   integrity sha512-JWD+aQ0lh2gvh4NM3bBM42Kx+XybOxCpgYK7F8ugAlpaTSnWsX+39Z4XkOykGZAHrjwwTZT3x3KxswVWxHPUqA==
