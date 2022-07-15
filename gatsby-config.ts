@@ -45,6 +45,7 @@ const configuration: GatsbyConfig = {
         extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
           'gatsby-remark-copy-linked-files',
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -53,7 +54,12 @@ const configuration: GatsbyConfig = {
               linkImagesToOriginal: false,
             },
           },
-          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+            },
+          },
         ],
       },
     },

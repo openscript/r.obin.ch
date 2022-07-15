@@ -7,6 +7,7 @@ import { Document } from './default/Document';
 import { Footer } from './default/Footer';
 import { Header } from './default/Header';
 import { Main } from './default/content/Main';
+import { defaultSyntaxHighlighting } from '../themes/defaultSyntaxHighlighting';
 
 const query = graphql`
   query DefaultLayout {
@@ -110,7 +111,7 @@ export function DefaultLayout({ children, theme, subtitle, contentWrapper: Conte
   return (
     <ThemeProvider theme={theme || defaultTheme}>
       <Document subtitle={subtitle} />
-      <Global styles={globalStyles} />
+      <Global styles={[globalStyles, defaultSyntaxHighlighting]} />
       <Header />
       {ContentWrapper ? <ContentWrapper>{children}</ContentWrapper> : <Main>{children}</Main>}
       <Footer
