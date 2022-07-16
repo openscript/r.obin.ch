@@ -4,9 +4,9 @@ import { CreateBlogPostPagesQuery } from '../../../graphql-types';
 
 export async function createBlogPostPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
-  const blogPosts = await graphql<CreateBlogPostPagesQuery>(`
+  const result = await graphql<CreateBlogPostPagesQuery>(`
     query CreateBlogPostPages {
-      posts: allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
+      allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
         nodes {
           id
           fields {
@@ -21,7 +21,7 @@ export async function createBlogPostPages({ actions, graphql }: CreatePagesArgs)
     }
   `);
 
-  blogPosts.data?.posts.nodes.forEach(p => {
+  result.data?.allMdx.nodes.forEach(p => {
     if (p.fields?.translations && p.fields?.path) {
       createPage({
         component: resolve(`./src/templates/BlogPost.tsx`),

@@ -4413,7 +4413,7 @@ export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?
 export type CreateBlogPostPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateBlogPostPagesQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
+export type CreateBlogPostPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
 
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 

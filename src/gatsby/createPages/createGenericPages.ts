@@ -4,7 +4,7 @@ import { AllGenericPagesQuery } from '../../../graphql-types';
 
 export async function createGenericPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
-  const allPages = await graphql<AllGenericPagesQuery>(`
+  const result = await graphql<AllGenericPagesQuery>(`
     query AllGenericPages {
       allMdx(filter: { fields: { kind: { eq: "pages" } } }) {
         edges {
@@ -26,7 +26,7 @@ export async function createGenericPages({ actions, graphql }: CreatePagesArgs) 
     }
   `);
 
-  allPages.data?.allMdx.edges.forEach(p => {
+  result.data?.allMdx.edges.forEach(p => {
     if (p.node.fields && p.node.fields.path) {
       createPage({
         component: resolve(`./src/templates/${p.node.frontmatter?.template || 'GenericPage'}.tsx`),

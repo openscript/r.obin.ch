@@ -6,7 +6,7 @@ import { CONFIGURATION } from '../../configuration';
 export async function createBlogPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const pages = await graphql<CreateBlogPagesQuery>(`
+  const result = await graphql<CreateBlogPagesQuery>(`
     query CreateBlogPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
         nodes {
@@ -18,11 +18,11 @@ export async function createBlogPages({ graphql, actions }: CreatePagesArgs) {
     }
   `);
 
-  if (!pages.data) {
+  if (!result.data) {
     return;
   }
 
-  const postCountPerLocale = pages.data.allMdx.nodes.reduce<Record<string, number>>((prev, curr) => {
+  const postCountPerLocale = result.data.allMdx.nodes.reduce<Record<string, number>>((prev, curr) => {
     if (curr.fields?.locale) {
       const newCount = prev[curr.fields.locale] + 1 || 1;
       return { ...prev, [curr.fields.locale]: newCount };
