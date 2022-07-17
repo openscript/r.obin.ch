@@ -6,7 +6,6 @@ import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function BlogPost({ data }: PageProps<BlogPostPageQuery>) {
-  console.log(data.mdx?.tableOfContents);
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
       <aside>
