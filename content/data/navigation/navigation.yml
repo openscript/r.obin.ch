@@ -7,7 +7,9 @@ main:
   - key: wiki
     path: /wiki
   - key: medias
-    path: /medias'./'
+    path: /medias
+  - key: projects
+    path: /projects
   - key: person
     path: /person
 top:
