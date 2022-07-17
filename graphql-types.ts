@@ -4415,6 +4415,11 @@ export type CreateBlogPostPagesQueryVariables = Exact<{ [key: string]: never; }>
 
 export type CreateBlogPostPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
 
+export type CreateBlogTagPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateBlogTagPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', group: Array<{ __typename?: 'MdxGroupConnection', tag?: string, nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> }> } };
+
 export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4476,3 +4481,12 @@ export type GenericPageWithAsideQueryVariables = Exact<{
 
 
 export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+
+export type TagPageQueryVariables = Exact<{
+  locale: Scalars['String'];
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type TagPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
