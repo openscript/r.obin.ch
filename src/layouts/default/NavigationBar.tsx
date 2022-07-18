@@ -8,8 +8,8 @@ const headerStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 6rem;
-  font-size: 2rem;
+  height: 7rem;
+  font-size: 2.2rem;
   background-color: ${theme.colors.primary};
 `;
 

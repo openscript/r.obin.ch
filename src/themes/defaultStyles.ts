@@ -59,11 +59,12 @@ export const defaultStyles = (theme: Theme) => css`
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 1.6rem;
   }
 
   h2 {
+    font-size: 1.6rem;
     margin-top: 2.5rem;
   }
 

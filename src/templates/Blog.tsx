@@ -1,19 +1,21 @@
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { BlogPageQuery } from '../../graphql-types';
+import { BlogItem } from '../components/BlogItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function Blog({ data }: PageProps<BlogPageQuery>) {
   return (
     <DefaultLayout>
-      <h2>
+      <h1>
         <FormattedMessage id="page.blog.title" />
-      </h2>
-      {data.posts.nodes.map(post => (
-        <h3>
-          <Link to={post.fields?.path || ''}>{post.frontmatter?.title}</Link>
-        </h3>
-      ))}
+      </h1>
+      {data.posts.nodes.map(post => {
+        if (!post.fields?.path || !post.frontmatter?.title) {
+          return null;
+        }
+        return <BlogItem excerpt={post.excerpt} path={post.fields.path} title={post.frontmatter.title} />;
+      })}
     </DefaultLayout>
   );
 }

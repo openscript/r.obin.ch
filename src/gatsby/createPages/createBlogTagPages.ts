@@ -1,5 +1,4 @@
 import { CreatePagesArgs } from 'gatsby';
-import slug from 'limax';
 import { resolve } from 'path';
 import { CreateBlogTagPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
@@ -9,7 +8,7 @@ export async function createBlogTagPages({ graphql, actions }: CreatePagesArgs) 
   const result = await graphql<CreateBlogTagPagesQuery>(`
     query CreateBlogTagPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
-        group(field: frontmatter___tags) {
+        group(field: fields___tags___slug) {
           tag: fieldValue
           nodes {
             fields {
@@ -37,7 +36,7 @@ export async function createBlogTagPages({ graphql, actions }: CreatePagesArgs) 
         const locales = Object.keys(postCountPerLocale);
 
         Array.from({ length: pageCount }).forEach((_, i) => {
-          const pathWithoutPagination = `${CONFIGURATION.PATHS.TAG}/${slug(tag)}`;
+          const pathWithoutPagination = `${CONFIGURATION.PATHS.TAG}/${tag}`;
           const path = i === 0 ? pathWithoutPagination : `${pathWithoutPagination}/${i}`;
 
           createPage({
