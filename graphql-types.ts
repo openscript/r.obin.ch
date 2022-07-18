@@ -696,6 +696,9 @@ export enum FileFieldsEnum {
   ChildMdxFieldsPath = 'childMdx___fields___path',
   ChildMdxFieldsPathPrefix = 'childMdx___fields___pathPrefix',
   ChildMdxFieldsSlug = 'childMdx___fields___slug',
+  ChildMdxFieldsTags = 'childMdx___fields___tags',
+  ChildMdxFieldsTagsSlug = 'childMdx___fields___tags___slug',
+  ChildMdxFieldsTagsTitle = 'childMdx___fields___tags___title',
   ChildMdxFieldsTranslations = 'childMdx___fields___translations',
   ChildMdxFieldsTranslationsLocale = 'childMdx___fields___translations___locale',
   ChildMdxFieldsTranslationsPath = 'childMdx___fields___translations___path',
@@ -994,6 +997,9 @@ export enum FileFieldsEnum {
   ChildrenMdxFieldsPath = 'childrenMdx___fields___path',
   ChildrenMdxFieldsPathPrefix = 'childrenMdx___fields___pathPrefix',
   ChildrenMdxFieldsSlug = 'childrenMdx___fields___slug',
+  ChildrenMdxFieldsTags = 'childrenMdx___fields___tags',
+  ChildrenMdxFieldsTagsSlug = 'childrenMdx___fields___tags___slug',
+  ChildrenMdxFieldsTagsTitle = 'childrenMdx___fields___tags___title',
   ChildrenMdxFieldsTranslations = 'childrenMdx___fields___translations',
   ChildrenMdxFieldsTranslationsLocale = 'childrenMdx___fields___translations___locale',
   ChildrenMdxFieldsTranslationsPath = 'childrenMdx___fields___translations___path',
@@ -2060,6 +2066,7 @@ export type MdxFields = {
   path?: Maybe<Scalars['String']>;
   pathPrefix?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<MdxFieldsTags>>>;
   translations?: Maybe<Array<Maybe<MdxFieldsTranslations>>>;
 };
 
@@ -2112,6 +2119,9 @@ export enum MdxFieldsEnum {
   FieldsPath = 'fields___path',
   FieldsPathPrefix = 'fields___pathPrefix',
   FieldsSlug = 'fields___slug',
+  FieldsTags = 'fields___tags',
+  FieldsTagsSlug = 'fields___tags___slug',
+  FieldsTagsTitle = 'fields___tags___title',
   FieldsTranslations = 'fields___translations',
   FieldsTranslationsLocale = 'fields___translations___locale',
   FieldsTranslationsPath = 'fields___translations___path',
@@ -2291,7 +2301,23 @@ export type MdxFieldsFilterInput = {
   path?: InputMaybe<StringQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   slug?: InputMaybe<StringQueryOperatorInput>;
+  tags?: InputMaybe<MdxFieldsTagsFilterListInput>;
   translations?: InputMaybe<MdxFieldsTranslationsFilterListInput>;
+};
+
+export type MdxFieldsTags = {
+  __typename?: 'MdxFieldsTags';
+  slug?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type MdxFieldsTagsFilterInput = {
+  slug?: InputMaybe<StringQueryOperatorInput>;
+  title?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type MdxFieldsTagsFilterListInput = {
+  elemMatch?: InputMaybe<MdxFieldsTagsFilterInput>;
 };
 
 export type MdxFieldsTranslations = {
@@ -4459,7 +4485,7 @@ export type BlogPageQueryVariables = Exact<{
 }>;
 
 
-export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
+export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', locale?: string, path?: string, pathPrefix?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -4467,6 +4493,16 @@ export type BlogPostPageQueryVariables = Exact<{
 
 
 export type BlogPostPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+
+export type TagPageQueryVariables = Exact<{
+  tag: Scalars['String'];
+  locale: Scalars['String'];
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type TagPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type GenericPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -4481,12 +4517,3 @@ export type GenericPageWithAsideQueryVariables = Exact<{
 
 
 export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
-
-export type TagPageQueryVariables = Exact<{
-  locale: Scalars['String'];
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-}>;
-
-
-export type TagPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };

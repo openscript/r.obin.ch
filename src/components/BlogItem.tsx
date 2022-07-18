@@ -9,13 +9,15 @@ type BlogItemProps = {
   excerpt: string;
   path: string;
   title: string;
+  tagList: JSX.Element;
 };
 
-export function BlogItem({ excerpt, path, title }: BlogItemProps) {
+export function BlogItem({ excerpt, path, title, tagList }: BlogItemProps) {
   return (
     <div css={blogItemStyles}>
       <Link to={path}>
         <h2>{title}</h2>
+        {tagList}
         {excerpt}
       </Link>
     </div>

@@ -2,6 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { BlogPageQuery } from '../../graphql-types';
 import { BlogItem } from '../components/BlogItem';
+import { TagList } from '../components/TagList';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function Blog({ data }: PageProps<BlogPageQuery>) {
@@ -14,7 +15,8 @@ export default function Blog({ data }: PageProps<BlogPageQuery>) {
         if (!post.fields?.path || !post.frontmatter?.title) {
           return null;
         }
-        return <BlogItem excerpt={post.excerpt} path={post.fields.path} title={post.frontmatter.title} />;
+        const tagList = <TagList locale={post.fields.locale} tags={post.fields.tags} />;
+        return <BlogItem excerpt={post.excerpt} path={post.fields.path} title={post.frontmatter.title} tagList={tagList} />;
       })}
     </DefaultLayout>
   );
@@ -31,7 +33,13 @@ export const query = graphql`
       nodes {
         excerpt
         fields {
+          locale
           path
+          pathPrefix
+          tags {
+            slug
+            title
+          }
         }
         frontmatter {
           title
