@@ -2,10 +2,12 @@ import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { BlogPageQuery } from '../../graphql-types';
 import { BlogItem } from '../components/BlogItem';
+import { Pagination } from '../components/Pagination';
 import { TagList } from '../components/TagList';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { PaginationContext } from '../types';
 
-export default function Blog({ data }: PageProps<BlogPageQuery>) {
+export default function Blog({ data, pageContext }: PageProps<BlogPageQuery, PaginationContext>) {
   return (
     <DefaultLayout>
       <h1>
@@ -26,6 +28,7 @@ export default function Blog({ data }: PageProps<BlogPageQuery>) {
           />
         );
       })}
+      <Pagination currentPage={pageContext.currentPage} pageCount={pageContext.pageCount} />
     </DefaultLayout>
   );
 }

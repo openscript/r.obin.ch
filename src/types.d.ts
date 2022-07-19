@@ -24,6 +24,13 @@ declare module '@emotion/react' {
   }
 }
 
+export type PaginationContext = {
+  currentPage: number;
+  limit: number;
+  pageCount: number;
+  skip: number;
+};
+
 export type TableOfContentsItem = {
   url: string;
   title: string;

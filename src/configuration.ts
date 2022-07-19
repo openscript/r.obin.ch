@@ -4,6 +4,6 @@ export const CONFIGURATION = {
     TAG: '/tag',
   },
   PAGINATION: {
-    ITEMS_PER_PAGE: 20,
+    ITEMS_PER_PAGE: 10,
   },
 };
