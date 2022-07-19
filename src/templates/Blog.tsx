@@ -12,11 +12,19 @@ export default function Blog({ data }: PageProps<BlogPageQuery>) {
         <FormattedMessage id="page.blog.title" />
       </h1>
       {data.posts.nodes.map(post => {
-        if (!post.fields?.path || !post.frontmatter?.title) {
+        if (!post.fields?.path || !post.frontmatter?.title || typeof post.frontmatter.publishedAt !== 'string') {
           return null;
         }
         const tagList = <TagList locale={post.fields.locale} tags={post.fields.tags} />;
-        return <BlogItem excerpt={post.excerpt} path={post.fields.path} title={post.frontmatter.title} tagList={tagList} />;
+        return (
+          <BlogItem
+            excerpt={post.excerpt}
+            path={post.fields.path}
+            title={post.frontmatter.title}
+            publishedAt={post.frontmatter.publishedAt}
+            tagList={tagList}
+          />
+        );
       })}
     </DefaultLayout>
   );
