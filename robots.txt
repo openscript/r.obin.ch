@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://openscript.github.io/r.obin.ch/sitemap/sitemap-index.xml
+Host: https://openscript.github.io
