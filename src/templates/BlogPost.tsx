@@ -1,11 +1,12 @@
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { BlogPostPageQuery } from '../../graphql-types';
+import { Comments } from '../components/Comments';
 import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function BlogPost({ data }: PageProps<BlogPostPageQuery>) {
+export default function BlogPost({ data, location }: PageProps<BlogPostPageQuery>) {
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
       <aside>
@@ -14,6 +15,7 @@ export default function BlogPost({ data }: PageProps<BlogPostPageQuery>) {
       <article>
         <h1>{data.mdx?.frontmatter?.title}</h1>
         <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+        <Comments location={location.pathname} />
       </article>
     </DefaultLayout>
   );
