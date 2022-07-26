@@ -4431,15 +4431,15 @@ export type GatsbyImageSharpFluid_NoBase64Fragment = { __typename?: 'ImageSharpF
 
 export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { __typename?: 'ImageSharpFluid', aspectRatio: number, src: string, srcSet: string, srcWebp?: string, srcSetWebp?: string, sizes: string };
 
+export type CreateBlogListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateBlogListingPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
+
 export type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
-
-export type CreateBlogPostPagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CreateBlogPostPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
+export type CreateBlogPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
 
 export type CreateBlogTagPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4451,10 +4451,10 @@ export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, frontmatter?: { __typename?: 'MdxFrontmatter', template?: string }, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } } }> } };
 
-export type CreateProjectPagesQueryVariables = Exact<{ [key: string]: never; }>;
+export type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateProjectPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
+export type CreateProjectListingPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
 
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4484,20 +4484,20 @@ export type IndexPageQueryVariables = Exact<{
 export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string } };
 
 export type BlogPageQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type BlogPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+
+export type BlogListingPageQueryVariables = Exact<{
   locale: Scalars['String'];
   limit: Scalars['Int'];
   skip: Scalars['Int'];
 }>;
 
 
-export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
-
-export type BlogPostPageQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type BlogPostPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+export type BlogListingPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type TagPageQueryVariables = Exact<{
   tag: Scalars['String'];

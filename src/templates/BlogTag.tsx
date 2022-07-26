@@ -1,9 +1,9 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
-import { BlogPageQuery } from '../../graphql-types';
+import { TagPageQuery } from '../../graphql-types';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function BlogTag({ data }: PageProps<BlogPageQuery>) {
+export default function BlogTag({ data }: PageProps<TagPageQuery>) {
   return (
     <DefaultLayout>
       <h1>

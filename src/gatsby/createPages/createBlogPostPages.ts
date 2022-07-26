@@ -1,11 +1,12 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateBlogPostPagesQuery } from '../../../graphql-types';
+import { CreateBlogPagesQuery } from '../../../graphql-types';
 
-export async function createBlogPostPages({ actions, graphql }: CreatePagesArgs) {
+export async function createBlogPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
-  const result = await graphql<CreateBlogPostPagesQuery>(`
-    query CreateBlogPostPages {
+
+  const result = await graphql<CreateBlogPagesQuery>(`
+    query CreateBlogPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
         nodes {
           id
@@ -24,7 +25,7 @@ export async function createBlogPostPages({ actions, graphql }: CreatePagesArgs)
   result.data?.allMdx.nodes.forEach(p => {
     if (p.fields?.translations && p.fields?.path) {
       createPage({
-        component: resolve(`./src/templates/BlogPost.tsx`),
+        component: resolve(`./src/templates/Blog.tsx`),
         context: { id: p.id, translations: p.fields.translations },
         path: p.fields.path,
       });

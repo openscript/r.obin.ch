@@ -1,13 +1,13 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateProjectPagesQuery } from '../../../graphql-types';
+import { CreateProjectListingPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
-export async function createProjectPages({ graphql, actions }: CreatePagesArgs) {
+export async function createProjectListingPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateProjectPagesQuery>(`
-    query CreateProjectPages {
+  const result = await graphql<CreateProjectListingPagesQuery>(`
+    query CreateProjectListingPages {
       allMdx(filter: { fields: { kind: { glob: "projects/**" } } }) {
         nodes {
           fields {
@@ -32,7 +32,7 @@ export async function createProjectPages({ graphql, actions }: CreatePagesArgs) 
   availableLocales.forEach(locale => {
     const path = CONFIGURATION.PATHS.PROJECTS;
     createPage({
-      component: resolve('./src/templates/Projects.tsx'),
+      component: resolve('./src/templates/ProjectListing.tsx'),
       context: {
         // localization
         locale,

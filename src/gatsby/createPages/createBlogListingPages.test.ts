@@ -1,18 +1,18 @@
-import { createBlogPages } from './createBlogPages';
+import { createBlogListingPages } from './createBlogListingPages';
 
-const createBlogPagesArgs = {
+const createBlogListingPagesArgs = {
   graphql: jest.fn(),
   actions: {
     createPage: jest.fn(),
   },
 };
 
-describe('CreateBlogPages', () => {
+describe('CreateBlogListingPages', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
   it('should generate blog pages', async () => {
-    createBlogPagesArgs.graphql.mockResolvedValue({
+    createBlogListingPagesArgs.graphql.mockResolvedValue({
       data: {
         allMdx: {
           nodes: [
@@ -87,10 +87,10 @@ describe('CreateBlogPages', () => {
       extensions: {},
     });
 
-    await createBlogPages(createBlogPagesArgs as any);
+    await createBlogListingPages(createBlogListingPagesArgs as any);
 
-    expect(createBlogPagesArgs.actions.createPage).toHaveBeenCalledTimes(2);
-    expect(createBlogPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
+    expect(createBlogListingPagesArgs.actions.createPage).toHaveBeenCalledTimes(2);
+    expect(createBlogListingPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
       1,
       expect.objectContaining({
         context: {
@@ -106,7 +106,7 @@ describe('CreateBlogPages', () => {
         path: '/de-CH/blog',
       })
     );
-    expect(createBlogPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
+    expect(createBlogListingPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
       2,
       expect.objectContaining({
         context: {

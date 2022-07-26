@@ -1,60 +1,34 @@
 import { graphql, PageProps } from 'gatsby';
-import { FormattedMessage } from 'react-intl';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { BlogPageQuery } from '../../graphql-types';
-import { BlogItem } from '../components/BlogItem';
-import { Pagination } from '../components/Pagination';
-import { TagList } from '../components/TagList';
+import { Comments } from '../components/Comments';
+import { TableOfContents } from '../components/TableOfContents';
+import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { PaginationContext } from '../types';
 
-export default function Blog({ data, pageContext }: PageProps<BlogPageQuery, PaginationContext>) {
+export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
   return (
-    <DefaultLayout>
-      <h1>
-        <FormattedMessage id="page.blog.title" />
-      </h1>
-      {data.posts.nodes.map(post => {
-        if (!post.fields?.path || !post.frontmatter?.title || typeof post.frontmatter.publishedAt !== 'string') {
-          return null;
-        }
-        const tagList = <TagList locale={post.fields.locale} tags={post.fields.tags} />;
-        return (
-          <BlogItem
-            excerpt={post.excerpt}
-            path={post.fields.path}
-            title={post.frontmatter.title}
-            publishedAt={post.frontmatter.publishedAt}
-            tagList={tagList}
-          />
-        );
-      })}
-      <Pagination currentPage={pageContext.currentPage} pageCount={pageContext.pageCount} />
+    <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
+      <aside>
+        <TableOfContents items={data.mdx?.tableOfContents} />
+      </aside>
+      <article>
+        <h1>{data.mdx?.frontmatter?.title}</h1>
+        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+        <Comments location={location.pathname} />
+      </article>
     </DefaultLayout>
   );
 }
 
 export const query = graphql`
-  query BlogPage($locale: String!, $limit: Int!, $skip: Int!) {
-    posts: allMdx(
-      filter: { fields: { kind: { glob: "blog/**" }, locale: { eq: $locale } } }
-      sort: { fields: frontmatter___publishedAt, order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      nodes {
-        excerpt
-        fields {
-          locale
-          path
-          tags {
-            slug
-            title
-          }
-        }
-        frontmatter {
-          title
-          publishedAt
-        }
+  query BlogPage($id: String!) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      tableOfContents
+      frontmatter {
+        title
       }
     }
   }

@@ -1,13 +1,13 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateBlogPagesQuery } from '../../../graphql-types';
+import { CreateBlogListingPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
-export async function createBlogPages({ graphql, actions }: CreatePagesArgs) {
+export async function createBlogListingPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateBlogPagesQuery>(`
-    query CreateBlogPages {
+  const result = await graphql<CreateBlogListingPagesQuery>(`
+    query CreateBlogListingPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
         nodes {
           fields {
@@ -38,7 +38,7 @@ export async function createBlogPages({ graphql, actions }: CreatePagesArgs) {
       const path = i === 0 ? CONFIGURATION.PATHS.BLOG : `${CONFIGURATION.PATHS.BLOG}/${i}`;
 
       createPage({
-        component: resolve('./src/templates/Blog.tsx'),
+        component: resolve('./src/templates/BlogListing.tsx'),
         context: {
           // pagination
           limit: CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
