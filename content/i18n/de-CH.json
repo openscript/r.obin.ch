@@ -13,6 +13,7 @@
   "navigation.top.openscript": "openscript GmbH",
   "navigation.top.stackoverflow": "StackOverflow",
   "page.blog.title": "Blog",
+  "page.projects.title": "Projekte",
   "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
   "pages.imprint.title": "Impressum",
   "pages.notFound.content": "Anscheinend existiert die angeforderte Website nicht.",

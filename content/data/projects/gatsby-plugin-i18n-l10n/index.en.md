@@ -1,0 +1,5 @@
+---
+title: Gatsby Plugin for internationalization and localization
+---
+
+Gatsby plugin i18n l10n

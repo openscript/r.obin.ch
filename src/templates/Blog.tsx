@@ -46,7 +46,6 @@ export const query = graphql`
         fields {
           locale
           path
-          pathPrefix
           tags {
             slug
             title

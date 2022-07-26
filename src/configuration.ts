@@ -1,6 +1,7 @@
 export const CONFIGURATION = {
   PATHS: {
     BLOG: '/blog',
+    PROJECTS: '/projects',
     TAG: '/tag',
   },
   PAGINATION: {

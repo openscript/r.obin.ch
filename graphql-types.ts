@@ -4451,6 +4451,11 @@ export type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllGenericPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, frontmatter?: { __typename?: 'MdxFrontmatter', template?: string }, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } } }> } };
 
+export type CreateProjectPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateProjectPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
+
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4485,7 +4490,7 @@ export type BlogPageQueryVariables = Exact<{
 }>;
 
 
-export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', locale?: string, path?: string, pathPrefix?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
+export type BlogPageQuery = { __typename?: 'Query', posts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -4517,3 +4522,10 @@ export type GenericPageWithAsideQueryVariables = Exact<{
 
 
 export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+
+export type ProjectPageQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+export type ProjectPageQuery = { __typename?: 'Query', projects: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } }> } };
