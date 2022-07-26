@@ -4456,6 +4456,11 @@ export type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: nev
 
 export type CreateProjectListingPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string } }> } };
 
+export type CreateProjectPagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateProjectPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
+
 export type DefaultLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4524,8 +4529,15 @@ export type GenericPageWithAsideQueryVariables = Exact<{
 export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
 
 export type ProjectPageQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type ProjectPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } } };
+
+export type ProjectListingPageQueryVariables = Exact<{
   locale: Scalars['String'];
 }>;
 
 
-export type ProjectPageQuery = { __typename?: 'Query', projects: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } }> } };
+export type ProjectListingPageQuery = { __typename?: 'Query', projects: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', locale?: string, path?: string, tags?: Array<{ __typename?: 'MdxFieldsTags', slug?: string, title?: string }> }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string } }> } };
