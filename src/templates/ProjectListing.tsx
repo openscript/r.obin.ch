@@ -11,11 +11,11 @@ export default function ProjectListing({ data }: PageProps<ProjectListingPageQue
       <h1>
         <FormattedMessage id="page.projects.title" />
       </h1>
-      {data.projects.nodes.map(post => {
-        if (!post.fields?.path || !post.frontmatter?.title) {
+      {data.projects.nodes.map(project => {
+        if (!project.fields?.path || !project.frontmatter?.title) {
           return null;
         }
-        return <ProjectItem path={post.fields.path} title={post.frontmatter.title} />;
+        return <ProjectItem path={project.fields.path} title={project.frontmatter.title} />;
       })}
     </DefaultLayout>
   );
@@ -29,7 +29,6 @@ export const query = graphql`
     ) {
       nodes {
         fields {
-          locale
           path
           tags {
             slug

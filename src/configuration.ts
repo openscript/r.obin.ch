@@ -1,6 +1,7 @@
 export const CONFIGURATION = {
   PATHS: {
     BLOG: '/blog',
+    MEDIAS: '/medias',
     PROJECTS: '/projects',
     TAG: '/tag',
   },
