@@ -58,7 +58,7 @@ export default function TopNavigation() {
             return (
               <li key={item.key}>
                 <Link to={item.path}>
-                  <GatsbyImage image={icon} alt="joho" css={iconStyle} />
+                  <GatsbyImage image={icon} alt={`${item.key} brand icon`} css={iconStyle} />
                   <FormattedMessage id={`navigation.top.${item.key}`} />
                 </Link>
               </li>
