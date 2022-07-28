@@ -103,6 +103,7 @@ const configuration: GatsbyConfig = {
             prefix: `de`,
             slugs: {
               '/imprint': '/impressum',
+              '/projects': '/projekte',
             },
             messages: deCHMessages,
           },
