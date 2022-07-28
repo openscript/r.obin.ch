@@ -4,8 +4,6 @@ footer:
 main:
   - key: blog
     path: /blog
-  - key: wiki
-    path: /wiki
   - key: medias
     path: /medias
   - key: projects
