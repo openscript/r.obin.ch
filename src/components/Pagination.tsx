@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import { Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 type PaginationProps = {
   currentPage: number;
@@ -40,10 +41,26 @@ export function Pagination({ currentPage, pageCount }: PaginationProps) {
 
   return (
     <Fragment>
-      {newestPath && <Link to="..">Newest</Link>}
-      {newerPath && <Link to={newerPath}>Newer</Link>}
-      {olderPath && <Link to={olderPath}>Older</Link>}
-      {oldestPath && <Link to={oldestPath}>Oldest</Link>}
+      {newestPath && (
+        <Link to="..">
+          <FormattedMessage id="navigation.pagination.newest" />
+        </Link>
+      )}
+      {newerPath && (
+        <Link to={newerPath}>
+          <FormattedMessage id="navigation.pagination.newer" />
+        </Link>
+      )}
+      {olderPath && (
+        <Link to={olderPath}>
+          <FormattedMessage id="navigation.pagination.older" />
+        </Link>
+      )}
+      {oldestPath && (
+        <Link to={oldestPath}>
+          <FormattedMessage id="navigation.pagination.oldest" />
+        </Link>
+      )}
     </Fragment>
   );
 }

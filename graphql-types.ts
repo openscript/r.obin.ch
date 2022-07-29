@@ -4643,7 +4643,7 @@ export type CreateMediaListingPagesQuery = { __typename?: 'Query', allMdx: { __t
 export type CreateMediaPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateMediaPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }> } };
+export type CreateMediaPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', group: Array<{ __typename?: 'MdxGroupConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }, next?: { __typename?: 'Mdx', id: string }, previous?: { __typename?: 'Mdx', id: string } }> }> } };
 
 export type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4724,10 +4724,12 @@ export type GenericPageWithAsideQuery = { __typename?: 'Query', mdx?: { __typena
 
 export type MediaPageQueryVariables = Exact<{
   id: Scalars['String'];
+  nextId: Scalars['String'];
+  previousId: Scalars['String'];
 }>;
 
 
-export type MediaPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, photo?: { __typename?: 'File', childImageSharp?: { __typename?: 'ImageSharp', gatsbyImageData: any } } } } };
+export type MediaPageQuery = { __typename?: 'Query', previous?: { __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', path?: string } }, current?: { __typename?: 'Mdx', id: string, body: string, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, photo?: { __typename?: 'File', childImageSharp?: { __typename?: 'ImageSharp', gatsbyImageData: any } } } }, next?: { __typename?: 'Mdx', fields?: { __typename?: 'MdxFields', path?: string } } };
 
 export type MediaLandingPageQueryVariables = Exact<{
   locale: Scalars['String'];
