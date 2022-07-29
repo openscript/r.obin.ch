@@ -25,7 +25,6 @@ export default function Media({ data }: PageProps<MediaPageQuery>) {
   return (
     <DefaultLayout subtitle={data.current?.frontmatter?.title}>
       <article>
-        {previousPath}
         <h1>{data.current?.frontmatter?.title}</h1>
         <MDXRenderer>{data.current?.body || ''}</MDXRenderer>
         {imageComponent}
