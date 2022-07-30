@@ -3,7 +3,7 @@ import { css, Theme } from '@emotion/react';
 export const defaultStyles = (theme: Theme) => css`
   html {
     height: 100%;
-    min-width: ${theme.breakpoints.minimum};
+    min-width: 320px;
     font-size: 16px;
 
     @media (max-width: ${theme.breakpoints.compact}) {
