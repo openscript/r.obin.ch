@@ -25,6 +25,9 @@ export async function createMediaPages({ actions, graphql }: CreatePagesArgs) {
             }
             previous {
               id
+              fields {
+                path
+              }
             }
           }
         }
@@ -35,6 +38,9 @@ export async function createMediaPages({ actions, graphql }: CreatePagesArgs) {
   result.data?.allMdx.group.forEach(g => {
     g.edges.forEach(p => {
       if (p.node.fields?.translations && p.node.fields?.path) {
+        console.log(p.next?.id);
+        console.log(p.previous?.id);
+        console.log(p.previous?.fields?.path);
         createPage({
           component: resolve(`./src/templates/Media.tsx`),
           context: { id: p.node.id, translations: p.node.fields.translations, nextId: p.next?.id, previousId: p.previous?.id },
