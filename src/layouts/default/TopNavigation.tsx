@@ -21,6 +21,12 @@ const query = graphql`
 `;
 
 const navStyle = css`
+  max-width: 100%;
+  margin-right: 1rem;
+  padding-right: 2rem;
+  overflow-x: scroll;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) calc(100% - 2rem), transparent);
+
   ul {
     display: flex;
     list-style: none;
@@ -30,6 +36,8 @@ const navStyle = css`
 
   li {
     margin-right: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   a {
