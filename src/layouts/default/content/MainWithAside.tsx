@@ -12,7 +12,12 @@ const mainWithAsideStyle = (theme: Theme) => css`
 
   article {
     width: calc(100% - 15rem);
+
+    @media (max-width: ${theme.breakpoints.tiny}) {
+      width: auto;
+    }
   }
+
   aside {
     min-width: 15rem;
     width: 15rem;
