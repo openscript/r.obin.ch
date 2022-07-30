@@ -15,7 +15,6 @@ export default function Media({ data }: PageProps<MediaPageQuery>) {
     }
   }
 
-  console.log(data.previous?.fields?.path);
   const previousPath = data.previous?.fields?.path ?? '../';
   const nextPath = data.next?.fields?.path ?? '../';
   useHotkeys([
