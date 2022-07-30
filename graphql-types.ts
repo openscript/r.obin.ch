@@ -4643,7 +4643,7 @@ export type CreateMediaListingPagesQuery = { __typename?: 'Query', allMdx: { __t
 export type CreateMediaPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreateMediaPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', group: Array<{ __typename?: 'MdxGroupConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }, next?: { __typename?: 'Mdx', id: string }, previous?: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string } } }> }> } };
+export type CreateMediaPagesQuery = { __typename?: 'Query', allMdx: { __typename?: 'MdxConnection', group: Array<{ __typename?: 'MdxGroupConnection', edges: Array<{ __typename?: 'MdxEdge', node: { __typename?: 'Mdx', id: string, fields?: { __typename?: 'MdxFields', path?: string, translations?: Array<{ __typename?: 'MdxFieldsTranslations', locale?: string, path?: string }> } }, next?: { __typename?: 'Mdx', id: string }, previous?: { __typename?: 'Mdx', id: string } }> }> } };
 
 export type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 

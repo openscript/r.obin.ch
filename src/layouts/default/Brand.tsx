@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 const BrandWrapper = styled.div`
   transition: 0.5s;
   font-weight: bold;
+  box-sizing: content-box;
 
   span:last-of-type {
     display: inline-block;

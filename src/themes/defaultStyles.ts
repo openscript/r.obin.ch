@@ -37,6 +37,10 @@ export const defaultStyles = (theme: Theme) => css`
     }
   }
 
+  main {
+    background-color: ${theme.colors.white};
+  }
+
   header,
   #top-bar,
   footer {

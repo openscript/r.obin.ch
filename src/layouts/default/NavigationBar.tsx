@@ -6,9 +6,10 @@ import MainNavigation from './MainNavigation';
 
 const headerStyle = (theme: Theme) => css`
   display: flex;
-  align-items: center;
+  position: relative;
   justify-content: space-between;
-  height: 7rem;
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
   font-size: 2.2rem;
   background-color: ${theme.colors.primary};
 `;

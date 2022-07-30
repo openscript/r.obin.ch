@@ -1,8 +1,10 @@
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
+import { useDisclosure } from '@mantine/hooks';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
 import { FormattedMessage } from 'react-intl';
 import { MainNavigationQuery } from '../../../graphql-types';
+import { BurgerButton } from '../../components/BurgerButton';
 
 const query = graphql`
   query MainNavigation {
@@ -15,9 +17,10 @@ const query = graphql`
   }
 `;
 
-const navStyle = css`
+const navStyle = (theme: Theme) => css`
   font-size: 1.4rem;
   margin-right: -1.6rem;
+  align-self: center;
 
   ul {
     display: flex;
@@ -67,13 +70,48 @@ const navStyle = css`
       transform: translateX(0);
     }
   }
+
+  @media (max-width: ${theme.breakpoints.compact}) {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    ul {
+      display: none;
+    }
+
+    ul.open {
+      display: block;
+      background-color: ${theme.colors.primary};
+
+      li {
+        padding: 0 2.5rem;
+
+        &:last-of-type {
+          padding-bottom: 2rem;
+        }
+      }
+    }
+  }
+`;
+
+const burgerButtonStyle = (theme: Theme) => css`
+  display: none;
+
+  @media (max-width: ${theme.breakpoints.compact}) {
+    display: block;
+  }
 `;
 
 export default function MainNavigation() {
   const navigation = useStaticQuery<MainNavigationQuery>(query);
+  const [open, { toggle }] = useDisclosure(false);
+
   return (
     <nav css={navStyle}>
-      <ul>
+      <BurgerButton onClick={toggle} isActive={open} css={burgerButtonStyle} />
+      <ul className={open ? 'open' : ''}>
         {navigation.navigationYaml?.main?.map(item => {
           if (item.key && item.path) {
             return (

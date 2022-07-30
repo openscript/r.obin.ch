@@ -4,6 +4,7 @@ export const defaultTheme: Theme = {
   colors: {
     primary: '#6a4a3c',
     secondary: '#eb6841',
+    white: '#ffffff',
     bright: '#eeeeee',
     dark: '#333333',
   },
@@ -13,6 +14,7 @@ export const defaultTheme: Theme = {
     listings: "'IBM Plex Mono', monospace",
   },
   breakpoints: {
+    compact: '800px',
     tiny: '1280px',
     small: '1440px',
     medium: '1600px',

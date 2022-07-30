@@ -1,10 +1,12 @@
-import styled from '@emotion/styled';
+import { css, Theme } from '@emotion/react';
 
-const BurgerButtonBase = styled.div`
+const BurgerButtonStyle = (theme: Theme) => css`
   display: block;
   background: transparent;
   width: 2rem;
+  height: 3.2rem;
   cursor: pointer;
+  border: none;
 
   &:before,
   div,
@@ -12,7 +14,7 @@ const BurgerButtonBase = styled.div`
     content: '';
     display: block;
     height: 4px;
-    background-color: var(--primary-color);
+    background-color: ${theme.colors.bright};
     margin: 4px 0;
     transition: 0.2s;
   }
@@ -20,7 +22,7 @@ const BurgerButtonBase = styled.div`
   &:hover:before,
   &:hover div,
   &:hover:after {
-    background-color: var(--secondary-color);
+    background-color: ${theme.colors.secondary};
   }
 
   &.active:before {
@@ -46,8 +48,8 @@ export function BurgerButton({ className, isActive, onClick }: BurgerButtonProps
   const classNames = `${className} ${isActive ? 'active' : ''}`;
 
   return (
-    <BurgerButtonBase className={classNames} onClick={onClick}>
+    <button type="button" css={BurgerButtonStyle} className={classNames} onClick={onClick}>
       <div />
-    </BurgerButtonBase>
+    </button>
   );
 }
