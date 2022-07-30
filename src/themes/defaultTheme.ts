@@ -14,6 +14,7 @@ export const defaultTheme: Theme = {
     listings: "'IBM Plex Mono', monospace",
   },
   breakpoints: {
+    minimum: '480px',
     compact: '800px',
     tiny: '1280px',
     small: '1440px',

@@ -16,6 +16,7 @@ declare module '@emotion/react' {
       listings: string;
     };
     breakpoints: {
+      minimum: string;
       compact: string;
       tiny: string;
       small: string;

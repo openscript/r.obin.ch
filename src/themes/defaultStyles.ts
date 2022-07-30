@@ -3,6 +3,16 @@ import { css, Theme } from '@emotion/react';
 export const defaultStyles = (theme: Theme) => css`
   html {
     height: 100%;
+    min-width: ${theme.breakpoints.minimum};
+    font-size: 16px;
+
+    @media (max-width: ${theme.breakpoints.compact}) {
+      font-size: 14px;
+    }
+
+    @media (max-width: ${theme.breakpoints.minimum}) {
+      font-size: 12px;
+    }
   }
 
   body,
@@ -10,7 +20,6 @@ export const defaultStyles = (theme: Theme) => css`
   #gatsby-focus-wrapper,
   main {
     margin: 0;
-    font-size: 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
