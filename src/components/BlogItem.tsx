@@ -7,6 +7,11 @@ const blogItemStyles = css`
   margin-bottom: 2rem;
 `;
 
+const metaDataStyles = css`
+  display: flex;
+  margin-bottom: 0.5rem;
+`;
+
 type BlogItemProps = {
   excerpt: string;
   path: string;
@@ -22,8 +27,10 @@ export function BlogItem({ excerpt, path, title, publishedAt, tagList, titleAs: 
       <Link to={path}>
         <Title>{title}</Title>
       </Link>
-      {tagList}
-      <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
+      <div css={metaDataStyles}>
+        <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
+        {tagList}
+      </div>
       {excerpt}
     </div>
   );

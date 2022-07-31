@@ -1,5 +1,17 @@
+import { css } from '@emotion/react';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
 import { CONFIGURATION } from '../configuration';
+
+const tagListStyles = css`
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin-left: 1rem;
+    white-space: nowrap;
+  }
+`;
 
 type TagListProps = {
   locale?: string;
@@ -14,7 +26,7 @@ export function TagList({ locale, tags }: TagListProps) {
     return null;
   }
   return (
-    <ul>
+    <ul css={tagListStyles}>
       {tags?.map(t => (
         <li>
           <LocalizedLink to={`${CONFIGURATION.PATHS.TAG}/${t.slug}`}>{t.title}</LocalizedLink>

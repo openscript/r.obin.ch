@@ -88,6 +88,7 @@ export const defaultStyles = (theme: Theme) => css`
 
   h3 {
     font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
 
   code {
