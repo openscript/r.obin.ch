@@ -94,4 +94,21 @@ export const defaultStyles = (theme: Theme) => css`
   code {
     font-family: ${theme.fonts.listings};
   }
+
+  article {
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      th,
+      td {
+        padding: 0.3rem;
+        border: 1px solid ${theme.colors.primary};
+      }
+
+      tr:hover {
+        background-color: ${theme.colors.bright};
+      }
+    }
+  }
 `;
