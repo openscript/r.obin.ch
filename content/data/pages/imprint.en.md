@@ -9,7 +9,7 @@ The identity of the owner of this website is stated below.
 
 Robin Bühler  
 c/o openscript GmbH  
-Europastrasse 30  
+Europa-Strasse 30  
 8152 Glattbrugg
 
 hi+r@obin.ch  
