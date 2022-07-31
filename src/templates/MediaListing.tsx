@@ -20,7 +20,7 @@ export default function MediaListing({ data }: PageProps<MediaListingPageQuery>)
           }
           return (
             <Link to={media.fields?.path}>
-              <GatsbyImage image={image} alt="joho" />
+              <GatsbyImage image={image} alt={media.frontmatter.title} />
             </Link>
           );
         })}
@@ -49,6 +49,7 @@ export const query = graphql`
               gatsbyImageData(width: 256, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
+          title
         }
       }
     }
