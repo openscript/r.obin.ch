@@ -49,8 +49,9 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
   pre[class*='language-'] {
     margin: 0.5em 0;
     overflow: auto;
-    border: 1px solid #dddddd;
+    border: 1px solid ${theme.colors.primary};
     background-color: white;
+    padding: 0.5rem 0;
   }
 
   /* Inline code */
@@ -156,11 +157,14 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
  * http://prismjs.com/plugins/line-numbers/
  */
   .line-numbers.line-numbers .line-numbers-rows {
-    border-right-color: #a5a5a5;
+    border-right-color: ${theme.colors.primary};
+    padding-left: 0.7rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .line-numbers .line-numbers-rows > span:before {
-    color: #2b91af;
+    color: ${theme.colors.primary};
   }
 
   /* overrides color-values for the Line Highlight plugin
