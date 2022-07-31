@@ -5,7 +5,7 @@ title: Impressum
 
 # Impressum
 
-Unterhalb sind die Angaben zur Identität des Eigentümers zu finden.
+Unterhalb sind die Angaben zur Identität des Eigentümers dieser Webseite zu finden.
 
 Robin Bühler  
 c/o openscript GmbH  
@@ -13,7 +13,7 @@ Europastrasse 30
 8152 Glattbrugg
 
 hi+r@obin.ch  
-+41 44 520 54 67
++41 44 520 06 99
 
 ## Haftungserklärung
 
@@ -27,4 +27,6 @@ Verweise zu Inhalte Dritter liegen ausserhalb des Verantwortungsbereichs. Die Ve
 
 Aufgrund gesetzlicher Vorgaben bin ich in bestimmten Fällen verpflichtet, Ihre personenbezogenen Daten an Dritte weiterzugeben. Dies ist zum Beispiel der Fall, wenn der Verdacht einer Straftat oder des Missbrauchs dieser Webseite vorliegt. Ich werde Ihre Daten nur auf Grund eines richterlichen Beschlusses an die Strafverfolgungsbehörden weitergeben. Falls es jedoch in meinem eigenen Interesse liegt, dass ein Missbrauch aufgeklärt wird, weil die Nutzer oder der Seitenbetreiber selbst zu den Geschädigten gehören, kann auch auf die richterliche Anordnung verzichtet werden.
 
-Jede Anfrage wird vom Webserver protokolliert. In welcher Form dies etwa geschieht, kann hier in Erfahrung gebracht werden. Die einzelnen Seitenzugriffe werden zusätzlich mit Google Analytics mitgeschnitten.
+Der Web-Service-Provider ([Cloudflare, Inc.](https://www.cloudflare.com/)) dieser Website erhebt Daten (Server-Logfiles) über jeden Zugriff auf eine Seite unserer Website. Zu diesen Zugriffsdaten gehören Name der abgerufenen Webseite, Datum und Uhrzeit des Abrufs, Browsertyp/ -version, Betriebssystem, Referrer URL (die zuvor besuchte Seite) und der Hostname des anfragenden Rechners (IP Adresse).
+
+Der Anbieter verwendet diese Protokolldaten nur für statistische Auswertungen zum Zweck des Betriebs, der Sicherheit und der Optimierung des Angebotes.
