@@ -21,10 +21,10 @@ export function BlogItem({ excerpt, path, title, publishedAt, tagList, titleAs: 
     <div css={blogItemStyles}>
       <Link to={path}>
         <Title>{title}</Title>
-        {tagList}
-        <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
-        {excerpt}
       </Link>
+      {tagList}
+      <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
+      {excerpt}
     </div>
   );
 }
