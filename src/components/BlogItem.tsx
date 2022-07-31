@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { Link } from 'gatsby';
+import { ElementType } from 'react';
 import { FormattedDate, FormattedTime } from 'react-intl';
 
 const blogItemStyles = css`
@@ -11,14 +12,15 @@ type BlogItemProps = {
   path: string;
   title: string;
   publishedAt: string;
-  tagList: JSX.Element;
+  tagList?: JSX.Element;
+  titleAs?: ElementType;
 };
 
-export function BlogItem({ excerpt, path, title, publishedAt, tagList }: BlogItemProps) {
+export function BlogItem({ excerpt, path, title, publishedAt, tagList, titleAs: Title = 'h2' }: BlogItemProps) {
   return (
     <div css={blogItemStyles}>
       <Link to={path}>
-        <h2>{title}</h2>
+        <Title>{title}</Title>
         {tagList}
         <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
         {excerpt}

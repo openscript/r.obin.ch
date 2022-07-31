@@ -81,6 +81,10 @@ export const defaultStyles = (theme: Theme) => css`
     margin-top: 2.5rem;
   }
 
+  h3 {
+    font-size: 1.4rem;
+  }
+
   code {
     font-family: ${theme.fonts.listings};
   }

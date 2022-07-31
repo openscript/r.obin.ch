@@ -4680,7 +4680,7 @@ export type IndexPageQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string } };
+export type IndexPageQuery = { __typename?: 'Query', slogans?: { __typename?: 'Mdx', body: string }, recentPosts: { __typename?: 'MdxConnection', nodes: Array<{ __typename?: 'Mdx', excerpt: string, fields?: { __typename?: 'MdxFields', path?: string }, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, publishedAt?: any } }> } };
 
 export type BlogPageQueryVariables = Exact<{
   id: Scalars['String'];

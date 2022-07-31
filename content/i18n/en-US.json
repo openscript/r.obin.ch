@@ -18,6 +18,7 @@
   "navigation.top.openscript": "openscript Ltd.",
   "navigation.top.stackoverflow": "StackOverflow",
   "page.blog.title": "Blog",
+  "page.index.recentBlogs": "Recent blogs",
   "page.medias.title": "Medias",
   "page.projects.title": "Projects",
   "pageInfoText": "{project} (v{version}) created by {author} was updated on {date} at {time}",
