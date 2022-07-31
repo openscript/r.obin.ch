@@ -16,8 +16,8 @@ export function MediaItem({ children, path, title }: ProjectItemProps) {
     <div css={mediaItemStyles}>
       <Link to={path}>
         <h2>{title}</h2>
-        {children}
       </Link>
+      {children}
     </div>
   );
 }

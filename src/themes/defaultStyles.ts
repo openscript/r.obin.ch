@@ -48,6 +48,11 @@ export const defaultStyles = (theme: Theme) => css`
 
   main {
     background-color: ${theme.colors.white};
+
+    a {
+      color: ${theme.colors.primary};
+      text-decoration: none;
+    }
   }
 
   header,
