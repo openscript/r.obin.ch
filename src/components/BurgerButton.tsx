@@ -3,7 +3,7 @@ import { css, Theme } from '@emotion/react';
 const BurgerButtonStyle = (theme: Theme) => css`
   display: block;
   background: transparent;
-  width: 2rem;
+  width: 2.5rem;
   height: 3.2rem;
   cursor: pointer;
   border: none;
