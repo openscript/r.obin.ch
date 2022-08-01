@@ -52,8 +52,7 @@ jobs:
         run: yarn build:with-prefix
         continue-on-error: true
         env:
-          PATH_PREFIX: '/r.obin.ch'
-          SITE_URL: 'https://openscript.github.io/r.obin.ch'
+          SITE_URL: 'https://r.obin.ch'
           CI: true
 
       - name: Clean Gatsby cache
@@ -64,7 +63,7 @@ jobs:
       - name: Build website with clean cache
         id: build-website-without-cache
         if: steps.clean-cache.outcome == 'success'
-        run: yarn build
+        run: yarn build:with-prefix
         env:
           SITE_URL: 'https://r.obin.ch'
           CI: true
