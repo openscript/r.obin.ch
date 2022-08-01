@@ -41,7 +41,9 @@ export function TableOfContents({ displayRootItem = false, items }: TableOfConte
 
   return (
     <nav>
-      <FormattedMessage id="component.tableOfContents.title" />
+      <div className="component-title">
+        <FormattedMessage id="component.tableOfContents.title" />
+      </div>
       <TableOfContentsItem items={preparedItems} />
     </nav>
   );
