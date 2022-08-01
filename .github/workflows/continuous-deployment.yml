@@ -64,9 +64,8 @@ jobs:
       - name: Build website with clean cache
         id: build-website-without-cache
         if: steps.clean-cache.outcome == 'success'
-        run: yarn build:with-prefix
+        run: yarn build
         env:
-          PATH_PREFIX: ''
           SITE_URL: 'https://r.obin.ch'
           CI: true
 
