@@ -1,4 +1,5 @@
 {
+  "component.tableOfContents.title": "Inhaltsverzeichnis",
   "defaultSubtitle": "Über meine Abenteuer mit Bits und Bytes",
   "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
   "language": "Deutsch",
@@ -22,10 +23,10 @@
   "page.medias.title": "Medien",
   "page.projects.title": "Projekte",
   "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
-  "pages.imprint.title": "Impressum",
-  "pages.notFound.content": "Anscheinend existiert die angeforderte Website nicht.",
-  "pages.notFound.title": "Seite nicht gefunden",
-  "pages.person.title": "Person",
+  "page.imprint.title": "Impressum",
+  "page.notFound.content": "Anscheinend existiert die angeforderte Website nicht.",
+  "page.notFound.title": "Seite nicht gefunden",
+  "page.person.title": "Person",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }

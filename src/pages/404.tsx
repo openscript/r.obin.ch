@@ -5,11 +5,11 @@ export default function NotFound() {
   const intl = useIntl();
 
   return (
-    <DefaultLayout subtitle={intl.formatMessage({ id: 'pages.notFound.title' })}>
+    <DefaultLayout subtitle={intl.formatMessage({ id: 'page.notFound.title' })}>
       <h1>
-        <FormattedMessage id="pages.notFound.title" />
+        <FormattedMessage id="page.notFound.title" />
       </h1>
-      <FormattedMessage id="pages.notFound.content" />
+      <FormattedMessage id="page.notFound.content" />
     </DefaultLayout>
   );
 }

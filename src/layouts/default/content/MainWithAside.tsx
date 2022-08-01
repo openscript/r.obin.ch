@@ -6,14 +6,14 @@ const mainWithAsideStyle = (theme: Theme) => css`
   display: flex;
   flex-direction: row-reverse;
 
-  @media (max-width: ${theme.breakpoints.tiny}) {
+  @media (max-width: ${theme.breakpoints.compact}) {
     flex-direction: column;
   }
 
   article {
     width: calc(100% - 15rem);
 
-    @media (max-width: ${theme.breakpoints.tiny}) {
+    @media (max-width: ${theme.breakpoints.compact}) {
       width: auto;
     }
   }
@@ -22,10 +22,12 @@ const mainWithAsideStyle = (theme: Theme) => css`
     min-width: 15rem;
     width: 15rem;
     padding-top: 3.2rem;
+    padding-left: 1rem;
 
-    @media (max-width: ${theme.breakpoints.tiny}) {
+    @media (max-width: ${theme.breakpoints.compact}) {
       width: auto;
       padding-top: 0;
+      padding-left: 0;
     }
 
     nav {
