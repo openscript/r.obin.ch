@@ -11,3 +11,34 @@ Es macht mir Spass mit Arbeitskollegen zusammenzuarbeiten, um gemeinsam Projekte
 Abseits von Bits und Bytes bin ich auch sehr gerne draussen unterwegs, ob zu Fuss oder mit dem Fahrrad. Grössere Distanzen versuche ich mit dem Zug zu überbrücken. Als Ausgleich zum Alltag gehe ich gerne laufen oder unternehme Abenteuer mit Rucksack und Hängematte. Unseren kostbaren Planet versuche ich möglichst ökologisch zu entdecken. Meistens geniesse ich spontane Begegnungen mit anderen Menschen sehr.
 
 Problem sehe ich als Herausforderung und ich mag es diese schnell anzugehen. Es ist ein Spass für mich möglichst elegante und kreative Lösungen zu ertüfteln und die Probleme in kleine handhabbare Stücke herunterzubrechen.
+
+## Über konstruktive Gespräche freue ich mich. Nimm mit mir Kontakt auf!
+
+Möchtest du dich über eine Projektidee von dir unterhalten? Du hast Fragen, eine Anregung oder sonst Etwas zu den Inhalten dieser Webseite, worüber du dich austauschen möchtest? Zögere nicht eine der folgenden Möglichkeiten zu nutzen, um mit mir in Kontakt zu treten:
+
+<dl>
+  <dt>
+    E-Mail
+  </dt>
+  <dd>
+    <a href="mailto:hi+r@obin.ch">hi+r@obin.ch</a>
+  </dd>
+  <dt>
+    Telefon
+  </dt>
+  <dd>
+    <a href="tel:+41445200699">+41 44 520 06 99</a>
+  </dd>
+  <dt>
+    Telegram
+  </dt>
+  <dd>
+    <a href="https://t.me/openscript">openscript</a>
+  </dd>
+  <dt>
+    Threema
+  </dt>
+  <dd>
+    <a href="https://threema.id/3VXYDKTH">3VXYDKTH</a>
+  </dd>
+</dl>

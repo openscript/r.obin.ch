@@ -12,8 +12,8 @@ c/o openscript GmbH
 Europa-Strasse 30  
 8152 Glattbrugg
 
-hi+r@obin.ch  
-+41 44 520 06 99
+<a href="mailto:hi+r@obin.ch">hi+r@obin.ch</a><br />
+<a href="tel:+41445200699">+41 44 520 06 99</a>
 
 ## Haftungserklärung
 
