@@ -1,5 +1,82 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.content.publicFolder": "static",
-  "frontMatter.framework.id": "gatsby"
+  "frontMatter.framework.id": "gatsby",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "publishedAt",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Modification date",
+          "name": "modifiedAt",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ],
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/content/data/blog"
+    }
+  ],
+  "frontMatter.taxonomy.tags": [
+    "ArchLinux",
+    "Authentication and Authorization",
+    "Game Streaming",
+    "Home Assistant",
+    "Home Automation",
+    "Linux",
+    "Local Area Network",
+    "Nvidia Shield",
+    "OpenWRT",
+    "Projects",
+    "React",
+    "React Router",
+    "Remote Desktop",
+    "Remote Gaming",
+    "Router",
+    "Sonoff Zigbee Bridge",
+    "Tasmota",
+    "Web technologies",
+    "Wireless LAN",
+    "Zigbee"
+  ],
+  "frontMatter.taxonomy.categories": []
 }
