@@ -21,7 +21,10 @@ export default function BlogTag({ data }: PageProps<TagPageQuery>) {
 export const query = graphql`
   query TagPage($tag: String!, $locale: String!, $limit: Int!, $skip: Int!) {
     posts: allMdx(
-      filter: { fields: { kind: { glob: "blog/**" }, locale: { eq: $locale }, tags: { elemMatch: { slug: { glob: $tag } } } } }
+      filter: {
+        fields: { kind: { glob: "blog/**" }, locale: { eq: $locale }, tags: { elemMatch: { slug: { glob: $tag } } } }
+        frontmatter: { draft: { ne: true } }
+      }
       sort: { fields: frontmatter___publishedAt, order: DESC }
       limit: $limit
       skip: $skip

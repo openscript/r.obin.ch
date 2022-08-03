@@ -36,7 +36,7 @@ export default function BlogListing({ data, pageContext }: PageProps<BlogListing
 export const query = graphql`
   query BlogListingPage($locale: String!, $limit: Int!, $skip: Int!) {
     posts: allMdx(
-      filter: { fields: { kind: { glob: "blog/**" }, locale: { eq: $locale } } }
+      filter: { fields: { kind: { glob: "blog/**" }, locale: { eq: $locale } }, frontmatter: { draft: { ne: true } } }
       sort: { fields: frontmatter___publishedAt, order: DESC }
       limit: $limit
       skip: $skip

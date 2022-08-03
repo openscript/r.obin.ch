@@ -31,7 +31,7 @@ export const query = graphql`
       body
     }
     recentPosts: allMdx(
-      filter: { fields: { locale: { eq: $locale }, kind: { glob: "blog/**" } } }
+      filter: { fields: { locale: { eq: $locale }, kind: { glob: "blog/**" } }, frontmatter: { draft: { ne: true } } }
       limit: 5
       sort: { fields: frontmatter___publishedAt, order: DESC }
     ) {

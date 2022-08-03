@@ -703,6 +703,7 @@ export enum FileFieldsEnum {
   ChildMdxFieldsTranslationsLocale = 'childMdx___fields___translations___locale',
   ChildMdxFieldsTranslationsPath = 'childMdx___fields___translations___path',
   ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
+  ChildMdxFrontmatterDraft = 'childMdx___frontmatter___draft',
   ChildMdxFrontmatterFeaturedAbsolutePath = 'childMdx___frontmatter___featured___absolutePath',
   ChildMdxFrontmatterFeaturedAccessTime = 'childMdx___frontmatter___featured___accessTime',
   ChildMdxFrontmatterFeaturedAtime = 'childMdx___frontmatter___featured___atime',
@@ -742,6 +743,7 @@ export enum FileFieldsEnum {
   ChildMdxFrontmatterFeaturedSize = 'childMdx___frontmatter___featured___size',
   ChildMdxFrontmatterFeaturedSourceInstanceName = 'childMdx___frontmatter___featured___sourceInstanceName',
   ChildMdxFrontmatterFeaturedUid = 'childMdx___frontmatter___featured___uid',
+  ChildMdxFrontmatterModifiedAt = 'childMdx___frontmatter___modifiedAt',
   ChildMdxFrontmatterPhotoAbsolutePath = 'childMdx___frontmatter___photo___absolutePath',
   ChildMdxFrontmatterPhotoAccessTime = 'childMdx___frontmatter___photo___accessTime',
   ChildMdxFrontmatterPhotoAtime = 'childMdx___frontmatter___photo___atime',
@@ -1043,6 +1045,7 @@ export enum FileFieldsEnum {
   ChildrenMdxFieldsTranslationsLocale = 'childrenMdx___fields___translations___locale',
   ChildrenMdxFieldsTranslationsPath = 'childrenMdx___fields___translations___path',
   ChildrenMdxFileAbsolutePath = 'childrenMdx___fileAbsolutePath',
+  ChildrenMdxFrontmatterDraft = 'childrenMdx___frontmatter___draft',
   ChildrenMdxFrontmatterFeaturedAbsolutePath = 'childrenMdx___frontmatter___featured___absolutePath',
   ChildrenMdxFrontmatterFeaturedAccessTime = 'childrenMdx___frontmatter___featured___accessTime',
   ChildrenMdxFrontmatterFeaturedAtime = 'childrenMdx___frontmatter___featured___atime',
@@ -1082,6 +1085,7 @@ export enum FileFieldsEnum {
   ChildrenMdxFrontmatterFeaturedSize = 'childrenMdx___frontmatter___featured___size',
   ChildrenMdxFrontmatterFeaturedSourceInstanceName = 'childrenMdx___frontmatter___featured___sourceInstanceName',
   ChildrenMdxFrontmatterFeaturedUid = 'childrenMdx___frontmatter___featured___uid',
+  ChildrenMdxFrontmatterModifiedAt = 'childrenMdx___frontmatter___modifiedAt',
   ChildrenMdxFrontmatterPhotoAbsolutePath = 'childrenMdx___frontmatter___photo___absolutePath',
   ChildrenMdxFrontmatterPhotoAccessTime = 'childrenMdx___frontmatter___photo___accessTime',
   ChildrenMdxFrontmatterPhotoAtime = 'childrenMdx___frontmatter___photo___atime',
@@ -2204,6 +2208,7 @@ export enum MdxFieldsEnum {
   FieldsTranslationsLocale = 'fields___translations___locale',
   FieldsTranslationsPath = 'fields___translations___path',
   FileAbsolutePath = 'fileAbsolutePath',
+  FrontmatterDraft = 'frontmatter___draft',
   FrontmatterFeaturedAbsolutePath = 'frontmatter___featured___absolutePath',
   FrontmatterFeaturedAccessTime = 'frontmatter___featured___accessTime',
   FrontmatterFeaturedAtime = 'frontmatter___featured___atime',
@@ -2303,6 +2308,7 @@ export enum MdxFieldsEnum {
   FrontmatterFeaturedSize = 'frontmatter___featured___size',
   FrontmatterFeaturedSourceInstanceName = 'frontmatter___featured___sourceInstanceName',
   FrontmatterFeaturedUid = 'frontmatter___featured___uid',
+  FrontmatterModifiedAt = 'frontmatter___modifiedAt',
   FrontmatterPhotoAbsolutePath = 'frontmatter___photo___absolutePath',
   FrontmatterPhotoAccessTime = 'frontmatter___photo___accessTime',
   FrontmatterPhotoAtime = 'frontmatter___photo___atime',
@@ -2538,12 +2544,22 @@ export type MdxFilterListInput = {
 
 export type MdxFrontmatter = {
   __typename?: 'MdxFrontmatter';
+  draft?: Maybe<Scalars['Boolean']>;
   featured?: Maybe<File>;
+  modifiedAt?: Maybe<Scalars['Date']>;
   photo?: Maybe<File>;
   publishedAt?: Maybe<Scalars['Date']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   template?: Maybe<Scalars['String']>;
   title: Scalars['String'];
+};
+
+
+export type MdxFrontmatterModifiedAtArgs = {
+  difference?: InputMaybe<Scalars['String']>;
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -2555,7 +2571,9 @@ export type MdxFrontmatterPublishedAtArgs = {
 };
 
 export type MdxFrontmatterFilterInput = {
+  draft?: InputMaybe<BooleanQueryOperatorInput>;
   featured?: InputMaybe<FileFilterInput>;
+  modifiedAt?: InputMaybe<DateQueryOperatorInput>;
   photo?: InputMaybe<FileFilterInput>;
   publishedAt?: InputMaybe<DateQueryOperatorInput>;
   tags?: InputMaybe<StringQueryOperatorInput>;
