@@ -6,8 +6,9 @@ tags:
   - RaspBee 2
   - Zigbee
   - Home Assistant
-modifiedAt: 2022-08-03T12:58:18.684Z
+modifiedAt: 2022-08-03T13:18:42.333Z
 draft: false
+featured: raspberry-pi-4-with-raspbee-2.jpg
 ---
 
 With the [RaspBee II](https://phoscon.de/en/raspbee2) you get a complete and robust Zigbee Gateway. It can be easily mounted on normally sized Raspberry Pis and is featuring a Real Time Clock (RTC), which becomes really important, when the host is not connected to the Internet at all times.
