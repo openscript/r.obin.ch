@@ -52,7 +52,6 @@
   ],
   "frontMatter.content.pageFolders": [
     {
-      "title": "blog",
       "path": "[[workspace]]/content/data/blog"
     }
   ],
