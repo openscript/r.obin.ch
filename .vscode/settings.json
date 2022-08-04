@@ -8,5 +8,7 @@
   "i18n-ally.displayLanguage": "en-US",
   "cSpell.words": ["frontmatter"],
   "frontMatter.content.autoUpdateDate": true,
-  "[markdown]": {}
+  "[markdown]": {},
+  "frontMatter.framework.startCommand": "yarn start",
+  "frontMatter.preview.host": "http://localhost:8000"
 }
