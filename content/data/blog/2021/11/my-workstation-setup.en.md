@@ -1,6 +1,6 @@
 ---
 title: My workstation setup
-publishedAt: '2021-11-13T09:56:50.506Z'
+publishedAt: 2021-11-13T09:56:50.506Z
 tags:
   - ArchLinux
 featured: workstation.jpeg

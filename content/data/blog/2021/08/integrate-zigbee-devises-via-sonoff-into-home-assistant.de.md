@@ -1,6 +1,6 @@
 ---
 title: Zigbee Geräte via Sonoff in Home Assistant integrieren
-publishedAt: '2021-08-14T20:53:58.826Z'
+publishedAt: 2021-08-14T20:53:58.826Z
 tags:
   - Home Automation
   - Tasmota

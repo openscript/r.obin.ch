@@ -1,6 +1,6 @@
 ---
 title: Private und geschützte Routen mit React Router
-publishedAt: 2021-03-18 17:19:11 +1
+publishedAt: 2021-03-18T16:19:11.000Z
 tags:
   - React
   - React Router
