@@ -27,6 +27,10 @@ const navStyle = css`
   overflow-x: scroll;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) calc(100% - 2rem), transparent);
 
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
   ul {
     display: flex;
     list-style: none;
