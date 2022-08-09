@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 
 export function ShareButton() {
-  if (navigator && 'share' in navigator === false) {
+  if (!navigator && 'share' in navigator === false) {
     return null;
   }
 
