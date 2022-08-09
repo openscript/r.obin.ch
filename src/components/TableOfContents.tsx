@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import { FormattedMessage } from 'react-intl';
 import { TableOfContents as TableOfContentsType, TableOfContentsItem as TableOfContentsItemType } from '../types';
 
 type TableOfContentsItemProps = {
@@ -41,9 +40,6 @@ export function TableOfContents({ displayRootItem = false, items }: TableOfConte
 
   return (
     <nav>
-      <div className="component-title">
-        <FormattedMessage id="component.tableOfContents.title" />
-      </div>
       <TableOfContentsItem items={preparedItems} />
     </nav>
   );

@@ -31,11 +31,6 @@ const mainWithAsideStyle = (theme: Theme) => css`
       margin-bottom: 2rem;
     }
 
-    .component-title {
-      border-bottom: 1px solid ${theme.colors.primary};
-      margin-bottom: 1rem;
-    }
-
     nav {
       ul {
         margin: 0;

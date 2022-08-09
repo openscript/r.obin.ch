@@ -1,6 +1,8 @@
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { FormattedMessage } from 'react-intl';
 import { BlogPageQuery } from '../../graphql-types';
+import { AsideHeading } from '../components/AsideHeading';
 import { Comments } from '../components/Comments';
 import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
@@ -10,6 +12,9 @@ export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
       <aside>
+        <AsideHeading>
+          <FormattedMessage id="component.tableOfContents.title" />
+        </AsideHeading>
         <TableOfContents items={data.mdx?.tableOfContents} />
       </aside>
       <article>
@@ -29,6 +34,11 @@ export const query = graphql`
       tableOfContents
       frontmatter {
         title
+      }
+      parent {
+        ... on File {
+          relativePath
+        }
       }
     }
   }
