@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 
 export function ShareButton() {
-  if (!window?.navigator || 'share' in window.navigator === false) {
+  if (typeof window === 'undefined' || !window.navigator || 'share' in window.navigator === false) {
     return null;
   }
 
