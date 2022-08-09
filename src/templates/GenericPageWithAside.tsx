@@ -10,15 +10,15 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 export default function GenericPageWithAside({ data }: PageProps<GenericPageWithAsideQuery>) {
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
+      <article>
+        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+      </article>
       <aside>
         <AsideHeading>
           <FormattedMessage id="component.tableOfContents.title" />
         </AsideHeading>
         <TableOfContents items={data.mdx?.tableOfContents} />
       </aside>
-      <article>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
-      </article>
     </DefaultLayout>
   );
 }

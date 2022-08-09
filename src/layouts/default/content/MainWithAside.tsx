@@ -4,10 +4,10 @@ import { Main } from './Main';
 
 const mainWithAsideStyle = (theme: Theme) => css`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 
   @media (max-width: ${theme.breakpoints.compact}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   article {

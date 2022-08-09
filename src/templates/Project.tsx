@@ -10,16 +10,16 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 export default function Project({ data }: PageProps<ProjectPageQuery>) {
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
+      <article>
+        <h1>{data.mdx?.frontmatter?.title}</h1>
+        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+      </article>
       <aside>
         <AsideHeading>
           <FormattedMessage id="component.tableOfContents.title" />
         </AsideHeading>
         <TableOfContents items={data.mdx?.tableOfContents} />
       </aside>
-      <article>
-        <h1>{data.mdx?.frontmatter?.title}</h1>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
-      </article>
     </DefaultLayout>
   );
 }

@@ -11,17 +11,20 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
   return (
     <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
-      <aside>
-        <AsideHeading>
-          <FormattedMessage id="component.tableOfContents.title" />
-        </AsideHeading>
-        <TableOfContents items={data.mdx?.tableOfContents} />
-      </aside>
       <article>
         <h1>{data.mdx?.frontmatter?.title}</h1>
         <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
         <Comments location={location.pathname} />
       </article>
+      <aside>
+        <AsideHeading>
+          <FormattedMessage id="component.tableOfContents.title" />
+        </AsideHeading>
+        <TableOfContents items={data.mdx?.tableOfContents} />
+        <AsideHeading>
+          <FormattedMessage id="component.tableOfContents.title" />
+        </AsideHeading>
+      </aside>
     </DefaultLayout>
   );
 }
