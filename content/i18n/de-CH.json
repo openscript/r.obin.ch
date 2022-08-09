@@ -1,5 +1,7 @@
 {
-  "component.tableOfContents.title": "Inhaltsverzeichnis",
+  "aside.actions": "Aktionen",
+  "aside.tableOfContents": "Inhaltsverzeichnis",
+  "components.shareButton.share": "Teilen",
   "defaultSubtitle": "Über meine Abenteuer mit Bits und Bytes",
   "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
   "language": "Deutsch",
@@ -19,14 +21,14 @@
   "navigation.top.openscript": "openscript GmbH",
   "navigation.top.stackoverflow": "StackOverflow",
   "page.blog.title": "Blog",
+  "page.imprint.title": "Impressum",
   "page.index.recentBlogs": "Letzte Blogs",
   "page.medias.title": "Medien",
-  "page.projects.title": "Projekte",
-  "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
-  "page.imprint.title": "Impressum",
   "page.notFound.content": "Anscheinend existiert die angeforderte Website nicht.",
   "page.notFound.title": "Seite nicht gefunden",
   "page.person.title": "Person",
+  "page.projects.title": "Projekte",
+  "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }

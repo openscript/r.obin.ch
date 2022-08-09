@@ -29,7 +29,7 @@ type TableOfContentsProps = {
 
 const DefaultHeading = (
   <AsideHeading>
-    <FormattedMessage id="component.tableOfContents.title" />
+    <FormattedMessage id="aside.tableOfContents" />
   </AsideHeading>
 );
 export function TableOfContents({ displayRootItem = false, heading = DefaultHeading, items }: TableOfContentsProps) {

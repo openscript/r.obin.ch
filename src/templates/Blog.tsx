@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { BlogPageQuery } from '../../graphql-types';
 import { AsideHeading } from '../components/AsideHeading';
 import { Comments } from '../components/Comments';
+import { ShareButton } from '../components/ShareButton';
 import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
@@ -19,8 +20,9 @@ export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
       <aside>
         {data.mdx?.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx?.tableOfContents} />}
         <AsideHeading>
-          <FormattedMessage id="component.tableOfContents.title" />
+          <FormattedMessage id="aside.actions" />
         </AsideHeading>
+        <ShareButton />
       </aside>
     </DefaultLayout>
   );

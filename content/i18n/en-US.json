@@ -1,5 +1,7 @@
 {
-  "component.tableOfContents.title": "Table of contents",
+  "aside.actions": "Actions",
+  "aside.tableOfContents": "Table of contents",
+  "components.shareButton.share": "Share",
   "defaultSubtitle": "About my adventures with bits and bytes",
   "description": "On this website I collect interesting findings from my adventures in the world of bits and bytes and I share sometimes also things from the analogue reality.",
   "language": "English",
@@ -19,14 +21,14 @@
   "navigation.top.openscript": "openscript Ltd.",
   "navigation.top.stackoverflow": "StackOverflow",
   "page.blog.title": "Blog",
+  "page.imprint.title": "Imprint",
   "page.index.recentBlogs": "Recent blogs",
   "page.medias.title": "Medias",
-  "page.projects.title": "Projects",
-  "pageInfoText": "{project} (v{version}) created by {author} was updated on {date} at {time}",
-  "page.imprint.title": "Imprint",
   "page.notFound.content": "It seems like the requested website doesn't exists.",
   "page.notFound.title": "Page not found",
   "page.person.title": "Person",
+  "page.projects.title": "Projects",
+  "pageInfoText": "{project} (v{version}) created by {author} was updated on {date} at {time}",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }
