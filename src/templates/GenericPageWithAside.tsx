@@ -1,8 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { FormattedMessage } from 'react-intl';
 import { GenericPageWithAsideQuery } from '../../graphql-types';
-import { AsideHeading } from '../components/AsideHeading';
 import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
@@ -13,12 +11,7 @@ export default function GenericPageWithAside({ data }: PageProps<GenericPageWith
       <article>
         <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
       </article>
-      <aside>
-        <AsideHeading>
-          <FormattedMessage id="component.tableOfContents.title" />
-        </AsideHeading>
-        <TableOfContents items={data.mdx?.tableOfContents} />
-      </aside>
+      <aside>{data.mdx?.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx?.tableOfContents} />}</aside>
     </DefaultLayout>
   );
 }

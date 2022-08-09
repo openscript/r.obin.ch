@@ -17,10 +17,7 @@ export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
         <Comments location={location.pathname} />
       </article>
       <aside>
-        <AsideHeading>
-          <FormattedMessage id="component.tableOfContents.title" />
-        </AsideHeading>
-        <TableOfContents items={data.mdx?.tableOfContents} />
+        {data.mdx?.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx?.tableOfContents} />}
         <AsideHeading>
           <FormattedMessage id="component.tableOfContents.title" />
         </AsideHeading>

@@ -1,5 +1,8 @@
 import { Link } from 'gatsby';
+import { Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { TableOfContents as TableOfContentsType, TableOfContentsItem as TableOfContentsItemType } from '../types';
+import { AsideHeading } from './AsideHeading';
 
 type TableOfContentsItemProps = {
   items: TableOfContentsItemType[];
@@ -20,10 +23,16 @@ function TableOfContentsItem({ items }: TableOfContentsItemProps) {
 
 type TableOfContentsProps = {
   displayRootItem?: boolean;
+  heading?: JSX.Element;
   items: TableOfContentsType;
 };
 
-export function TableOfContents({ displayRootItem = false, items }: TableOfContentsProps) {
+const DefaultHeading = (
+  <AsideHeading>
+    <FormattedMessage id="component.tableOfContents.title" />
+  </AsideHeading>
+);
+export function TableOfContents({ displayRootItem = false, heading = DefaultHeading, items }: TableOfContentsProps) {
   if (!items.items) {
     return null;
   }
@@ -39,8 +48,11 @@ export function TableOfContents({ displayRootItem = false, items }: TableOfConte
   }
 
   return (
-    <nav>
-      <TableOfContentsItem items={preparedItems} />
-    </nav>
+    <Fragment>
+      {heading}
+      <nav>
+        <TableOfContentsItem items={preparedItems} />
+      </nav>
+    </Fragment>
   );
 }
