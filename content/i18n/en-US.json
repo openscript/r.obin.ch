@@ -1,5 +1,6 @@
 {
   "aside.actions": "Actions",
+  "aside.actions.edit": "Edit",
   "aside.tableOfContents": "Table of contents",
   "components.shareButton.share": "Share",
   "defaultSubtitle": "About my adventures with bits and bytes",

@@ -10,7 +10,7 @@ export const CONFIGURATION = {
   },
   REMOTE_PATHS: {
     VCS: 'https://github.com/openscript/r.obin.ch',
-    EDIT_IN_VCS: 'https://github.com/openscript/r.obin.ch/edit/master',
+    EDIT_IN_VCS: 'https://github.com/openscript/r.obin.ch/edit/master/',
   },
   SOURCES: {
     LOCAL_DATA: 'content/data',
