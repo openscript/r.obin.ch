@@ -111,4 +111,15 @@ export const defaultStyles = (theme: Theme) => css`
       }
     }
   }
+
+  button,
+  .button {
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.bright};
+    padding: 0.4rem;
+
+    &:hover {
+      color: ${theme.colors.secondary};
+    }
+  }
 `;
