@@ -4705,7 +4705,7 @@ export type BlogPageQueryVariables = Exact<{
 }>;
 
 
-export type BlogPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string }, parent?: { __typename?: 'Directory' } | { __typename?: 'File', relativePath: string } | { __typename?: 'ImageSharp' } | { __typename?: 'Mdx' } | { __typename?: 'NavigationYaml' } | { __typename?: 'Site' } | { __typename?: 'SiteBuildMetadata' } | { __typename?: 'SiteFunction' } | { __typename?: 'SitePage' } | { __typename?: 'SitePlugin' } } };
+export type BlogPageQuery = { __typename?: 'Query', mdx?: { __typename?: 'Mdx', id: string, body: string, tableOfContents?: any, frontmatter?: { __typename?: 'MdxFrontmatter', title: string, featured?: { __typename?: 'File', childImageSharp?: { __typename?: 'ImageSharp', gatsbyImageData: any } } }, parent?: { __typename?: 'Directory' } | { __typename?: 'File', relativePath: string } | { __typename?: 'ImageSharp' } | { __typename?: 'Mdx' } | { __typename?: 'NavigationYaml' } | { __typename?: 'Site' } | { __typename?: 'SiteBuildMetadata' } | { __typename?: 'SiteFunction' } | { __typename?: 'SitePage' } | { __typename?: 'SitePlugin' } } };
 
 export type BlogListingPageQueryVariables = Exact<{
   locale: Scalars['String'];

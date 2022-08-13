@@ -1,6 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FormattedMessage } from 'react-intl';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { BlogPageQuery } from '../../graphql-types';
 import { AsideHeading } from '../components/AsideHeading';
 import { Comments } from '../components/Comments';
@@ -15,15 +16,22 @@ export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
   const relativePath =
     data.mdx?.parent && 'relativePath' in data.mdx.parent ? `${CONFIGURATION.SOURCES.LOCAL_DATA}/${data.mdx?.parent.relativePath}` : undefined;
 
+  const featured = getImage(data.mdx?.frontmatter?.featured?.childImageSharp?.gatsbyImageData);
+
+  if (!data.mdx?.frontmatter?.title) {
+    return null;
+  }
+
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
+    <DefaultLayout subtitle={data.mdx.frontmatter?.title} contentWrapper={MainWithAside}>
       <article>
-        <h1>{data.mdx?.frontmatter?.title}</h1>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+        <h1>{data.mdx.frontmatter?.title}</h1>
+        {featured && <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />}
+        <MDXRenderer>{data.mdx.body || ''}</MDXRenderer>
         <Comments location={location.pathname} />
       </article>
       <aside>
-        {data.mdx?.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx?.tableOfContents} />}
+        {data.mdx.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx.tableOfContents} />}
         <AsideHeading>
           <FormattedMessage id="aside.actions" />
         </AsideHeading>
@@ -45,6 +53,11 @@ export const query = graphql`
       body
       tableOfContents
       frontmatter {
+        featured {
+          childImageSharp {
+            gatsbyImageData(width: 1200, height: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
         title
       }
       parent {
