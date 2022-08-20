@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-blog-listing-tsx","path":"/blog/1","result":{"data":{"posts":{"nodes":[]}},"pageContext":{"limit":10,"skip":10,"pageCount":2,"currentPage":2,"locale":"en-US","basePath":"/blog/1","prefix":"en","translations":[{"locale":"de-CH","path":"/de/blog/1"}]}},"staticQueryHashes":["2083260541","3642656089","3836639380","4050711061"]}
