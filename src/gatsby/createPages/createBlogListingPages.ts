@@ -8,7 +8,7 @@ export async function createBlogListingPages({ graphql, actions }: CreatePagesAr
 
   const result = await graphql<CreateBlogListingPagesQuery>(`
     query CreateBlogListingPages {
-      allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
+      allMdx(filter: { fields: { kind: { glob: "blog/**" } }, frontmatter: { draft: { eq: false } } }) {
         nodes {
           fields {
             locale
