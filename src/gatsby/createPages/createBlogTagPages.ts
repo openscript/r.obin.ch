@@ -1,14 +1,13 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateBlogTagPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
 export async function createBlogTagPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
-  const result = await graphql<CreateBlogTagPagesQuery>(`
+  const result = await graphql<Queries.CreateBlogTagPagesQuery>(`
     query CreateBlogTagPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } } }) {
-        group(field: fields___tags___slug) {
+        group(field: { fields: { tags: { slug: SELECT } } }) {
           tag: fieldValue
           nodes {
             fields {

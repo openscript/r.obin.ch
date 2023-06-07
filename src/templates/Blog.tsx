@@ -1,8 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FormattedMessage } from 'react-intl';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { BlogPageQuery } from '../../graphql-types';
 import { AsideHeading } from '../components/AsideHeading';
 import { Comments } from '../components/Comments';
 import { AnchorButton } from '../components/AnchorButton';
@@ -12,11 +10,11 @@ import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { CONFIGURATION } from '../configuration';
 
-export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
+export default function Blog({ data, location, children }: PageProps<Queries.BlogPageQuery>) {
   const relativePath =
     data.mdx?.parent && 'relativePath' in data.mdx.parent ? `${CONFIGURATION.SOURCES.LOCAL_DATA}/${data.mdx?.parent.relativePath}` : undefined;
 
-  const featured = getImage(data.mdx?.frontmatter?.featured?.childImageSharp?.gatsbyImageData);
+  const featured = getImage(data.mdx?.frontmatter?.featured?.childImageSharp?.gatsbyImageData || null);
 
   if (!data.mdx?.frontmatter?.title) {
     return null;
@@ -27,11 +25,11 @@ export default function Blog({ data, location }: PageProps<BlogPageQuery>) {
       <article>
         <h1>{data.mdx.frontmatter?.title}</h1>
         {featured && <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />}
-        <MDXRenderer>{data.mdx.body || ''}</MDXRenderer>
+        {children}
         <Comments location={location.pathname} />
       </article>
       <aside>
-        {data.mdx.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx.tableOfContents} />}
+        <TableOfContents items={data.mdx.tableOfContents || undefined} />
         <AsideHeading>
           <FormattedMessage id="aside.actions" />
         </AsideHeading>
@@ -50,7 +48,6 @@ export const query = graphql`
   query BlogPage($id: String!) {
     mdx(id: { eq: $id }) {
       id
-      body
       tableOfContents
       frontmatter {
         featured {

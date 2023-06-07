@@ -20,8 +20,5 @@
         "GraphQL.vscode-graphql"
       ]
     }
-  },
-  "forwardPorts": [
-    8000
-  ]
+  }
 }

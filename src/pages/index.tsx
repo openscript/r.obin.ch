@@ -1,9 +1,8 @@
 import { css, Theme } from '@emotion/react';
 import { graphql, PageProps } from 'gatsby';
+import { Markup } from 'interweave';
 import { getImage } from 'gatsby-plugin-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FormattedMessage } from 'react-intl';
-import { IndexPageQuery, SitePageContext } from '../../graphql-types';
 import { BlogItem } from '../components/BlogItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
@@ -25,10 +24,10 @@ const recentBlogSectionStyles = (theme: Theme) => css`
   }
 `;
 
-export default function IndexPage({ data }: PageProps<IndexPageQuery, SitePageContext>) {
+export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery, Queries.SitePageContext>) {
   return (
     <DefaultLayout>
-      <MDXRenderer>{data.slogans?.body || ''}</MDXRenderer>
+      <Markup content={data.slogans?.html} />
       <section css={recentBlogSectionStyles}>
         <h2>
           <FormattedMessage id="page.index.recentBlogs" />
@@ -38,15 +37,15 @@ export default function IndexPage({ data }: PageProps<IndexPageQuery, SitePageCo
             return null;
           }
 
-          const featured = getImage(p.frontmatter.featured?.childImageSharp?.gatsbyImageData);
+          const featured = getImage(p.frontmatter.featured?.childImageSharp?.gatsbyImageData || null);
 
           return (
             <BlogItem
               key={p.fields.path}
-              excerpt={p.excerpt}
+              excerpt={p.excerpt || ''}
               path={p.fields?.path}
-              publishedAt={p.frontmatter?.publishedAt}
-              title={p.frontmatter?.title}
+              publishedAt={p.frontmatter?.publishedAt || ''}
+              title={p.frontmatter?.title || ''}
               featured={featured}
               titleAs="h3"
             />
@@ -59,13 +58,13 @@ export default function IndexPage({ data }: PageProps<IndexPageQuery, SitePageCo
 
 export const query = graphql`
   query IndexPage($locale: String) {
-    slogans: mdx(fields: { locale: { eq: $locale }, kind: { eq: "sections" }, filename: { glob: "*slogan*" } }) {
-      body
+    slogans: markdownRemark(fields: { locale: { eq: $locale }, kind: { eq: "sections" }, filename: { glob: "*slogan*" } }) {
+      html
     }
     recentPosts: allMdx(
       filter: { fields: { locale: { eq: $locale }, kind: { glob: "blog/**" } }, frontmatter: { draft: { ne: true } } }
       limit: 4
-      sort: { fields: frontmatter___publishedAt, order: DESC }
+      sort: { frontmatter: { publishedAt: DESC } }
     ) {
       nodes {
         excerpt

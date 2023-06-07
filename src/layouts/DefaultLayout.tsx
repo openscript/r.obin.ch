@@ -1,7 +1,6 @@
 import { Global, Theme, ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ElementType, PropsWithChildren } from 'react';
-import { DefaultLayoutQuery } from '../../graphql-types';
 import { defaultTheme } from '../themes/defaultTheme';
 import { Document } from './default/Document';
 import { Footer } from './default/Footer';
@@ -35,7 +34,7 @@ type DefaultLayoutProps = PropsWithChildren<{
 }>;
 
 export function DefaultLayout({ children, theme, subtitle, contentWrapper: ContentWrapper }: DefaultLayoutProps) {
-  const data = useStaticQuery<DefaultLayoutQuery>(query);
+  const data = useStaticQuery<Queries.DefaultLayoutQuery>(query);
 
   return (
     <ThemeProvider theme={theme || defaultTheme}>
@@ -44,10 +43,10 @@ export function DefaultLayout({ children, theme, subtitle, contentWrapper: Conte
       <Header />
       {ContentWrapper ? <ContentWrapper>{children}</ContentWrapper> : <Main>{children}</Main>}
       <Footer
-        author={data.site?.siteMetadata?.author}
-        project={data.site?.siteMetadata?.project}
-        version={data.site?.siteMetadata?.version}
-        buildTime={data.siteBuildMetadata?.buildTime}
+        author={data.site?.siteMetadata?.author || ''}
+        project={data.site?.siteMetadata?.project || ''}
+        version={data.site?.siteMetadata?.version || ''}
+        buildTime={data.siteBuildMetadata?.buildTime || ''}
       />
     </ThemeProvider>
   );

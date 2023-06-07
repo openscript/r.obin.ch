@@ -1,11 +1,10 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateMediaListingPagesQuery } from '../../../graphql-types';
 
 export async function createMediaListingPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateMediaListingPagesQuery>(`
+  const result = await graphql<Queries.CreateMediaListingPagesQuery>(`
     query CreateMediaListingPages {
       allMdx(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
         nodes {

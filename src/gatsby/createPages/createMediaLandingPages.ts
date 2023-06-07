@@ -1,12 +1,11 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateMediaLandingPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
 export async function createMediaLandingPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateMediaLandingPagesQuery>(`
+  const result = await graphql<Queries.CreateMediaLandingPagesQuery>(`
     query CreateMediaLandingPages {
       allMdx(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
         nodes {

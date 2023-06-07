@@ -1,12 +1,11 @@
 import { graphql, PageProps } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FormattedMessage } from 'react-intl';
-import { MediaLandingPageQuery } from '../../graphql-types';
+import { Markup } from 'interweave';
 import { MediaItem } from '../components/MediaItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { PaginationContext } from '../types';
 
-export default function MediaLanding({ data }: PageProps<MediaLandingPageQuery, PaginationContext>) {
+export default function MediaLanding({ data }: PageProps<Queries.MediaLandingPageQuery, PaginationContext>) {
   return (
     <DefaultLayout>
       <h1>
@@ -18,7 +17,7 @@ export default function MediaLanding({ data }: PageProps<MediaLandingPageQuery, 
         }
         return (
           <MediaItem path={media.fields.path} title={media.frontmatter.title}>
-            <MDXRenderer>{media.body || ''}</MDXRenderer>
+            <Markup content={data.medias.nodes.html} />
           </MediaItem>
         );
       })}
@@ -28,13 +27,12 @@ export default function MediaLanding({ data }: PageProps<MediaLandingPageQuery, 
 
 export const query = graphql`
   query MediaLandingPage($locale: String!) {
-    medias: allMdx(
+    medias: allMarkdownRemark(
       filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" }, locale: { eq: $locale } } }
-      sort: { fields: frontmatter___title, order: DESC }
+      sort: { frontmatter: { title: DESC } }
     ) {
       nodes {
-        id
-        body
+        html
         fields {
           path
         }

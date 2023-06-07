@@ -1,12 +1,11 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateBlogListingPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
 
 export async function createBlogListingPages({ graphql, actions }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateBlogListingPagesQuery>(`
+  const result = await graphql<Queries.CreateBlogListingPagesQuery>(`
     query CreateBlogListingPages {
       allMdx(filter: { fields: { kind: { glob: "blog/**" } }, frontmatter: { draft: { eq: false } } }) {
         nodes {

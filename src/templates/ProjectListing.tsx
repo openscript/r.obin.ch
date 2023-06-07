@@ -1,11 +1,10 @@
 import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
-import { ProjectListingPageQuery } from '../../graphql-types';
 import { ProjectItem } from '../components/ProjectItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { PaginationContext } from '../types';
 
-export default function ProjectListing({ data }: PageProps<ProjectListingPageQuery, PaginationContext>) {
+export default function ProjectListing({ data }: PageProps<Queries.ProjectListingPageQuery, PaginationContext>) {
   return (
     <DefaultLayout>
       <h1>
@@ -23,10 +22,7 @@ export default function ProjectListing({ data }: PageProps<ProjectListingPageQue
 
 export const query = graphql`
   query ProjectListingPage($locale: String!) {
-    projects: allMdx(
-      filter: { fields: { kind: { glob: "projects/**" }, locale: { eq: $locale } } }
-      sort: { fields: frontmatter___title, order: DESC }
-    ) {
+    projects: allMdx(filter: { fields: { kind: { glob: "projects/**" }, locale: { eq: $locale } } }, sort: { frontmatter: { title: DESC } }) {
       nodes {
         fields {
           path

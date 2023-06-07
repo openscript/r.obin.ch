@@ -1,11 +1,10 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateProjectPagesQuery } from '../../../graphql-types';
 
 export async function createProjectPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateProjectPagesQuery>(`
+  const result = await graphql<Queries.CreateProjectPagesQuery>(`
     query CreateProjectPages {
       allMdx(filter: { fields: { kind: { glob: "projects/**" } } }) {
         nodes {

@@ -1,26 +1,24 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { MediaListingPageQuery } from '../../graphql-types';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function MediaListing({ data }: PageProps<MediaListingPageQuery>) {
+export default function MediaListing({ data, children }: PageProps<Queries.MediaListingPageQuery>) {
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title}>
+    <DefaultLayout subtitle={data.mdx?.frontmatter?.title || ''}>
       <article>
         <h1>{data.mdx?.frontmatter?.title}</h1>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
+        {children}
         {data.allMdx.nodes.map(media => {
           if (!media.frontmatter?.photo || !media.fields?.path) {
             return null;
           }
-          const image = getImage(media.frontmatter.photo.childImageSharp?.gatsbyImageData);
+          const image = getImage(media.frontmatter.photo.childImageSharp?.gatsbyImageData || null);
           if (!image) {
             return null;
           }
           return (
             <Link to={media.fields?.path}>
-              <GatsbyImage image={image} alt={media.frontmatter.title} />
+              <GatsbyImage image={image} alt={media.frontmatter.title || ''} />
             </Link>
           );
         })}
@@ -32,7 +30,7 @@ export default function MediaListing({ data }: PageProps<MediaListingPageQuery>)
 export const query = graphql`
   query MediaListingPage($id: String!, $kind: String!, $locale: String!) {
     mdx(id: { eq: $id }) {
-      body
+      id
       frontmatter {
         title
       }

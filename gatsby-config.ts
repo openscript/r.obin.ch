@@ -8,11 +8,29 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const pathPrefix = process.env.PATH_PREFIX || '/';
 const siteUrl = process.env.SITE_URL || `https://r.obin.ch`;
 
+const remarkPlugins = [
+  'gatsby-remark-copy-linked-files',
+  'gatsby-remark-autolink-headers',
+  {
+    resolve: 'gatsby-remark-images',
+    options: {
+      maxWidth: 1140,
+      quality: 90,
+      linkImagesToOriginal: false,
+    },
+  },
+  {
+    resolve: 'gatsby-remark-prismjs',
+    options: {
+      showLineNumbers: true,
+    },
+  },
+];
+
 const configuration: GatsbyConfig = {
-  pathPrefix,
+  pathPrefix: process.env.PATH_PREFIX || '/',
   siteMetadata: {
     title: `Robins website`,
     description: `On this website I collect interesting findings from my adventures in the world of bits and bytes and I share sometimes also things from the analogue reality.`,
@@ -21,8 +39,15 @@ const configuration: GatsbyConfig = {
     version: packageJson.version,
     project: packageJson.name,
   },
+  graphqlTypegen: {
+    typesOutputPath: 'graphql-types.ts',
+    documentSearchPaths: [`./gatsby-node.ts`, `./plugins/**/gatsby-node.ts`, `./src/**/*.ts?(x)`],
+    generateOnBuild: true,
+  },
   plugins: [
+    // Transformers
     `gatsby-transformer-yaml`,
+    `gatsby-transformer-sharp`,
 
     // Sources
     {
@@ -37,30 +62,18 @@ const configuration: GatsbyConfig = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: [`.md`, `.mdx`],
-        gatsbyRemarkPlugins: [
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-autolink-headers',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              showLineNumbers: true,
-            },
-          },
-        ],
+        gatsbyRemarkPlugins: remarkPlugins,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: remarkPlugins,
       },
     },
     {
