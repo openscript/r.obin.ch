@@ -17,7 +17,7 @@ export default function MediaLanding({ data }: PageProps<Queries.MediaLandingPag
         }
         return (
           <MediaItem path={media.fields.path} title={media.frontmatter.title}>
-            <Markup content={data.medias.nodes.html} />
+            <Markup content={media.html} />
           </MediaItem>
         );
       })}
