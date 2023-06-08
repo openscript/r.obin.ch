@@ -22,7 +22,8 @@ First of all, in the header row the project title should be written. Below this 
 ![Freeze rows with Google Sheets](google-sheet-freeze-rows.png)
 
 The column headers are defined with the following purpose and data type:
- - **From**: representing the start time of the time record as `Date time`. 
+
+ - **From**: representing the start time of the time record as `Date time`.
  - **To**: representing the end time of the time record as `Date time`.
  - **Duration**: representing calculated duration as `Duration`.
  - **Category**: describing the main purpose of the time record.
@@ -63,6 +64,7 @@ Entries in the *duration* column are calculated from the values in the from and 
 With adding the formula `=((HOUR(C3)+1/60*MINUTE(C3)+1/60/60*SECOND(C3))*Settings!$B$3)` to the first cost data cell and copy it to all following cells, the total cost per time entry is calculated. The `$` signs are used to keep exactly this one cell referenced, when coping the formula to the other cells. `Settings!$B$3` references the hourly rate.
 
 For evaluations its interesting to know the totals. These can be calculated with the following formulas:
+
  - **Total duration**: `=SUM('Time Tracking'!C:C)`
  - **Total costs**: `=SUM('Time Tracking'!F:F)`
  - **Total unbilled**: `=SUMIF('Time Tracking'!G:G,FALSE,'Time Tracking'!F:F)`

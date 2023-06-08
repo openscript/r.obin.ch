@@ -33,13 +33,7 @@ export type ProtectedRouteProps = {
   setRedirectPath: (path: string) => void;
 } & RouteProps;
 
-export default function ProtectedRoute({
-  isAuthenticated,
-  authenticationPath,
-  redirectPath,
-  setRedirectPath,
-  ...routeProps
-}: ProtectedRouteProps) {
+export default function ProtectedRoute({ isAuthenticated, authenticationPath, redirectPath, setRedirectPath, ...routeProps }: ProtectedRouteProps) {
   const currentLocation = useLocation();
 
   // Falls der Aufrufer nicht authentifiziert ist, den aktuellen Pfad speichern.
@@ -71,7 +65,7 @@ export type Session = {
 };
 
 export const initialSession: Session = {
-  redirectPath: ''
+  redirectPath: '',
 };
 ```
 
@@ -132,7 +126,7 @@ export default function App() {
     isAuthenticated: !!sessionContext.isAuthenticated,
     authenticationPath: '/login',
     redirectPath: sessionContext.redirectPath,
-    setRedirectPath: setRedirectPath
+    setRedirectPath: setRedirectPath,
   };
 
   return (
@@ -180,7 +174,7 @@ export default function App() {
     isAuthenticated: !!sessionContext.isAuthenticated,
     authenticationPath: '/login',
     redirectPath: sessionContext.redirectPath,
-    setRedirectPath: setRedirectPath
+    setRedirectPath: setRedirectPath,
   };
 
   return (

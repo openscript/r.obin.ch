@@ -1,7 +1,7 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 import { Markup } from 'interweave';
+import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function MediaListing({ data }: PageProps<Queries.MediaListingPageQuery>) {
   return (
