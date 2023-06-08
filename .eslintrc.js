@@ -39,6 +39,7 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        'react/self-closing-comp': 'off',
         'import/prefer-default-export': 'off',
         'import/no-relative-packages': 'off',
         'import/no-extraneous-dependencies': 'off',
