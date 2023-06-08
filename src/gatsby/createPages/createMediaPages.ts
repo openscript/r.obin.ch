@@ -6,7 +6,7 @@ export async function createMediaPages({ actions, graphql }: CreatePagesArgs) {
 
   const result = await graphql<Queries.CreateMediaPagesQuery>(`
     query CreateMediaPages {
-      allMdx(filter: { fields: { filename: { ne: "index" }, kind: { glob: "medias/**" } } }) {
+      allMarkdownRemark(filter: { fields: { filename: { ne: "index" }, kind: { glob: "medias/**" } } }) {
         group(field: { fields: { locale: SELECT } }) {
           edges {
             node {
@@ -31,7 +31,7 @@ export async function createMediaPages({ actions, graphql }: CreatePagesArgs) {
     }
   `);
 
-  result.data?.allMdx.group.forEach(g => {
+  result.data?.allMarkdownRemark.group.forEach(g => {
     g.edges.forEach(p => {
       if (p.node.fields?.translations && p.node.fields?.path) {
         createPage({

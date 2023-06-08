@@ -40,7 +40,7 @@ export default function Media({ data }: PageProps<Queries.MediaPageQuery>) {
 
 export const query = graphql`
   query MediaPage($id: String!, $nextId: String, $previousId: String) {
-    previous: mdx(id: { eq: $previousId }) {
+    previous: markdownRemark(id: { eq: $previousId }) {
       fields {
         path
       }
@@ -56,7 +56,7 @@ export const query = graphql`
         }
       }
     }
-    next: mdx(id: { eq: $nextId }) {
+    next: markdownRemark(id: { eq: $nextId }) {
       fields {
         path
       }

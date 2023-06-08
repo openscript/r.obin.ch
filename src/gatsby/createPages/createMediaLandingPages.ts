@@ -7,7 +7,7 @@ export async function createMediaLandingPages({ actions, graphql }: CreatePagesA
 
   const result = await graphql<Queries.CreateMediaLandingPagesQuery>(`
     query CreateMediaLandingPages {
-      allMdx(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
+      allMarkdownRemark(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
         nodes {
           fields {
             locale
@@ -21,7 +21,7 @@ export async function createMediaLandingPages({ actions, graphql }: CreatePagesA
     return;
   }
 
-  const availableLocales = result.data.allMdx.nodes.reduce<string[]>((prev, curr) => {
+  const availableLocales = result.data.allMarkdownRemark.nodes.reduce<string[]>((prev, curr) => {
     if (curr.fields?.locale) {
       return [...new Set([...prev, curr.fields.locale])];
     }

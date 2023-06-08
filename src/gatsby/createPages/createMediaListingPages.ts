@@ -6,7 +6,7 @@ export async function createMediaListingPages({ actions, graphql }: CreatePagesA
 
   const result = await graphql<Queries.CreateMediaListingPagesQuery>(`
     query CreateMediaListingPages {
-      allMdx(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
+      allMarkdownRemark(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
         nodes {
           id
           fields {
@@ -23,7 +23,7 @@ export async function createMediaListingPages({ actions, graphql }: CreatePagesA
     }
   `);
 
-  result.data?.allMdx.nodes.forEach(p => {
+  result.data?.allMarkdownRemark.nodes.forEach(p => {
     if (p.fields?.translations && p.fields?.path) {
       createPage({
         component: resolve(`./src/templates/MediaListing.tsx`),

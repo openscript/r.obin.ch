@@ -16,6 +16,9 @@ export async function createBlogPages({ actions, graphql }: CreatePagesArgs) {
               path
             }
           }
+          internal {
+            contentFilePath
+          }
         }
       }
     }
@@ -24,7 +27,7 @@ export async function createBlogPages({ actions, graphql }: CreatePagesArgs) {
   result.data?.allMdx.nodes.forEach(p => {
     if (p.fields?.translations && p.fields?.path) {
       createPage({
-        component: resolve(`./src/templates/Blog.tsx`),
+        component: `${resolve('./src/templates/Blog.tsx')}?__contentFilePath=${p.internal.contentFilePath}`,
         context: { id: p.id, translations: p.fields.translations },
         path: p.fields.path,
       });

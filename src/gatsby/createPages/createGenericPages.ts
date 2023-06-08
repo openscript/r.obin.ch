@@ -1,6 +1,8 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
 
+const template = resolve('./src/templates/GenericPage.tsx');
+
 export async function createGenericPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
   const result = await graphql<Queries.AllGenericPagesQuery>(`
@@ -19,6 +21,9 @@ export async function createGenericPages({ actions, graphql }: CreatePagesArgs) 
                 path
               }
             }
+            internal {
+              contentFilePath
+            }
           }
         }
       }
@@ -28,7 +33,7 @@ export async function createGenericPages({ actions, graphql }: CreatePagesArgs) 
   result.data?.allMdx.edges.forEach(p => {
     if (p.node.fields && p.node.fields.path) {
       createPage({
-        component: resolve(`./src/templates/${p.node.frontmatter?.template || 'GenericPage'}.tsx`),
+        component: `${template}?__contentFilePath=${p.node.internal.contentFilePath}`,
         context: { id: p.node.id, translations: p.node.fields.translations },
         path: p.node.fields.path,
       });

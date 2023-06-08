@@ -65,7 +65,7 @@ Again, restart the bridge. The console should show the message 'Zigbee started',
 
 Now we need to configure the TCP server that Home Assistant uses to connect to the bridge. To do this, we enter the following line in the console:
 
-    backlog rule1 on system#boot do TCPStart 8888 endon ; rule1 1 ; template {"NAME": "Sonoff ZHABridge", "GPIO":[56,208,0,209,59,58,0,0,0,0,17], "FLAG":0, "BASE":18} ; module 0
+    backlog rule1 on system#boot do TCPStart 8888 endon ; rule1 1 ; template \{"NAME": "Sonoff ZHABridge", "GPIO":[56,208,0,209,59,58,0,0,0,0,17], "FLAG":0, "BASE":18} ; module 0
 
 Finally, the address for the over-the-air updates is to be updated. To do this, enter the following in the console
 

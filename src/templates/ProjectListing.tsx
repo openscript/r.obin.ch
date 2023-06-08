@@ -26,10 +26,6 @@ export const query = graphql`
       nodes {
         fields {
           path
-          tags {
-            slug
-            title
-          }
         }
         frontmatter {
           title

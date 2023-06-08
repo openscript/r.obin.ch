@@ -1,14 +1,15 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { Markup } from 'interweave';
 
-export default function MediaListing({ data, children }: PageProps<Queries.MediaListingPageQuery>) {
+export default function MediaListing({ data }: PageProps<Queries.MediaListingPageQuery>) {
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title || ''}>
+    <DefaultLayout subtitle={data.markdownRemark?.frontmatter?.title || ''}>
       <article>
-        <h1>{data.mdx?.frontmatter?.title}</h1>
-        {children}
-        {data.allMdx.nodes.map(media => {
+        <h1>{data.markdownRemark?.frontmatter?.title}</h1>
+        <Markup content={data.markdownRemark?.html} />
+        {data.allMarkdownRemark.nodes.map(media => {
           if (!media.frontmatter?.photo || !media.fields?.path) {
             return null;
           }
@@ -29,14 +30,15 @@ export default function MediaListing({ data, children }: PageProps<Queries.Media
 
 export const query = graphql`
   query MediaListingPage($id: String!, $kind: String!, $locale: String!) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       id
+      html
       frontmatter {
         title
       }
     }
 
-    allMdx(filter: { fields: { kind: { eq: $kind }, filename: { ne: "index" }, locale: { eq: $locale } } }) {
+    allMarkdownRemark(filter: { fields: { kind: { eq: $kind }, filename: { ne: "index" }, locale: { eq: $locale } } }) {
       nodes {
         fields {
           path

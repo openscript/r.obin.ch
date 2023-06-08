@@ -1422,7 +1422,6 @@ type MarkdownRemarkFields = {
   readonly path: Maybe<Scalars['String']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFieldsTags>>>;
   readonly translations: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFieldsTranslations>>>;
 };
 
@@ -1433,7 +1432,6 @@ type MarkdownRemarkFieldsFieldSelector = {
   readonly path: InputMaybe<FieldSelectorEnum>;
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
-  readonly tags: InputMaybe<MarkdownRemarkFieldsTagsFieldSelector>;
   readonly translations: InputMaybe<MarkdownRemarkFieldsTranslationsFieldSelector>;
 };
 
@@ -1444,7 +1442,6 @@ type MarkdownRemarkFieldsFilterInput = {
   readonly path: InputMaybe<StringQueryOperatorInput>;
   readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
-  readonly tags: InputMaybe<MarkdownRemarkFieldsTagsFilterListInput>;
   readonly translations: InputMaybe<MarkdownRemarkFieldsTranslationsFilterListInput>;
 };
 
@@ -1455,32 +1452,7 @@ type MarkdownRemarkFieldsSortInput = {
   readonly path: InputMaybe<SortOrderEnum>;
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
-  readonly tags: InputMaybe<MarkdownRemarkFieldsTagsSortInput>;
   readonly translations: InputMaybe<MarkdownRemarkFieldsTranslationsSortInput>;
-};
-
-type MarkdownRemarkFieldsTags = {
-  readonly slug: Maybe<Scalars['String']>;
-  readonly title: Maybe<Scalars['String']>;
-};
-
-type MarkdownRemarkFieldsTagsFieldSelector = {
-  readonly slug: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-};
-
-type MarkdownRemarkFieldsTagsFilterInput = {
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MarkdownRemarkFieldsTagsFilterListInput = {
-  readonly elemMatch: InputMaybe<MarkdownRemarkFieldsTagsFilterInput>;
-};
-
-type MarkdownRemarkFieldsTagsSortInput = {
-  readonly slug: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type MarkdownRemarkFieldsTranslations = {
@@ -1531,66 +1503,22 @@ type MarkdownRemarkFilterListInput = {
 };
 
 type MarkdownRemarkFrontmatter = {
-  readonly draft: Maybe<Scalars['Boolean']>;
-  readonly featured: Maybe<File>;
-  readonly modifiedAt: Maybe<Scalars['Date']>;
   readonly photo: Maybe<File>;
-  readonly publishedAt: Maybe<Scalars['Date']>;
-  readonly series: Maybe<Scalars['String']>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly template: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
 
-
-type MarkdownRemarkFrontmatter_modifiedAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type MarkdownRemarkFrontmatter_publishedAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
 type MarkdownRemarkFrontmatterFieldSelector = {
-  readonly draft: InputMaybe<FieldSelectorEnum>;
-  readonly featured: InputMaybe<FileFieldSelector>;
-  readonly modifiedAt: InputMaybe<FieldSelectorEnum>;
   readonly photo: InputMaybe<FileFieldSelector>;
-  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
-  readonly series: InputMaybe<FieldSelectorEnum>;
-  readonly tags: InputMaybe<FieldSelectorEnum>;
-  readonly template: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type MarkdownRemarkFrontmatterFilterInput = {
-  readonly draft: InputMaybe<BooleanQueryOperatorInput>;
-  readonly featured: InputMaybe<FileFilterInput>;
-  readonly modifiedAt: InputMaybe<DateQueryOperatorInput>;
   readonly photo: InputMaybe<FileFilterInput>;
-  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
-  readonly series: InputMaybe<StringQueryOperatorInput>;
-  readonly tags: InputMaybe<StringQueryOperatorInput>;
-  readonly template: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterSortInput = {
-  readonly draft: InputMaybe<SortOrderEnum>;
-  readonly featured: InputMaybe<FileSortInput>;
-  readonly modifiedAt: InputMaybe<SortOrderEnum>;
   readonly photo: InputMaybe<FileSortInput>;
-  readonly publishedAt: InputMaybe<SortOrderEnum>;
-  readonly series: InputMaybe<SortOrderEnum>;
-  readonly tags: InputMaybe<SortOrderEnum>;
-  readonly template: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
@@ -1869,7 +1797,6 @@ type MdxFrontmatter = {
   readonly draft: Maybe<Scalars['Boolean']>;
   readonly featured: Maybe<File>;
   readonly modifiedAt: Maybe<Scalars['Date']>;
-  readonly photo: Maybe<File>;
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly series: Maybe<Scalars['String']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
@@ -1897,7 +1824,6 @@ type MdxFrontmatterFieldSelector = {
   readonly draft: InputMaybe<FieldSelectorEnum>;
   readonly featured: InputMaybe<FileFieldSelector>;
   readonly modifiedAt: InputMaybe<FieldSelectorEnum>;
-  readonly photo: InputMaybe<FileFieldSelector>;
   readonly publishedAt: InputMaybe<FieldSelectorEnum>;
   readonly series: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
@@ -1909,7 +1835,6 @@ type MdxFrontmatterFilterInput = {
   readonly draft: InputMaybe<BooleanQueryOperatorInput>;
   readonly featured: InputMaybe<FileFilterInput>;
   readonly modifiedAt: InputMaybe<DateQueryOperatorInput>;
-  readonly photo: InputMaybe<FileFilterInput>;
   readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
   readonly series: InputMaybe<StringQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
@@ -1921,7 +1846,6 @@ type MdxFrontmatterSortInput = {
   readonly draft: InputMaybe<SortOrderEnum>;
   readonly featured: InputMaybe<FileSortInput>;
   readonly modifiedAt: InputMaybe<SortOrderEnum>;
-  readonly photo: InputMaybe<FileSortInput>;
   readonly publishedAt: InputMaybe<SortOrderEnum>;
   readonly series: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
@@ -3662,7 +3586,7 @@ type MediaListingPageQueryVariables = Exact<{
 }>;
 
 
-type MediaListingPageQuery = { readonly mdx: { readonly id: string, readonly frontmatter: { readonly title: string | null } | null } | null, readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly path: string | null } | null, readonly frontmatter: { readonly title: string | null, readonly photo: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
+type MediaListingPageQuery = { readonly markdownRemark: { readonly id: string, readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly path: string | null } | null, readonly frontmatter: { readonly title: string | null, readonly photo: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
 
 type MediaPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -3678,7 +3602,7 @@ type ProjectListingPageQueryVariables = Exact<{
 }>;
 
 
-type ProjectListingPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly path: string | null, readonly tags: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null } | null }> } };
+type ProjectListingPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly path: string | null } | null, readonly frontmatter: { readonly title: string | null } | null }> } };
 
 type ProjectPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -3710,7 +3634,7 @@ type CreateBlogListingPagesQuery = { readonly allMdx: { readonly nodes: Readonly
 type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateBlogPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }> } };
+type CreateBlogPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
 
 type CreateBlogTagPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3720,22 +3644,22 @@ type CreateBlogTagPagesQuery = { readonly allMdx: { readonly group: ReadonlyArra
 type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AllGenericPagesQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly template: string | null } | null, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null } }> } };
+type AllGenericPagesQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly template: string | null } | null, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } } }> } };
 
 type CreateMediaLandingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateMediaLandingPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly locale: string | null } | null }> } };
+type CreateMediaLandingPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly locale: string | null } | null }> } };
 
 type CreateMediaListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateMediaListingPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly kind: string | null, readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }> } };
+type CreateMediaListingPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly kind: string | null, readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }> } };
 
 type CreateMediaPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateMediaPagesQuery = { readonly allMdx: { readonly group: ReadonlyArray<{ readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }, readonly next: { readonly id: string } | null, readonly previous: { readonly id: string } | null }> }> } };
+type CreateMediaPagesQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArray<{ readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }, readonly next: { readonly id: string } | null, readonly previous: { readonly id: string } | null }> }> } };
 
 type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3745,7 +3669,7 @@ type CreateProjectListingPagesQuery = { readonly allMdx: { readonly nodes: Reado
 type CreateProjectPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateProjectPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }> } };
+type CreateProjectPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
 
 
 }
