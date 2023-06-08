@@ -39,6 +39,8 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        'jsx-a11y/control-has-associated-label': 'off',
+        'jsx-a11y/anchor-has-content': 'off',
         'react/self-closing-comp': 'off',
         'import/prefer-default-export': 'off',
         'import/no-relative-packages': 'off',
