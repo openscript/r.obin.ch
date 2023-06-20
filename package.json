@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
-    "@mantine/hooks": "5.2.4",
+    "@mantine/hooks": "6.0.14",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "gatsby": "4.22.0",
