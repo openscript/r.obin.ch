@@ -1,14 +1,17 @@
 import { Fragment } from 'react';
 
 type DocumentProps = {
-  metaData: Queries.SitePageContextMetaData;
+  metaData: {
+    title: string;
+    description?: string;
+  };
 };
 
 export function Document({ metaData }: DocumentProps) {
   return (
     <Fragment>
       <title key="pageTitle">{metaData.title}</title>
-      <meta key="pageDescription" name="description" content={metaData.description} />
+      {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
     </Fragment>
   );
 }

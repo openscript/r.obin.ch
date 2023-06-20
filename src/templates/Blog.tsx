@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadProps, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { AsideHeading } from '../components/AsideHeading';
@@ -9,6 +9,8 @@ import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { CONFIGURATION } from '../configuration';
+import { Document } from '../layouts/default/Document';
+import { PageMetaData } from '../types';
 
 export default function Blog({ data, location, children }: PageProps<Queries.BlogPageQuery>) {
   const relativePath =
@@ -21,7 +23,7 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
   }
 
   return (
-    <DefaultLayout subtitle={data.mdx.frontmatter?.title} contentWrapper={MainWithAside}>
+    <DefaultLayout contentWrapper={MainWithAside}>
       <article>
         <h1>{data.mdx.frontmatter?.title}</h1>
         {featured && <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />}
@@ -42,6 +44,10 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
       </aside>
     </DefaultLayout>
   );
+}
+
+export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, { metaData: PageMetaData }>) {
+  return <Document metaData={{ title: pageContext.metaData.title }} />;
 }
 
 export const query = graphql`

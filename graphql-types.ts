@@ -3634,7 +3634,7 @@ type CreateBlogListingPagesQuery = { readonly allMdx: { readonly nodes: Readonly
 type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateBlogPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
+type CreateBlogPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string | null } | null, readonly fields: { readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
 
 type CreateBlogTagPagesQueryVariables = Exact<{ [key: string]: never; }>;
 

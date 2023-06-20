@@ -43,3 +43,8 @@ export type TableOfContentsItem = {
 export type TableOfContents = {
   items?: TableOfContentsItem[];
 };
+
+export type PageMetaData = {
+  title: string;
+  description?: string;
+};
