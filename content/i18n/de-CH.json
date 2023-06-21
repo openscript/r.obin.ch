@@ -21,10 +21,10 @@
   "navigation.top.linkedin": "LinkedIn",
   "navigation.top.openscript": "openscript GmbH",
   "navigation.top.stackoverflow": "StackOverflow",
-  "page.404.meta.description": "Leider fehlt diese Seite.",
-  "page.404.meta.title": "Seite nicht gefunden",
   "page.404.html.meta.description": "Leider fehlt diese Seite.",
   "page.404.html.meta.title": "Seite nicht gefunden",
+  "page.404.meta.description": "Leider fehlt diese Seite.",
+  "page.404.meta.title": "Seite nicht gefunden",
   "page.blog.title": "Blog",
   "page.imprint.title": "Impressum",
   "page.index.meta.description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
@@ -36,6 +36,7 @@
   "page.person.title": "Person",
   "page.projects.title": "Projekte",
   "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
+  "pagination.page": "Seite {page}",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }

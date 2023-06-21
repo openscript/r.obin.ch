@@ -1,10 +1,11 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadProps, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { BlogItem } from '../components/BlogItem';
 import { Pagination } from '../components/Pagination';
 import { TagList } from '../components/TagList';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { PaginationContext } from '../types';
+import { PaginationContext, SitePageContextWithMetaData } from '../types';
+import { Document } from '../layouts/default/Document';
 
 export default function BlogListing({ data, pageContext }: PageProps<Queries.BlogListingPageQuery, PaginationContext>) {
   return (
@@ -36,6 +37,10 @@ export default function BlogListing({ data, pageContext }: PageProps<Queries.Blo
       <Pagination currentPage={pageContext.currentPage} pageCount={pageContext.pageCount} />
     </DefaultLayout>
   );
+}
+
+export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+  return <Document metaData={{ title: pageContext.metaData.title }} />;
 }
 
 export const query = graphql`
