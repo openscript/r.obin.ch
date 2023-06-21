@@ -1,6 +1,6 @@
 import { CreatePageArgs } from 'gatsby';
 import { createPageTitle } from '../../themes/defaultMetaData';
-import { getMessage } from '../../utils/localization';
+import { getIntl } from '../../utils/localization';
 
 const BLACK_LIST = ['dev-404-page'];
 
@@ -20,7 +20,12 @@ export async function generatePageMetaData({ actions, page, reporter }: CreatePa
     return;
   }
 
-  const title = getMessage(page.context.locale, `page.${localePagesId}.meta.title`, reporter);
+  const intl = getIntl(page.context.locale, reporter);
+  if (!intl) {
+    return;
+  }
+
+  const title = intl.formatMessage({ id: `page.${localePagesId}.meta.title` });
 
   if (!title) {
     return;
@@ -28,7 +33,7 @@ export async function generatePageMetaData({ actions, page, reporter }: CreatePa
 
   const metaData = {
     title: createPageTitle(title),
-    description: getMessage(page.context.locale, `page.${localePagesId}.meta.description`, reporter),
+    description: intl.formatMessage({ id: `page.${localePagesId}.meta.description` }),
   };
 
   deletePage(page);

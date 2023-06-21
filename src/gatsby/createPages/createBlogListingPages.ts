@@ -35,6 +35,7 @@ export async function createBlogListingPages({ graphql, actions }: CreatePagesAr
 
     Array.from({ length: pageCount }).forEach((_, i) => {
       const path = i === 0 ? CONFIGURATION.PATHS.BLOG : `${CONFIGURATION.PATHS.BLOG}/${i}`;
+      const currentPage = i + 1;
 
       createPage({
         component: resolve('./src/templates/BlogListing.tsx'),
@@ -43,7 +44,7 @@ export async function createBlogListingPages({ graphql, actions }: CreatePagesAr
           limit: CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
           skip: i * CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
           pageCount,
-          currentPage: i + 1,
+          currentPage,
           // localization
           locale,
           basePath: path,

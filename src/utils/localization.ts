@@ -1,28 +1,32 @@
 import { Reporter } from 'gatsby';
+import { IntlShape, createIntl, createIntlCache } from 'react-intl';
 import deCHMessages from '../../content/i18n/de-CH.json';
 import enUSMessages from '../../content/i18n/en-US.json';
 
-function getMessages(locale: string): Record<string, string> | undefined {
+const intlCache = createIntlCache();
+const deCHIntl = createIntl({ locale: 'de-CH', messages: deCHMessages }, intlCache);
+const enUSIntl = createIntl({ locale: 'en-US', messages: enUSMessages }, intlCache);
+
+function getMessages(locale: string): IntlShape | undefined {
   switch (locale) {
     case 'de-CH':
-      return deCHMessages;
+      return deCHIntl;
     case 'en-US':
-      return enUSMessages;
+      return enUSIntl;
     default:
       return undefined;
   }
 }
-export function getMessage(locale: string, key: string, reporter: Reporter) {
-  const messages = getMessages(locale);
 
-  if (!messages) {
+export function getIntl(locale: string, reporter: Reporter) {
+  const intl = getMessages(locale);
+
+  if (!intl) {
     reporter.warn(`Couldn't find messages for locale ${locale}.`);
     return undefined;
   }
 
-  if (key in messages) {
-    return messages[key];
-  }
-  reporter.warn(`Missing key ${key} for ${locale}.`);
-  return undefined;
+  intl.onWarn = (warning: string) => reporter.warn(warning);
+
+  return intl;
 }

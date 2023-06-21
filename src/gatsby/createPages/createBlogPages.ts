@@ -2,7 +2,7 @@ import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
 import { PageMetaData } from '../../types';
 import { createPageTitle } from '../../themes/defaultMetaData';
-import { getMessage } from '../../utils/localization';
+import { getIntl } from '../../utils/localization';
 
 export async function createBlogPages({ actions, graphql, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
@@ -33,8 +33,9 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
 
   result.data?.allMdx.nodes.forEach(p => {
     if (p.fields?.translations && p.fields.locale && p.fields?.path && p.frontmatter?.title) {
+      const intl = getIntl(p.fields.locale, reporter);
       const metaData: PageMetaData = {
-        title: createPageTitle(p.frontmatter.title, getMessage(p.fields.locale, 'content.kind.blog', reporter)),
+        title: createPageTitle(p.frontmatter.title, intl?.formatMessage({ id: 'content.kind.blog' })),
       };
 
       createPage({
