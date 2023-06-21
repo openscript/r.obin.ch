@@ -1,10 +1,12 @@
 import { css, Theme } from '@emotion/react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadProps, PageProps } from 'gatsby';
 import { Markup } from 'interweave';
 import { getImage } from 'gatsby-plugin-image';
 import { FormattedMessage } from 'react-intl';
 import { BlogItem } from '../components/BlogItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { SitePageContextWithMetaData } from '../types';
+import { Document } from '../layouts/default/Document';
 
 const recentBlogSectionStyles = (theme: Theme) => css`
   display: grid;
@@ -54,6 +56,10 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery, Qu
       </section>
     </DefaultLayout>
   );
+}
+
+export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+  return <Document metaData={{ title: pageContext.metaData.title }} />;
 }
 
 export const query = graphql`
