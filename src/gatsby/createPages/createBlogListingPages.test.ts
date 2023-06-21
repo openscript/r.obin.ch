@@ -102,6 +102,7 @@ describe('CreateBlogListingPages', () => {
           pageCount: 1,
           referTranslations: ['de-CH', 'en-US'],
           skip: 0,
+          metaData: { title: 'Seite 1 · Blog' },
         },
         path: '/de-CH/blog',
       })
@@ -118,6 +119,7 @@ describe('CreateBlogListingPages', () => {
           pageCount: 1,
           referTranslations: ['de-CH', 'en-US'],
           skip: 0,
+          metaData: { title: 'Page 1 · Blog' },
         },
         path: '/en-US/blog',
       })

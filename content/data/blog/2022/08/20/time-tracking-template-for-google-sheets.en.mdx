@@ -22,14 +22,15 @@ First of all, in the header row the project title should be written. Below this 
 ![Freeze rows with Google Sheets](google-sheet-freeze-rows.png)
 
 The column headers are defined with the following purpose and data type:
- - **From**: representing the start time of the time record as `Date time`. 
- - **To**: representing the end time of the time record as `Date time`.
- - **Duration**: representing calculated duration as `Duration`.
- - **Category**: describing the main purpose of the time record.
- - **Description**: describing individually what was done during this time.
- - **Costs**: showing the costs for the time record as `Currency`.
- - **Billed?**: tracking if the time record has been billed to the customer.
- - **Paid?**: tracking if the time record has been payed by the customer.
+
+- **From**: representing the start time of the time record as `Date time`.
+- **To**: representing the end time of the time record as `Date time`.
+- **Duration**: representing calculated duration as `Duration`.
+- **Category**: describing the main purpose of the time record.
+- **Description**: describing individually what was done during this time.
+- **Costs**: showing the costs for the time record as `Currency`.
+- **Billed?**: tracking if the time record has been billed to the customer.
+- **Paid?**: tracking if the time record has been payed by the customer.
 
 The data types are applied by selecting the whole columns except the header rows and choosing the right data type via `Format` and `Number`.
 
@@ -58,15 +59,16 @@ function clockInOrOut() {
 
 ## Using formulas to complete the template
 
-Entries in the *duration* column are calculated from the values in the from and to columns. By adding `=B3-A3` to the third row, selecting all the other rows in this column except the header rows and pressing <kbd>CTRL</kbd>+<kbd>D</kbd> the desired duration will be calculated for all data rows.
+Entries in the _duration_ column are calculated from the values in the from and to columns. By adding `=B3-A3` to the third row, selecting all the other rows in this column except the header rows and pressing <kbd>CTRL</kbd>+<kbd>D</kbd> the desired duration will be calculated for all data rows.
 
 With adding the formula `=((HOUR(C3)+1/60*MINUTE(C3)+1/60/60*SECOND(C3))*Settings!$B$3)` to the first cost data cell and copy it to all following cells, the total cost per time entry is calculated. The `$` signs are used to keep exactly this one cell referenced, when coping the formula to the other cells. `Settings!$B$3` references the hourly rate.
 
 For evaluations its interesting to know the totals. These can be calculated with the following formulas:
- - **Total duration**: `=SUM('Time Tracking'!C:C)`
- - **Total costs**: `=SUM('Time Tracking'!F:F)`
- - **Total unbilled**: `=SUMIF('Time Tracking'!G:G,FALSE,'Time Tracking'!F:F)`
- - **Total unpaid**: `=SUMIF('Time Tracking'!H:H,FALSE,'Time Tracking'!F:F)`
+
+- **Total duration**: `=SUM('Time Tracking'!C:C)`
+- **Total costs**: `=SUM('Time Tracking'!F:F)`
+- **Total unbilled**: `=SUMIF('Time Tracking'!G:G,FALSE,'Time Tracking'!F:F)`
+- **Total unpaid**: `=SUMIF('Time Tracking'!H:H,FALSE,'Time Tracking'!F:F)`
 
 ## Using the time tracking template
 

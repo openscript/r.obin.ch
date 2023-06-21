@@ -43,3 +43,10 @@ export type TableOfContentsItem = {
 export type TableOfContents = {
   items?: TableOfContentsItem[];
 };
+
+export type SitePageContextWithMetaData = {
+  metaData: {
+    title: string;
+    description?: string;
+  };
+} & Queries.SitePageContext;

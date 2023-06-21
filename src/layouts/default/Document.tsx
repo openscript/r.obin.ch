@@ -1,28 +1,23 @@
-import { Helmet } from 'react-helmet';
-import { useIntl } from 'react-intl';
+import { HeadProps } from 'gatsby';
+import { Fragment } from 'react';
+import { SitePageContextWithMetaData } from '../../types';
 
 type DocumentProps = {
-  subtitle?: string;
+  metaData: {
+    title: string;
+    description?: string;
+  };
 };
 
-export function Document({ subtitle }: DocumentProps) {
-  const intl = useIntl();
-  const defaultSubtitleMessage = intl.formatMessage({ id: 'defaultSubtitle' });
-  const titleMessage = intl.formatMessage(
-    { id: 'titlePattern' },
-    { title: intl.formatMessage({ id: 'title' }), subtitle: subtitle || defaultSubtitleMessage }
-  );
-  const descriptionMessage = intl.formatMessage({ id: 'description' });
+export function Document({ metaData }: DocumentProps) {
   return (
-    <Helmet>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;1,400;1,500&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet"
-      />
-      <title>{titleMessage}</title>
-      <meta name="description" content={descriptionMessage} />
-    </Helmet>
+    <Fragment>
+      <title key="pageTitle">{metaData.title}</title>
+      {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
+    </Fragment>
   );
+}
+
+export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+  return <Document metaData={{ title: pageContext.metaData.title }} />;
 }

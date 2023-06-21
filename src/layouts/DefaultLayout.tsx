@@ -1,9 +1,7 @@
 import { Global, Theme, ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ElementType, PropsWithChildren } from 'react';
-import { DefaultLayoutQuery } from '../../graphql-types';
 import { defaultTheme } from '../themes/defaultTheme';
-import { Document } from './default/Document';
 import { Footer } from './default/Footer';
 import { Header } from './default/Header';
 import { Main } from './default/content/Main';
@@ -30,24 +28,22 @@ const query = graphql`
 
 type DefaultLayoutProps = PropsWithChildren<{
   theme?: Theme;
-  subtitle?: string;
   contentWrapper?: ElementType;
 }>;
 
-export function DefaultLayout({ children, theme, subtitle, contentWrapper: ContentWrapper }: DefaultLayoutProps) {
-  const data = useStaticQuery<DefaultLayoutQuery>(query);
+export function DefaultLayout({ children, theme, contentWrapper: ContentWrapper }: DefaultLayoutProps) {
+  const data = useStaticQuery<Queries.DefaultLayoutQuery>(query);
 
   return (
     <ThemeProvider theme={theme || defaultTheme}>
-      <Document subtitle={subtitle} />
       <Global styles={[defaultStyles, defaultSyntaxHighlighting]} />
       <Header />
       {ContentWrapper ? <ContentWrapper>{children}</ContentWrapper> : <Main>{children}</Main>}
       <Footer
-        author={data.site?.siteMetadata?.author}
-        project={data.site?.siteMetadata?.project}
-        version={data.site?.siteMetadata?.version}
-        buildTime={data.siteBuildMetadata?.buildTime}
+        author={data.site?.siteMetadata?.author || ''}
+        project={data.site?.siteMetadata?.project || ''}
+        version={data.site?.siteMetadata?.version || ''}
+        buildTime={data.siteBuildMetadata?.buildTime || ''}
       />
     </ThemeProvider>
   );

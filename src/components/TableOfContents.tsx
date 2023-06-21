@@ -24,7 +24,7 @@ function TableOfContentsItem({ items }: TableOfContentsItemProps) {
 type TableOfContentsProps = {
   displayRootItem?: boolean;
   heading?: JSX.Element;
-  items: TableOfContentsType;
+  items?: TableOfContentsType;
 };
 
 const DefaultHeading = (
@@ -33,7 +33,7 @@ const DefaultHeading = (
   </AsideHeading>
 );
 export function TableOfContents({ displayRootItem = false, heading = DefaultHeading, items }: TableOfContentsProps) {
-  if (!items.items) {
+  if (!items?.items) {
     return null;
   }
 

@@ -1,24 +1,31 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { AllGenericPagesQuery } from '../../../graphql-types';
+import { getIntl } from '../../utils/localization';
+import { SitePageContextWithMetaData } from '../../types';
+import { createPageTitle } from '../../themes/defaultMetaData';
 
-export async function createGenericPages({ actions, graphql }: CreatePagesArgs) {
+export async function createGenericPages({ actions, graphql, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
-  const result = await graphql<AllGenericPagesQuery>(`
+  const result = await graphql<Queries.AllGenericPagesQuery>(`
     query AllGenericPages {
       allMdx(filter: { fields: { kind: { eq: "pages" } } }) {
         edges {
           node {
             id
             frontmatter {
+              title
               template
             }
             fields {
+              locale
               path
               translations {
                 locale
                 path
               }
+            }
+            internal {
+              contentFilePath
             }
           }
         }
@@ -27,10 +34,15 @@ export async function createGenericPages({ actions, graphql }: CreatePagesArgs) 
   `);
 
   result.data?.allMdx.edges.forEach(p => {
-    if (p.node.fields && p.node.fields.path) {
+    if (p.node.fields && p.node.fields.path && p.node.fields.locale && p.node.frontmatter?.title) {
+      const template = resolve(`./src/templates/${p.node.frontmatter.template || 'GenericPage'}.tsx`);
+      const intl = getIntl(p.node.fields.locale, reporter);
+      const metaData: SitePageContextWithMetaData['metaData'] = {
+        title: createPageTitle(p.node.frontmatter.title, intl?.formatMessage({ id: 'content.kind.page' })),
+      };
       createPage({
-        component: resolve(`./src/templates/${p.node.frontmatter?.template || 'GenericPage'}.tsx`),
-        context: { id: p.node.id, translations: p.node.fields.translations },
+        component: `${template}?__contentFilePath=${p.node.internal.contentFilePath}`,
+        context: { id: p.node.id, translations: p.node.fields.translations, metaData },
         path: p.node.fields.path,
       });
     }

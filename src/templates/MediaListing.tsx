@@ -1,26 +1,25 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { MediaListingPageQuery } from '../../graphql-types';
+import { Markup } from 'interweave';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function MediaListing({ data }: PageProps<MediaListingPageQuery>) {
+export default function MediaListing({ data }: PageProps<Queries.MediaListingPageQuery>) {
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title}>
+    <DefaultLayout>
       <article>
-        <h1>{data.mdx?.frontmatter?.title}</h1>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
-        {data.allMdx.nodes.map(media => {
+        <h1>{data.markdownRemark?.frontmatter?.title}</h1>
+        <Markup content={data.markdownRemark?.html} />
+        {data.allMarkdownRemark.nodes.map(media => {
           if (!media.frontmatter?.photo || !media.fields?.path) {
             return null;
           }
-          const image = getImage(media.frontmatter.photo.childImageSharp?.gatsbyImageData);
+          const image = getImage(media.frontmatter.photo.childImageSharp?.gatsbyImageData || null);
           if (!image) {
             return null;
           }
           return (
             <Link to={media.fields?.path}>
-              <GatsbyImage image={image} alt={media.frontmatter.title} />
+              <GatsbyImage image={image} alt={media.frontmatter.title || ''} />
             </Link>
           );
         })}
@@ -31,14 +30,15 @@ export default function MediaListing({ data }: PageProps<MediaListingPageQuery>)
 
 export const query = graphql`
   query MediaListingPage($id: String!, $kind: String!, $locale: String!) {
-    mdx(id: { eq: $id }) {
-      body
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
       frontmatter {
         title
       }
     }
 
-    allMdx(filter: { fields: { kind: { eq: $kind }, filename: { ne: "index" }, locale: { eq: $locale } } }) {
+    allMarkdownRemark(filter: { fields: { kind: { eq: $kind }, filename: { ne: "index" }, locale: { eq: $locale } } }) {
       nodes {
         fields {
           path
@@ -55,3 +55,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

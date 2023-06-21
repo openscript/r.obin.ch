@@ -3,7 +3,6 @@ import { useDisclosure } from '@mantine/hooks';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
 import { FormattedMessage } from 'react-intl';
-import { MainNavigationQuery } from '../../../graphql-types';
 import { BurgerButton } from '../../components/BurgerButton';
 
 const query = graphql`
@@ -105,7 +104,7 @@ const burgerButtonStyle = (theme: Theme) => css`
 `;
 
 export default function MainNavigation() {
-  const navigation = useStaticQuery<MainNavigationQuery>(query);
+  const navigation = useStaticQuery<Queries.MainNavigationQuery>(query);
   const [open, { toggle }] = useDisclosure(false);
 
   return (
@@ -113,7 +112,7 @@ export default function MainNavigation() {
       <BurgerButton onClick={toggle} isActive={open} css={burgerButtonStyle} />
       <ul className={open ? 'open' : ''}>
         {navigation.navigationYaml?.main?.map(item => {
-          if (item.key && item.path) {
+          if (item?.key && item.path) {
             return (
               <li key={item.key}>
                 <LocalizedLink to={item.path}>

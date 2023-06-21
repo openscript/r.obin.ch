@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FormattedMessage } from 'react-intl';
-import { TopNavigationQuery } from '../../../graphql-types';
 
 const query = graphql`
   query TopNavigation {
@@ -60,13 +59,13 @@ const iconStyle = css`
 `;
 
 export default function TopNavigation() {
-  const navigation = useStaticQuery<TopNavigationQuery>(query);
+  const navigation = useStaticQuery<Queries.TopNavigationQuery>(query);
   return (
     <nav css={navStyle}>
       <ul>
         {navigation.navigationYaml?.top?.map(item => {
-          const icon = getImage(item.icon?.childImageSharp?.gatsbyImageData);
-          if (item.key && item.path && icon) {
+          const icon = getImage(item?.icon?.childImageSharp?.gatsbyImageData || null);
+          if (item?.key && item.path && icon) {
             return (
               <li key={item.key}>
                 <Link to={item.path}>

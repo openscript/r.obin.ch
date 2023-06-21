@@ -1,9 +1,8 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
-import { TagPageQuery } from '../../graphql-types';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function BlogTag({ data }: PageProps<TagPageQuery>) {
+export default function BlogTag({ data }: PageProps<Queries.TagPageQuery>) {
   return (
     <DefaultLayout>
       <h1>
@@ -25,7 +24,7 @@ export const query = graphql`
         fields: { kind: { glob: "blog/**" }, locale: { eq: $locale }, tags: { elemMatch: { slug: { glob: $tag } } } }
         frontmatter: { draft: { ne: true } }
       }
-      sort: { fields: frontmatter___publishedAt, order: DESC }
+      sort: { frontmatter: { publishedAt: DESC } }
       limit: $limit
       skip: $skip
     ) {
@@ -42,3 +41,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

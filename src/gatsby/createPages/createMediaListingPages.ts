@@ -1,13 +1,15 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateMediaListingPagesQuery } from '../../../graphql-types';
+import { getIntl } from '../../utils/localization';
+import { SitePageContextWithMetaData } from '../../types';
+import { createPageTitle } from '../../themes/defaultMetaData';
 
-export async function createMediaListingPages({ actions, graphql }: CreatePagesArgs) {
+export async function createMediaListingPages({ actions, graphql, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateMediaListingPagesQuery>(`
+  const result = await graphql<Queries.CreateMediaListingPagesQuery>(`
     query CreateMediaListingPages {
-      allMdx(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
+      allMarkdownRemark(filter: { fields: { kind: { glob: "medias/**" }, filename: { eq: "index" } } }) {
         nodes {
           id
           fields {
@@ -19,16 +21,29 @@ export async function createMediaListingPages({ actions, graphql }: CreatePagesA
               path
             }
           }
+          frontmatter {
+            title
+          }
         }
       }
     }
   `);
 
-  result.data?.allMdx.nodes.forEach(p => {
-    if (p.fields?.translations && p.fields?.path) {
+  result.data?.allMarkdownRemark.nodes.forEach(p => {
+    if (p.fields?.translations && p.fields.path && p.fields.locale && p.frontmatter?.title) {
+      const intl = getIntl(p.fields.locale, reporter);
+
+      if (!intl) {
+        return;
+      }
+
+      const metaData: SitePageContextWithMetaData['metaData'] = {
+        title: createPageTitle(p.frontmatter.title, intl.formatMessage({ id: 'content.kind.media' })),
+      };
+
       createPage({
         component: resolve(`./src/templates/MediaListing.tsx`),
-        context: { id: p.id, translations: p.fields.translations, kind: p.fields.kind, locale: p.fields.locale },
+        context: { id: p.id, translations: p.fields.translations, kind: p.fields.kind, locale: p.fields.locale, metaData },
         path: p.fields.path,
       });
     }

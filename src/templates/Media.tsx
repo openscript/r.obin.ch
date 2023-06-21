@@ -1,17 +1,16 @@
 import { useHotkeys } from '@mantine/hooks';
 import { graphql, Link, navigate, PageProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { Markup } from 'interweave';
 import { FormattedMessage } from 'react-intl';
-import { MediaPageQuery } from '../../graphql-types';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function Media({ data }: PageProps<MediaPageQuery>) {
+export default function Media({ data }: PageProps<Queries.MediaPageQuery>) {
   let imageComponent: JSX.Element | null = null;
   if (data.current?.frontmatter?.photo) {
-    const image = getImage(data.current.frontmatter.photo.childImageSharp?.gatsbyImageData);
+    const image = getImage(data.current.frontmatter.photo.childImageSharp?.gatsbyImageData || null);
     if (image) {
-      imageComponent = <GatsbyImage image={image} alt={data.current.frontmatter.title} />;
+      imageComponent = <GatsbyImage image={image} alt={data.current.frontmatter.title || ''} />;
     }
   }
 
@@ -23,10 +22,10 @@ export default function Media({ data }: PageProps<MediaPageQuery>) {
   ]);
 
   return (
-    <DefaultLayout subtitle={data.current?.frontmatter?.title}>
+    <DefaultLayout>
       <article>
         <h1>{data.current?.frontmatter?.title}</h1>
-        <MDXRenderer>{data.current?.body || ''}</MDXRenderer>
+        <Markup content={data.current?.html} />
         {imageComponent}
         <Link to={previousPath}>
           <FormattedMessage id="navigation.pagination.previous" />
@@ -41,14 +40,13 @@ export default function Media({ data }: PageProps<MediaPageQuery>) {
 
 export const query = graphql`
   query MediaPage($id: String!, $nextId: String, $previousId: String) {
-    previous: mdx(id: { eq: $previousId }) {
+    previous: markdownRemark(id: { eq: $previousId }) {
       fields {
         path
       }
     }
-    current: mdx(id: { eq: $id }) {
-      id
-      body
+    current: markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
         photo {
@@ -58,10 +56,12 @@ export const query = graphql`
         }
       }
     }
-    next: mdx(id: { eq: $nextId }) {
+    next: markdownRemark(id: { eq: $nextId }) {
       fields {
         path
       }
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

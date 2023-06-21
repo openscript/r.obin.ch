@@ -1,14 +1,16 @@
 import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
-import { CreateBlogListingPagesQuery } from '../../../graphql-types';
 import { CONFIGURATION } from '../../configuration';
+import { getIntl } from '../../utils/localization';
+import { SitePageContextWithMetaData } from '../../types';
+import { createPageTitle } from '../../themes/defaultMetaData';
 
-export async function createBlogListingPages({ graphql, actions }: CreatePagesArgs) {
+export async function createBlogListingPages({ graphql, actions, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
 
-  const result = await graphql<CreateBlogListingPagesQuery>(`
+  const result = await graphql<Queries.CreateBlogListingPagesQuery>(`
     query CreateBlogListingPages {
-      allMdx(filter: { fields: { kind: { glob: "blog/**" } }, frontmatter: { draft: { eq: false } } }) {
+      allMdx(filter: { fields: { kind: { glob: "blog/**" } }, frontmatter: { draft: { ne: false } } }) {
         nodes {
           fields {
             locale
@@ -33,18 +35,29 @@ export async function createBlogListingPages({ graphql, actions }: CreatePagesAr
   Object.keys(postCountPerLocale).forEach(locale => {
     const pageCount = Math.ceil(postCountPerLocale[locale] / CONFIGURATION.PAGINATION.ITEMS_PER_PAGE);
     const locales = Object.keys(postCountPerLocale);
+    const intl = getIntl(locale, reporter);
+
+    if (!intl) {
+      return;
+    }
 
     Array.from({ length: pageCount }).forEach((_, i) => {
       const path = i === 0 ? CONFIGURATION.PATHS.BLOG : `${CONFIGURATION.PATHS.BLOG}/${i}`;
+      const currentPage = i + 1;
+
+      const metaData: SitePageContextWithMetaData['metaData'] = {
+        title: createPageTitle(intl.formatMessage({ id: 'pagination.page' }, { page: currentPage }), intl.formatMessage({ id: 'content.kind.blog' })),
+      };
 
       createPage({
         component: resolve('./src/templates/BlogListing.tsx'),
         context: {
+          metaData,
           // pagination
           limit: CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
           skip: i * CONFIGURATION.PAGINATION.ITEMS_PER_PAGE,
           pageCount,
-          currentPage: i + 1,
+          currentPage,
           // localization
           locale,
           basePath: path,

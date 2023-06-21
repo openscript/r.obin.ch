@@ -8,6 +8,7 @@ import { createMediaListingPages } from './src/gatsby/createPages/createMediaLis
 import { createMediaPages } from './src/gatsby/createPages/createMediaPages';
 import { createProjectListingPages } from './src/gatsby/createPages/createProjectListingPages';
 import { createProjectPages } from './src/gatsby/createPages/createProjectPages';
+import { generatePageMetaData } from './src/gatsby/onCreatePage/generatePageMetaData';
 
 export const createPages: GatsbyNode['createPages'] = async args => {
   await createBlogListingPages(args);
@@ -19,4 +20,8 @@ export const createPages: GatsbyNode['createPages'] = async args => {
   await createMediaPages(args);
   await createProjectListingPages(args);
   await createProjectPages(args);
+};
+
+export const onCreatePage: GatsbyNode<Record<string, unknown>, Queries.SitePageContext>['onCreatePage'] = async args => {
+  await generatePageMetaData(args);
 };

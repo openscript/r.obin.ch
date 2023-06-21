@@ -1,17 +1,15 @@
 import { graphql, PageProps } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { GenericPageWithAsideQuery } from '../../graphql-types';
 import { TableOfContents } from '../components/TableOfContents';
 import { MainWithAside } from '../layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
-export default function GenericPageWithAside({ data }: PageProps<GenericPageWithAsideQuery>) {
+export default function GenericPageWithAside({ data, children }: PageProps<Queries.GenericPageWithAsideQuery>) {
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title} contentWrapper={MainWithAside}>
-      <article>
-        <MDXRenderer>{data.mdx?.body || ''}</MDXRenderer>
-      </article>
-      <aside>{data.mdx?.tableOfContents && data.mdx.tableOfContents.items && <TableOfContents items={data.mdx?.tableOfContents} />}</aside>
+    <DefaultLayout contentWrapper={MainWithAside}>
+      <article>{children}</article>
+      <aside>
+        <TableOfContents items={data.mdx?.tableOfContents || undefined} />
+      </aside>
     </DefaultLayout>
   );
 }
@@ -20,7 +18,6 @@ export const query = graphql`
   query GenericPageWithAside($id: String!) {
     mdx(id: { eq: $id }) {
       id
-      body
       tableOfContents
       frontmatter {
         title
@@ -28,3 +25,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

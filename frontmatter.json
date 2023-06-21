@@ -77,5 +77,8 @@
     "Wireless LAN",
     "Zigbee"
   ],
-  "frontMatter.taxonomy.categories": []
+  "frontMatter.taxonomy.categories": [],
+  "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.framework.startCommand": "yarn start",
+  "frontMatter.preview.host": "http://localhost:8000"
 }
