@@ -5,7 +5,7 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function MediaListing({ data }: PageProps<Queries.MediaListingPageQuery>) {
   return (
-    <DefaultLayout subtitle={data.markdownRemark?.frontmatter?.title || ''}>
+    <DefaultLayout>
       <article>
         <h1>{data.markdownRemark?.frontmatter?.title}</h1>
         <Markup content={data.markdownRemark?.html} />
@@ -55,3 +55,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

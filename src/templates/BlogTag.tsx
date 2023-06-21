@@ -41,3 +41,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

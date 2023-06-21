@@ -37,15 +37,16 @@ export async function createBlogListingPages({ graphql, actions, reporter }: Cre
     const locales = Object.keys(postCountPerLocale);
     const intl = getIntl(locale, reporter);
 
+    if (!intl) {
+      return;
+    }
+
     Array.from({ length: pageCount }).forEach((_, i) => {
       const path = i === 0 ? CONFIGURATION.PATHS.BLOG : `${CONFIGURATION.PATHS.BLOG}/${i}`;
       const currentPage = i + 1;
 
       const metaData: SitePageContextWithMetaData['metaData'] = {
-        title: createPageTitle(
-          intl?.formatMessage({ id: 'pagination.page' }, { page: currentPage }) || '',
-          intl?.formatMessage({ id: 'content.kind.blog' })
-        ),
+        title: createPageTitle(intl.formatMessage({ id: 'pagination.page' }, { page: currentPage }), intl.formatMessage({ id: 'content.kind.blog' })),
       };
 
       createPage({

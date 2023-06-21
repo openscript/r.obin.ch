@@ -1,4 +1,6 @@
+import { HeadProps } from 'gatsby';
 import { Fragment } from 'react';
+import { SitePageContextWithMetaData } from '../../types';
 
 type DocumentProps = {
   metaData: {
@@ -14,4 +16,8 @@ export function Document({ metaData }: DocumentProps) {
       {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
     </Fragment>
   );
+}
+
+export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+  return <Document metaData={{ title: pageContext.metaData.title }} />;
 }

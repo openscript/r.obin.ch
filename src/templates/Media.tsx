@@ -22,7 +22,7 @@ export default function Media({ data }: PageProps<Queries.MediaPageQuery>) {
   ]);
 
   return (
-    <DefaultLayout subtitle={data.current?.frontmatter?.title || ''}>
+    <DefaultLayout>
       <article>
         <h1>{data.current?.frontmatter?.title}</h1>
         <Markup content={data.current?.html} />
@@ -63,3 +63,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

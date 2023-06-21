@@ -5,7 +5,7 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function Project({ data, children }: PageProps<Queries.ProjectPageQuery>) {
   return (
-    <DefaultLayout subtitle={data.mdx?.frontmatter?.title || ''} contentWrapper={MainWithAside}>
+    <DefaultLayout contentWrapper={MainWithAside}>
       <article>
         <h1>{data.mdx?.frontmatter?.title}</h1>
         {children}
@@ -28,3 +28,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

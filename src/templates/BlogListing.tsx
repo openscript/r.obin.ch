@@ -1,11 +1,10 @@
-import { graphql, HeadProps, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { BlogItem } from '../components/BlogItem';
 import { Pagination } from '../components/Pagination';
 import { TagList } from '../components/TagList';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { PaginationContext, SitePageContextWithMetaData } from '../types';
-import { Document } from '../layouts/default/Document';
+import { PaginationContext } from '../types';
 
 export default function BlogListing({ data, pageContext }: PageProps<Queries.BlogListingPageQuery, PaginationContext>) {
   return (
@@ -39,10 +38,6 @@ export default function BlogListing({ data, pageContext }: PageProps<Queries.Blo
   );
 }
 
-export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
-  return <Document metaData={{ title: pageContext.metaData.title }} />;
-}
-
 export const query = graphql`
   fragment BlogListingPageNodes on Mdx {
     excerpt
@@ -73,3 +68,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head } from '../layouts/default/Document';

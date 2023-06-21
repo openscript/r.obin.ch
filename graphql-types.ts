@@ -3644,7 +3644,7 @@ type CreateBlogTagPagesQuery = { readonly allMdx: { readonly group: ReadonlyArra
 type AllGenericPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AllGenericPagesQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly template: string | null } | null, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } } }> } };
+type AllGenericPagesQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly title: string | null, readonly template: string | null } | null, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } } }> } };
 
 type CreateMediaLandingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3654,12 +3654,12 @@ type CreateMediaLandingPagesQuery = { readonly allMarkdownRemark: { readonly nod
 type CreateMediaListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateMediaListingPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly kind: string | null, readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }> } };
+type CreateMediaListingPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly kind: string | null, readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null } | null }> } };
 
 type CreateMediaPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateMediaPagesQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArray<{ readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null }, readonly next: { readonly id: string } | null, readonly previous: { readonly id: string } | null }> }> } };
+type CreateMediaPagesQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArray<{ readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null } | null }, readonly next: { readonly id: string } | null, readonly previous: { readonly id: string } | null }> }> } };
 
 type CreateProjectListingPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3669,7 +3669,7 @@ type CreateProjectListingPagesQuery = { readonly allMdx: { readonly nodes: Reado
 type CreateProjectPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreateProjectPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
+type CreateProjectPagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly path: string | null, readonly locale: string | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null } | null, readonly internal: { readonly contentFilePath: string | null } }> } };
 
 
 }
