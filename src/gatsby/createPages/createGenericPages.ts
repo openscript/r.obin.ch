@@ -4,7 +4,6 @@ import { getIntl } from '../../utils/localization';
 import { SitePageContextWithMetaData } from '../../types';
 import { createPageTitle } from '../../themes/defaultMetaData';
 
-const template = resolve('./src/templates/GenericPage.tsx');
 
 export async function createGenericPages({ actions, graphql, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
@@ -37,8 +36,8 @@ export async function createGenericPages({ actions, graphql, reporter }: CreateP
 
   result.data?.allMdx.edges.forEach(p => {
     if (p.node.fields && p.node.fields.path && p.node.fields.locale && p.node.frontmatter?.title) {
+      const template = resolve(`./src/templates/${p.node.frontmatter.template || 'GenericPage'}.tsx`);
       const intl = getIntl(p.node.fields.locale, reporter);
-
       const metaData: SitePageContextWithMetaData['metaData'] = {
         title: createPageTitle(p.node.frontmatter.title, intl?.formatMessage({ id: 'content.kind.page' })),
       };
