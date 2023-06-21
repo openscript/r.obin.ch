@@ -1344,6 +1344,21 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.43.0.tgz#559ca3d9ddbd6bf907ad524320a0d14b85586af0"
   integrity sha512-s2UHCoiXfxMvmfzqoN+vrQ84ahUSYde9qNO1MdxmoEhyHWsfmwOpFlwYV+ePJEVc7gFnATGUi376WowX1N7tFg==
 
+"@fontsource/ibm-plex-mono@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.0.3.tgz#5859a4f21724166a77f95c4b7135f6b19cfec071"
+  integrity sha512-ifYK2yFaYmPcPi+zFOm4mAIP21K2LJ1wvjOW0Xfpx+Cxcz56m3Opow29mdj3HPGpfSZX7RdTVgno220MiUKCnw==
+
+"@fontsource/poppins@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.3.tgz#f4afa9aa5f491731decee76111c9b9622a9b7924"
+  integrity sha512-5lL2vmvmh4zbknTh1nVH9pTWyhYqAlYMHIAnkNhqo5qwMZGlr+coM1dtMwiQHRBgmHAl3ZvJ35Bj0s8cpmXZbg==
+
+"@fontsource/rajdhani@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/rajdhani/-/rajdhani-5.0.3.tgz#9c05c981031f635d769f83b816e58afbf6f3739b"
+  integrity sha512-mnLmJt1/uX2GDJIcLm2gOnPhZZiQX1m8P1wda+vgiSbZpSJxbMSsjahu8VGEXIsWQ57JYsorCgK9ki4ppWcFsQ==
+
 "@formatjs/ecma402-abstract@1.17.0":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.17.0.tgz#2ce191a3bde4c65c6684e03fa247062a4a294b9e"
