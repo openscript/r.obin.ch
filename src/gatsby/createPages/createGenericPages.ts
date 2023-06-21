@@ -4,7 +4,6 @@ import { getIntl } from '../../utils/localization';
 import { SitePageContextWithMetaData } from '../../types';
 import { createPageTitle } from '../../themes/defaultMetaData';
 
-
 export async function createGenericPages({ actions, graphql, reporter }: CreatePagesArgs) {
   const { createPage } = actions;
   const result = await graphql<Queries.AllGenericPagesQuery>(`
