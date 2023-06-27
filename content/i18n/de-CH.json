@@ -1,6 +1,7 @@
 {
   "aside.actions": "Aktionen",
   "aside.actions.edit": "Bearbeiten",
+  "aside.actions.show": "Anzeigen",
   "aside.tableOfContents": "Inhaltsverzeichnis",
   "components.shareButton.share": "Teilen",
   "content.kind.blog": "Blog",

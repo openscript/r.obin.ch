@@ -1,6 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import React from 'react';
 import { AsideHeading } from '../components/AsideHeading';
 import { Comments } from '../components/Comments';
 import { AnchorButton } from '../components/AnchorButton';
@@ -35,9 +36,14 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
         </AsideHeading>
         <ShareButton />
         {relativePath && (
-          <AnchorButton href={new URL(relativePath, CONFIGURATION.REMOTE_PATHS.EDIT_IN_VCS).href}>
-            <FormattedMessage id="aside.actions.edit" />
-          </AnchorButton>
+          <React.Fragment>
+            <AnchorButton href={new URL(relativePath, CONFIGURATION.REMOTE_PATHS.SHOW_IN_VCS).href}>
+              <FormattedMessage id="aside.actions.show" />
+            </AnchorButton>
+            <AnchorButton href={new URL(relativePath, CONFIGURATION.REMOTE_PATHS.EDIT_IN_VCS).href}>
+              <FormattedMessage id="aside.actions.edit" />
+            </AnchorButton>
+          </React.Fragment>
         )}
       </aside>
     </DefaultLayout>
