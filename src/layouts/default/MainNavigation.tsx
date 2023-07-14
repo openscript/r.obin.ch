@@ -51,7 +51,9 @@ const navStyle = (theme: Theme) => css`
 
     ::before,
     ::after {
-      transition: opacity 0.5s, transform 0.3s;
+      transition:
+        opacity 0.5s,
+        transform 0.3s;
       display: inline-block;
       opacity: 0;
       font-weight: normal;

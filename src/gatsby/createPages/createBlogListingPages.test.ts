@@ -105,7 +105,7 @@ describe('CreateBlogListingPages', () => {
           metaData: { title: 'Seite 1 · Blog' },
         },
         path: '/de-CH/blog',
-      })
+      }),
     );
     expect(createBlogListingPagesArgs.actions.createPage).toHaveBeenNthCalledWith(
       2,
@@ -122,7 +122,7 @@ describe('CreateBlogListingPages', () => {
           metaData: { title: 'Page 1 · Blog' },
         },
         path: '/en-US/blog',
-      })
+      }),
     );
   });
 });
