@@ -50,9 +50,6 @@
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "7.22.5",
-    "@graphql-codegen/cli": "4.0.1",
-    "@graphql-codegen/typescript": "4.0.1",
-    "@graphql-codegen/typescript-operations": "4.0.1",
     "@types/jest": "29.5.3",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
@@ -85,7 +82,6 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "build:types": "graphql-codegen --config codegen.yml",
     "build:with-prefix": "gatsby build --prefix-paths",
     "check:format": "eslint . --max-warnings 0",
     "check:types": "tsc --noEmit",
