@@ -1333,20 +1333,20 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.46.0.tgz#3f7802972e8b6fe3f88ed1aabc74ec596c456db6"
   integrity sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==
 
-"@fontsource/ibm-plex-mono@^5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.0.5.tgz#cee5c1a1d467e6b47349e815d9d14cd254208732"
-  integrity sha512-A1rDiQB7X7oOgsZbjeSQV3r/ZOBEZDjKEnlLvWqd4sMBZwGKTDnCxQYoqedY/8if2NXyiQoLXPdV5RpQ/3BerQ==
+"@fontsource/ibm-plex-mono@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.0.6.tgz#d6875b7fc1494123c10af4fa6826306ff48f31b8"
+  integrity sha512-9nYfZnrf0NZWTB7zuad4u9rpYClt/vFx/b1IaPTGc5gDCb0knbTpFga52EVIrhHq5XwoXodyrhBCM/ehBx9pQg==
 
-"@fontsource/poppins@^5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.5.tgz#6a198e164f89c916ad80e1798deddb6837a0cdeb"
-  integrity sha512-Y/AGmD6iavfobRb7f2l49q0dQSyisvRrUfJ7F0AWOlTNFty8bbnPBbg+5Qsq5EN6xWaIAn++50aLfOCEe7zu3w==
+"@fontsource/poppins@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.6.tgz#fc57dd6ced50b6e54119bc5b85b9c0b6d853747e"
+  integrity sha512-psKEpo0Kt4/Y1XpzrmfTrZcyzMMis3Nzysu4HI3PIBifdnza8eEzvDkDNt6GiF2ynGnp9tAvJnDfg++ZZLHicA==
 
-"@fontsource/rajdhani@^5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/rajdhani/-/rajdhani-5.0.5.tgz#27e2c1da89c23a8a3b3a9fba3926a69ce6307fce"
-  integrity sha512-i5EfcqdoWg1CWqfmqvFPKeGfNRoRyxTkiB6xdADaBB/rY+ZZj0V4Flpyud0hj6+RxEjPjy8VRzu2SLGvtBVZJQ==
+"@fontsource/rajdhani@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/rajdhani/-/rajdhani-5.0.6.tgz#c1156fe6bc8fbf04b3f4a8c66bb5cdd0233d707f"
+  integrity sha512-PJ5hhZfyrhUx425v2z75xh2vWqT+FTbih8fqm2z0Xkr2ML/OYT+D0S6zLYmIZZxHIQ4Ur1lw9uxp+OFqTHnMLw==
 
 "@formatjs/ecma402-abstract@1.17.0":
   version "1.17.0"
@@ -3005,10 +3005,15 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@20.4.5", "@types/node@>=10.0.0":
+"@types/node@*", "@types/node@>=10.0.0":
   version "20.4.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.5.tgz#9dc0a5cb1ccce4f7a731660935ab70b9c00a5d69"
   integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
+
+"@types/node@20.4.6":
+  version "20.4.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.6.tgz#b66b66c9bb5d49b199f03399e341c9d6036e9e88"
+  integrity sha512-q0RkvNgMweWWIvSMDiXhflGUKMdIxBo2M2tYM/0kEGDueQByFzK4KZAgu5YHGFNxziTlppNpTIBcqHQAxlfHdA==
 
 "@types/node@^17.0.5":
   version "17.0.45"
@@ -5781,10 +5786,10 @@ eslint-config-airbnb@19.0.4:
     object.assign "^4.1.2"
     object.entries "^1.1.5"
 
-eslint-config-prettier@8.9.0:
-  version "8.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.9.0.tgz#094b6254b2804b0544f7cee535f802b6d29ee10b"
-  integrity sha512-+sbni7NfVXnOpnRadUA8S28AUlsZt9GjgFvABIRL9Hkn8KqNzOp+7Lw4QWtrwn20KzU3wqu1QoOj2m+7rKRqkA==
+eslint-config-prettier@8.10.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.10.0.tgz#3a06a662130807e2502fc3ff8b4143d8a0658e11"
+  integrity sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==
 
 eslint-config-react-app@^6.0.0:
   version "6.0.0"
@@ -11495,10 +11500,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.0.tgz#e7b19f691245a21d618c68bc54dc06122f6105ae"
-  integrity sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==
+prettier@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.1.tgz#65271fc9320ce4913c57747a70ce635b30beaa40"
+  integrity sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==
 
 pretty-bytes@^5.1.0, pretty-bytes@^5.6.0:
   version "5.6.0"

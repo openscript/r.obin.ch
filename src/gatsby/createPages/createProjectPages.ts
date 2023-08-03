@@ -1,5 +1,5 @@
-import { CreatePagesArgs } from 'gatsby';
 import { resolve } from 'path';
+import { CreatePagesArgs } from 'gatsby';
 import { getIntl } from '../../utils/localization';
 import { SitePageContextWithMetaData } from '../../types';
 import { createPageTitle } from '../../themes/defaultMetaData';
