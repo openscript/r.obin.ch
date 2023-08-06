@@ -1334,19 +1334,19 @@
   integrity sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==
 
 "@fontsource/ibm-plex-mono@^5.0.6":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.0.7.tgz#a00f971c21570e2ca7ddf1ef8910ed14d4eee32b"
-  integrity sha512-k6wK71xPVn96CNxaC5d7u/+VAEoGBoeypNP8X31yoDsQHj7/0EW+M0Uelb8MVlrq5p1DeP4deZcn4Q8u5CmSPA==
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.0.8.tgz#0fa47c935e0f15333afa074d739d7965bdca5067"
+  integrity sha512-AoR7K2YtlGKy3LApyLYjqjyz0o8XtkRvbB/juMsGSGNayBBAly140ykZls+VxcXjZSLQpp2RyxKo6lYOuHPmUw==
 
 "@fontsource/poppins@^5.0.6":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.7.tgz#ea071eb0d85c071a25056c0eae74643a15292ef2"
-  integrity sha512-IYFKAY63agukU8y8POfiutQJe95czWNSgZ4sY/CQDcGXzEtrTr3vwKg2Z/1v/PQnd7RoGvLK6ufjoXUayvSK4w==
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.8.tgz#a1c5540aedb3719a36eba5c7c5dfaa3aed3c9f80"
+  integrity sha512-P8owfYWluoUY5Nyzk4gT/L6LmLmseP6ezFWhj6VBUa5pRIdnCvNJpoQ6i/vhekjtJOfqX6nKlB+LCttoUl2GQQ==
 
 "@fontsource/rajdhani@^5.0.6":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/rajdhani/-/rajdhani-5.0.7.tgz#08a585923e439e1188dbbd4b428c9e85367c1bc2"
-  integrity sha512-2Ifd6Axl6h/ssSsYTLnC8AI2si6o+4O6JY5xWqx0nMWKj/W0UG0+MLIl4CTtwik5bEjFvqem9GTW5jti/2Jd5Q==
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/rajdhani/-/rajdhani-5.0.8.tgz#15557a0d306bb1a842e1cedc3e4b8721427c3298"
+  integrity sha512-icfbeazLFF6HjUPxiZo0/LZ1t3eY3eec8JASKffssLP2pQJXMgDr/7sLXrRbctcUy64sK064ibJ1zplXNTei0g==
 
 "@formatjs/ecma402-abstract@1.17.0":
   version "1.17.0"
