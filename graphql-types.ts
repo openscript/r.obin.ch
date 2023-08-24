@@ -3493,15 +3493,14 @@ type WebPOptions = {
 };
 
 type BlogListingPageQueryVariables = Exact<{
-  locale: Scalars['String'];
   limit: Scalars['Int'];
   skip: Scalars['Int'];
 }>;
 
 
-type BlogListingPageQuery = { readonly posts: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly tags: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null, readonly publishedAt: string | null } | null }> } };
+type BlogListingPageQuery = { readonly posts: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly tags: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null } | null> | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null, readonly publishedAt: string | null } | null }> } };
 
-type BlogListingPageNodesFragment = { readonly excerpt: string | null, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly tags: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null, readonly publishedAt: string | null } | null };
+type BlogListingPageNodesFragment = { readonly excerpt: string | null, readonly fields: { readonly locale: string | null, readonly path: string | null, readonly tags: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null } | null> | null, readonly translations: ReadonlyArray<{ readonly locale: string | null, readonly path: string | null } | null> | null } | null, readonly frontmatter: { readonly title: string | null, readonly publishedAt: string | null } | null };
 
 type BlogPageQueryVariables = Exact<{
   id: Scalars['String'];

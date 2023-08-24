@@ -1,12 +1,13 @@
 import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
+import { SitePageContext } from 'gatsby-plugin-i18n-l10n/types';
 import { BlogItem } from '../components/BlogItem';
 import { Pagination } from '../components/Pagination';
 import { TagList } from '../components/TagList';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { PaginationContext } from '../types';
 
-export default function BlogListing({ data, pageContext }: PageProps<Queries.BlogListingPageQuery, PaginationContext>) {
+export default function BlogListing({ data, pageContext }: PageProps<Queries.BlogListingPageQuery, SitePageContext & PaginationContext>) {
   return (
     <DefaultLayout>
       <h1>
@@ -18,17 +19,20 @@ export default function BlogListing({ data, pageContext }: PageProps<Queries.Blo
           !post.fields.locale ||
           !post.frontmatter?.title ||
           !post.excerpt ||
+          (post.fields.locale !== pageContext.locale && post.fields.translations?.length !== 0) ||
           typeof post.frontmatter.publishedAt !== 'string'
         ) {
           return null;
         }
         const tagList = <TagList locale={post.fields.locale} tags={post.fields.tags as any} />;
+        const nonDefaultLanguage = post.fields.locale !== pageContext.locale ? post.fields.locale : undefined;
         return (
           <BlogItem
             excerpt={post.excerpt}
             path={post.fields.path}
             title={post.frontmatter.title}
             publishedAt={post.frontmatter.publishedAt}
+            nonDefaultLanguage={nonDefaultLanguage}
             tagList={tagList}
           />
         );
@@ -48,6 +52,10 @@ export const query = graphql`
         slug
         title
       }
+      translations {
+        locale
+        path
+      }
     }
     frontmatter {
       title
@@ -55,9 +63,9 @@ export const query = graphql`
     }
   }
 
-  query BlogListingPage($locale: String!, $limit: Int!, $skip: Int!) {
+  query BlogListingPage($limit: Int!, $skip: Int!) {
     posts: allMdx(
-      filter: { fields: { kind: { glob: "blog/**" }, locale: { eq: $locale } }, frontmatter: { draft: { ne: true } } }
+      filter: { fields: { kind: { glob: "blog/**" } }, frontmatter: { draft: { ne: true } } }
       sort: { frontmatter: { publishedAt: DESC } }
       limit: $limit
       skip: $skip

@@ -41,10 +41,11 @@ type BlogItemProps = {
   publishedAt: string;
   featured?: IGatsbyImageData;
   tagList?: JSX.Element;
+  nonDefaultLanguage?: string;
   titleAs?: ElementType;
 };
 
-export function BlogItem({ excerpt, path, title, publishedAt, featured, tagList, titleAs: Title = 'h2' }: BlogItemProps) {
+export function BlogItem({ excerpt, path, title, publishedAt, featured, tagList, nonDefaultLanguage, titleAs: Title = 'h2' }: BlogItemProps) {
   return (
     <div css={blogItemStyles}>
       <Link to={path} css={featured && titleContainerStyles}>
@@ -52,7 +53,7 @@ export function BlogItem({ excerpt, path, title, publishedAt, featured, tagList,
         <Title css={featured && titleStyles}>{title}</Title>
       </Link>
       <div css={metaDataStyles}>
-        <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
+        {nonDefaultLanguage} <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
         {tagList}
       </div>
       {excerpt}
