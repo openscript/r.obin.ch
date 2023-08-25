@@ -1,4 +1,4 @@
-import { HeadProps } from 'gatsby';
+import { HeadProps, Script } from 'gatsby';
 import { Fragment } from 'react';
 import { SitePageContextWithMetaData } from '../../types';
 
@@ -14,6 +14,7 @@ export function Document({ metaData }: DocumentProps) {
     <Fragment>
       <title key="pageTitle">{metaData.title}</title>
       {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
+      <Script id="analytics" defer data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js" />
     </Fragment>
   );
 }
