@@ -5,7 +5,7 @@ const mainStyle = css`
   padding-top: 2rem;
   padding-bottom: 2rem;
 
-  *:first-child {
+  *:first-of-type {
     margin-top: 0;
   }
 `;

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FormattedMessage } from 'react-intl';
 
@@ -68,10 +68,10 @@ export default function TopNavigation() {
           if (item?.key && item.path && icon) {
             return (
               <li key={item.key}>
-                <Link to={item.path}>
+                <a href={item.path}>
                   <GatsbyImage image={icon} alt={`${item.key} brand icon`} css={iconStyle} />
                   <FormattedMessage id={`navigation.top.${item.key}`} />
-                </Link>
+                </a>
               </li>
             );
           }
