@@ -85,10 +85,11 @@
     "check:format": "eslint . --max-warnings 0",
     "check:types": "tsc --noEmit",
     "check:watch-types": "tsc --noEmit --watch",
+    "dev:prod": "gatsby build --no-uglify && gatsby serve",
     "dev:test": "jest --watch",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "yarn run develop",
+    "start": "yarn run dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest"
