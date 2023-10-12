@@ -42,13 +42,13 @@
     "react-section-dividers": "0.5.1"
   },
   "devDependencies": {
-    "@babel/core": "7.23.0",
+    "@babel/core": "7.23.2",
     "@babel/eslint-parser": "7.22.15",
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@babel/plugin-transform-runtime": "^7.22.15",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-react": "^7.22.15",
-    "@babel/preset-typescript": "7.23.0",
+    "@babel/preset-typescript": "7.23.2",
     "@types/jest": "29.5.5",
     "@types/node": "20.8.4",
     "@types/react": "18.2.28",
