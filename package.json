@@ -38,7 +38,7 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-intl": "6.5.0",
+    "react-intl": "6.5.1",
     "react-section-dividers": "0.5.1"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.1.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-import": "2.29.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-prettier": "5.0.1",
