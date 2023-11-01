@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { ElementType } from 'react';
-import { FormattedDate, FormattedTime } from 'react-intl';
+import { DateTimeAt } from './DateTimeAt';
 
 const blogItemStyles = css`
   margin-bottom: 2rem;
@@ -53,7 +53,7 @@ export function BlogItem({ excerpt, path, title, publishedAt, featured, tagList,
         <Title css={featured && titleStyles}>{title}</Title>
       </Link>
       <div css={metaDataStyles}>
-        {nonDefaultLanguage} <FormattedDate value={publishedAt} /> <FormattedTime value={publishedAt} />
+        {nonDefaultLanguage} <DateTimeAt dateTime={publishedAt} />
         {tagList}
       </div>
       {excerpt}
