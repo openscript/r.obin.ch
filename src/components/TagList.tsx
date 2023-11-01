@@ -28,7 +28,7 @@ export function TagList({ locale, tags }: TagListProps) {
   return (
     <ul css={tagListStyles}>
       {tags?.map(t => (
-        <li>
+        <li key={t.title}>
           <LocalizedLink to={`${CONFIGURATION.PATHS.TAG}/${t.slug}`}>{t.title}</LocalizedLink>
         </li>
       ))}

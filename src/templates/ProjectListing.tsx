@@ -14,7 +14,7 @@ export default function ProjectListing({ data }: PageProps<Queries.ProjectListin
         if (!project.fields?.path || !project.frontmatter?.title) {
           return null;
         }
-        return <ProjectItem path={project.fields.path} title={project.frontmatter.title} />;
+        return <ProjectItem key={project.frontmatter.title} path={project.fields.path} title={project.frontmatter.title} />;
       })}
     </DefaultLayout>
   );

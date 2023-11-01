@@ -24,10 +24,11 @@ export default function BlogListing({ data, pageContext }: PageProps<Queries.Blo
         ) {
           return null;
         }
-        const tagList = <TagList locale={post.fields.locale} tags={post.fields.tags as any} />;
+        const tagList = <TagList key={`${post.frontmatter.title}_tagList`} locale={post.fields.locale} tags={post.fields.tags as any} />;
         const nonDefaultLanguage = post.fields.locale !== pageContext.locale ? post.fields.locale : undefined;
         return (
           <BlogItem
+            key={`${post.frontmatter.title}_blogItem`}
             excerpt={post.excerpt}
             path={post.fields.path}
             title={post.frontmatter.title}
