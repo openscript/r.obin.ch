@@ -8,9 +8,10 @@ const footerStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 8rem;
+  height: 7rem;
   color: ${theme.colors.bright};
   background-color: ${theme.colors.primary};
+  font-size: 1.1rem;
 `;
 
 const pageInfoStyles = css`

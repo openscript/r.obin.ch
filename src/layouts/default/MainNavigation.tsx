@@ -17,9 +17,11 @@ const query = graphql`
 `;
 
 const navStyle = (theme: Theme) => css`
-  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5rem;
   margin-right: -1.6rem;
-  align-self: center;
 
   ul {
     display: flex;
@@ -30,6 +32,7 @@ const navStyle = (theme: Theme) => css`
 
   li {
     margin-left: 0.5rem;
+    white-space: nowrap;
   }
 
   a {

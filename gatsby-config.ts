@@ -64,6 +64,7 @@ const configuration: GatsbyConfig = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-emotion`,
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -75,17 +76,6 @@ const configuration: GatsbyConfig = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: remarkPlugins,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
-        // The values for each key in this example are the defaults the plugin uses.
-        sourceMap: true,
-        autoLabel: 'dev-only',
-        labelFormat: `[local]`,
-        cssPropOptimization: true,
       },
     },
     {

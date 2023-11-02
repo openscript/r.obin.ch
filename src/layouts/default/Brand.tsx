@@ -4,6 +4,7 @@ const BrandWrapper = styled.div`
   transition: 0.5s;
   font-weight: bold;
   box-sizing: content-box;
+  white-space: nowrap;
 
   span:last-of-type {
     display: inline-block;
@@ -13,6 +14,12 @@ const BrandWrapper = styled.div`
   &:hover span:last-of-type {
     transition: 0.5s;
     opacity: 1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    span:last-of-type {
+      display: none;
+    }
   }
 `;
 
