@@ -25,7 +25,6 @@ type SearchResultsProps = {
 };
 
 export default function SearchResults({ results }: SearchResultsProps) {
-  console.log(results);
   return (
     <ul css={searchResultsStyles}>
       {results.length === 0 && (
