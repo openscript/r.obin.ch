@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { Markup } from 'interweave';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'gatsby';
 import { PagefindSearchFragment } from '../../types';
 
 const searchResultsStyles = css`
@@ -35,10 +36,10 @@ export default function SearchResults({ results }: SearchResultsProps) {
       {results.map(r => {
         return (
           <li key={r.url}>
-            <a href={r.url}>
+            <Link to={r.url}>
               <strong>{r.meta.title}: </strong>
               <Markup content={r.excerpt} css={excerptStyles} />
-            </a>
+            </Link>
           </li>
         );
       })}

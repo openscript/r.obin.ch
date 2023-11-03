@@ -28,6 +28,8 @@ declare module '@emotion/react' {
 }
 
 interface Pagefind {
+  init: () => void;
+  options: (newOptions: PagefindIndexOptions) => void;
   search: (query: string, options?: PagefindSearchOptions) => Promise<PagefindSearchResults>;
   debouncedSearch: (query: string, options?: PagefindSearchOptions, timeout?: number) => Promise<PagefindSearchResults>;
 }
