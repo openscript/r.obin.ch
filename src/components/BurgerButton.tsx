@@ -48,7 +48,7 @@ export function BurgerButton({ className, isActive, onClick }: BurgerButtonProps
   const classNames = `${className} ${isActive ? 'active' : ''}`;
 
   return (
-    <button type="button" css={BurgerButtonStyle} className={classNames} onClick={onClick}>
+    <button type="button" css={BurgerButtonStyle} className={classNames} onClick={onClick} aria-label="Open Menu">
       <div />
     </button>
   );
