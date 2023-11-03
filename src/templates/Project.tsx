@@ -6,7 +6,7 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 export default function Project({ data, children }: PageProps<Queries.ProjectPageQuery>) {
   return (
     <DefaultLayout contentWrapper={MainWithAside}>
-      <article>
+      <article data-pagefind-body>
         <h1>{data.mdx?.frontmatter?.title}</h1>
         {children}
       </article>

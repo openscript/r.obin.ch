@@ -1,8 +1,9 @@
 import { css, Theme } from '@emotion/react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { ReboundSection } from 'react-section-dividers';
+import { Fragment } from 'react';
 import FooterNavigation from './FooterNavigation';
 import { useCSR } from '../../hooks/useCSR';
+import { ReboundDivider } from '../../components/ReboundDivider';
 
 const footerStyle = (theme: Theme) => css`
   display: flex;
@@ -12,6 +13,7 @@ const footerStyle = (theme: Theme) => css`
   color: ${theme.colors.bright};
   background-color: ${theme.colors.primary};
   font-size: 1.1rem;
+  margin-top: -1px;
 `;
 
 const pageInfoStyles = css`
@@ -39,19 +41,22 @@ export function Footer({ author, project, version, buildTime }: FooterProps) {
   }
 
   return (
-    <ReboundSection as="footer" position="top" flip="both" rebound={80} height={30} css={footerStyle}>
-      <div css={pageInfoStyles}>
-        <FormattedMessage
-          id="pageInfoText"
-          values={{
-            project,
-            author,
-            version,
-            ...formattedBuildTime,
-          }}
-        />
-      </div>
-      <FooterNavigation />
-    </ReboundSection>
+    <Fragment>
+      <ReboundDivider flipHorizontally flipVertically />
+      <footer css={footerStyle}>
+        <div css={pageInfoStyles}>
+          <FormattedMessage
+            id="pageInfoText"
+            values={{
+              project,
+              author,
+              version,
+              ...formattedBuildTime,
+            }}
+          />
+        </div>
+        <FooterNavigation />
+      </footer>
+    </Fragment>
   );
 }

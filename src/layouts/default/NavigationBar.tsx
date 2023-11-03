@@ -1,6 +1,5 @@
 import { css, Theme } from '@emotion/react';
 import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import { ReboundSection } from 'react-section-dividers';
 import Brand from './Brand';
 import MainNavigation from './MainNavigation';
 import { Search } from './Search';
@@ -22,12 +21,12 @@ const headerStyle = (theme: Theme) => css`
 
 export default function NavigationBar() {
   return (
-    <ReboundSection as="header" position="bottom" flip="both" rebound={20} height={30} css={headerStyle}>
+    <header css={headerStyle}>
       <LocalizedLink to="/">
         <Brand />
       </LocalizedLink>
       <Search />
       <MainNavigation />
-    </ReboundSection>
+    </header>
   );
 }

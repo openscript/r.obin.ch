@@ -41,6 +41,8 @@
   "page.projects.title": "Projekte",
   "pageInfoText": "{project} (v{version}) erstellt von {author} wurde zuletzt am {date} um {time} aktualisiert",
   "pagination.page": "Seite {page}",
+  "search.noResults": "Noch nichts gefunden.",
+  "search.placeholder": "Tippe um zu suchen...",
   "title": "Robin Bühler",
   "titlePattern": "{subtitle} - {title}"
 }
