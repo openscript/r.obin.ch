@@ -23,7 +23,7 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
 
   return (
     <DefaultLayout contentWrapper={MainWithAside}>
-      <article>
+      <article data-pagefind-body>
         <h1>{data.mdx.frontmatter?.title}</h1>
         {featured && <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />}
         {children}

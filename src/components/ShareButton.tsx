@@ -22,7 +22,7 @@ export function ShareButton({ text, title, url }: ShareButtonProps) {
   };
 
   return (
-    <button type="button" onClick={onShare}>
+    <button type="button" onClick={onShare} aria-label="Share">
       <FormattedMessage id="components.shareButton.share" />
     </button>
   );

@@ -18,7 +18,7 @@ export default function MediaListing({ data }: PageProps<Queries.MediaListingPag
             return null;
           }
           return (
-            <Link to={media.fields?.path}>
+            <Link to={media.fields?.path} key={media.frontmatter.title}>
               <GatsbyImage image={image} alt={media.frontmatter.title || ''} />
             </Link>
           );

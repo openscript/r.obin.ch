@@ -23,7 +23,7 @@ export default function Media({ data }: PageProps<Queries.MediaPageQuery>) {
 
   return (
     <DefaultLayout>
-      <article>
+      <article data-pagefind-body>
         <h1>{data.current?.frontmatter?.title}</h1>
         <Markup content={data.current?.html} />
         {imageComponent}

@@ -6,7 +6,7 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 export default function GenericPageWithAside({ data, children }: PageProps<Queries.GenericPageWithAsideQuery>) {
   return (
     <DefaultLayout contentWrapper={MainWithAside}>
-      <article>{children}</article>
+      <article data-pagefind-body>{children}</article>
       <aside>
         <TableOfContents items={data.mdx?.tableOfContents || undefined} />
       </aside>
