@@ -1,5 +1,6 @@
 import path from 'path';
 import { GatsbyConfig } from 'gatsby';
+import MarkdownIt from 'markdown-it';
 import deCHMessages from './content/i18n/de-CH.json';
 import enUSMessages from './content/i18n/en-US.json';
 import packageJson from './package.json';
@@ -8,6 +9,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const mdparser = new MarkdownIt();
 const siteUrl = process.env.SITE_URL || `https://r.obin.ch`;
 
 const remarkPlugins = [
@@ -88,6 +90,47 @@ const configuration: GatsbyConfig = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/statics/icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }: any) => {
+              return allMdx.nodes.map((node: any) => ({
+                title: node.frontmatter.title,
+                date: node.frontmatter.publishedAt,
+                url: site.siteMetadata.siteUrl + node.fields.path,
+                guid: node.id,
+                custom_elements: [{ 'content:encoded': mdparser.render(node.body) }],
+              }));
+            },
+            query: `
+              {
+                allMdx(
+                  filter: {fields: {kind: {glob: "blog/**"}}, frontmatter: {draft: {ne: true}}}
+                  sort: {frontmatter: {publishedAt: DESC}}
+                ) {
+                  nodes {
+                    fields {
+                      path
+                    }
+                    frontmatter {
+                      title
+                      publishedAt
+                    }
+                    id
+                    body
+                    excerpt
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Robins website',
+          },
+        ],
       },
     },
     {
