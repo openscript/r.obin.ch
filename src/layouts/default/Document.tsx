@@ -16,7 +16,7 @@ export function Document({ metaData }: DocumentProps) {
       {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
       <meta name="referrer" content="no-referrer-when-downgrade" />
       <Script id="analytics" defer data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js" />
-      <Script id="search" defer type="module">
+      <Script id="search" type="module">
         {`
           const pagefind = await import("/pagefind/pagefind.js");
           pagefind.init();

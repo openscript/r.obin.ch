@@ -45,6 +45,14 @@ export const defaultStyles = (theme: Theme) => css`
       padding: 0 2.5rem;
     }
 
+    @media (max-width: ${theme.breakpoints.compact}) {
+      padding: 0 2rem;
+    }
+
+    @media (max-width: ${theme.breakpoints.minimum}) {
+      padding: 0 1.5rem;
+    }
+
     @media (min-width: ${theme.breakpoints.big}) {
       padding: 0 15%;
     }

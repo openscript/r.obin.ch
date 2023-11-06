@@ -1798,7 +1798,6 @@ type MdxFrontmatter = {
   readonly featured: Maybe<File>;
   readonly modifiedAt: Maybe<Scalars['Date']>;
   readonly publishedAt: Maybe<Scalars['Date']>;
-  readonly series: Maybe<Scalars['String']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly template: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
@@ -1825,7 +1824,6 @@ type MdxFrontmatterFieldSelector = {
   readonly featured: InputMaybe<FileFieldSelector>;
   readonly modifiedAt: InputMaybe<FieldSelectorEnum>;
   readonly publishedAt: InputMaybe<FieldSelectorEnum>;
-  readonly series: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly template: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
@@ -1836,7 +1834,6 @@ type MdxFrontmatterFilterInput = {
   readonly featured: InputMaybe<FileFilterInput>;
   readonly modifiedAt: InputMaybe<DateQueryOperatorInput>;
   readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
-  readonly series: InputMaybe<StringQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly template: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
@@ -1847,7 +1844,6 @@ type MdxFrontmatterSortInput = {
   readonly featured: InputMaybe<FileSortInput>;
   readonly modifiedAt: InputMaybe<SortOrderEnum>;
   readonly publishedAt: InputMaybe<SortOrderEnum>;
-  readonly series: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly template: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
