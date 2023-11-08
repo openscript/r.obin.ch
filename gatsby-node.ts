@@ -1,14 +1,14 @@
 import { GatsbyNode } from 'gatsby';
-import { createBlogListingPages } from './src/gatsby/createPages/createBlogListingPages';
-import { createBlogPages } from './src/gatsby/createPages/createBlogPages';
-import { createBlogTagPages } from './src/gatsby/createPages/createBlogTagPages';
-import { createGenericPages } from './src/gatsby/createPages/createGenericPages';
-import { createMediaLandingPages } from './src/gatsby/createPages/createMediaLandingPages';
-import { createMediaListingPages } from './src/gatsby/createPages/createMediaListingPages';
-import { createMediaPages } from './src/gatsby/createPages/createMediaPages';
-import { createProjectListingPages } from './src/gatsby/createPages/createProjectListingPages';
-import { createProjectPages } from './src/gatsby/createPages/createProjectPages';
-import { generatePageMetaData } from './src/gatsby/onCreatePage/generatePageMetaData';
+import { createBlogListingPages } from './legacy/gatsby/createPages/createBlogListingPages';
+import { createBlogPages } from './legacy/gatsby/createPages/createBlogPages';
+import { createBlogTagPages } from './legacy/gatsby/createPages/createBlogTagPages';
+import { createGenericPages } from './legacy/gatsby/createPages/createGenericPages';
+import { createMediaLandingPages } from './legacy/gatsby/createPages/createMediaLandingPages';
+import { createMediaListingPages } from './legacy/gatsby/createPages/createMediaListingPages';
+import { createMediaPages } from './legacy/gatsby/createPages/createMediaPages';
+import { createProjectListingPages } from './legacy/gatsby/createPages/createProjectListingPages';
+import { createProjectPages } from './legacy/gatsby/createPages/createProjectPages';
+import { generatePageMetaData } from './legacy/gatsby/onCreatePage/generatePageMetaData';
 
 export const createPages: GatsbyNode['createPages'] = async args => {
   await createBlogListingPages(args);

@@ -25,72 +25,36 @@ jobs:
     name: Build project
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: 'master'
 
-      - name: Use nodejs
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "cache_dir=$(yarn cache dir)" >> "$GITHUB_ENV"
-
-      - name: Activate dependency cache
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ env.cache_dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm i
 
-      - name: Caching Gatsby
-        id: gatsby-cache-build
-        uses: actions/cache@v3
-        with:
-          path: |
-            public
-            .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-cache-
-
-      - name: Build website
-        id: build-website
-        run: yarn build
-        continue-on-error: true
+      - name: Build
+        run: pnpm build
         env:
-          CI: true
-
-      - name: Clean Gatsby cache
-        id: clean-cache
-        if: steps.build-website.outcome != 'success'
-        run: yarn run gatsby clean
-
-      - name: Build website with clean cache
-        id: build-website-without-cache
-        if: steps.clean-cache.outcome == 'success'
-        run: yarn build
-        env:
-          CI: true
-
-      - name: Build search index
-        run: yarn build-search-index
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./public
+          path: ./dist
 
   deploy:
-    name: Deploy project
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
