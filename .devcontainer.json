@@ -13,11 +13,11 @@
 				"dbaeumer.vscode-eslint",
 				"styled-components.vscode-styled-components",
 				"graphql.vscode-graphql",
-				"lokalise.i18n-ally",
 				"eliostruyf.vscode-front-matter",
 				"unifiedjs.vscode-mdx",
 				"GraphQL.vscode-graphql",
-				"github.vscode-github-actions"
+				"github.vscode-github-actions",
+				"astro-build.astro-vscode"
 			]
 		}
 	}
