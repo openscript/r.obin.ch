@@ -1,6 +1,6 @@
 import { HeadProps, Script } from 'gatsby';
 import { Fragment } from 'react';
-import { SitePageContextWithMetaData } from '../../types';
+import { SitePageContextWithMetaData } from '../../../legacy/types';
 
 type DocumentProps = {
   metaData: {

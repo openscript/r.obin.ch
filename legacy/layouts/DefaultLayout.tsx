@@ -2,9 +2,9 @@ import { Global, Theme, ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ElementType, PropsWithChildren } from 'react';
 import { defaultTheme } from '../themes/defaultTheme';
-import { Footer } from './default/Footer';
-import { Header } from './default/Header';
-import { Main } from './default/content/Main';
+import { Footer } from '../../src/layouts/default/Footer';
+import { Header } from '../../src/layouts/default/Header.astro';
+import { Main } from '../../src/layouts/default/content/Main';
 import { defaultSyntaxHighlighting } from '../themes/defaultSyntaxHighlighting';
 import { defaultStyles } from '../themes/defaultStyles';
 

@@ -2,7 +2,7 @@ import { css, Theme } from '@emotion/react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Fragment } from 'react';
 import FooterNavigation from './FooterNavigation';
-import { useCSR } from '../../hooks/useCSR';
+import { useCSR } from '../../../legacy/hooks/useCSR';
 import { ReboundDivider } from '../../components/ReboundDivider';
 
 const footerStyle = (theme: Theme) => css`

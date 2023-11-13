@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+
+const topNavigation = await getEntry('navigation', 'top');
+
+---
+
+<nav>
+  <ul>
+    {
+      topNavigation.data.map(i => {
+        if(!i.icon) {
+          return
+        }
+        return (
+          <li>
+            <a href={i.path}>
+              <Image src={i.icon} alt={`${i.key} brand icon`} />
+              {i.key}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+<style lang="scss">
+  nav {
+    max-width: 100%;
+    margin-right: 1rem;
+    padding-right: 2rem;
+    overflow-x: scroll;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) calc(100% - 2rem), transparent);
+
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-right: 1rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    a {
+      transition: 0.5s;
+      filter: grayscale(1);
+
+      &:hover {
+        filter: none;
+      }
+    }
+  }
+</style>

@@ -64,4 +64,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from '../../src/layouts/default/Document';

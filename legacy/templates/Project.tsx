@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import { TableOfContents } from '../components/TableOfContents';
-import { MainWithAside } from '../layouts/default/content/MainWithAside';
+import { MainWithAside } from '../../src/layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default function Project({ data, children }: PageProps<Queries.ProjectPageQuery>) {
@@ -29,4 +29,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from '../../src/layouts/default/Document';

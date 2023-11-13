@@ -50,11 +50,7 @@
       ]
     }
   ],
-  "frontMatter.content.pageFolders": [
-    {
-      "path": "[[workspace]]/content/data/blog"
-    }
-  ],
+  "frontMatter.content.pageFolders": [],
   "frontMatter.content.autoUpdateDate": false,
   "frontMatter.framework.startCommand": "yarn start",
   "frontMatter.preview.host": "http://localhost:8000"

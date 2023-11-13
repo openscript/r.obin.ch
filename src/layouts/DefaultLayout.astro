@@ -1,0 +1,176 @@
+---
+import Header from './default/Header.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <script data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js"></script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+<style lang="scss" is:global>
+  $breakpoints-minimum: '480px';
+  $breakpoints-compact: '800px';
+  $breakpoints-tiny: '1280px';
+  $breakpoints-small: '1440px';
+  $breakpoints-medium: '1600px';
+  $breakpoints-big: '1920px';
+  $breakpoints-huge: '2560px';
+
+  :root {
+    --colors-primary: #6a4a3c;
+    --colors-secondary: #eb6841;
+    --colors-white: #ffffff;
+    --colors-bright: #eeeeee;
+    --colors-dark: #333333;
+    --fonts-headings: "'Rajdhani', sans-serif";
+    --fonts-paragraph: "'Poppins','Roboto', sans-serif";
+    --fonts-code: "'IBM Plex Mono', monospace";
+  }
+
+  html {
+    height: 100%;
+    min-width: 320px;
+    font-size: 16px;
+
+    @media (max-width: $breakpoints-compact) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoints-minimum) {
+      font-size: 12px;
+    }
+  }
+
+  body,
+  #___gatsby,
+  #gatsby-focus-wrapper,
+  main {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100%;
+    font-family: var(--fonts-paragraph);
+  }
+
+  header,
+  main,
+  footer,
+  #top-bar {
+    padding: 0 10%;
+
+    @media (max-width: $breakpoints-tiny) {
+      padding: 0 2.5rem;
+    }
+
+    @media (max-width: $breakpoints-compact) {
+      padding: 0 2rem;
+    }
+
+    @media (max-width: $breakpoints-minimum) {
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: $breakpoints-big) {
+      padding: 0 15%;
+    }
+
+    @media (min-width: $breakpoints-huge) {
+      padding: 0 20%;
+    }
+  }
+
+  main {
+    background-color: var(--colors-white);
+
+    a {
+      color: var(--colors-primary);
+      text-decoration: none;
+    }
+  }
+
+  header,
+  #top-bar,
+  footer {
+    font-family: var(--fonts-headings);
+
+    a {
+      text-decoration: none;
+      color: var(--colors-bright);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1em;
+    font-family: var(--fonts-headings);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  code {
+    font-family: var(--fonts-code);
+  }
+
+  article {
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      th,
+      td {
+        padding: 0.3rem;
+        border: 1px solid var(--colors-primary);
+      }
+
+      tr:hover {
+        background-color: var(--colors-bright);
+      }
+    }
+  }
+
+  button,
+  .button {
+    background-color: var(--colors-primary);
+    color: var(--colors-bright);
+    padding: 0.4rem;
+
+    &:hover {
+      color: var(--colors-secondary);
+    }
+  }
+</style>

@@ -2,12 +2,12 @@ import { graphql, PageProps } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { AsideHeading } from '../components/AsideHeading';
-import { Comments } from '../components/Comments';
-import { AnchorButton } from '../components/AnchorButton';
-import { ShareButton } from '../components/ShareButton';
-import { TableOfContents } from '../components/TableOfContents';
-import { MainWithAside } from '../layouts/default/content/MainWithAside';
+import { AsideHeading } from '../../src/components/AsideHeading';
+import { Comments } from '../../src/components/Comments';
+import { AnchorButton } from '../../src/components/AnchorButton';
+import { ShareButton } from '../../src/components/ShareButton';
+import { TableOfContents } from '../../src/components/TableOfContents';
+import { MainWithAside } from '../../src/layouts/default/content/MainWithAside';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { CONFIGURATION } from '../configuration';
 
@@ -72,4 +72,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from '../../src/layouts/default/Document';

@@ -1,0 +1,8 @@
+- key: blog
+  path: /blog
+- key: medias
+  path: /medias
+- key: projects
+  path: /projects
+- key: person
+  path: /person

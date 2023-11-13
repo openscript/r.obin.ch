@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { BlogItem } from '../components/BlogItem';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { SitePageContextWithMetaData } from '../types';
-import { Document } from '../layouts/default/Document';
+import { Document } from '../../src/layouts/default/Document';
 
 const recentBlogSectionStyles = (theme: Theme) => css`
   display: grid;

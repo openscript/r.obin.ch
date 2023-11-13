@@ -3,7 +3,7 @@ import { darken, lighten } from 'polished';
 import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
 import { useClickAway, useKeyPress } from 'ahooks';
 import { useIntl } from 'react-intl';
-import { PagefindSearchFragment } from '../../types';
+import { PagefindSearchFragment } from '../../../legacy/types';
 import SearchResults from './SearchResults';
 
 const searchStyle = (theme: Theme) => css`

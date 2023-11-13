@@ -27,10 +27,12 @@ module.exports = {
       },
     },
     {
-      files: ['*.md', '*.mdx'],
-      extends: ['plugin:react/recommended', 'airbnb', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended', 'plugin:mdx/recommended'],
+      files: ['*.md', '*.mdx', '*.astro'],
+      extends: ['plugin:react/recommended', 'airbnb', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended', 'plugin:mdx/recommended', 'plugin:astro/recommended'],
       plugins: ['react'],
       parserOptions: {
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
         ecmaFeatures: {
           jsx: true,
         },
@@ -39,7 +41,6 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
-        'jsx-a11y/control-has-associated-label': 'off',
         'jsx-a11y/anchor-has-content': 'off',
         'react/self-closing-comp': 'off',
         'import/prefer-default-export': 'off',
