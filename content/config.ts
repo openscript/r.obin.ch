@@ -5,7 +5,7 @@ const navigation = defineCollection({
   schema: ({ image }) => z.array(z.object({
     key: z.string(),
     path: z.string(),
-    icon: image()
+    icon: image().optional()
   }))
 });
 
