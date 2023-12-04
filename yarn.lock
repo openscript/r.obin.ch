@@ -2354,10 +2354,10 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.3.tgz#c72e8b6faae31d925d23a6db0379cc3fe0216fdd"
   integrity sha512-cK+Elf3RjEzrm3SerAhrFWL5oQAsZSJ/LmjL1joIpTfEP1etJJ9CTRvdaV6XLYAxaEkfdhk/9hOvHLbR9yIhCA==
 
-"@mantine/hooks@7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.2.2.tgz#d116d8659f77c5f05f9dc088887c8857fcb456da"
-  integrity sha512-7CFSVP2aQHrBwLLAVf0q5dgj+6QTZmhLTNcuc3pE1du+HLFUdyVS6vvQC6kieZXxOd6UzwFGBlN4G+aDx95XeA==
+"@mantine/hooks@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.3.0.tgz#82a3b2df51cac1a9c5ea416f60162cf879928254"
+  integrity sha512-TL/9o4SpJogW5dJ4qvsZImsha6mOsCirIHlGP8dR00K72NjFgEqFPAy85HU68LQTG+GtMFRwk3tjpKneHF3uEA==
 
 "@mdx-js/mdx@3.0.0":
   version "3.0.0"
