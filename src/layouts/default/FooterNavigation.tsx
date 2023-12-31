@@ -20,6 +20,7 @@ const footerNavigationStyles = css`
     margin: 0;
     padding: 0;
     list-style: none;
+    gap: 1rem;
   }
 `;
 

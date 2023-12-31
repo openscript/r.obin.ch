@@ -1,6 +1,8 @@
 footer:
   - key: imprint
     path: /imprint
+  - key: data-protection
+    path: /data-protection
 main:
   - key: blog
     path: /blog

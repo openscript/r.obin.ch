@@ -150,6 +150,7 @@ const configuration: GatsbyConfig = {
             prefix: `de`,
             slugs: {
               '/imprint': '/impressum',
+              '/data-protection': '/datenschutz',
               '/projects': '/projekte',
             },
             messages: deCHMessages,
