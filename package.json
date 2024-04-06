@@ -14,7 +14,7 @@
     "@mantine/hooks": "7.3.2",
     "@mdx-js/mdx": "3.0.0",
     "@mdx-js/react": "3.0.0",
-    "@types/markdown-it": "^13.0.5",
+    "@types/markdown-it": "^14.0.0",
     "ahooks": "^3.7.8",
     "gatsby": "5.13.1",
     "gatsby-plugin-catch-links": "5.13.0",
