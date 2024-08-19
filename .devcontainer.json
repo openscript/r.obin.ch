@@ -1,22 +1,19 @@
 {
 	"name": "r.obin.ch",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"astro-build.astro-vscode",
+				"vitest.explorer",
 				"streetsidesoftware.code-spell-checker",
 				"streetsidesoftware.code-spell-checker-german",
 				"esbenp.prettier-vscode",
-				"mikestead.dotenv",
 				"eamodio.gitlens",
 				"mgmcdermott.vscode-language-babel",
 				"dbaeumer.vscode-eslint",
-				"styled-components.vscode-styled-components",
-				"graphql.vscode-graphql",
-				"lokalise.i18n-ally",
 				"eliostruyf.vscode-front-matter",
 				"unifiedjs.vscode-mdx",
-				"GraphQL.vscode-graphql",
 				"github.vscode-github-actions"
 			]
 		}
