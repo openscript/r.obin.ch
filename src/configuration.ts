@@ -7,9 +7,15 @@ export const C = {
   MESSAGES: {
     'en': {
       'language': 'English',
+      'title': "Robins Website",
+      'feedTitle': "Robins Blog",
+      'feedLanguage': 'Robins Blog: English posts only',
     },
     'de': {
       'language': 'Deutsch',
+      'title': "Robins Webseite",
+      'feedTitle': "Robins Blog",
+      'feedLanguage': 'Robins Blog: Nur Deutsche Artikel',
     }
   } satisfies { [key: string]: {[key: string]: string }},
   // Various settings
