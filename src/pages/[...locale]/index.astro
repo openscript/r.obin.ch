@@ -1,0 +1,17 @@
+---
+
+import type { InferGetStaticPropsType } from 'astro';
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import { indexPaths } from '../_paths';
+
+export const getStaticPaths = indexPaths();
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { translations } = Astro.props as Props;
+
+---
+
+<DefaultLayout translations={translations}>
+	<h1>Hallo Welt!</h1>
+</DefaultLayout>

@@ -1,4 +1,5 @@
 ---
+
 import './layouts';
 import './DefaultLayout.css';
 import { getLocaleFromUrl } from '../utils/i18n.ts';
@@ -10,7 +11,9 @@ type Props = {
 
 const locale = getLocaleFromUrl(Astro.url);
 const { translations } = Astro.props;
+
 ---
+
 <html lang={locale}>
   <Head translations={translations} />
   <body>

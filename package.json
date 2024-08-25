@@ -17,7 +17,9 @@
     "start": "astro dev --host",
     "build": "astro check && astro build",
     "preview": "astro preview --host",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "coverage": "vitest --coverage"
   },
   "dependencies": {
     "@anolilab/unplugin-favicons": "^1.0.5-alpha.2",
