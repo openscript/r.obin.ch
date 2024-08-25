@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { getContentEntryPath, getDataEntryPath, getFullLocale, getLocaleFromUrl, getMessage, getNameFromLocale, makeMenu, parseLocale, parseLocaleTagFromPath, splitLocaleAndPath, useTranslations } from "../utils/i18n";
+import { getContentEntryPath, getFullLocale, getLocaleFromUrl, getMessage, getNameFromLocale, makeMenu, parseLocale, parseLocaleTagFromPath, splitLocaleAndPath, useTranslations } from "../utils/i18n";
 
 vi.mock("../configuration", () => ({
   C: {
@@ -186,6 +186,7 @@ describe("getContentEntryPath", () => {
   })
 });
 
+/*
 describe("getDataEntryPath", () => {
   it("should throw an error if data entry not found", async () => {
     await expect(getDataEntryPath("docs" as any, "invalid", "en")).rejects.toThrow("Data entry not found: docs/invalid");
@@ -195,6 +196,7 @@ describe("getDataEntryPath", () => {
     expect(path).toMatchInlineSnapshot(`"/data/2020/09/test-article"`);
   });
 })
+*/
 
 describe("makeMenu", () => {
   it("should return the menu", async () => {

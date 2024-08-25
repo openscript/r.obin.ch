@@ -7,9 +7,9 @@
   --dark-alternate-color: #245d6d;
   --primary-color: #6a4a3c;
   --secondary-color: #eb6841;
-  --fonts-headings: "'Rajdhani', sans-serif";
-  --fonts-paragraph: "'Poppins','Roboto', sans-serif";
-  --fonts-listings: "'IBM Plex Mono', monospace";
+  --fonts-headings: 'Rajdhani', sans-serif;
+  --fonts-paragraph: 'Poppins','Roboto', sans-serif;
+  --fonts-listings: 'IBM Plex Mono', monospace;
   --fonts-size: 16px;
   --page-horizontal-padding: 10%;
 }

@@ -1,4 +1,4 @@
-import { getEntry, type CollectionEntry, type ContentEntryMap, type DataEntryMap, type ValidContentEntrySlug } from 'astro:content';
+import { getEntry, type ContentEntryMap, type ValidContentEntrySlug } from 'astro:content';
 import { C, type Locale } from '../configuration';
 import { dirname, getRelativePath, joinPath } from './path';
 import slug from "limax";
@@ -73,6 +73,7 @@ export async function getContentEntryPath<
   return getTranslatedPath(parseLocale(split.locale), collection, pageSlug);
 }
 
+/*
 export async function getDataEntryPath<
   C extends keyof DataEntryMap,
   E extends keyof DataEntryMap[C]
@@ -92,6 +93,7 @@ export async function getDataEntryPath<
 
   return getTranslatedPath(locale, collection, pageSlug);
 }
+  */
 
 function getTranslatedPath(locale: Locale, collection: string, pageSlug: string) {
   const localeSlug = getLocaleSlug(locale);
