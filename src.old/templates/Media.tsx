@@ -1,24 +1,28 @@
-import { useHotkeys } from '@mantine/hooks';
-import { graphql, Link, navigate, PageProps } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Markup } from 'interweave';
-import { FormattedMessage } from 'react-intl';
-import { DefaultLayout } from '../layouts/DefaultLayout';
+import { useHotkeys } from "@mantine/hooks";
+import { graphql, Link, navigate, PageProps } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Markup } from "interweave";
+import { FormattedMessage } from "react-intl";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
 export default function Media({ data }: PageProps<Queries.MediaPageQuery>) {
   let imageComponent: JSX.Element | null = null;
   if (data.current?.frontmatter?.photo) {
-    const image = getImage(data.current.frontmatter.photo.childImageSharp?.gatsbyImageData || null);
+    const image = getImage(
+      data.current.frontmatter.photo.childImageSharp?.gatsbyImageData || null,
+    );
     if (image) {
-      imageComponent = <GatsbyImage image={image} alt={data.current.frontmatter.title || ''} />;
+      imageComponent = (
+        <GatsbyImage image={image} alt={data.current.frontmatter.title || ""} />
+      );
     }
   }
 
-  const previousPath = data.previous?.fields?.path ?? '../';
-  const nextPath = data.next?.fields?.path ?? '../';
+  const previousPath = data.previous?.fields?.path ?? "../";
+  const nextPath = data.next?.fields?.path ?? "../";
   useHotkeys([
-    ['ArrowLeft', () => navigate(previousPath)],
-    ['ArrowRight', () => navigate(nextPath)],
+    ["ArrowLeft", () => navigate(previousPath)],
+    ["ArrowRight", () => navigate(nextPath)],
   ]);
 
   return (
@@ -64,4 +68,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";

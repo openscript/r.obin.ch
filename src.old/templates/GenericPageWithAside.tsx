@@ -1,9 +1,12 @@
-import { graphql, PageProps } from 'gatsby';
-import { TableOfContents } from '../components/TableOfContents';
-import { MainWithAside } from '../layouts/default/content/MainWithAside';
-import { DefaultLayout } from '../layouts/DefaultLayout';
+import { graphql, PageProps } from "gatsby";
+import { TableOfContents } from "../components/TableOfContents";
+import { MainWithAside } from "../layouts/default/content/MainWithAside";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
-export default function GenericPageWithAside({ data, children }: PageProps<Queries.GenericPageWithAsideQuery>) {
+export default function GenericPageWithAside({
+  data,
+  children,
+}: PageProps<Queries.GenericPageWithAsideQuery>) {
   return (
     <DefaultLayout contentWrapper={MainWithAside}>
       <article data-pagefind-body>{children}</article>
@@ -26,4 +29,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";

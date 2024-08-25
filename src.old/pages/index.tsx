@@ -1,12 +1,12 @@
-import { css, Theme } from '@emotion/react';
-import { graphql, HeadProps, PageProps } from 'gatsby';
-import { Markup } from 'interweave';
-import { getImage } from 'gatsby-plugin-image';
-import { FormattedMessage } from 'react-intl';
-import { BlogItem } from '../components/BlogItem';
-import { DefaultLayout } from '../layouts/DefaultLayout';
-import { SitePageContextWithMetaData } from '../types';
-import { Document } from '../layouts/default/Document';
+import { css, Theme } from "@emotion/react";
+import { graphql, HeadProps, PageProps } from "gatsby";
+import { Markup } from "interweave";
+import { getImage } from "gatsby-plugin-image";
+import { FormattedMessage } from "react-intl";
+import { BlogItem } from "../components/BlogItem";
+import { DefaultLayout } from "../layouts/DefaultLayout";
+import { SitePageContextWithMetaData } from "../types";
+import { Document } from "../layouts/default/Document";
 
 const recentBlogSectionStyles = (theme: Theme) => css`
   display: grid;
@@ -26,7 +26,9 @@ const recentBlogSectionStyles = (theme: Theme) => css`
   }
 `;
 
-export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery, Queries.SitePageContext>) {
+export default function IndexPage({
+  data,
+}: PageProps<Queries.IndexPageQuery, Queries.SitePageContext>) {
   return (
     <DefaultLayout>
       <Markup content={data.slogans?.html} />
@@ -34,20 +36,22 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery, Qu
         <h2>
           <FormattedMessage id="page.index.recentBlogs" />
         </h2>
-        {data.recentPosts.nodes.map(p => {
+        {data.recentPosts.nodes.map((p) => {
           if (!p.fields?.path || !p.frontmatter) {
             return null;
           }
 
-          const featured = getImage(p.frontmatter.featured?.childImageSharp?.gatsbyImageData || null);
+          const featured = getImage(
+            p.frontmatter.featured?.childImageSharp?.gatsbyImageData || null,
+          );
 
           return (
             <BlogItem
               key={p.fields.path}
-              excerpt={p.excerpt || ''}
+              excerpt={p.excerpt || ""}
               path={p.fields?.path}
-              publishedAt={p.frontmatter?.publishedAt || ''}
-              title={p.frontmatter?.title || ''}
+              publishedAt={p.frontmatter?.publishedAt || ""}
+              title={p.frontmatter?.title || ""}
               featured={featured}
               titleAs="h3"
             />
@@ -58,17 +62,28 @@ export default function IndexPage({ data }: PageProps<Queries.IndexPageQuery, Qu
   );
 }
 
-export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+export function Head({
+  pageContext,
+}: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
   return <Document metaData={{ title: pageContext.metaData.title }} />;
 }
 
 export const query = graphql`
   query IndexPage($locale: String) {
-    slogans: markdownRemark(fields: { locale: { eq: $locale }, kind: { eq: "sections" }, filename: { glob: "*slogan*" } }) {
+    slogans: markdownRemark(
+      fields: {
+        locale: { eq: $locale }
+        kind: { eq: "sections" }
+        filename: { glob: "*slogan*" }
+      }
+    ) {
       html
     }
     recentPosts: allMdx(
-      filter: { fields: { locale: { eq: $locale }, kind: { glob: "blog/**" } }, frontmatter: { draft: { ne: true } } }
+      filter: {
+        fields: { locale: { eq: $locale }, kind: { glob: "blog/**" } }
+        frontmatter: { draft: { ne: true } }
+      }
       limit: 4
       sort: { frontmatter: { publishedAt: DESC } }
     ) {
@@ -80,7 +95,13 @@ export const query = graphql`
         frontmatter {
           featured {
             childImageSharp {
-              gatsbyImageData(width: 1024, height: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], transformOptions: { cropFocus: CENTER })
+              gatsbyImageData(
+                width: 1024
+                height: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                transformOptions: { cropFocus: CENTER }
+              )
             }
           }
           title

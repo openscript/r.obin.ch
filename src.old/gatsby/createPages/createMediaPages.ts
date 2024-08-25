@@ -1,15 +1,23 @@
-import { resolve } from 'path';
-import { CreatePagesArgs } from 'gatsby';
-import { getIntl } from '../../utils/localization';
-import { SitePageContextWithMetaData } from '../../types';
-import { createPageTitle } from '../../themes/defaultMetaData';
+import { resolve } from "path";
+import { CreatePagesArgs } from "gatsby";
+import { getIntl } from "../../utils/localization";
+import { SitePageContextWithMetaData } from "../../types";
+import { createPageTitle } from "../../themes/defaultMetaData";
 
-export async function createMediaPages({ actions, graphql, reporter }: CreatePagesArgs) {
+export async function createMediaPages({
+  actions,
+  graphql,
+  reporter,
+}: CreatePagesArgs) {
   const { createPage } = actions;
 
   const result = await graphql<Queries.CreateMediaPagesQuery>(`
     query CreateMediaPages {
-      allMarkdownRemark(filter: { fields: { filename: { ne: "index" }, kind: { glob: "medias/**" } } }) {
+      allMarkdownRemark(
+        filter: {
+          fields: { filename: { ne: "index" }, kind: { glob: "medias/**" } }
+        }
+      ) {
         group(field: { fields: { locale: SELECT } }) {
           edges {
             node {
@@ -38,12 +46,20 @@ export async function createMediaPages({ actions, graphql, reporter }: CreatePag
     }
   `);
 
-  result.data?.allMarkdownRemark.group.forEach(g => {
-    g.edges.forEach(p => {
-      if (p.node.fields?.translations && p.node.fields?.path && p.node.fields.locale && p.node.frontmatter?.title) {
+  result.data?.allMarkdownRemark.group.forEach((g) => {
+    g.edges.forEach((p) => {
+      if (
+        p.node.fields?.translations &&
+        p.node.fields?.path &&
+        p.node.fields.locale &&
+        p.node.frontmatter?.title
+      ) {
         const intl = getIntl(p.node.fields.locale, reporter);
-        const metaData: SitePageContextWithMetaData['metaData'] = {
-          title: createPageTitle(p.node.frontmatter?.title, intl?.formatMessage({ id: 'content.kind.media' })),
+        const metaData: SitePageContextWithMetaData["metaData"] = {
+          title: createPageTitle(
+            p.node.frontmatter?.title,
+            intl?.formatMessage({ id: "content.kind.media" }),
+          ),
         };
         createPage({
           component: resolve(`./src/templates/Media.tsx`),

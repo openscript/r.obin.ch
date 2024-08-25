@@ -1,7 +1,7 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import '@emotion/react';
+import "@emotion/react";
 
-declare module '@emotion/react' {
+declare module "@emotion/react" {
   export interface Theme {
     colors: {
       primary: string;
@@ -30,8 +30,15 @@ declare module '@emotion/react' {
 interface Pagefind {
   init: () => void;
   options: (newOptions: PagefindIndexOptions) => void;
-  search: (query: string, options?: PagefindSearchOptions) => Promise<PagefindSearchResults>;
-  debouncedSearch: (query: string, options?: PagefindSearchOptions, timeout?: number) => Promise<PagefindSearchResults>;
+  search: (
+    query: string,
+    options?: PagefindSearchOptions,
+  ) => Promise<PagefindSearchResults>;
+  debouncedSearch: (
+    query: string,
+    options?: PagefindSearchOptions,
+    timeout?: number,
+  ) => Promise<PagefindSearchResults>;
 }
 
 type PagefindIndexOptions = {

@@ -1,55 +1,61 @@
-import { describe, expect, it, vi } from 'vitest';
-import { blogPagePaths, blogTagPagePaths, entryPaths, indexPaths, rssXmlPaths } from './_paths';
+import { describe, expect, it, vi } from "vitest";
+import {
+  blogPagePaths,
+  blogTagPagePaths,
+  entryPaths,
+  indexPaths,
+  rssXmlPaths,
+} from "./_paths";
 
 vi.mock("../configuration", () => ({
   C: {
-    LOCALES: { 'en': 'en-US', 'de': 'de-CH' },
-    DEFAULT_LOCALE: 'en' as const,
+    LOCALES: { en: "en-US", de: "de-CH" },
+    DEFAULT_LOCALE: "en" as const,
     MESSAGES: {
-      'en': {
-        'language': 'English',
-        'slugs.blog': 'blog',
-        'slugs.docs': 'docs',
-        'slugs.data': 'data',
-        'slugs.gallery': 'gallery',
+      en: {
+        language: "English",
+        "slugs.blog": "blog",
+        "slugs.docs": "docs",
+        "slugs.data": "data",
+        "slugs.gallery": "gallery",
       },
-      'de': {
-        'language': 'Deutsch',
-        'slugs.blog': 'blog',
-        'slugs.docs': 'doku',
-        'slugs.data': 'daten',
-        'slugs.gallery': 'galerie',
-      }
+      de: {
+        language: "Deutsch",
+        "slugs.blog": "blog",
+        "slugs.docs": "doku",
+        "slugs.data": "daten",
+        "slugs.gallery": "galerie",
+      },
     },
     SETTINGS: {
       BLOG: {
-        PAGE_SIZE: 10
-      }
-    }
+        PAGE_SIZE: 10,
+      },
+    },
   },
-  localeSlugs: ['en', 'de']
+  localeSlugs: ["en", "de"],
 }));
 
-const blogCollectionMock = Array.from({ length: 50 }).flatMap((_, i) => ([
+const blogCollectionMock = Array.from({ length: 50 }).flatMap((_, i) => [
   {
-    id: `en/2020/09/${i % 27 + 1}/test-article.md`,
-    slug: `en/2020/09/${i % 27 + 1}/test-article`,
+    id: `en/2020/09/${(i % 27) + 1}/test-article.md`,
+    slug: `en/2020/09/${(i % 27) + 1}/test-article`,
     collection: "blog",
     data: {
       title: `Test Article ${i + 1}`,
-      tags: ["tag1", "tag2"]
-    }
+      tags: ["tag1", "tag2"],
+    },
   },
   {
-    id: `de/2020/09/${i % 27 + 1}/test-article.md`,
-    slug: `de/2020/09/${i % 27 + 1}/test-article`,
+    id: `de/2020/09/${(i % 27) + 1}/test-article.md`,
+    slug: `de/2020/09/${(i % 27) + 1}/test-article`,
     collection: "blog",
     data: {
       title: `Test Article ${i + 1}`,
-      tags: ["tag1", "tag2"]
-    }
-  }
-]));
+      tags: ["tag1", "tag2"],
+    },
+  },
+]);
 
 const collectionMock = {
   blog: blogCollectionMock,
@@ -60,7 +66,7 @@ const collectionMock = {
       collection: "pages",
       data: {
         title: "Testartikel",
-      }
+      },
     },
     {
       id: "en/2020/09/11/test-article.md",
@@ -68,7 +74,7 @@ const collectionMock = {
       collection: "pages",
       data: {
         title: "Test Article",
-      }
+      },
     },
   ],
   docs: [
@@ -78,7 +84,7 @@ const collectionMock = {
       collection: "docs",
       data: {
         title: "Testartikel",
-      }
+      },
     },
     {
       id: "en/2020/09/11/test-article.md",
@@ -86,7 +92,7 @@ const collectionMock = {
       collection: "docs",
       data: {
         title: "Test Article",
-      }
+      },
     },
   ],
   gallery: [
@@ -96,21 +102,21 @@ const collectionMock = {
       data: {
         title: {
           en: "Food",
-          de: "Essen"
+          de: "Essen",
         },
         cover: "./food1.jpg",
         images: [
           {
-            src: "./food1.jpg"
+            src: "./food1.jpg",
           },
           {
-            src: "./food2.jpg"
+            src: "./food2.jpg",
           },
           {
-            src: "./food3.jpg"
-          }
-        ]
-      }
+            src: "./food3.jpg",
+          },
+        ],
+      },
     },
     {
       id: "sea/index",
@@ -118,24 +124,24 @@ const collectionMock = {
       data: {
         title: {
           en: "Sea",
-          de: "Meer"
+          de: "Meer",
         },
         cover: "./sea1.jpg",
         images: [
           {
-            src: "./sea1.jpg"
+            src: "./sea1.jpg",
           },
           {
-            src: "./sea2.jpg"
+            src: "./sea2.jpg",
           },
           {
-            src: "./sea3.jpg"
+            src: "./sea3.jpg",
           },
           {
-            src: "./sea4.jpg"
-          }
-        ]
-      }
+            src: "./sea4.jpg",
+          },
+        ],
+      },
     },
     {
       id: "space/index",
@@ -143,59 +149,59 @@ const collectionMock = {
       data: {
         title: {
           en: "Space",
-          de: "Weltraum"
+          de: "Weltraum",
         },
         cover: "./space1.jpg",
         images: [
           {
-            src: "./space1.jpg"
+            src: "./space1.jpg",
           },
           {
-            src: "./space2.jpg"
+            src: "./space2.jpg",
           },
           {
-            src: "./space3.jpg"
+            src: "./space3.jpg",
           },
           {
-            src: "./space4.jpg"
+            src: "./space4.jpg",
           },
           {
-            src: "./space5.jpg"
-          }
-        ]
-      }
-    }
-  ]
-}
+            src: "./space5.jpg",
+          },
+        ],
+      },
+    },
+  ],
+};
 
 vi.mock("astro:content", () => ({
   getCollection: async (mock: keyof typeof collectionMock) => {
     return collectionMock[mock];
-  }
+  },
 }));
 
-describe('paths', () => {
-  it('generates rssXmlPaths', async () => {
+describe("paths", () => {
+  it("generates rssXmlPaths", async () => {
     expect(await rssXmlPaths()).toMatchSnapshot();
   });
-  it('generates indexPaths', async () => {
+  it("generates indexPaths", async () => {
     expect(await indexPaths()()).toMatchSnapshot();
   });
-  it('generates indexPaths with kind', async () => {
-    expect(await indexPaths('docs')()).toMatchSnapshot();
+  it("generates indexPaths with kind", async () => {
+    expect(await indexPaths("docs")()).toMatchSnapshot();
   });
-  it('generates entryPaths', async () => {
-    expect(await entryPaths('pages' as any, 'pages')()).toMatchSnapshot();
-    expect(await entryPaths('docs' as any, 'slug')()).toMatchSnapshot();
+  it("generates entryPaths", async () => {
+    expect(await entryPaths("pages" as any, "pages")()).toMatchSnapshot();
+    expect(await entryPaths("docs" as any, "slug")()).toMatchSnapshot();
   });
-  it('generates blogPagePaths', async () => {
-    const paginate = vi.fn()
-    await blogPagePaths({paginate});
+  it("generates blogPagePaths", async () => {
+    const paginate = vi.fn();
+    await blogPagePaths({ paginate });
     expect(paginate).toMatchSnapshot();
   });
-  it('generates blogTagPagePaths', async () => {
-    const paginate = vi.fn()
-    await blogTagPagePaths({paginate});
+  it("generates blogTagPagePaths", async () => {
+    const paginate = vi.fn();
+    await blogTagPagePaths({ paginate });
     expect(paginate).toMatchSnapshot();
   });
-})
+});

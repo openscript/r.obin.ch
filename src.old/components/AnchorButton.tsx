@@ -1,6 +1,12 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps, PropsWithChildren } from 'react';
+import {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+} from "react";
 
-type HrefButtonProps = PropsWithChildren<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>>;
+type HrefButtonProps = PropsWithChildren<
+  DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+>;
 
 export function AnchorButton({ children, ...props }: HrefButtonProps) {
   return (

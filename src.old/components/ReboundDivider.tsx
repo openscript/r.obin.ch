@@ -1,11 +1,14 @@
-import { Theme, css } from '@emotion/react';
+import { Theme, css } from "@emotion/react";
 
 type ReboundDividerProps = {
   flipVertically?: boolean;
   flipHorizontally?: boolean;
 };
 
-export function ReboundDivider({ flipVertically, flipHorizontally }: ReboundDividerProps) {
+export function ReboundDivider({
+  flipVertically,
+  flipHorizontally,
+}: ReboundDividerProps) {
   return (
     <svg
       width="1e3"
@@ -17,7 +20,8 @@ export function ReboundDivider({ flipVertically, flipHorizontally }: ReboundDivi
         width: 100%;
         height: auto;
         fill: ${theme.colors.primary};
-        transform: scaleY(${flipVertically ? '-1' : '1'}) scaleX(${flipHorizontally ? '-1' : '1'});
+        transform: scaleY(${flipVertically ? "-1" : "1"})
+          scaleX(${flipHorizontally ? "-1" : "1"});
       `}
     >
       <path d="m0 0v5.069l59.08-4.883 205.5 6.164v-6.35z" />

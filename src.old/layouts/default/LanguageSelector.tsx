@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { LanguageSwitcher } from 'gatsby-plugin-i18n-l10n';
-import { useIntl } from 'react-intl';
+import { css } from "@emotion/react";
+import { LanguageSwitcher } from "gatsby-plugin-i18n-l10n";
+import { useIntl } from "react-intl";
 
 const languageSelectorStyles = css`
   ul {
@@ -14,5 +14,12 @@ const languageSelectorStyles = css`
 export default function LanguageSelector() {
   const intl = useIntl();
 
-  return <LanguageSwitcher css={languageSelectorStyles} resolveLanguageName={locale => intl.formatMessage({ id: `languages.${locale}` })} />;
+  return (
+    <LanguageSwitcher
+      css={languageSelectorStyles}
+      resolveLanguageName={(locale) =>
+        intl.formatMessage({ id: `languages.${locale}` })
+      }
+    />
+  );
 }

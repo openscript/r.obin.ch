@@ -14,7 +14,9 @@ describe("configuration", () => {
   it("every message should have a translation for every locale", () => {
     Object.entries(C.MESSAGES).forEach(([, messages]) => {
       Object.entries(C.MESSAGES).forEach(([, otherMessages]) => {
-        expect(Object.keys(messages)).toEqual(expect.arrayContaining(Object.keys(otherMessages)));
+        expect(Object.keys(messages)).toEqual(
+          expect.arrayContaining(Object.keys(otherMessages)),
+        );
       });
     });
   });

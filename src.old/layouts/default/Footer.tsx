@@ -1,9 +1,9 @@
-import { css, Theme } from '@emotion/react';
-import { FormattedMessage, useIntl } from 'react-intl';
-import { Fragment } from 'react';
-import FooterNavigation from './FooterNavigation';
-import { useCSR } from '../../hooks/useCSR';
-import { ReboundDivider } from '../../components/ReboundDivider';
+import { css, Theme } from "@emotion/react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { Fragment } from "react";
+import FooterNavigation from "./FooterNavigation";
+import { useCSR } from "../../hooks/useCSR";
+import { ReboundDivider } from "../../components/ReboundDivider";
 
 const footerStyle = (theme: Theme) => css`
   display: flex;
@@ -31,8 +31,8 @@ export function Footer({ author, project, version, buildTime }: FooterProps) {
   const isCSR = useCSR();
   const intl = useIntl();
   const formattedBuildTime = {
-    date: intl.formatDate(buildTime, { timeZone: 'UTC' }),
-    time: intl.formatTime(buildTime, { timeZone: 'UTC' }),
+    date: intl.formatDate(buildTime, { timeZone: "UTC" }),
+    time: intl.formatTime(buildTime, { timeZone: "UTC" }),
   };
 
   if (isCSR) {

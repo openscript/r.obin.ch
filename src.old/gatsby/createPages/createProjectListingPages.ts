@@ -1,11 +1,15 @@
-import { resolve } from 'path';
-import { CreatePagesArgs } from 'gatsby';
-import { CONFIGURATION } from '../../configuration';
-import { getIntl } from '../../utils/localization';
-import { SitePageContextWithMetaData } from '../../types';
-import { createPageTitle } from '../../themes/defaultMetaData';
+import { resolve } from "path";
+import { CreatePagesArgs } from "gatsby";
+import { CONFIGURATION } from "../../configuration";
+import { getIntl } from "../../utils/localization";
+import { SitePageContextWithMetaData } from "../../types";
+import { createPageTitle } from "../../themes/defaultMetaData";
 
-export async function createProjectListingPages({ graphql, actions, reporter }: CreatePagesArgs) {
+export async function createProjectListingPages({
+  graphql,
+  actions,
+  reporter,
+}: CreatePagesArgs) {
   const { createPage } = actions;
 
   const result = await graphql<Queries.CreateProjectListingPagesQuery>(`
@@ -24,14 +28,17 @@ export async function createProjectListingPages({ graphql, actions, reporter }: 
     return;
   }
 
-  const availableLocales = result.data.allMdx.nodes.reduce<string[]>((prev, curr) => {
-    if (curr.fields?.locale) {
-      return [...new Set([...prev, curr.fields.locale])];
-    }
-    return prev;
-  }, []);
+  const availableLocales = result.data.allMdx.nodes.reduce<string[]>(
+    (prev, curr) => {
+      if (curr.fields?.locale) {
+        return [...new Set([...prev, curr.fields.locale])];
+      }
+      return prev;
+    },
+    [],
+  );
 
-  availableLocales.forEach(locale => {
+  availableLocales.forEach((locale) => {
     const path = CONFIGURATION.PATHS.PROJECTS;
 
     const intl = getIntl(locale, reporter);
@@ -40,12 +47,14 @@ export async function createProjectListingPages({ graphql, actions, reporter }: 
       return;
     }
 
-    const metaData: SitePageContextWithMetaData['metaData'] = {
-      title: createPageTitle(intl.formatMessage({ id: 'content.kind.projects' })),
+    const metaData: SitePageContextWithMetaData["metaData"] = {
+      title: createPageTitle(
+        intl.formatMessage({ id: "content.kind.projects" }),
+      ),
     };
 
     createPage({
-      component: resolve('./src/templates/ProjectListing.tsx'),
+      component: resolve("./src/templates/ProjectListing.tsx"),
       context: {
         metaData,
         // localization

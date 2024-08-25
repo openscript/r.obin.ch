@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import { CONFIGURATION } from '../configuration';
+import { css } from "@emotion/react";
+import { LocalizedLink } from "gatsby-plugin-i18n-l10n";
+import { CONFIGURATION } from "../configuration";
 
 const tagListStyles = css`
   display: flex;
@@ -27,9 +27,11 @@ export function TagList({ locale, tags }: TagListProps) {
   }
   return (
     <ul css={tagListStyles}>
-      {tags?.map(t => (
+      {tags?.map((t) => (
         <li key={t.title}>
-          <LocalizedLink to={`${CONFIGURATION.PATHS.TAG}/${t.slug}`}>{t.title}</LocalizedLink>
+          <LocalizedLink to={`${CONFIGURATION.PATHS.TAG}/${t.slug}`}>
+            {t.title}
+          </LocalizedLink>
         </li>
       ))}
     </ul>

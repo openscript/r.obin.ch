@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import { lighten } from 'polished';
-import LanguageSelector from './LanguageSelector';
-import TopNavigation from './TopNavigation';
+import styled from "@emotion/styled";
+import { lighten } from "polished";
+import LanguageSelector from "./LanguageSelector";
+import TopNavigation from "./TopNavigation";
 
 const TopBarContainer = styled.div`
   display: flex;

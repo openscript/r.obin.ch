@@ -1,10 +1,14 @@
-import { CreatePageArgs } from 'gatsby';
-import { createPageTitle } from '../../themes/defaultMetaData';
-import { getIntl } from '../../utils/localization';
+import { CreatePageArgs } from "gatsby";
+import { createPageTitle } from "../../themes/defaultMetaData";
+import { getIntl } from "../../utils/localization";
 
-const BLACK_LIST = ['dev-404-page'];
+const BLACK_LIST = ["dev-404-page"];
 
-export async function generatePageMetaData({ actions, page, reporter }: CreatePageArgs<Queries.SitePageContext>) {
+export async function generatePageMetaData({
+  actions,
+  page,
+  reporter,
+}: CreatePageArgs<Queries.SitePageContext>) {
   const { createPage, deletePage } = actions;
   if (!page.context || !page.isCreatedByStatefulCreatePages) {
     return;
@@ -33,7 +37,9 @@ export async function generatePageMetaData({ actions, page, reporter }: CreatePa
 
   const metaData = {
     title: createPageTitle(title),
-    description: intl.formatMessage({ id: `page.${localePagesId}.meta.description` }),
+    description: intl.formatMessage({
+      id: `page.${localePagesId}.meta.description`,
+    }),
   };
 
   deletePage(page);

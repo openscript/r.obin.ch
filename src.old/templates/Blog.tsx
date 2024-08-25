@@ -1,21 +1,29 @@
-import { graphql, PageProps } from 'gatsby';
-import { FormattedMessage } from 'react-intl';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
-import { AsideHeading } from '../components/AsideHeading';
-import { Comments } from '../components/Comments';
-import { AnchorButton } from '../components/AnchorButton';
-import { ShareButton } from '../components/ShareButton';
-import { TableOfContents } from '../components/TableOfContents';
-import { MainWithAside } from '../layouts/default/content/MainWithAside';
-import { DefaultLayout } from '../layouts/DefaultLayout';
-import { CONFIGURATION } from '../configuration';
+import { graphql, PageProps } from "gatsby";
+import { FormattedMessage } from "react-intl";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React from "react";
+import { AsideHeading } from "../components/AsideHeading";
+import { Comments } from "../components/Comments";
+import { AnchorButton } from "../components/AnchorButton";
+import { ShareButton } from "../components/ShareButton";
+import { TableOfContents } from "../components/TableOfContents";
+import { MainWithAside } from "../layouts/default/content/MainWithAside";
+import { DefaultLayout } from "../layouts/DefaultLayout";
+import { CONFIGURATION } from "../configuration";
 
-export default function Blog({ data, location, children }: PageProps<Queries.BlogPageQuery>) {
+export default function Blog({
+  data,
+  location,
+  children,
+}: PageProps<Queries.BlogPageQuery>) {
   const relativePath =
-    data.mdx?.parent && 'relativePath' in data.mdx.parent ? `${CONFIGURATION.SOURCES.LOCAL_DATA}/${data.mdx?.parent.relativePath}` : undefined;
+    data.mdx?.parent && "relativePath" in data.mdx.parent
+      ? `${CONFIGURATION.SOURCES.LOCAL_DATA}/${data.mdx?.parent.relativePath}`
+      : undefined;
 
-  const featured = getImage(data.mdx?.frontmatter?.featured?.childImageSharp?.gatsbyImageData || null);
+  const featured = getImage(
+    data.mdx?.frontmatter?.featured?.childImageSharp?.gatsbyImageData || null,
+  );
 
   if (!data.mdx?.frontmatter?.title) {
     return null;
@@ -25,7 +33,9 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
     <DefaultLayout contentWrapper={MainWithAside}>
       <article data-pagefind-body>
         <h1>{data.mdx.frontmatter?.title}</h1>
-        {featured && <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />}
+        {featured && (
+          <GatsbyImage image={featured} alt={data.mdx.frontmatter?.title} />
+        )}
         {children}
         <Comments location={location.pathname} />
       </article>
@@ -37,10 +47,20 @@ export default function Blog({ data, location, children }: PageProps<Queries.Blo
         <ShareButton />
         {relativePath && (
           <React.Fragment>
-            <AnchorButton href={new URL(relativePath, CONFIGURATION.REMOTE_PATHS.SHOW_IN_VCS).href}>
+            <AnchorButton
+              href={
+                new URL(relativePath, CONFIGURATION.REMOTE_PATHS.SHOW_IN_VCS)
+                  .href
+              }
+            >
               <FormattedMessage id="aside.actions.show" />
             </AnchorButton>
-            <AnchorButton href={new URL(relativePath, CONFIGURATION.REMOTE_PATHS.EDIT_IN_VCS).href}>
+            <AnchorButton
+              href={
+                new URL(relativePath, CONFIGURATION.REMOTE_PATHS.EDIT_IN_VCS)
+                  .href
+              }
+            >
               <FormattedMessage id="aside.actions.edit" />
             </AnchorButton>
           </React.Fragment>
@@ -58,7 +78,12 @@ export const query = graphql`
       frontmatter {
         featured {
           childImageSharp {
-            gatsbyImageData(width: 1200, height: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              width: 1200
+              height: 400
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         title
@@ -72,4 +97,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";

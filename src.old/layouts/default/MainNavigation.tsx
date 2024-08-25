@@ -1,9 +1,9 @@
-import { css, Theme } from '@emotion/react';
-import { useDisclosure } from '@mantine/hooks';
-import { graphql, useStaticQuery } from 'gatsby';
-import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import { FormattedMessage } from 'react-intl';
-import { BurgerButton } from '../../components/BurgerButton';
+import { css, Theme } from "@emotion/react";
+import { useDisclosure } from "@mantine/hooks";
+import { graphql, useStaticQuery } from "gatsby";
+import { LocalizedLink } from "gatsby-plugin-i18n-l10n";
+import { FormattedMessage } from "react-intl";
+import { BurgerButton } from "../../components/BurgerButton";
 
 const query = graphql`
   query MainNavigation {
@@ -41,12 +41,12 @@ const navStyle = (theme: Theme) => css`
     }
 
     ::before {
-      content: '<';
+      content: "<";
       transform: translateX(20px);
     }
 
     ::after {
-      content: '/>';
+      content: "/>";
       width: 1.6rem;
       text-align: right;
       transform: translateX(-20px);
@@ -115,8 +115,8 @@ export default function MainNavigation() {
   return (
     <nav css={navStyle}>
       <BurgerButton onClick={toggle} isActive={open} css={burgerButtonStyle} />
-      <ul className={open ? 'open' : ''}>
-        {navigation.navigationYaml?.main?.map(item => {
+      <ul className={open ? "open" : ""}>
+        {navigation.navigationYaml?.main?.map((item) => {
           if (item?.key && item.path) {
             return (
               <li key={item.key}>

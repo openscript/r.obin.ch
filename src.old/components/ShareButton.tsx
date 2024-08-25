@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 
 type ShareButtonProps = {
   text?: string;
@@ -7,7 +7,11 @@ type ShareButtonProps = {
 };
 
 export function ShareButton({ text, title, url }: ShareButtonProps) {
-  if (typeof window === 'undefined' || !window.navigator || 'share' in window.navigator === false) {
+  if (
+    typeof window === "undefined" ||
+    !window.navigator ||
+    "share" in window.navigator === false
+  ) {
     return null;
   }
 

@@ -1,25 +1,29 @@
-import { graphql, Link, PageProps } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Markup } from 'interweave';
-import { DefaultLayout } from '../layouts/DefaultLayout';
+import { graphql, Link, PageProps } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Markup } from "interweave";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
-export default function MediaListing({ data }: PageProps<Queries.MediaListingPageQuery>) {
+export default function MediaListing({
+  data,
+}: PageProps<Queries.MediaListingPageQuery>) {
   return (
     <DefaultLayout>
       <article>
         <h1>{data.markdownRemark?.frontmatter?.title}</h1>
         <Markup content={data.markdownRemark?.html} />
-        {data.allMarkdownRemark.nodes.map(media => {
+        {data.allMarkdownRemark.nodes.map((media) => {
           if (!media.frontmatter?.photo || !media.fields?.path) {
             return null;
           }
-          const image = getImage(media.frontmatter.photo.childImageSharp?.gatsbyImageData || null);
+          const image = getImage(
+            media.frontmatter.photo.childImageSharp?.gatsbyImageData || null,
+          );
           if (!image) {
             return null;
           }
           return (
             <Link to={media.fields?.path} key={media.frontmatter.title}>
-              <GatsbyImage image={image} alt={media.frontmatter.title || ''} />
+              <GatsbyImage image={image} alt={media.frontmatter.title || ""} />
             </Link>
           );
         })}
@@ -38,7 +42,15 @@ export const query = graphql`
       }
     }
 
-    allMarkdownRemark(filter: { fields: { kind: { eq: $kind }, filename: { ne: "index" }, locale: { eq: $locale } } }) {
+    allMarkdownRemark(
+      filter: {
+        fields: {
+          kind: { eq: $kind }
+          filename: { ne: "index" }
+          locale: { eq: $locale }
+        }
+      }
+    ) {
       nodes {
         fields {
           path
@@ -46,7 +58,11 @@ export const query = graphql`
         frontmatter {
           photo {
             childImageSharp {
-              gatsbyImageData(width: 256, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(
+                width: 256
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           title
@@ -56,4 +72,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";

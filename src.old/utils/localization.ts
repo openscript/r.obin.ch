@@ -1,17 +1,23 @@
-import { Reporter } from 'gatsby';
-import { IntlShape, createIntl, createIntlCache } from 'react-intl';
-import deCHMessages from '../../content/i18n/de-CH.json';
-import enUSMessages from '../../content/i18n/en-US.json';
+import { Reporter } from "gatsby";
+import { IntlShape, createIntl, createIntlCache } from "react-intl";
+import deCHMessages from "../../content/i18n/de-CH.json";
+import enUSMessages from "../../content/i18n/en-US.json";
 
 const intlCache = createIntlCache();
-const deCHIntl = createIntl({ locale: 'de-CH', messages: deCHMessages }, intlCache);
-const enUSIntl = createIntl({ locale: 'en-US', messages: enUSMessages }, intlCache);
+const deCHIntl = createIntl(
+  { locale: "de-CH", messages: deCHMessages },
+  intlCache,
+);
+const enUSIntl = createIntl(
+  { locale: "en-US", messages: enUSMessages },
+  intlCache,
+);
 
 function getMessages(locale: string): IntlShape | undefined {
   switch (locale) {
-    case 'de-CH':
+    case "de-CH":
       return deCHIntl;
-    case 'en-US':
+    case "en-US":
       return enUSIntl;
     default:
       return undefined;

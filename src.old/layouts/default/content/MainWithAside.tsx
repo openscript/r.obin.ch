@@ -1,6 +1,6 @@
-import { css, Theme } from '@emotion/react';
-import { PropsWithChildren } from 'react';
-import { Main } from './Main';
+import { css, Theme } from "@emotion/react";
+import { PropsWithChildren } from "react";
+import { Main } from "./Main";
 
 const mainWithAsideStyle = (theme: Theme) => css`
   display: flex;

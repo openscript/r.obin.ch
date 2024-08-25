@@ -1,4 +1,4 @@
-import { css, Theme } from '@emotion/react';
+import { css, Theme } from "@emotion/react";
 
 const BurgerButtonStyle = (theme: Theme) => css`
   display: block;
@@ -11,7 +11,7 @@ const BurgerButtonStyle = (theme: Theme) => css`
   &:before,
   div,
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 4px;
     background-color: ${theme.colors.bright};
@@ -44,11 +44,21 @@ type BurgerButtonProps = {
   onClick: () => void;
 };
 
-export function BurgerButton({ className, isActive, onClick }: BurgerButtonProps) {
-  const classNames = `${className} ${isActive ? 'active' : ''}`;
+export function BurgerButton({
+  className,
+  isActive,
+  onClick,
+}: BurgerButtonProps) {
+  const classNames = `${className} ${isActive ? "active" : ""}`;
 
   return (
-    <button type="button" css={BurgerButtonStyle} className={classNames} onClick={onClick} aria-label="Open Menu">
+    <button
+      type="button"
+      css={BurgerButtonStyle}
+      className={classNames}
+      onClick={onClick}
+      aria-label="Open Menu"
+    >
       <div />
     </button>
   );

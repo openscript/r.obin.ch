@@ -1,6 +1,6 @@
-import { HeadProps, Script } from 'gatsby';
-import { Fragment } from 'react';
-import { SitePageContextWithMetaData } from '../../types';
+import { HeadProps, Script } from "gatsby";
+import { Fragment } from "react";
+import { SitePageContextWithMetaData } from "../../types";
 
 type DocumentProps = {
   metaData: {
@@ -13,9 +13,20 @@ export function Document({ metaData }: DocumentProps) {
   return (
     <Fragment>
       <title key="pageTitle">{metaData.title}</title>
-      {metaData.description && <meta key="pageDescription" name="description" content={metaData.description} />}
+      {metaData.description && (
+        <meta
+          key="pageDescription"
+          name="description"
+          content={metaData.description}
+        />
+      )}
       <meta name="referrer" content="no-referrer-when-downgrade" />
-      <Script id="analytics" defer data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js" />
+      <Script
+        id="analytics"
+        defer
+        data-domain="r.obin.ch"
+        src="https://analytics.obin.ch/js/script.js"
+      />
       <Script id="search" type="module">
         {`
           const pagefind = await import("/pagefind/pagefind.js");
@@ -27,6 +38,8 @@ export function Document({ metaData }: DocumentProps) {
   );
 }
 
-export function Head({ pageContext }: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
+export function Head({
+  pageContext,
+}: HeadProps<Queries.BlogPageQuery, SitePageContextWithMetaData>) {
   return <Document metaData={{ title: pageContext.metaData.title }} />;
 }

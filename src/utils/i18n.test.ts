@@ -1,25 +1,36 @@
 import { describe, it, expect, vi } from "vitest";
-import { getContentEntryPath, getFullLocale, getLocaleFromUrl, getMessage, getNameFromLocale, makeMenu, parseLocale, parseLocaleTagFromPath, splitLocaleAndPath, useTranslations } from "../utils/i18n";
+import {
+  getContentEntryPath,
+  getFullLocale,
+  getLocaleFromUrl,
+  getMessage,
+  getNameFromLocale,
+  makeMenu,
+  parseLocale,
+  parseLocaleTagFromPath,
+  splitLocaleAndPath,
+  useTranslations,
+} from "../utils/i18n";
 
 vi.mock("../configuration", () => ({
   C: {
-    LOCALES: { 'en': 'en-US', 'de': 'de-CH' },
-    DEFAULT_LOCALE: 'en' as const,
+    LOCALES: { en: "en-US", de: "de-CH" },
+    DEFAULT_LOCALE: "en" as const,
     MESSAGES: {
-      'en': {
-        'language': 'English',
-        'slugs.docs': 'docs',
-        'slugs.data': 'data',
-        'substitution': '{one} of {two}',
+      en: {
+        language: "English",
+        "slugs.docs": "docs",
+        "slugs.data": "data",
+        substitution: "{one} of {two}",
       },
-      'de': {
-        'language': 'Deutsch',
-        'slugs.docs': 'docs',
-        'slugs.data': 'daten',
-        'substitution': '{one} von {two}',
-      }
-    }
-  }
+      de: {
+        language: "Deutsch",
+        "slugs.docs": "docs",
+        "slugs.data": "daten",
+        substitution: "{one} von {two}",
+      },
+    },
+  },
 }));
 
 vi.mock("astro:content", () => ({
@@ -31,7 +42,7 @@ vi.mock("astro:content", () => ({
         collection: "docs",
         data: {
           title: "Test Article",
-        }
+        },
       };
     }
     if (collection === "docs" && entrySlug === "root") {
@@ -41,7 +52,7 @@ vi.mock("astro:content", () => ({
         collection: "docs",
         data: {
           title: "Test Article",
-        }
+        },
       };
     }
     if (collection === "docs" && entrySlug === "no-international-path") {
@@ -51,7 +62,7 @@ vi.mock("astro:content", () => ({
         collection: "docs",
         data: {
           title: "Test Article",
-        }
+        },
       };
     }
     if (collection === "data" && entrySlug === "daten") {
@@ -63,15 +74,15 @@ vi.mock("astro:content", () => ({
           title: {
             en: "Test Article",
             de: "Test Artikel",
-          }
-        }
+          },
+        },
       };
     }
     if (collection === "docs" && entrySlug === "invalid") {
       return undefined;
     }
     return undefined;
-  }
+  },
 }));
 
 describe("parseLocaleTagFromPath", () => {
@@ -158,12 +169,16 @@ describe("getFullLocale", () => {
 });
 
 describe("getMessage", () => {
- it("should throw an error if locale is invalid", () => {
-   expect(() => getMessage("language", "es" as any)).toThrow("Invalid locale: es");
- });
- it("should throw an error if message key is invalid", () => {
-   expect(() => getMessage("invalid", "en")).toThrow("Invalid message key: invalid");
- });
+  it("should throw an error if locale is invalid", () => {
+    expect(() => getMessage("language", "es" as any)).toThrow(
+      "Invalid locale: es",
+    );
+  });
+  it("should throw an error if message key is invalid", () => {
+    expect(() => getMessage("invalid", "en")).toThrow(
+      "Invalid message key: invalid",
+    );
+  });
   it("should return the message", () => {
     expect(getMessage("language", "en")).toBe("English");
   });
@@ -171,10 +186,16 @@ describe("getMessage", () => {
 
 describe("getContentEntryPath", () => {
   it("should throw an error if content entry not found", async () => {
-    await expect(getContentEntryPath("docs" as any, "invalid")).rejects.toThrow("Content entry not found: docs/invalid");
+    await expect(getContentEntryPath("docs" as any, "invalid")).rejects.toThrow(
+      "Content entry not found: docs/invalid",
+    );
   });
   it("should throw an error if entry has no international path", async () => {
-    await expect(getContentEntryPath("docs" as any, "no-international-path")).rejects.toThrow("Entry has no international path: docs/no-international-path");
+    await expect(
+      getContentEntryPath("docs" as any, "no-international-path"),
+    ).rejects.toThrow(
+      "Entry has no international path: docs/no-international-path",
+    );
   });
   it("should return the content entry path", async () => {
     const path = await getContentEntryPath("docs" as any, "getting-started");
@@ -183,7 +204,7 @@ describe("getContentEntryPath", () => {
   it("should return the content entry path without double slug", async () => {
     const path = await getContentEntryPath("docs" as any, "root");
     expect(path).toMatchInlineSnapshot(`"/de/docs/test-article"`);
-  })
+  });
 });
 
 /*
@@ -200,11 +221,14 @@ describe("getDataEntryPath", () => {
 
 describe("makeMenu", () => {
   it("should return the menu", async () => {
-    const menu = await makeMenu('en', [
-      { title: 'License', path: () => getContentEntryPath('docs' as any, "getting-started") },
-      { title: 'Privacy', path: 'privacy' },
-      { title: 'Terms', path: 'terms' },
-      { title: 'Contact', path: 'contact' },
+    const menu = await makeMenu("en", [
+      {
+        title: "License",
+        path: () => getContentEntryPath("docs" as any, "getting-started"),
+      },
+      { title: "Privacy", path: "privacy" },
+      { title: "Terms", path: "terms" },
+      { title: "Contact", path: "contact" },
     ]);
     expect(menu).toMatchInlineSnapshot(`
       [
@@ -227,19 +251,23 @@ describe("makeMenu", () => {
       ]
     `);
   });
-})
+});
 
 describe("useTranslations", () => {
   it("should return the translations", () => {
-    const t = useTranslations('en');
-    expect(t('language')).toMatchInlineSnapshot(`"English"`);
+    const t = useTranslations("en");
+    expect(t("language")).toMatchInlineSnapshot(`"English"`);
   });
-  it('should substitute placeholders', () => {
-    const t = useTranslations('en');
-    expect(t('substitution' as any, { one: 'one', two: 'two' })).toMatchInlineSnapshot(`"one of two"`);
+  it("should substitute placeholders", () => {
+    const t = useTranslations("en");
+    expect(
+      t("substitution" as any, { one: "one", two: "two" }),
+    ).toMatchInlineSnapshot(`"one of two"`);
   });
-  it('should ignore missing placeholders', () => {
-    const t = useTranslations('en');
-    expect(t('substitution' as any, { one: 'one' })).toMatchInlineSnapshot(`"one of {two}"`);
+  it("should ignore missing placeholders", () => {
+    const t = useTranslations("en");
+    expect(t("substitution" as any, { one: "one" })).toMatchInlineSnapshot(
+      `"one of {two}"`,
+    );
   });
-})
+});

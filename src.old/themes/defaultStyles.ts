@@ -1,12 +1,12 @@
-import { css, Theme } from '@emotion/react';
-import '@fontsource/ibm-plex-mono/400.css';
-import '@fontsource/ibm-plex-mono/700.css';
-import '@fontsource/rajdhani/400.css';
-import '@fontsource/rajdhani/700.css';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/700.css';
-import '@fontsource/poppins/400-italic.css';
-import '@fontsource/poppins/700-italic.css';
+import { css, Theme } from "@emotion/react";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/700.css";
+import "@fontsource/rajdhani/400.css";
+import "@fontsource/rajdhani/700.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/400-italic.css";
+import "@fontsource/poppins/700-italic.css";
 
 export const defaultStyles = (theme: Theme) => css`
   html {

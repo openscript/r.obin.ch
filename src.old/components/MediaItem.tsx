@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { Link } from 'gatsby';
-import { PropsWithChildren } from 'react';
+import { css } from "@emotion/react";
+import { Link } from "gatsby";
+import { PropsWithChildren } from "react";
 
 const mediaItemStyles = css`
   margin-bottom: 2rem;

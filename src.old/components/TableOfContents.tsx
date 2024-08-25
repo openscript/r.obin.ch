@@ -1,8 +1,11 @@
-import { Link } from 'gatsby';
-import { Fragment } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { TableOfContents as TableOfContentsType, TableOfContentsItem as TableOfContentsItemType } from '../types';
-import { AsideHeading } from './AsideHeading';
+import { Link } from "gatsby";
+import { Fragment } from "react";
+import { FormattedMessage } from "react-intl";
+import {
+  TableOfContents as TableOfContentsType,
+  TableOfContentsItem as TableOfContentsItemType,
+} from "../types";
+import { AsideHeading } from "./AsideHeading";
 
 type TableOfContentsItemProps = {
   items: TableOfContentsItemType[];
@@ -11,7 +14,7 @@ type TableOfContentsItemProps = {
 function TableOfContentsItem({ items }: TableOfContentsItemProps) {
   return (
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.url}>
           <Link to={item.url}>{item.title}</Link>
           {item.items && <TableOfContentsItem items={item.items} />}
@@ -32,14 +35,22 @@ const DefaultHeading = (
     <FormattedMessage id="aside.tableOfContents" />
   </AsideHeading>
 );
-export function TableOfContents({ displayRootItem = false, heading = DefaultHeading, items }: TableOfContentsProps) {
+export function TableOfContents({
+  displayRootItem = false,
+  heading = DefaultHeading,
+  items,
+}: TableOfContentsProps) {
   if (!items?.items) {
     return null;
   }
 
   let preparedItems = items.items;
 
-  if (!displayRootItem && preparedItems.length <= 1 && !Array.isArray(preparedItems[0].items)) {
+  if (
+    !displayRootItem &&
+    preparedItems.length <= 1 &&
+    !Array.isArray(preparedItems[0].items)
+  ) {
     return null;
   }
 

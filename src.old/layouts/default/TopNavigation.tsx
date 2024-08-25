@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { FormattedMessage } from 'react-intl';
+import { css } from "@emotion/react";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { FormattedMessage } from "react-intl";
 
 const query = graphql`
   query TopNavigation {
@@ -11,7 +11,11 @@ const query = graphql`
         path
         icon {
           childImageSharp {
-            gatsbyImageData(width: 16, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              width: 16
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
@@ -24,7 +28,11 @@ const navStyle = css`
   margin-right: 1rem;
   padding-right: 2rem;
   overflow-x: scroll;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) calc(100% - 2rem), transparent);
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) calc(100% - 2rem),
+    transparent
+  );
 
   &::-webkit-scrollbar {
     height: 0;
@@ -63,13 +71,19 @@ export default function TopNavigation() {
   return (
     <nav css={navStyle}>
       <ul>
-        {navigation.navigationYaml?.top?.map(item => {
-          const icon = getImage(item?.icon?.childImageSharp?.gatsbyImageData || null);
+        {navigation.navigationYaml?.top?.map((item) => {
+          const icon = getImage(
+            item?.icon?.childImageSharp?.gatsbyImageData || null,
+          );
           if (item?.key && item.path && icon) {
             return (
               <li key={item.key}>
                 <a href={item.path}>
-                  <GatsbyImage image={icon} alt={`${item.key} brand icon`} css={iconStyle} />
+                  <GatsbyImage
+                    image={icon}
+                    alt={`${item.key} brand icon`}
+                    css={iconStyle}
+                  />
                   <FormattedMessage id={`navigation.top.${item.key}`} />
                 </a>
               </li>

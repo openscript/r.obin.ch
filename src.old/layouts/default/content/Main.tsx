@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { HTMLProps, PropsWithChildren } from 'react';
+import { css } from "@emotion/react";
+import { HTMLProps, PropsWithChildren } from "react";
 
 const mainStyle = css`
   padding-top: 2rem;

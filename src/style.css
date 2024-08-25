@@ -1,22 +1,22 @@
 :root {
-  --white-color: #F8EDED;
-  --background-color: #F8EDED;
+  --white-color: #f8eded;
+  --background-color: #f8eded;
   --text-color: #071212;
-  --gray-color: #CFC6C6;
-  --dark-color: #173B45;
+  --gray-color: #cfc6c6;
+  --dark-color: #173b45;
   --dark-alternate-color: #245d6d;
   --primary-color: #6a4a3c;
   --secondary-color: #eb6841;
-  --fonts-headings: 'Rajdhani', sans-serif;
-  --fonts-paragraph: 'Poppins','Roboto', sans-serif;
-  --fonts-listings: 'IBM Plex Mono', monospace;
+  --fonts-headings: "Rajdhani", sans-serif;
+  --fonts-paragraph: "Poppins", "Roboto", sans-serif;
+  --fonts-listings: "IBM Plex Mono", monospace;
   --fonts-size: 16px;
   --page-horizontal-padding: 10%;
 }
 
 html.dark:root {
   --background-color: #071212;
-  --text-color: #F8EDED;
+  --text-color: #f8eded;
 }
 
 @media (max-width: 1080px) {
@@ -64,7 +64,13 @@ body {
   min-height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, .title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
   font-family: var(--fonts-headings);
 }
 

@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
-import { Markup } from 'interweave';
-import { FormattedMessage } from 'react-intl';
-import { Link } from 'gatsby';
-import { PagefindSearchFragment } from '../../types';
+import { css } from "@emotion/react";
+import { Markup } from "interweave";
+import { FormattedMessage } from "react-intl";
+import { Link } from "gatsby";
+import { PagefindSearchFragment } from "../../types";
 
 const searchResultsStyles = css`
   list-style: none;
@@ -17,7 +17,7 @@ const searchResultsStyles = css`
 
 const excerptStyles = css`
   &::before {
-    content: '...';
+    content: "...";
   }
 `;
 
@@ -33,7 +33,7 @@ export default function SearchResults({ results }: SearchResultsProps) {
           <FormattedMessage id="search.noResults" />
         </li>
       )}
-      {results.map(r => {
+      {results.map((r) => {
         return (
           <li key={r.url}>
             <Link to={r.url}>

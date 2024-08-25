@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 declare global {
   interface Window {
@@ -10,8 +10,8 @@ declare global {
 // This function will insert the usual <script> tag of
 // Remark42 into the specified DOM location (parentElement)
 const insertScript = (id: string, parentElement: HTMLElement) => {
-  const script = window.document.createElement('script');
-  script.type = 'text/javascript';
+  const script = window.document.createElement("script");
+  script.type = "text/javascript";
   script.async = true;
   script.id = id;
   /* For Gatsby it's important to manually provide the URL
@@ -25,7 +25,7 @@ const insertScript = (id: string, parentElement: HTMLElement) => {
   Making sure url is provided without the trailing slash
   in the remark42 config solves this. */
   let url = window.location.origin + window.location.pathname;
-  if (url.endsWith('/')) {
+  if (url.endsWith("/")) {
     url = url.slice(0, -1);
   }
   // Now the actual config and script-fetching function:
@@ -59,10 +59,10 @@ const manageScript = () => {
     return () => {};
   }
   const { document } = window;
-  if (document.getElementById('remark42')) {
-    insertScript('comments-script', document.body);
+  if (document.getElementById("remark42")) {
+    insertScript("comments-script", document.body);
   }
-  return () => removeScript('comments-script', document.body);
+  return () => removeScript("comments-script", document.body);
 };
 
 /* Another function for another useEffect - this is the most crucial part for

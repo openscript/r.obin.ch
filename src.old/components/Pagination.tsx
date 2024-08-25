@@ -1,6 +1,6 @@
-import { Link } from 'gatsby';
-import { Fragment } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Link } from "gatsby";
+import { Fragment } from "react";
+import { FormattedMessage } from "react-intl";
 
 type PaginationProps = {
   currentPage: number;
@@ -12,10 +12,10 @@ export function Pagination({ currentPage, pageCount }: PaginationProps) {
     return null;
   }
 
-  let newestPath = '';
-  let newerPath = '';
-  let olderPath = '';
-  let oldestPath = '';
+  let newestPath = "";
+  let newerPath = "";
+  let olderPath = "";
+  let oldestPath = "";
 
   if (currentPage !== 1) {
     newestPath = `..`;

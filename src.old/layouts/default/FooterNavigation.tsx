@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import { FormattedMessage } from 'react-intl';
+import { css } from "@emotion/react";
+import { graphql, useStaticQuery } from "gatsby";
+import { LocalizedLink } from "gatsby-plugin-i18n-l10n";
+import { FormattedMessage } from "react-intl";
 
 const query = graphql`
   query FooterNavigation {
@@ -29,7 +29,7 @@ export default function FooterNavigation() {
   return (
     <nav css={footerNavigationStyles}>
       <ul>
-        {navigation.navigationYaml?.footer?.map(item => {
+        {navigation.navigationYaml?.footer?.map((item) => {
           if (item?.key && item.path) {
             return (
               <li key={item.key}>

@@ -1,7 +1,9 @@
-import { graphql, PageProps } from 'gatsby';
-import { DefaultLayout } from '../layouts/DefaultLayout';
+import { graphql, PageProps } from "gatsby";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
-export default function GenericPage({ children }: PageProps<Queries.GenericPageQuery>) {
+export default function GenericPage({
+  children,
+}: PageProps<Queries.GenericPageQuery>) {
   return (
     <DefaultLayout>
       <article data-pagefind-body>{children}</article>
@@ -17,4 +19,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";

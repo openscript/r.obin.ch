@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
-import { Link } from 'gatsby';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { ElementType } from 'react';
-import { DateTimeAt } from './DateTimeAt';
+import { css } from "@emotion/react";
+import { Link } from "gatsby";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { ElementType } from "react";
+import { DateTimeAt } from "./DateTimeAt";
 
 const blogItemStyles = css`
   margin-bottom: 2rem;
@@ -45,7 +45,16 @@ type BlogItemProps = {
   titleAs?: ElementType;
 };
 
-export function BlogItem({ excerpt, path, title, publishedAt, featured, tagList, nonDefaultLanguage, titleAs: Title = 'h2' }: BlogItemProps) {
+export function BlogItem({
+  excerpt,
+  path,
+  title,
+  publishedAt,
+  featured,
+  tagList,
+  nonDefaultLanguage,
+  titleAs: Title = "h2",
+}: BlogItemProps) {
   return (
     <div css={blogItemStyles}>
       <Link to={path} css={featured && titleContainerStyles}>

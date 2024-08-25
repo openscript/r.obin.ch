@@ -1,10 +1,10 @@
-import { Theme, css } from '@emotion/react';
-import { darken, lighten } from 'polished';
-import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
-import { useClickAway, useKeyPress } from 'ahooks';
-import { useIntl } from 'react-intl';
-import { PagefindSearchFragment } from '../../types';
-import SearchResults from './SearchResults';
+import { Theme, css } from "@emotion/react";
+import { darken, lighten } from "polished";
+import { ChangeEventHandler, useEffect, useRef, useState } from "react";
+import { useClickAway, useKeyPress } from "ahooks";
+import { useIntl } from "react-intl";
+import { PagefindSearchFragment } from "../../types";
+import SearchResults from "./SearchResults";
 
 const searchStyle = (theme: Theme) => css`
   display: flex;
@@ -50,7 +50,7 @@ const searchStyle = (theme: Theme) => css`
 
 export function Search() {
   const [resultsHidden, setResultsHidden] = useState(true);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [results, setResults] = useState<PagefindSearchFragment[]>([]);
   const ref = useRef<HTMLDivElement>(null);
   const intl = useIntl();
@@ -59,7 +59,7 @@ export function Search() {
     setResultsHidden(true);
   }, ref);
 
-  useKeyPress('esc', () => {
+  useKeyPress("esc", () => {
     setResultsHidden(true);
   });
 
@@ -70,7 +70,9 @@ export function Search() {
       }
       const records = await globalThis.pagefind.debouncedSearch(search);
       if (records?.results) {
-        setResults(await Promise.all(records.results.slice(0, 5).map(r => r.data())));
+        setResults(
+          await Promise.all(records.results.slice(0, 5).map((r) => r.data())),
+        );
       } else {
         setResults([]);
       }
@@ -79,9 +81,9 @@ export function Search() {
     runSearch();
   }, [search]);
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = async e => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = async (e) => {
     if (!e.target.value) {
-      setSearch('');
+      setSearch("");
       return;
     }
 
@@ -94,7 +96,7 @@ export function Search() {
         type="search"
         onChange={onChange}
         onFocus={() => setResultsHidden(false)}
-        placeholder={intl.formatMessage({ id: 'search.placeholder' })}
+        placeholder={intl.formatMessage({ id: "search.placeholder" })}
       />
       <div>{!resultsHidden && <SearchResults results={results} />}</div>
     </div>

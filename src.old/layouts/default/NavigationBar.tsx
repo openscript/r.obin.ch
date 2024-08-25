@@ -1,8 +1,8 @@
-import { css, Theme } from '@emotion/react';
-import { LocalizedLink } from 'gatsby-plugin-i18n-l10n';
-import Brand from './Brand';
-import MainNavigation from './MainNavigation';
-import { Search } from './Search';
+import { css, Theme } from "@emotion/react";
+import { LocalizedLink } from "gatsby-plugin-i18n-l10n";
+import Brand from "./Brand";
+import MainNavigation from "./MainNavigation";
+import { Search } from "./Search";
 
 const headerStyle = (theme: Theme) => css`
   display: flex;

@@ -1,12 +1,12 @@
-import { css, Theme } from '@emotion/react';
+import { css, Theme } from "@emotion/react";
 
 export const defaultSyntaxHighlighting = (theme: Theme) => css`
   /**
  * Based on https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-vs.css
  */
 
-  code[class*='language-'],
-  pre[class*='language-'] {
+  code[class*="language-"],
+  pre[class*="language-"] {
     color: #393a34;
     font-family: ${theme.fonts.listings};
     direction: ltr;
@@ -27,26 +27,26 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
     hyphens: none;
   }
 
-  pre > code[class*='language-'] {
+  pre > code[class*="language-"] {
     font-size: 1em;
   }
 
-  pre[class*='language-']::-moz-selection,
-  pre[class*='language-'] ::-moz-selection,
-  code[class*='language-']::-moz-selection,
-  code[class*='language-'] ::-moz-selection {
+  pre[class*="language-"]::-moz-selection,
+  pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection,
+  code[class*="language-"] ::-moz-selection {
     background: #c1def1;
   }
 
-  pre[class*='language-']::selection,
-  pre[class*='language-'] ::selection,
-  code[class*='language-']::selection,
-  code[class*='language-'] ::selection {
+  pre[class*="language-"]::selection,
+  pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection,
+  code[class*="language-"] ::selection {
     background: #c1def1;
   }
 
   /* Code blocks */
-  pre[class*='language-'] {
+  pre[class*="language-"] {
     margin: 0.5em 0;
     overflow: auto;
     border: 1px solid ${theme.colors.primary};
@@ -55,7 +55,7 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
   }
 
   /* Inline code */
-  :not(pre) > code[class*='language-'] {
+  :not(pre) > code[class*="language-"] {
     padding: 0.2em;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -100,7 +100,7 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
   .language-autohotkey .token.selector,
   .language-json .token.boolean,
   .language-json .token.number,
-  code[class*='language-css'] {
+  code[class*="language-css"] {
     color: #0000ff;
   }
 
@@ -172,7 +172,15 @@ export const defaultSyntaxHighlighting = (theme: Theme) => css`
 */
   .line-highlight.line-highlight {
     background: rgba(193, 222, 241, 0.2);
-    background: -webkit-linear-gradient(left, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
-    background: linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+    background: -webkit-linear-gradient(
+      left,
+      rgba(193, 222, 241, 0.2) 70%,
+      rgba(221, 222, 241, 0)
+    );
+    background: linear-gradient(
+      to right,
+      rgba(193, 222, 241, 0.2) 70%,
+      rgba(221, 222, 241, 0)
+    );
   }
 `;

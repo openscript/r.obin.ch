@@ -3,6 +3,6 @@
   "exclude": ["src.old", "dist"],
   "compilerOptions": {
     "moduleResolution": "bundler",
-    "exactOptionalPropertyTypes": false,
+    "exactOptionalPropertyTypes": false
   }
 }

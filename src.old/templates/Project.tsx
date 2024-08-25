@@ -1,9 +1,12 @@
-import { graphql, PageProps } from 'gatsby';
-import { TableOfContents } from '../components/TableOfContents';
-import { MainWithAside } from '../layouts/default/content/MainWithAside';
-import { DefaultLayout } from '../layouts/DefaultLayout';
+import { graphql, PageProps } from "gatsby";
+import { TableOfContents } from "../components/TableOfContents";
+import { MainWithAside } from "../layouts/default/content/MainWithAside";
+import { DefaultLayout } from "../layouts/DefaultLayout";
 
-export default function Project({ data, children }: PageProps<Queries.ProjectPageQuery>) {
+export default function Project({
+  data,
+  children,
+}: PageProps<Queries.ProjectPageQuery>) {
   return (
     <DefaultLayout contentWrapper={MainWithAside}>
       <article data-pagefind-body>
@@ -29,4 +32,4 @@ export const query = graphql`
   }
 `;
 
-export { Head } from '../layouts/default/Document';
+export { Head } from "../layouts/default/Document";
