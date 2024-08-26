@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+}
+
+#topbar {
+  background-color: var(--primary-color-80);
+  color: var(--white-color);
+  font-size: 0.8rem;
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+main {
+  flex-grow: 1;
+}
+
+#topbar, header, main, footer {
+  padding: 0 var(--page-horizontal-padding);
+}

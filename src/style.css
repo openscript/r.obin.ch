@@ -1,17 +1,16 @@
 :root {
   --white-color: #f8eded;
-  --background-color: #f8eded;
   --text-color: #071212;
-  --gray-color: #cfc6c6;
-  --dark-color: #173b45;
-  --dark-alternate-color: #245d6d;
+  --primary-color-120: hsl(from var(--primary-color) h s calc(l * 1.2));
   --primary-color: #6a4a3c;
+  --primary-color-80: hsl(from var(--primary-color) h s calc(l * 0.8));
   --secondary-color: #eb6841;
   --fonts-headings: "Rajdhani", sans-serif;
   --fonts-paragraph: "Poppins", "Roboto", sans-serif;
   --fonts-listings: "IBM Plex Mono", monospace;
   --fonts-size: 16px;
-  --page-horizontal-padding: 10%;
+  --page-horizontal-padding: 30%;
+  --divider-fill: var(--primary-color);
 }
 
 html.dark:root {
@@ -19,13 +18,32 @@ html.dark:root {
   --text-color: #f8eded;
 }
 
-@media (max-width: 1080px) {
+/* Big */
+@media (max-width: 1920px) {
   :root {
-    --font-size: 14px;
-    --page-horizontal-padding: 1rem;
+    --font-size: 16px;
+    --page-horizontal-padding: 20%;
   }
 }
 
+/* Medium */
+@media (max-width: 1600px) {
+  :root {
+    --font-size: 16px;
+    --page-horizontal-padding: 15%;
+  }
+}
+
+/* Small */
+@media (max-width: 1440px) {
+  :root {
+    --font-size: 16px;
+    --page-horizontal-padding: 10%;
+  }
+}
+
+
+/* Tiny */
 @media (max-width: 1280px) {
   :root {
     --font-size: 14px;
@@ -33,29 +51,27 @@ html.dark:root {
   }
 }
 
-@media (min-width: 1600px) {
+
+/* Compact */
+@media (max-width: 800px) {
   :root {
-    --font-size: 16px;
-    --page-horizontal-padding: 10%;
+    --font-size: 14px;
+    --page-horizontal-padding: 2rem;
   }
 }
 
-@media (min-width: 1920px) {
+/* Minimum */
+@media (max-width: 480px) {
   :root {
-    --font-size: 18px;
-    --page-horizontal-padding: 15%;
-  }
-}
-
-@media (min-width: 2560px) {
-  :root {
-    --font-size: 20px;
+    --font-size: 12px;
+    --page-horizontal-padding: 1rem;
   }
 }
 
 html {
   height: 100%;
   font-size: var(--fonts-size);
+  text-rendering: optimizeLegibility;
 }
 
 body {

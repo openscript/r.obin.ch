@@ -19,7 +19,8 @@
     "preview": "astro preview --host",
     "astro": "astro",
     "test": "vitest",
-    "coverage": "vitest --coverage"
+    "coverage": "vitest --coverage",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "@anolilab/unplugin-favicons": "^1.0.5-alpha.2",

@@ -3,6 +3,10 @@ import "./layouts";
 import "./DefaultLayout.css";
 import { getLocaleFromUrl } from "../utils/i18n.ts";
 import Head from "./groups/Head.astro";
+import Header from "./groups/Header.astro";
+import Footer from "./groups/Footer.astro";
+import Topbar from "./groups/Topbar.astro";
+import ReboundDivider from '../components/ReboundDivider.astro';
 
 type Props = {
   translations?: Record<string, string>;
@@ -15,8 +19,13 @@ const { translations } = Astro.props;
 <html lang={locale}>
   <Head translations={translations} />
   <body>
+    <Topbar />
+    <Header />
+    <ReboundDivider />
     <main data-pagefind-body transition:animate="fade">
       <slot />
     </main>
+    <ReboundDivider flipHorizontally flipVertically />
+    <Footer />
   </body>
 </html>
