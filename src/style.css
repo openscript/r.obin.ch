@@ -1,18 +1,23 @@
 :root {
   --white-color: #f8eded;
   --text-color: #071212;
-  --primary-color-140: hsl(from var(--primary-color) h s calc(l * 1.4));
-  --primary-color-130: hsl(from var(--primary-color) h s calc(l * 1.3));
-  --primary-color-120: hsl(from var(--primary-color) h s calc(l * 1.2));
   --primary-color: #6a4a3c;
   --primary-color-80: hsl(from var(--primary-color) h s calc(l * 0.8));
+  --primary-color-120: hsl(from var(--primary-color) h s calc(l * 1.2));
+  --primary-color-130: hsl(from var(--primary-color) h s calc(l * 1.3));
+  --primary-color-140: hsl(from var(--primary-color) h s calc(l * 1.4));
   --secondary-color: #eb6841;
   --fonts-headings: "Rajdhani", sans-serif;
   --fonts-paragraph: "Poppins", "Roboto", sans-serif;
   --fonts-listings: "IBM Plex Mono", monospace;
   --fonts-size: 16px;
-  --page-horizontal-padding: 30%;
+  --page-horizontal-padding: 25%;
   --divider-fill: var(--primary-color);
+  --gap: 1rem;
+  --gap-huge: calc(var(--gap) * 4);
+  --gap-big: calc(var(--gap) * 2);
+  --gap-small: calc(var(--gap) / 2);
+  --gap-tiny: calc(var(--gap) / 4);
 }
 
 html.dark:root {

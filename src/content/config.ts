@@ -1,5 +1,10 @@
 import { defineCollection, z } from "astro:content";
 
+const localizedString = z.object({
+  en: z.string(),
+  de: z.string(),
+});
+
 const blogCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -21,8 +26,23 @@ const pagesCollection = defineCollection({
     path: z.string(),
   }),
 });
+const navigationCollection = defineCollection({
+  type: 'data',
+  schema: ({ image }) => z.array(z.object({
+    id: z.string(),
+    items: z.array(z.object({
+      title: localizedString,
+      path: z.string().url().or(z.string()),
+      icon: image().optional()
+    }))
+  })).refine((groups) => {
+    const ids = groups.map(group => group.id);
+    return new Set(ids).size === groups.length;
+  }, { message: "Ids must be unique!"})
+})
 
 export const collections = {
   blog: blogCollection,
   pages: pagesCollection,
+  navigation: navigationCollection
 };

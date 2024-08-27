@@ -5,9 +5,25 @@ body {
 }
 
 #topbar {
-  background-color: var(--primary-color-80);
+  background-color: var(--primary-color-120);
   color: var(--white-color);
   font-size: 0.8rem;
+  padding-top: var(--gap-tiny);
+  padding-bottom: var(--gap-tiny);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#topbar nav ul {
+  display: flex;
+  gap: var(--gap);
+}
+
+#topbar nav ul li {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-small);
 }
 
 header, footer {

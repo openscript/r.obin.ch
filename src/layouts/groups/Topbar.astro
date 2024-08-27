@@ -1,5 +1,15 @@
 ---
+import { getEntry } from "astro:content";
+import { getLocaleFromUrl } from "../../utils/i18n";
+import Navigation from '../../components/Navigation.astro';
 
+const navigation = (await getEntry("navigation", "navigation")).data.find(
+  (navigation) => navigation.id === "topbar",
+);
+if (!navigation) throw Error("Navigation is undefined");
+const locale = getLocaleFromUrl(Astro.url);
 ---
 
-<div id="topbar">Topbar</div>
+<div id="topbar">
+  <Navigation items={navigation.items} locale={locale} />
+</div>

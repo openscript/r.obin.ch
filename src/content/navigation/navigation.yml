@@ -1,0 +1,51 @@
+- id: footer
+  items:
+    - path: /imprint
+      title:
+        de: Impressum
+        en: Imprint
+    - path: /data-protection
+      title:
+        de: Datenschutz
+        en: Data protection
+- id: main
+  items:
+    - path: /blog
+      title:
+        de: Blog
+        en: Blog
+    - path: /medias
+      title:
+        de: Medien
+        en: Medias
+    - path: /projects
+      title:
+        de: Projekte
+        en: Projects
+    - path: /resume
+      title:
+        de: Lebenslauf
+        en: Resume
+- id: topbar
+  items:
+    - path: https://openscript.ch
+      icon: ./openscript.png
+      title:
+        de: openscript GmbH
+        en: openscript Ltd.
+    - path: https://github.com/openscript
+      icon: ./github.png
+      title:
+        de: Github
+        en: Github
+    - key: stackoverflow
+      path: https://stackoverflow.com/users/371530/robin
+      icon: ./stackoverflow.png
+      title:
+        de: StackOverflow
+        en: StackOverflow
+    - path: https://www.linkedin.com/in/openscript/
+      icon: ./linkedin.png
+      title:
+        de: LinkedIn
+        en: LinkedIn
