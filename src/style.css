@@ -1,6 +1,8 @@
 :root {
   --white-color: #f8eded;
   --text-color: #071212;
+  --primary-color-140: hsl(from var(--primary-color) h s calc(l * 1.4));
+  --primary-color-130: hsl(from var(--primary-color) h s calc(l * 1.3));
   --primary-color-120: hsl(from var(--primary-color) h s calc(l * 1.2));
   --primary-color: #6a4a3c;
   --primary-color-80: hsl(from var(--primary-color) h s calc(l * 0.8));

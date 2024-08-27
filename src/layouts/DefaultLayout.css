@@ -15,10 +15,37 @@ header, footer {
   color: var(--white-color);
 }
 
+header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
+  font-size: 2.2rem;
+  gap: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 main {
   flex-grow: 1;
 }
 
+footer {
+}
+
 #topbar, header, main, footer {
-  padding: 0 var(--page-horizontal-padding);
+  padding-left: var(--page-horizontal-padding);
+  padding-right: var(--page-horizontal-padding);
+}
+
+:is(#topbar, header, footer) a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+@media (max-width: 1600px) {
+  header {
+    gap: 1rem;
+  }
 }
