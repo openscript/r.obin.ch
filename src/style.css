@@ -42,7 +42,6 @@ html.dark:root {
   }
 }
 
-
 /* Tiny */
 @media (max-width: 1280px) {
   :root {
@@ -50,7 +49,6 @@ html.dark:root {
     --page-horizontal-padding: 5%;
   }
 }
-
 
 /* Compact */
 @media (max-width: 800px) {
