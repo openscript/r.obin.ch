@@ -1,0 +1,90 @@
+---
+
+---
+
+<style>
+  button {
+    display: block;
+    background: transparent;
+    width: 2.5rem;
+    height: 3.2rem;
+    cursor: pointer;
+    border: none;
+  }
+
+  button:before,
+  div,
+  button:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--white-color);
+    margin: 6px 0;
+    transition: 0.2s;
+  }
+
+  button:hover:before,
+  button:hover div,
+  button:hover:after {
+    background-color: var(--secondary-color);
+  }
+
+  body.burger-active button:before {
+    transform: translateY(10px) rotate(135deg);
+  }
+
+  body.burger-active button div {
+    transform: scale(0);
+  }
+
+  body.burger-active button:after {
+    transform: translateY(-10px) rotate(-135deg);
+  }
+</style>
+
+<script >
+  const ACTIVE_LABEL = "burger-active";
+  const ACTIVE_ANCHOR = `#${ACTIVE_LABEL}`;
+  let isOpen = window.location.hash === ACTIVE_ANCHOR;
+
+  function openBurger(event?: boolean) {
+    isOpen = true;
+    document.body.classList.add(ACTIVE_LABEL);
+    if(!event) {
+      window.history.pushState(null, '', ACTIVE_ANCHOR);
+    }
+  }
+
+  function closeBurger(event?: boolean) {
+    isOpen = false;
+    document.body.classList.remove(ACTIVE_LABEL);
+    if(!event) {
+      window.history.pushState(null, '', ' ');
+    }
+  }
+
+  function toggleBurger(event?: boolean) {
+    if(isOpen) {
+      closeBurger(event);
+    } else {
+      openBurger(event);
+    }
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    isOpen = window.location.hash === ACTIVE_ANCHOR;
+    const button = document.querySelector('.burger-button');
+    button?.addEventListener('click', () => toggleBurger());
+    if(isOpen) document.body.classList.add(ACTIVE_LABEL);
+  });
+
+  window.addEventListener('popstate', (event) => {
+    if(event.isTrusted) {
+      toggleBurger(true);
+    }
+  });
+</script>
+
+<button class="burger-button" type="button" aria-label="Open Menu">
+  <div></div>
+</button>

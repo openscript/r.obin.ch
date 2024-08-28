@@ -1,11 +1,16 @@
 ---
-import Brand from '../../components/Brand.astro';
+import Brand from "../../components/Brand.astro";
+import { getRelativePath } from "../../utils/path";
+import { C } from "../../configuration";
+import { getLocaleFromUrl } from "../../utils/i18n";
+import MainNavigation from './MainNavigation.astro';
 
-
+const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <header>
-  <a href="">
+  <a href={getRelativePath(`/${locale === C.DEFAULT_LOCALE ? "" : locale}`)}>
     <Brand />
   </a>
+  <MainNavigation />
 </header>
