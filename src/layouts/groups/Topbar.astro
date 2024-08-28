@@ -1,8 +1,14 @@
 ---
 import { getEntry } from "astro:content";
 import { getLocaleFromUrl } from "../../utils/i18n";
-import Navigation from '../../components/Navigation.astro';
+import Navigation from "../../components/Navigation.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
 
+type Props = {
+  translations?: Record<string, string>;
+};
+
+const { translations } = Astro.props;
 const navigation = (await getEntry("navigation", "navigation")).data.find(
   (navigation) => navigation.id === "topbar",
 );
@@ -12,4 +18,5 @@ const locale = getLocaleFromUrl(Astro.url);
 
 <div id="topbar">
   <Navigation items={navigation.items} locale={locale} />
+  <LanguageSwitcher translations={translations} currentLocale={locale} />
 </div>

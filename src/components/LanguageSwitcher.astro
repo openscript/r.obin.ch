@@ -1,0 +1,30 @@
+---
+import { getNameFromLocale } from '../utils/i18n';
+import { getRelativePath } from '../utils/path';
+
+type Props = {
+  currentLocale: string;
+  translations?: Record<string, string>;
+}
+
+const { translations, currentLocale } = Astro.props;
+
+---
+
+<style>
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<nav class="language-switcher">
+  <ul>
+    {Object.entries(translations || {}).map(([locale, path]) => (
+      <li class:list={[{active: locale === currentLocale}]}>
+        <a href={getRelativePath(path)} lang={locale} hreflang={locale}>{getNameFromLocale(locale)}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
