@@ -9,14 +9,11 @@ type Props = {
 };
 
 const { translations } = Astro.props;
-const navigation = (await getEntry("navigation", "navigation")).data.find(
-  (navigation) => navigation.id === "topbar",
-);
-if (!navigation) throw Error("Navigation is undefined");
+const navigation = (await getEntry("navigation", "topbar")).data;
 const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <div id="topbar">
-  <Navigation items={navigation.items} locale={locale} />
+  <Navigation items={navigation} locale={locale} />
   <LanguageSwitcher translations={translations} currentLocale={locale} />
 </div>

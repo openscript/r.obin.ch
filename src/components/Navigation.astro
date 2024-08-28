@@ -5,9 +5,7 @@ import type { Locale } from "../configuration";
 
 type Props = {
   locale: Locale;
-  items: ArrayElement<
-    DataEntryMap["navigation"]["navigation"]["data"]
-  >["items"];
+  items: DataEntryMap["navigation"]["topbar"]["data"];
 };
 
 const { items, locale } = Astro.props;

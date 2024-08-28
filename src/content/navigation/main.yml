@@ -1,0 +1,16 @@
+- path: /blog
+  title:
+    de: Blog
+    en: Blog
+- path: /medias
+  title:
+    de: Medien
+    en: Medias
+- path: /projects
+  title:
+    de: Projekte
+    en: Projects
+- path: /resume
+  title:
+    de: Lebenslauf
+    en: Resume
