@@ -18,6 +18,7 @@
   --gap-big: calc(var(--gap) * 2);
   --gap-small: calc(var(--gap) / 2);
   --gap-tiny: calc(var(--gap) / 4);
+  --transition-duration: 0.5s;
 }
 
 html.dark:root {

@@ -15,6 +15,18 @@ body {
   justify-content: center;
 }
 
+#topbar nav {
+  max-width: 100%;
+  margin-right: 1rem;
+  padding-right: 2rem;
+  overflow-x: scroll;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) calc(100% - 2rem),
+    transparent
+  );
+}
+
 #topbar nav ul {
   display: flex;
   gap: var(--gap);
@@ -22,8 +34,21 @@ body {
 
 #topbar nav ul li {
   display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+#topbar nav ul li a {
+  display: inline-flex;
   align-items: center;
-  gap: var(--gap-small);
+  gap: var(--gap-tiny);
+  transition: var(--transition-duration);
+  filter: grayscale(1);
+}
+
+#topbar nav ul li a:hover {
+  filter: grayscale(0);
 }
 
 header, footer {

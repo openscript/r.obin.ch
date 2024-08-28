@@ -26,14 +26,16 @@ const { items, locale } = Astro.props;
     {
       items.map((item) => (
         <li>
-          {item.icon ? (
-            <Image
-              src={item.icon}
-              alt={`${item.title[locale]} Icon`}
-              width="16"
-            />
-          ) : null}
-          {item.title[locale]}
+          <a href={item.path}>
+            {item.icon ? (
+              <Image
+                src={item.icon}
+                alt={`${item.title[locale]} Icon`}
+                width="16"
+              />
+            ) : null}
+            {item.title[locale]}
+          </a>
         </li>
       ))
     }
