@@ -154,6 +154,15 @@ main {
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  padding-top: 1.75rem;
+}
+
+footer nav ul {
+  display: flex;
+  gap: var(--gap);
 }
 
 #topbar,
