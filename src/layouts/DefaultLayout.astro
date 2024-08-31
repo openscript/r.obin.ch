@@ -19,7 +19,7 @@ const { translations } = Astro.props;
 <html lang={locale}>
   <Head translations={translations} />
   <body>
-    <Topbar translations={translations} transition:animate="fade" />
+    <Topbar translations={translations} />
     <Header />
     <ReboundDivider />
     <main data-pagefind-body transition:animate="fade">

@@ -42,46 +42,71 @@
   }
 </style>
 
-<script >
+<script>
+  const LEFT_BURGER = "left-burger";
   const ACTIVE_LABEL = "burger-active";
   const ACTIVE_ANCHOR = `#${ACTIVE_LABEL}`;
-  let isOpen = window.location.hash === ACTIVE_ANCHOR;
+  let wasOpenedByUser = false;
+  let navigateBackByScript = false;
+
+  function isOpen() {
+    return window.location.hash === ACTIVE_ANCHOR;
+  }
+
+  function createNextState() {
+    const currentIndex = window.history.state.index || 0;
+    return { index: currentIndex + 1, scrollX: window.scrollX, scrollY: window.scrollY };
+  }
 
   function openBurger(event?: boolean) {
-    isOpen = true;
     document.body.classList.add(ACTIVE_LABEL);
-    if(!event) {
-      window.history.pushState(null, '', ACTIVE_ANCHOR);
+    if (!event) {
+      wasOpenedByUser = true;
+      window.history.pushState(createNextState(), "", ACTIVE_ANCHOR);
     }
   }
 
   function closeBurger(event?: boolean) {
-    isOpen = false;
     document.body.classList.remove(ACTIVE_LABEL);
-    if(!event) {
-      window.history.pushState(null, '', ' ');
+    if (!event && wasOpenedByUser) {
+      navigateBackByScript = true;
+      window.history.back();
+    } else {
+      window.history.replaceState(window.history.state, "", " ");
     }
   }
 
   function toggleBurger(event?: boolean) {
-    if(isOpen) {
+    if (isOpen()) {
       closeBurger(event);
     } else {
       openBurger(event);
     }
   }
 
-  document.addEventListener('astro:page-load', () => {
-    isOpen = window.location.hash === ACTIVE_ANCHOR;
-    const button = document.querySelector('.burger-button');
-    button?.addEventListener('click', () => toggleBurger());
-    if(isOpen) document.body.classList.add(ACTIVE_LABEL);
+  window.addEventListener("load", function () {
+    // User returns after left and menu was left open
+    if (sessionStorage.getItem(LEFT_BURGER) && isOpen()) {
+      closeBurger(true);
+      sessionStorage.removeItem(LEFT_BURGER);
+    }
   });
 
-  window.addEventListener('popstate', (event) => {
-    if(event.isTrusted) {
-      toggleBurger(true);
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem(LEFT_BURGER, "1");
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    const button = document.querySelector(".burger-button");
+    button?.addEventListener("click", () => toggleBurger());
+    if (isOpen()) openBurger(true);
+  });
+
+  window.addEventListener("popstate", (event) => {
+    if(event.isTrusted && !navigateBackByScript && isOpen()) {
+      closeBurger(true);
     }
+    navigateBackByScript = false;
   });
 </script>
 

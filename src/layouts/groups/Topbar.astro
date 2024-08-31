@@ -13,7 +13,7 @@ const navigation = (await getEntry("navigation", "topbar")).data;
 const locale = getLocaleFromUrl(Astro.url);
 ---
 
-<div id="topbar">
+<div id="topbar" transition:animate="none">
   <Navigation items={navigation} locale={locale} />
   <LanguageSwitcher translations={translations} currentLocale={locale} />
 </div>
