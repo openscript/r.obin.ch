@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { DataEntryMap } from "astro:content";
 import type { Locale } from "../configuration";
+import Link from "./Link.astro";
 
 type Props = {
   locale: Locale;
@@ -24,7 +25,7 @@ const { items, locale } = Astro.props;
     {
       items.map((item) => (
         <li>
-          <a href={item.path}>
+          <Link href={item.path}>
             {item.icon ? (
               <Image
                 src={item.icon}
@@ -33,7 +34,7 @@ const { items, locale } = Astro.props;
               />
             ) : null}
             {item.title[locale]}
-          </a>
+          </Link>
         </li>
       ))
     }

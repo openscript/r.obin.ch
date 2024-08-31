@@ -10,12 +10,14 @@ export const C = {
       title: "Robins Website",
       feedTitle: "Robins Blog",
       feedLanguage: "Robins Blog: English posts only",
+      searchPlaceholder: "Type to search..."
     },
     de: {
       language: "Deutsch",
       title: "Robins Webseite",
       feedTitle: "Robins Blog",
       feedLanguage: "Robins Blog: Nur Deutsche Artikel",
+      searchPlaceholder: "Tippe um zu suchen..."
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

@@ -1,0 +1,25 @@
+---
+import { getLocaleFromUrl, useTranslations } from '../utils/i18n'
+
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+---
+
+<style>
+  .search {
+    display: flex;
+  }
+
+  .search, .search input {
+    width: 100%;
+  }
+</style>
+
+<div class="search">
+  <input
+    type="search"
+    placeholder={t('searchPlaceholder')}
+  />
+</div>
