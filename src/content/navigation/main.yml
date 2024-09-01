@@ -5,8 +5,8 @@ de:
     title: Medien
   - path: projects
     title: Projekte
-  - path: resume
-    title: Lebenslauf
+  - path: about
+    title: Über mich
 en:
   - path: blog
     title: Blog
@@ -14,5 +14,5 @@ en:
     title: Medias
   - path: projects
     title: Projects
-  - path: resume
-    title: Resume
+  - path: about
+    title: About me
