@@ -8,6 +8,7 @@ import {
   makeMenu,
   parseLocale,
   parseLocaleTagFromPath,
+  splitCollectionAndSlug,
   splitLocaleAndPath,
   useTranslations,
 } from "../utils/i18n";
@@ -133,6 +134,18 @@ describe("splitLocaleAndPath", () => {
     const splitPath = splitLocaleAndPath("en-US/docs/getting-started");
     expect(splitPath?.locale).toBe("en-US");
     expect(splitPath?.path).toBe("docs/getting-started");
+  });
+});
+
+describe("splitCollectionAndSlug", () => {
+  it("should split the collection from slug", () => {
+    const splitPath = splitCollectionAndSlug("pages://en/data-protection");
+    expect(splitPath.collection).toMatchInlineSnapshot(`"pages"`);
+    expect(splitPath.slug).toMatchInlineSnapshot(`"en/data-protection"`);
+  });
+
+  it("should split the locale from path without leading slash", () => {
+    expect(() => splitCollectionAndSlug("somethingElse")).toThrowErrorMatchingInlineSnapshot(`[Error: Couldn't split path.]`);
   });
 });
 

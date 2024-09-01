@@ -1,21 +1,28 @@
-- path: https://openscript.ch
-  icon: ./openscript.png
-  title:
-    de: openscript GmbH
-    en: openscript Ltd.
-- path: https://github.com/openscript
-  icon: ./github.png
-  title:
-    de: Github
-    en: Github
-- key: stackoverflow
-  path: https://stackoverflow.com/users/371530/robin
-  icon: ./stackoverflow.png
-  title:
-    de: StackOverflow
-    en: StackOverflow
-- path: https://www.linkedin.com/in/openscript/
-  icon: ./linkedin.png
-  title:
-    de: LinkedIn
-    en: LinkedIn
+de:
+  - path: https://openscript.ch
+    icon: ./openscript.png
+    title: openscript GmbH
+  - path: https://github.com/openscript
+    icon: ./github.png
+    title: Github
+  - key: stackoverflow
+    path: https://stackoverflow.com/users/371530/robin
+    icon: ./stackoverflow.png
+    title: StackOverflow
+  - path: https://www.linkedin.com/in/openscript/
+    icon: ./linkedin.png
+    title: LinkedIn
+en:
+  - path: https://openscript.ch
+    icon: ./openscript.png
+    title: openscript Ltd.
+  - path: https://github.com/openscript
+    icon: ./github.png
+    title: Github
+  - key: stackoverflow
+    path: https://stackoverflow.com/users/371530/robin
+    icon: ./stackoverflow.png
+    title: StackOverflow
+  - path: https://www.linkedin.com/in/openscript/
+    icon: ./linkedin.png
+    title: LinkedIn

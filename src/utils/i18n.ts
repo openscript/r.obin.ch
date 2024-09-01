@@ -12,6 +12,8 @@ const IETF_BCP_47_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
 const SINGLE_LEADING_SLASH_PATTERN = /^\/(?=\/)/;
 const REMOVE_LEADING_SLASH_PATTERN = /^\/+/;
 
+export const PROTOCOL_DELIMITER = "://";
+
 export function parseLocaleTagFromPath(path: string) {
   const match = path.match(IETF_BCP_47_LOCALE_PATTERN);
   return match ? match[1] : undefined;
@@ -30,6 +32,14 @@ export function splitLocaleAndPath(path: string) {
       "",
     );
   return { locale, path: p };
+}
+
+export function splitCollectionAndSlug(path: string) {
+  const split = path.split(PROTOCOL_DELIMITER);
+
+  if (!split[0] || !split[1]) throw new Error("Couldn't split path.");
+
+  return { collection: split[0], slug: split[1] }
 }
 
 export function getNameFromLocale(locale?: string) {
@@ -141,8 +151,8 @@ export async function makeMenu(
       const path =
         typeof item.path === "string"
           ? getRelativePath(
-              `/${[urlLocale, item.path].filter(Boolean).join("/")}`,
-            )
+            `/${[urlLocale, item.path].filter(Boolean).join("/")}`,
+          )
           : await item.path(locale);
       return {
         title: item.title,
