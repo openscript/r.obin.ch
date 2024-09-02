@@ -1,7 +1,14 @@
 ---
+import type { MarkdownLayoutProps } from 'astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+
+type Props = MarkdownLayoutProps<{}>;
+
+const { headings } = Astro.props;
+
 ---
 <style>
-  .single-column-with-aside {
+  .long-page-section {
     padding: 1.4rem 0;
     display: grid;
     grid-template-columns: 15rem 1fr 15rem;
@@ -22,9 +29,9 @@
     text-align: center;
   }
 </style>
-<div class="single-column-with-aside">
+<div class="long-page-section">
   <aside>
-    <slot name="aside" />
+    <TableOfContents headings={headings} />
   </aside>
   <section>
     <slot />
