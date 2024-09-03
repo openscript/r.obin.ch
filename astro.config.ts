@@ -1,11 +1,25 @@
 import { defineConfig } from "astro/config";
 import unpluginFavicons from "@anolilab/unplugin-favicons/vite";
 import { C } from "./src/configuration";
-
 import mdx from "@astrojs/mdx";
+import { remarkGitInfo } from './src/remark/remark-git-info';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
+  build: {
+    format: 'file'
+  },
+  i18n: {
+    defaultLocale: C.DEFAULT_LOCALE,
+    locales: Object.keys(C.LOCALES)
+  },
+  markdown: {
+    remarkPlugins: [[remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }]],
+    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]
+  },
   vite: {
     plugins: [
       unpluginFavicons({

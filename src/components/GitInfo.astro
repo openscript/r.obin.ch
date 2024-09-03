@@ -1,0 +1,30 @@
+---
+import type { GitInfoFrontmatter } from '../remark/remark-git-info'
+import { getLocaleFromUrl, useTranslations } from '../utils/i18n';
+import Button from './Button.astro';
+
+type Props = GitInfoFrontmatter;
+
+const { git } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+
+---
+
+<div>
+  <span class="label">{t('gitInfoLabel')}</span>
+  <dl>
+    <slot name="before" />
+    <dt>{t('authorLabel')}</dt>
+    <dd>{git.lastCommit.author_name}</dd>
+    <dt>{t('lastUpdatedLabel')}</dt>
+    <dd>{git.lastCommit.date}</dd>
+    <dt>{t('linksLabel')}</dt>
+    <dd>
+      <Button href={git.remoteViewUrl}>{t('sourceLabel')}</Button>
+      <Button href={git.remoteHistoryUrl}>{t('historyLabel')}</Button>
+      <Button href={git.remoteEditUrl}>{t('editLabel')}</Button>
+    </dd>
+    <slot name="after" />
+  </dl>
+</div>

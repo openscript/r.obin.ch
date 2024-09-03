@@ -1,0 +1,35 @@
+---
+---
+<style>
+  .post {
+    padding: 1.4rem 0;
+    display: grid;
+    grid-template-columns: 15rem 1fr 15rem;
+    gap: 1.4rem;
+  }
+
+  aside > :global(*) {
+    position: sticky;
+    top: 1.4rem;
+  }
+
+  article {
+    justify-self: center;
+    max-width: 50rem;
+  }
+
+  article :global(h1) {
+    text-align: center;
+  }
+</style>
+<div class="post">
+  <aside>
+    <slot name="left" />
+  </aside>
+  <article>
+    <slot />
+  </article>
+  <aside>
+    <slot name="right" />
+  </aside>
+</div>
