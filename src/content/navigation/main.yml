@@ -5,7 +5,7 @@ de:
     title: Medien
   - path: projects
     title: Projekte
-  - path: about
+  - path: ueber-mich
     title: Über mich
 en:
   - path: blog
@@ -14,5 +14,5 @@ en:
     title: Medias
   - path: projects
     title: Projects
-  - path: about
+  - path: about-me
     title: About me

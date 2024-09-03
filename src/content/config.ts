@@ -27,6 +27,7 @@ const blogCollection = defineCollection({
 const pagesCollection = defineCollection({
   schema: z.object({
     path: z.string(),
+    title: z.string(),
   }),
 });
 const navigationCollection = defineCollection({

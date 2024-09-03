@@ -1,18 +1,25 @@
 ---
-import type { MarkdownLayoutProps } from 'astro';
-import TableOfContents from '../../components/TableOfContents.astro';
+import type { MarkdownLayoutProps } from "astro";
+import TableOfContents from "../../components/TableOfContents.astro";
 
-type Props = MarkdownLayoutProps<{}>;
+type Props = MarkdownLayoutProps<{
+  title: string;
+}>;
 
-const { headings } = Astro.props;
-
+const { headings, frontmatter } = Astro.props;
 ---
+
 <style>
   .long-page-section {
     padding: 1.4rem 0;
     display: grid;
     grid-template-columns: 15rem 1fr 15rem;
+    grid-template-areas: ". title ." "aside article .";
     gap: 1.4rem;
+  }
+
+  aside {
+    grid-area: aside;
   }
 
   aside > :global(*) {
@@ -20,12 +27,14 @@ const { headings } = Astro.props;
     top: 1.4rem;
   }
 
-  section {
+  article {
+    grid-area: article;
     justify-self: center;
     max-width: 50rem;
   }
 
-  section :global(h1) {
+  h1 {
+    grid-area: title;
     text-align: center;
   }
 </style>
@@ -33,7 +42,8 @@ const { headings } = Astro.props;
   <aside>
     <TableOfContents headings={headings} />
   </aside>
-  <section>
+  <h1>{frontmatter.title}</h1>
+  <article>
     <slot />
-  </section>
+  </article>
 </div>

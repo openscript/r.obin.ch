@@ -1,4 +1,11 @@
 ---
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string
+}>;
+
+const { frontmatter } = Astro.props;
 ---
 
 <style>
@@ -8,18 +15,19 @@
     justify-content: center;
   }
 
-  section {
+  article {
     max-width: 50rem;
     padding: 1rem;
   }
 
-  section :global(h1) {
+  h1 {
     text-align: center;
   }
 </style>
 
 <div class="page-section">
-  <section>
+  <h1>{frontmatter.title}</h1>
+  <article>
     <slot />
-  </section>
+  </article>
 </div>
