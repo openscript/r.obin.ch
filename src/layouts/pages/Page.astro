@@ -1,9 +1,10 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
 
-type Props = MarkdownLayoutProps<{
-  title: string
-}>;
+type Props = {
+  frontmatter?: {
+    title?: string
+  }
+};
 
 const { frontmatter } = Astro.props;
 ---
@@ -26,7 +27,9 @@ const { frontmatter } = Astro.props;
 </style>
 
 <div class="page-section">
-  <h1>{frontmatter.title}</h1>
+  <slot name="title">
+    <h1>{frontmatter?.title}</h1>
+  </slot>
   <article>
     <slot />
   </article>

@@ -1,17 +1,15 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from "astro:content";
 import { getContentEntryPath } from "../utils/i18n";
-import defaultCover from "../assets/default-cover.jpg";
-import { Image } from 'astro:assets';
-import type { Locale } from '../configuration';
+import { Image } from "astro:assets";
+import type { Locale } from "../configuration";
 
 type Props = {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
   locale: Locale;
-}
+};
 
 const { post, locale } = Astro.props;
-
 ---
 
 <style>
@@ -65,16 +63,22 @@ const { post, locale } = Astro.props;
 
 <div>
   <a href={await getContentEntryPath("blog", post.slug)}>
-    <Image
-      src={post.data.cover?.src || defaultCover}
-      alt={post.data.cover?.alt || post.data.title}
-      widths={[720]}
-    />
+    {
+      post.data.cover ? (
+        <Image
+          src={post.data.cover.src}
+          alt={post.data.cover.alt || post.data.title}
+          widths={[720]}
+        />
+      ) : null
+    }
     <div>
       <div>
         <h3>{post.data.title}</h3>
         <div class="date">
-          {`${new Date(post.data.publishedAt).toLocaleDateString(locale)} ${new Date(post.data.publishedAt).toLocaleTimeString(locale)}`}
+          {
+            `${new Date(post.data.publishedAt).toLocaleDateString(locale)} ${new Date(post.data.publishedAt).toLocaleTimeString(locale)}`
+          }
         </div>
       </div>
     </div>

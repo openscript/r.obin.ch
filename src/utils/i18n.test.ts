@@ -7,8 +7,10 @@ import {
   getNameFromLocale,
   makeMenu,
   parseLocale,
-  parseLocaleTagFromPath,
+  parseLocaleFromFile,
+  parseLocaleFromPath,
   splitCollectionAndSlug,
+  splitLocaleAndFilePath,
   splitLocaleAndPath,
   useTranslations,
 } from "../utils/i18n";
@@ -86,42 +88,69 @@ vi.mock("astro:content", () => ({
   },
 }));
 
-describe("parseLocaleTagFromPath", () => {
+describe("parseLocaleFromPath", () => {
   it("should parse the locale from a URL", () => {
-    const locale = parseLocaleTagFromPath("/en-US/docs/getting-started");
+    const locale = parseLocaleFromPath("/en-US/docs/getting-started");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the locale from a URL without leading slash", () => {
-    const locale = parseLocaleTagFromPath("en-US/docs/getting-started");
+    const locale = parseLocaleFromPath("en-US/docs/getting-started");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the locale from a URL with trailing slash", () => {
-    const locale = parseLocaleTagFromPath("/en-US/");
+    const locale = parseLocaleFromPath("/en-US/");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the locale from a URL without trailing slashes", () => {
-    const locale = parseLocaleTagFromPath("/en-US");
+    const locale = parseLocaleFromPath("/en-US");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the short form locale from a URL", () => {
-    const locale = parseLocaleTagFromPath("/en");
+    const locale = parseLocaleFromPath("/en");
     expect(locale).toBe("en");
   });
 
-  it("should return the default locale if no locale was found in URL", () => {
-    const locale = parseLocaleTagFromPath("/");
+  it("should return undefined if no locale was found in URL", () => {
+    const locale = parseLocaleFromPath("/");
     expect(locale).toBe(undefined);
   });
 
   it("shouldn't work on non locales", () => {
-    const locale = parseLocaleTagFromPath("/docs");
+    const locale = parseLocaleFromPath("/docs");
     expect(locale).toBe(undefined);
   });
 });
+
+describe("parseLocaleFromFile", () => {
+  it("should parse the locale from a file name", () => {
+    const locale = parseLocaleFromFile("example.en.md");
+    expect(locale).toBe("en");
+  });
+
+  it("should parse the locale from a file name with dialect", () => {
+    const locale = parseLocaleFromFile("example.en-US.md");
+    expect(locale).toBe("en-US");
+  });
+
+  it("should parse the locale from a file with path", () => {
+    const locale = parseLocaleFromFile("/some/path/example.en-US.md");
+    expect(locale).toBe("en-US");
+  });
+
+  it("should parse the locale from a file with relative path", () => {
+    const locale = parseLocaleFromFile("../example.en-US.md");
+    expect(locale).toBe("en-US");
+  })
+
+  it("should undefined if no locale was found in file name", () => {
+    const locale = parseLocaleFromFile("example.md");
+    expect(locale).toBe(undefined);
+  });
+})
 
 describe("splitLocaleAndPath", () => {
   it("should split the locale from path", () => {
@@ -134,6 +163,14 @@ describe("splitLocaleAndPath", () => {
     const splitPath = splitLocaleAndPath("en-US/docs/getting-started");
     expect(splitPath?.locale).toBe("en-US");
     expect(splitPath?.path).toBe("docs/getting-started");
+  });
+});
+
+describe("splitLocaleAndFilePath", () => {
+  it("should split the locale from file path", () => {
+    const splitPath = splitLocaleAndFilePath("/docs/getting-started.en-US.md");
+    expect(splitPath?.locale).toBe("en-US");
+    expect(splitPath?.path).toBe("/docs/getting-started");
   });
 });
 

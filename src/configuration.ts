@@ -27,6 +27,7 @@ export const C = {
       pageOfLabel: 'Seite {current} von {total}',
       previousLabel: 'Zurück',
       nextLabel: 'Weiter',
+      blogSlug: 'blog',
     },
     en: {
       language: "English",
@@ -50,6 +51,7 @@ export const C = {
       pageOfLabel: 'Page {current} of {total}',
       previousLabel: 'Previous',
       nextLabel: 'Next',
+      blogSlug: 'blog',
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

@@ -14,17 +14,17 @@ vi.mock("../configuration", () => ({
     MESSAGES: {
       en: {
         language: "English",
-        "slugs.blog": "blog",
-        "slugs.docs": "docs",
-        "slugs.data": "data",
-        "slugs.gallery": "gallery",
+        blogSlug: "blog",
+        docsSlug: "docs",
+        dataSlug: "data",
+        gallerySlug: "gallery",
       },
       de: {
         language: "Deutsch",
-        "slugs.blog": "blog",
-        "slugs.docs": "doku",
-        "slugs.data": "daten",
-        "slugs.gallery": "galerie",
+        blogSlug: "blog",
+        docsSlug: "doku",
+        dataSlug: "daten",
+        gallerySlug: "galerie",
       },
     },
     SETTINGS: {

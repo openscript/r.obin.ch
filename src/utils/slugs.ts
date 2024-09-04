@@ -8,7 +8,7 @@ export function getLocaleSlug(locale: Locale) {
 }
 
 export function getCollectionSlug(collection: string, locale: Locale) {
-  return getMessage(`slugs.${collection}`, locale);
+  return getMessage(`${collection}Slug`, locale);
 }
 
 export function getEntrySlug(entry: {

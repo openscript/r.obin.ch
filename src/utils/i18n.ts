@@ -8,19 +8,25 @@ import { dirname, getRelativePath, joinPath } from "./path";
 import slug from "limax";
 import { getLocaleSlug } from "./slugs";
 
-const IETF_BCP_47_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
+const PATH_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
+const FILE_LOCALE_PATTERN = /\.(\w{2}(?!\w)(-\w{1,})*)\./;
 const SINGLE_LEADING_SLASH_PATTERN = /^\/(?=\/)/;
 const REMOVE_LEADING_SLASH_PATTERN = /^\/+/;
 
 export const PROTOCOL_DELIMITER = "://";
 
-export function parseLocaleTagFromPath(path: string) {
-  const match = path.match(IETF_BCP_47_LOCALE_PATTERN);
+export function parseLocaleFromPath(path: string) {
+  const match = path.match(PATH_LOCALE_PATTERN);
+  return match ? match[1] : undefined;
+}
+
+export function parseLocaleFromFile(filename: string){
+  const match = filename.match(FILE_LOCALE_PATTERN);
   return match ? match[1] : undefined;
 }
 
 export function splitLocaleAndPath(path: string) {
-  const locale = parseLocaleTagFromPath(path);
+  const locale = parseLocaleFromPath(path);
   if (!locale) return undefined;
 
   const p = path
@@ -32,6 +38,16 @@ export function splitLocaleAndPath(path: string) {
       "",
     );
   return { locale, path: p };
+}
+
+export function splitLocaleAndFilePath(path: string) {
+  const locale = parseLocaleFromFile(path);
+  if (!locale) return undefined;
+
+  const split = path.split(FILE_LOCALE_PATTERN);
+  if (!split[0]) return undefined;
+
+  return { locale, path: split[0] };
 }
 
 export function splitCollectionAndSlug(path: string) {
@@ -53,7 +69,7 @@ export function getLocaleFromUrl(url: URL) {
   if (url.pathname.startsWith(import.meta.env.BASE_URL))
     path = url.pathname.slice(import.meta.env.BASE_URL.length);
 
-  const locale = parseLocaleTagFromPath(path);
+  const locale = parseLocaleFromPath(path);
 
   return parseLocale(locale);
 }

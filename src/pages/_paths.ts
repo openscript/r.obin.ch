@@ -1,6 +1,6 @@
 import type { GetStaticPaths } from "astro";
 import { C, localeSlugs, type Locale } from "../configuration";
-import { getMessage, parseLocale, splitLocaleAndPath } from "../utils/i18n";
+import { parseLocale, splitLocaleAndPath } from "../utils/i18n";
 import { resolvePath } from "../utils/path";
 import {
   getCollection,
@@ -23,7 +23,7 @@ export const indexPaths = (kind?: string) => {
     const translations = localeSlugs.reduce(
       (acc, curr) => {
         const collectionSlug = kind
-          ? getMessage(`slugs.${kind}`, curr)
+          ? getCollectionSlug(kind, curr)
           : undefined;
         const localeSlug = getLocaleSlug(curr);
         acc[curr] = resolvePath(localeSlug, collectionSlug);
@@ -40,7 +40,7 @@ export const indexPaths = (kind?: string) => {
       return kind
         ? {
             ...path,
-            params: { ...path.params, [kind]: getMessage(`slugs.${kind}`, l) },
+            params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
           }
         : path;
     });
@@ -54,6 +54,7 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
   return (async () => {
     const entries = await getCollection(collection);
     return entries.map((entry) => {
+      console.log(entry);
       const split = splitLocaleAndPath(entry.slug);
       if (!split) throw new Error(`Invalid entry slug: ${entry.slug}`);
 
@@ -68,7 +69,7 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
           const collectionSlug =
             collection === "pages"
               ? undefined
-              : getMessage(`slugs.${collection}`, l);
+              : getCollectionSlug(collection, l);
 
           if (s.path === split.path)
             acc[l] = resolvePath(localeSlug, collectionSlug, pageSlug);
@@ -83,7 +84,7 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
       const pageSlug = getEntrySlug(entry);
 
       if (slugName && collection !== "pages") {
-        const collectionSlug = getMessage(`slugs.${collection}`, locale);
+        const collectionSlug = getCollectionSlug(collection, locale);
         return {
           params: {
             locale: localeSlug,
