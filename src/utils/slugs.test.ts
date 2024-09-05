@@ -82,13 +82,13 @@ describe("getCollectionSlug", () => {
 describe("getEntrySlug", () => {
   it("should return the entry slug", async () => {
     const entryWithTitle = (await getEntry("docs" as any, "with-title")) as {
-      slug: string;
+      id: string;
     };
     expect(getEntrySlug(entryWithTitle)).toMatchInlineSnapshot(
       `"2020/09/11/this-is-my-first-article"`,
     );
     const entryWithPath = (await getEntry("docs" as any, "with-path")) as {
-      slug: string;
+      id: string;
     };
     expect(getEntrySlug(entryWithPath)).toMatchInlineSnapshot(
       `"this/is/the/path"`,
@@ -96,12 +96,12 @@ describe("getEntrySlug", () => {
     const entryWithoutData = (await getEntry(
       "docs" as any,
       "without-data",
-    )) as { slug: string };
+    )) as { id: string };
     expect(getEntrySlug(entryWithoutData)).toMatchInlineSnapshot(
       `"2020/09/11/test-article"`,
     );
     const entryAtRoot = (await getEntry("docs" as any, "at-root")) as {
-      slug: string;
+      id: string;
     };
     expect(getEntrySlug(entryAtRoot)).toMatchInlineSnapshot(
       `"this-is-my-first-article"`,

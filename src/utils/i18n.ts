@@ -6,7 +6,7 @@ import {
 import { C, type Locale } from "../configuration";
 import { dirname, getRelativePath, joinPath } from "./path";
 import slug from "limax";
-import { getLocaleSlug } from "./slugs";
+import { getCollectionSlug, getLocaleSlug } from "./slugs";
 
 const PATH_LOCALE_PATTERN = /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
 const FILE_LOCALE_PATTERN = /^(?<path>.*)\.(?<locale>\w{2}(?!\w)(-\w{1,})*)\./;
@@ -87,7 +87,7 @@ export async function getContentEntryPath<
   if (!e)
     throw new Error(`Content entry not found: ${collection}/${entrySlug}`);
 
-  const split = splitLocaleAndPath(e.slug);
+  const split = splitLocaleAndPath(e.id);
   if (!split)
     throw new Error(
       `Entry has no international path: ${collection}/${entrySlug}`,
@@ -131,7 +131,7 @@ function getTranslatedPath(
   const collectionSlug =
     collection === "pages"
       ? undefined
-      : getMessage(`slugs.${collection}`, locale);
+      : getCollectionSlug(collection, locale);
 
   return getRelativePath(
     `/${[localeSlug, collectionSlug, pageSlug].filter(Boolean).join("/")}`,

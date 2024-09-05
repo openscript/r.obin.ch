@@ -1,6 +1,7 @@
 import type { Root } from 'mdast';
 import type { VFile } from 'vfile';
 import simpleGit, { type DefaultLogFields, type ListLogLine, type SimpleGitOptions } from 'simple-git';
+import { isAstroData } from './common';
 
 const options: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(),
@@ -22,14 +23,6 @@ export type GitInfoFrontmatter = {
 type Options = Readonly<{
   remoteUrlBase: string;
 }>;
-
-type AstroData = {
-  frontmatter: Record<string, any>;
-};
-
-function isAstroData(obj: any): obj is AstroData {
-  return obj && typeof obj === 'object' && 'frontmatter' in obj && typeof obj.frontmatter === 'object';
-}
 
 export function remarkGitInfo({ remoteUrlBase }: Options) {
   return async (_: Root, file: VFile) => {

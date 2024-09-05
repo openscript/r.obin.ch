@@ -60,10 +60,11 @@ export const C = {
       THEME_COLOR: "#663399",
     },
     REMOTE: {
-      BASE_URL: "https://r.obin.ch",
+      BASE_URL: "https://github.com/openscript/r.obin.ch",
     },
     BLOG: {
       PAGE_SIZE: 20,
+      EXCERPT_LENGTH: 200,
     },
   },
 } as const;

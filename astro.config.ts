@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 import { remarkGitInfo } from './src/remark/remark-git-info';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { remarkExcerpt } from './src/remark/remark-excerpt';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,10 @@ export default defineConfig({
     locales: Object.keys(C.LOCALES)
   },
   markdown: {
-    remarkPlugins: [[remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }]],
+    remarkPlugins: [
+      [remarkExcerpt, { length: C.SETTINGS.BLOG.EXCERPT_LENGTH }],
+      [remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }]
+    ],
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]]
   },
   vite: {
