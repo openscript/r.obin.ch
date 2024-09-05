@@ -20,9 +20,9 @@ export function getEntrySlug(entry: {
 
   let entrySlug = split.path;
   if (entry.data) {
-    if ("path" in entry.data && entry.data.path) entrySlug = entry.data.path;
     if ("title" in entry.data && entry.data.title)
       entrySlug = joinPath(dirname(entrySlug), slug(entry.data.title));
+    if ("path" in entry.data && entry.data.path) entrySlug = entry.data.path;
   }
   return entrySlug;
 }

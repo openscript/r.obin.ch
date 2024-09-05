@@ -1,5 +1,4 @@
 ---
-
 type Props = {
   frontmatter?: {
     title?: string
@@ -10,10 +9,10 @@ const { frontmatter } = Astro.props;
 ---
 
 <style>
-  .page-section {
-    padding-top: 2rem;
+  .page {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   article {
@@ -21,12 +20,16 @@ const { frontmatter } = Astro.props;
     padding: 1rem;
   }
 
+  article > :global(*:first-child) {
+    margin-top: 0;
+  }
+
   h1 {
     text-align: center;
   }
 </style>
 
-<div class="page-section">
+<div class="page">
   <slot name="title">
     <h1>{frontmatter?.title}</h1>
   </slot>
