@@ -12,11 +12,11 @@ export function getCollectionSlug(collection: string, locale: Locale) {
 }
 
 export function getEntrySlug(entry: {
-  slug: string;
+  id: string;
   data?: { path?: string; title?: string };
 }) {
-  const split = splitLocaleAndPath(entry.slug);
-  if (!split) throw new Error(`Entry has no international path: ${entry.slug}`);
+  const split = splitLocaleAndPath(entry.id);
+  if (!split) throw new Error(`Entry has no international path: ${entry.id}`);
 
   let entrySlug = split.path;
   if (entry.data) {

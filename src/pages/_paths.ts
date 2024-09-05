@@ -54,14 +54,13 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
   return (async () => {
     const entries = await getCollection(collection);
     return entries.map((entry) => {
-      console.log(entry);
-      const split = splitLocaleAndPath(entry.slug);
-      if (!split) throw new Error(`Invalid entry slug: ${entry.slug}`);
+      const split = splitLocaleAndPath(entry.id);
+      if (!split) throw new Error(`Invalid entry id: ${entry.id}`);
 
       const translations = entries.reduce(
         (acc, curr) => {
-          const s = splitLocaleAndPath(curr.slug);
-          if (!s) throw new Error(`Invalid entry slug: ${curr.slug}`);
+          const s = splitLocaleAndPath(curr.id);
+          if (!s) throw new Error(`Invalid entry id: ${curr.id}`);
 
           const l = parseLocale(s.locale);
           const localeSlug = getLocaleSlug(l);
@@ -108,7 +107,7 @@ export const blogPagePaths = (async ({ paginate }) => {
   const groupedPageSlug = pages.reduce<
     Record<string, CollectionEntry<"blog">[]>
   >((acc, page) => {
-    const split = splitLocaleAndPath(page.slug);
+    const split = splitLocaleAndPath(page.id);
     if (split) {
       const locales = acc[split.path] || [];
       locales.push(page);
@@ -132,12 +131,12 @@ export const blogPagePaths = (async ({ paginate }) => {
         acc.push(...pages);
       } else {
         let page = pages.find((p) => {
-          const split = splitLocaleAndPath(p.slug);
+          const split = splitLocaleAndPath(p.id);
           return split && split.locale === l;
         });
         if (!page) {
           page = pages.find((p) => {
-            const split = splitLocaleAndPath(p.slug);
+            const split = splitLocaleAndPath(p.id);
             return split && split.locale === C.DEFAULT_LOCALE;
           });
         }

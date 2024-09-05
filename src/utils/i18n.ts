@@ -8,46 +8,31 @@ import { dirname, getRelativePath, joinPath } from "./path";
 import slug from "limax";
 import { getLocaleSlug } from "./slugs";
 
-const PATH_LOCALE_PATTERN = /^\/?(\w{2}(?!\w)(-\w{1,})*)\/?/;
-const FILE_LOCALE_PATTERN = /\.(\w{2}(?!\w)(-\w{1,})*)\./;
-const SINGLE_LEADING_SLASH_PATTERN = /^\/(?=\/)/;
-const REMOVE_LEADING_SLASH_PATTERN = /^\/+/;
-
+const PATH_LOCALE_PATTERN = /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
+const FILE_LOCALE_PATTERN = /^(?<path>.*)\.(?<locale>\w{2}(?!\w)(-\w{1,})*)\./;
+const LOCALE_PATTERNS = [PATH_LOCALE_PATTERN, FILE_LOCALE_PATTERN];
 export const PROTOCOL_DELIMITER = "://";
 
 export function parseLocaleFromPath(path: string) {
-  const match = path.match(PATH_LOCALE_PATTERN);
-  return match ? match[1] : undefined;
-}
+  const pattern = LOCALE_PATTERNS.find((p) => path.match(p));
+  if (!pattern) return undefined;
 
-export function parseLocaleFromFile(filename: string){
-  const match = filename.match(FILE_LOCALE_PATTERN);
-  return match ? match[1] : undefined;
+  const match = path.match(pattern);
+  return match?.groups?.locale;
 }
 
 export function splitLocaleAndPath(path: string) {
-  const locale = parseLocaleFromPath(path);
-  if (!locale) return undefined;
+  const pattern = LOCALE_PATTERNS.find((p) => path.match(p));
+  if (!pattern) return undefined;
 
-  const p = path
-    .replace(locale, "")
-    .replace(
-      path.startsWith("/")
-        ? SINGLE_LEADING_SLASH_PATTERN
-        : REMOVE_LEADING_SLASH_PATTERN,
-      "",
-    );
-  return { locale, path: p };
-}
+  const match = path.match(pattern);
+  if (!match || !match.groups || !match.groups.locale || !match.groups.path) return undefined;
 
-export function splitLocaleAndFilePath(path: string) {
-  const locale = parseLocaleFromFile(path);
-  if (!locale) return undefined;
+  const l = match.groups.locale;
+  let p = match.groups.path;
+  if (path.startsWith("/") && !p.startsWith("/")) p = `/${p}`;
 
-  const split = path.split(FILE_LOCALE_PATTERN);
-  if (!split[0]) return undefined;
-
-  return { locale, path: split[0] };
+  return { locale: l, path: p };
 }
 
 export function splitCollectionAndSlug(path: string) {

@@ -7,10 +7,8 @@ import {
   getNameFromLocale,
   makeMenu,
   parseLocale,
-  parseLocaleFromFile,
   parseLocaleFromPath,
   splitCollectionAndSlug,
-  splitLocaleAndFilePath,
   splitLocaleAndPath,
   useTranslations,
 } from "../utils/i18n";
@@ -123,34 +121,37 @@ describe("parseLocaleFromPath", () => {
     const locale = parseLocaleFromPath("/docs");
     expect(locale).toBe(undefined);
   });
-});
 
-describe("parseLocaleFromFile", () => {
+  it("shouldn't work on locales in file names", () => {
+    const locale = parseLocaleFromPath("/some/path/example.en-US.md");
+    expect(locale).toBe("en-US");
+  });
+
   it("should parse the locale from a file name", () => {
-    const locale = parseLocaleFromFile("example.en.md");
+    const locale = parseLocaleFromPath("example.en.md");
     expect(locale).toBe("en");
   });
 
   it("should parse the locale from a file name with dialect", () => {
-    const locale = parseLocaleFromFile("example.en-US.md");
+    const locale = parseLocaleFromPath("example.en-US.md");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the locale from a file with path", () => {
-    const locale = parseLocaleFromFile("/some/path/example.en-US.md");
+    const locale = parseLocaleFromPath("/some/path/example.en-US.md");
     expect(locale).toBe("en-US");
   });
 
   it("should parse the locale from a file with relative path", () => {
-    const locale = parseLocaleFromFile("../example.en-US.md");
+    const locale = parseLocaleFromPath("../example.en-US.md");
     expect(locale).toBe("en-US");
   })
 
   it("should undefined if no locale was found in file name", () => {
-    const locale = parseLocaleFromFile("example.md");
+    const locale = parseLocaleFromPath("example.md");
     expect(locale).toBe(undefined);
   });
-})
+});
 
 describe("splitLocaleAndPath", () => {
   it("should split the locale from path", () => {
@@ -164,11 +165,9 @@ describe("splitLocaleAndPath", () => {
     expect(splitPath?.locale).toBe("en-US");
     expect(splitPath?.path).toBe("docs/getting-started");
   });
-});
 
-describe("splitLocaleAndFilePath", () => {
   it("should split the locale from file path", () => {
-    const splitPath = splitLocaleAndFilePath("/docs/getting-started.en-US.md");
+    const splitPath = splitLocaleAndPath("/docs/getting-started.en-US.md");
     expect(splitPath?.locale).toBe("en-US");
     expect(splitPath?.path).toBe("/docs/getting-started");
   });
