@@ -9,6 +9,7 @@ import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
 import { resolvePath } from "../../../utils/path";
 import slug from "limax";
+import Comments from '../../../components/Comments.astro';
 
 export const getStaticPaths = entryPaths("blog", "slug");
 
@@ -28,6 +29,7 @@ const blogSlug = "blog" in Astro.params ? Astro.params.blog : "";
   <Post>
     <Fragment slot="left"><TableOfContents headings={headings} /></Fragment>
     <Content />
+    <Comments client:visible />
     <Fragment slot="right">
       <GitInfo git={git}>
         <Fragment slot="after">

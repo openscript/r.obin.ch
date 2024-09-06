@@ -1,0 +1,41 @@
+---
+import { C } from "../configuration";
+
+const host = C.SETTINGS.COMMENTS.HOST;
+const siteId = C.SETTINGS.COMMENTS.SITE_ID;
+const originalUrl = C.SETTINGS.COMMENTS.ORIGINAL_URL;
+const isDEV = import.meta.env.DEV;
+---
+
+<script is:inline define:vars={{ host, siteId, originalUrl, isDEV }} async>
+  const remark42 = window.REMARK42;
+  let url =
+    (isDEV ? originalUrl : window.location.origin) + window.location.pathname;
+  if (url.endsWith("/")) {
+    url = url.slice(0, -1);
+  }
+  remark_config = {
+    host,
+    site_id: siteId,
+    url,
+    theme: "light",
+    components: ["embed"],
+  };
+  if (remark42) {
+    remark42.destroy();
+    remark42.createInstance(window.remark_config);
+  }
+  !(function (e, n) {
+    for (let o = 0; o < e.length; o++) {
+      let r = n.createElement("script"),
+        c = ".js",
+        d = n.head || n.body;
+      "noModule" in r ? ((r.type = "module"), (c = ".mjs")) : (r.async = !0),
+        (r.defer = !0),
+        (r.src = remark_config.host + "/web/" + e[o] + c),
+        d.appendChild(r);
+    }
+  })(remark_config.components || ["embed"], document);
+</script>
+
+<div id="remark42"></div>

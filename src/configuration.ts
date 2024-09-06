@@ -66,6 +66,11 @@ export const C = {
       PAGE_SIZE: 10,
       EXCERPT_LENGTH: 200,
     },
+    COMMENTS: {
+      HOST: "https://comments.obin.ch",
+      SITE_ID: "r.obin.ch",
+      ORIGINAL_URL: "https://r.obin.ch",
+    },
   },
 } as const;
 
