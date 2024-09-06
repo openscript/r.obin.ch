@@ -3,13 +3,20 @@ import type { VFile } from 'vfile';
 import { isAstroData } from './common';
 
 type Options = Readonly<{
-  length: string;
+  length: number;
 }>;
 
 export function remarkExcerpt({ length }: Options) {
-  return async (_: Root, file: VFile) => {
+  return async (ast: Root, file: VFile) => {
     if (!isAstroData(file.data.astro)) return;
 
-    console.log(length);
+    const paragraphs = ast.children.filter((c) => c.type === 'paragraph');
+    const texts = paragraphs.flatMap(
+      (p) => p.children.map((n) => n.type === 'text' && n.value).filter(Boolean)
+    );
+
+    const excerpt = texts.join(" ").slice(0, length);
+
+    file.data.astro.frontmatter.excerpt = excerpt;
   };
 }

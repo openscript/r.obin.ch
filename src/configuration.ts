@@ -63,7 +63,7 @@ export const C = {
       BASE_URL: "https://github.com/openscript/r.obin.ch",
     },
     BLOG: {
-      PAGE_SIZE: 20,
+      PAGE_SIZE: 10,
       EXCERPT_LENGTH: 200,
     },
   },

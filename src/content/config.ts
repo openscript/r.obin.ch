@@ -14,6 +14,7 @@ const blogCollection = defineCollection({
       title: z.string(),
       publishedAt: z.date(),
       tags: z.array(z.string()),
+      draft: z.boolean().optional(),
       cover: z
         .object({
           src: image().refine((img) => img.width >= 800, {

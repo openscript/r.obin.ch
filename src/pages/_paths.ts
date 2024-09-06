@@ -103,7 +103,7 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
 };
 
 export const blogPagePaths = (async ({ paginate }) => {
-  const pages = (await getCollection("blog")).reverse();
+  const pages = (await getCollection("blog", (entry) => !entry.data.draft)).reverse();
   const groupedPageSlug = pages.reduce<
     Record<string, CollectionEntry<"blog">[]>
   >((acc, page) => {
