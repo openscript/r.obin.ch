@@ -20,14 +20,14 @@ vi.mock("../configuration", () => ({
     MESSAGES: {
       en: {
         language: "English",
-        "slugs.docs": "docs",
-        "slugs.data": "data",
+        docsSlug: "docs",
+        dataSlug: "data",
         substitution: "{one} of {two}",
       },
       de: {
         language: "Deutsch",
-        "slugs.docs": "docs",
-        "slugs.data": "daten",
+        docsSlug: "docs",
+        dataSlug: "daten",
         substitution: "{one} von {two}",
       },
     },

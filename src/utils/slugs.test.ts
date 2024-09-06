@@ -98,7 +98,7 @@ describe("getEntrySlug", () => {
       "without-data",
     )) as { id: string };
     expect(getEntrySlug(entryWithoutData)).toMatchInlineSnapshot(
-      `"2020/09/11/test-article"`,
+      `"2020/09/11/test-article.md"`,
     );
     const entryAtRoot = (await getEntry("docs" as any, "at-root")) as {
       id: string;

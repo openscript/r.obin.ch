@@ -23,13 +23,13 @@
     "format": "prettier . --write"
   },
   "dependencies": {
-    "@anolilab/unplugin-favicons": "^1.0.5-alpha.2",
+    "@anolilab/unplugin-favicons": "^1.0.5",
     "@astrojs/check": "^0.9.3",
-    "@astrojs/mdx": "^3.1.4",
+    "@astrojs/mdx": "^3.1.5",
     "@fontsource/ibm-plex-mono": "^5.0.14",
     "@fontsource/poppins": "^5.0.15",
     "@fontsource/rajdhani": "^5.0.14",
-    "astro": "^4.14.5",
+    "astro": "^4.15.3",
     "favicons": "^7.2.0",
     "limax": "^4.1.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.5.2",
+    "@types/node": "^22.5.4",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.5.4",
