@@ -1,10 +1,18 @@
 ---
+type Props = {
+  frontmatter?: {
+    title?: string
+  }
+};
+
+const { frontmatter } = Astro.props;
 ---
 <style>
   .post {
     padding: 1.4rem 0;
     display: grid;
     grid-template-columns: 15rem 1fr 15rem;
+    grid-template-areas: ". title ." "left article right";
     gap: 1.4rem;
   }
 
@@ -13,16 +21,33 @@
     top: 1.4rem;
   }
 
+  article > :global(*:first-child) {
+    margin-top: 0;
+  }
+
   article {
+    grid-area: article;
     justify-self: center;
     max-width: 50rem;
   }
 
-  article :global(h1) {
+  aside:nth-last-of-type(1) {
+    grid-area: right;
+  }
+
+  aside:nth-last-of-type(2) {
+    grid-area: left;
+  }
+
+  h1 {
+    grid-area: title;
     text-align: center;
   }
 </style>
 <div class="post">
+  <slot name="title">
+    <h1>{frontmatter?.title}</h1>
+  </slot>
   <aside>
     <slot name="left" />
   </aside>
