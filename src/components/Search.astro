@@ -20,7 +20,6 @@ const bundle = `/pagefind/pagefind.js`;
     results.forEach(result => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      console.log(result);
       a.innerHTML = `<strong>${result.meta.title}: </strong>${result.excerpt}`;
       a.href = result.url;
       li.appendChild(a);
