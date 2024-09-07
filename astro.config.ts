@@ -6,6 +6,7 @@ import { remarkGitInfo } from './src/remark/remark-git-info';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { remarkExcerpt } from './src/remark/remark-excerpt';
+import search from './src/integrations/search';
 
 // https://astro.build/config
 export default defineConfig({
@@ -49,5 +50,5 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [mdx()],
+  integrations: [search(), mdx()],
 });

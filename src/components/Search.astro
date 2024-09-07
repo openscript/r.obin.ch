@@ -4,22 +4,90 @@ import { getLocaleFromUrl, useTranslations } from '../utils/i18n'
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
-
+const bundle = `${import.meta.env.DEV ? '' : import.meta.env.BASE_URL}/pagefind/pagefind.js`;
 ---
+
+<script>
+  async function initializeSearch(bundle: string) {
+    if (globalThis.pagefind) return;
+    globalThis.pagefind = await import(bundle);
+    globalThis.pagefind?.init();
+  }
+
+  function render(results: PagefindSearchFragment[]) {
+    const resultsList = document.querySelector(".results") as HTMLUListElement;
+    resultsList.innerHTML = "";
+    results.forEach(result => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      console.log(result);
+      a.innerHTML = `<strong>${result.meta.title}: </strong>${result.excerpt}`;
+      a.href = result.url;
+      li.appendChild(a);
+      resultsList.appendChild(li);
+    });
+  }
+
+  async function search(query: string) {
+    if (!globalThis.pagefind) return;
+    const records = await globalThis.pagefind.debouncedSearch(query)
+
+    if(records?.results) {
+      render(await Promise.all(records.results.slice(0, 5).map(r => r.data())));
+    } else {
+      render([]);
+    }
+  }
+
+  document.addEventListener("astro:page-load", async () => {
+    const searchWrapper = document.querySelector("[data-search-ui]") as HTMLDivElement;
+    const searchInput = document.querySelector("input[type=search]") as HTMLInputElement;
+    if (!searchInput || !searchWrapper || !searchWrapper.dataset.searchBundle) return;
+
+    initializeSearch(searchWrapper.dataset.searchBundle);
+
+    searchInput.addEventListener("input", async () => {
+      search(searchInput.value);
+    });
+  });
+</script>
 
 <style>
   .search {
     display: flex;
+    position: relative;
   }
 
   .search, .search input {
     width: 100%;
   }
+
+  .results {
+    display: none;
+    position: absolute;
+    list-style: none;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color-120);
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .search:focus-within .results {
+    display: flex;
+  }
 </style>
 
-<div class="search">
+<div class="search" data-search-ui data-search-bundle={bundle}>
   <input
     type="search"
     placeholder={t('searchPlaceholder')}
   />
+  <ul class="results"></ul>
 </div>

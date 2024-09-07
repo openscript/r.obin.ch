@@ -29,7 +29,7 @@ const blogSlug = "blog" in Astro.params ? Astro.params.blog : "";
   <Post frontmatter={{title: data.title}}>
     <Fragment slot="left"><TableOfContents headings={headings} /></Fragment>
     <Content />
-    <Comments client:visible />
+    <Comments />
     <Fragment slot="right">
       <GitInfo git={git}>
         <Fragment slot="after">
