@@ -2,24 +2,10 @@ import { describe, it, expect, vi } from "vitest";
 import {
   addTrailingSlash,
   dirname,
-  getRelativePath,
   joinPath,
   resolvePath,
   trimExtension,
 } from "../utils/path";
-
-describe("getRelativePath", () => {
-  it("should return an unchanged path in dev mode", () => {
-    vi.stubEnv("DEV", true);
-    const path = "/en-US/docs/getting-started";
-    expect(getRelativePath(path)).toBe(path);
-  });
-  it("should return an unchanged path in dev mode", () => {
-    vi.stubEnv("DEV", false);
-    const path = "/en-US/docs/getting-started";
-    expect(getRelativePath(path)).toBe("./en-US/docs/getting-started");
-  });
-});
 
 describe("joinPath", () => {
   it("should join paths", () => {
@@ -38,7 +24,7 @@ describe("resolvePath", () => {
   it("should resolve path by joining an making it relative", () => {
     vi.stubEnv("DEV", false);
     expect(resolvePath("en-US", "docs", "getting-started")).toBe(
-      "./en-US/docs/getting-started",
+      "/en-US/docs/getting-started",
     );
   });
 
@@ -46,13 +32,6 @@ describe("resolvePath", () => {
     vi.stubEnv("DEV", true);
     expect(resolvePath("en-US", undefined, "getting-started")).toBe(
       "/en-US/getting-started",
-    );
-  });
-
-  it("should resolve path by joining an making it relative", () => {
-    vi.stubEnv("DEV", false);
-    expect(resolvePath("en-US", undefined, "getting-started")).toBe(
-      "./en-US/getting-started",
     );
   });
 });

@@ -1,6 +1,5 @@
 ---
 import Brand from "../../components/Brand.astro";
-import { getRelativePath } from "../../utils/path";
 import { C } from "../../configuration";
 import { getLocaleFromUrl } from "../../utils/i18n";
 import { getEntry } from 'astro:content';
@@ -13,7 +12,7 @@ const navigation = (await getEntry("navigation", "main")).data;
 ---
 
 <header>
-  <a href={getRelativePath(`/${locale === C.DEFAULT_LOCALE ? "" : locale}`)}>
+  <a href={`/${locale === C.DEFAULT_LOCALE ? "" : locale}`}>
     <Brand />
   </a>
   <Search />

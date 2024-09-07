@@ -5,7 +5,7 @@ const SUPABASE_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHd6dm13dGZ1eWtmd3Flc25pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3MjU3NTgsImV4cCI6MjA0MTMwMTc1OH0.QiG12IlH8YmTEeI0BKQ-p87-S8JaXt2oyeLlXxBloyI";
 ---
 
-<script type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
+<script is:inline type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
   import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
   if (!window.supabase)

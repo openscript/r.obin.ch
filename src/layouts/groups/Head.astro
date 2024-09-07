@@ -6,7 +6,6 @@ import {
   getLocaleFromUrl,
   useTranslations,
 } from "../../utils/i18n";
-import { getRelativePath } from "../../utils/path";
 import { getMessage } from "../../utils/i18n";
 import { author } from "../../../package.json";
 
@@ -68,7 +67,7 @@ const t = useTranslations(locale);
     rel="alternate"
     type="application/rss+xml"
     title={t("feedTitle")}
-    href={getRelativePath("/rss.xml")}
+    href="/rss.xml"
   />
   {
     localeSlugs.map((l) => {
@@ -77,7 +76,7 @@ const t = useTranslations(locale);
           rel="alternate"
           type="application/rss+xml"
           title={getMessage("feedLanguage", l)}
-          href={getRelativePath(`/rss-${l}.xml`)}
+          href={`/rss-${l}.xml`}
         />
       );
     })

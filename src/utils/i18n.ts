@@ -4,7 +4,7 @@ import {
   type ValidContentEntrySlug,
 } from "astro:content";
 import { C, type Locale } from "../configuration";
-import { dirname, getRelativePath, joinPath } from "./path";
+import { dirname, joinPath } from "./path";
 import slug from "limax";
 import { getCollectionSlug, getLocaleSlug } from "./slugs";
 
@@ -133,9 +133,7 @@ function getTranslatedPath(
       ? undefined
       : getCollectionSlug(collection, locale);
 
-  return getRelativePath(
-    `/${[localeSlug, collectionSlug, pageSlug].filter(Boolean).join("/")}`,
-  );
+  return `/${[localeSlug, collectionSlug, pageSlug].filter(Boolean).join("/")}`;
 }
 
 export async function makeMenu(
@@ -150,9 +148,7 @@ export async function makeMenu(
       const urlLocale = locale === C.DEFAULT_LOCALE ? "" : locale;
       const path =
         typeof item.path === "string"
-          ? getRelativePath(
-            `/${[urlLocale, item.path].filter(Boolean).join("/")}`,
-          )
+          ? `/${[urlLocale, item.path].filter(Boolean).join("/")}`
           : await item.path(locale);
       return {
         title: item.title,
