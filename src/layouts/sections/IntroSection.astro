@@ -1,0 +1,45 @@
+---
+---
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: fit-content(30rem) 1fr;
+    grid-template-rows: 50%;
+    grid-template-areas: "title image" "content image";
+    min-height: 5rem;
+    gap: 1rem;
+  }
+
+  h1 {
+    grid-area: title;
+    align-self: flex-end;
+    margin: 0;
+  }
+
+  .image {
+    grid-area: image;
+  }
+
+  .image :global(img) {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    font-size: 1.2rem;
+    grid-area: content;
+  }
+</style>
+
+<section>
+  <h1>
+    <slot name="title" />
+  </h1>
+  <div class="content">
+    <slot />
+  </div>
+  <div class="image">
+    tbd
+  </div>
+</section>
