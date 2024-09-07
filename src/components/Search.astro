@@ -10,7 +10,7 @@ const bundle = `${import.meta.env.DEV ? '' : import.meta.env.BASE_URL}/pagefind/
 <script>
   async function initializeSearch(bundle: string) {
     if (globalThis.pagefind) return;
-    globalThis.pagefind = await import(bundle);
+    globalThis.pagefind = await import(/* @vite-ignore */ bundle);
     globalThis.pagefind?.init();
   }
 

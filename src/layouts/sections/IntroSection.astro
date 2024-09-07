@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: fit-content(30rem) 1fr;
     grid-template-rows: 50%;
-    grid-template-areas: "title image" "content image";
+    grid-template-areas: "title spotlight" "content spotlight";
     min-height: 5rem;
     gap: 1rem;
   }
@@ -17,13 +17,8 @@
     margin: 0;
   }
 
-  .image {
-    grid-area: image;
-  }
-
-  .image :global(img) {
-    width: 100%;
-    object-fit: cover;
+  .spotlight {
+    grid-area: spotlight;
   }
 
   .content {
@@ -39,7 +34,7 @@
   <div class="content">
     <slot />
   </div>
-  <div class="image">
-    tbd
+  <div class="spotlight">
+    <slot name="spotlight" />
   </div>
 </section>
