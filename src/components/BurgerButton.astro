@@ -1,0 +1,115 @@
+---
+
+---
+
+<style>
+  button {
+    display: block;
+    background: transparent;
+    min-width: 2.5rem;
+    min-height: 3.2rem;
+    cursor: pointer;
+    border: none;
+  }
+
+  button:before,
+  div,
+  button:after {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--white-color);
+    margin: 4px 0;
+    transition: 0.2s;
+  }
+
+  button:hover:before,
+  button:hover div,
+  button:hover:after {
+    background-color: var(--secondary-color);
+  }
+
+  body.burger-active button:before {
+    transform: translateY(8px) rotate(135deg);
+  }
+
+  body.burger-active button div {
+    transform: scale(0);
+  }
+
+  body.burger-active button:after {
+    transform: translateY(-8px) rotate(-135deg);
+  }
+</style>
+
+<script>
+  const LEFT_BURGER = "left-burger";
+  const ACTIVE_LABEL = "burger-active";
+  const ACTIVE_ANCHOR = `#${ACTIVE_LABEL}`;
+  let wasOpenedByUser = false;
+  let navigateBackByScript = false;
+
+  function isOpen() {
+    return window.location.hash === ACTIVE_ANCHOR;
+  }
+
+  function createNextState() {
+    const currentIndex = window.history.state.index || 0;
+    return { index: currentIndex + 1, scrollX: window.scrollX, scrollY: window.scrollY };
+  }
+
+  function openBurger(event?: boolean) {
+    document.body.classList.add(ACTIVE_LABEL);
+    if (!event) {
+      wasOpenedByUser = true;
+      window.history.pushState(createNextState(), "", ACTIVE_ANCHOR);
+    }
+  }
+
+  function closeBurger(event?: boolean) {
+    document.body.classList.remove(ACTIVE_LABEL);
+    if (!event && wasOpenedByUser) {
+      navigateBackByScript = true;
+      window.history.back();
+    } else {
+      window.history.replaceState(window.history.state, "", " ");
+    }
+  }
+
+  function toggleBurger(event?: boolean) {
+    if (isOpen()) {
+      closeBurger(event);
+    } else {
+      openBurger(event);
+    }
+  }
+
+  window.addEventListener("load", function () {
+    // User returns after left and menu was left open
+    if (sessionStorage.getItem(LEFT_BURGER) && isOpen()) {
+      closeBurger(true);
+      sessionStorage.removeItem(LEFT_BURGER);
+    }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem(LEFT_BURGER, "1");
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    const button = document.querySelector(".burger-button");
+    button?.addEventListener("click", () => toggleBurger());
+    if (isOpen()) openBurger(true);
+  });
+
+  window.addEventListener("popstate", (event) => {
+    if(event.isTrusted && !navigateBackByScript && isOpen()) {
+      closeBurger(true);
+    }
+    navigateBackByScript = false;
+  });
+</script>
+
+<button class="burger-button" type="button" aria-label="Open Menu">
+  <div></div>
+</button>

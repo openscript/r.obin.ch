@@ -15,13 +15,13 @@ main:
 top:
   - key: openscript
     path: https://openscript.ch
-    icon: './openscript.png'
+    icon: "./openscript.png"
   - key: github
     path: https://github.com/openscript
-    icon: './github.png'
+    icon: "./github.png"
   - key: stackoverflow
     path: https://stackoverflow.com/users/371530/robin
-    icon: './stackoverflow.png'
+    icon: "./stackoverflow.png"
   - key: linkedin
     path: https://www.linkedin.com/in/openscript/
-    icon: './linkedin.png'
+    icon: "./linkedin.png"

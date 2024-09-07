@@ -1,0 +1,14 @@
+---
+import { getEntry } from "astro:content";
+import { getLocaleFromUrl } from "../../utils/i18n";
+import Navigation from "../../components/Navigation.astro";
+import { version } from "../../../package.json";
+
+const locale = getLocaleFromUrl(Astro.url);
+const navigation = (await getEntry("navigation", "footer")).data;
+---
+
+<footer>
+  <span>Version {version}</span>
+  <Navigation items={navigation} locale={locale} />
+</footer>

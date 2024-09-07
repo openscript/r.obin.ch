@@ -1,0 +1,10 @@
+de:
+  - path: pages://de/imprint
+    title: Impressum
+  - path: pages://de/data-protection
+    title: Datenschutz
+en:
+  - path: pages://en/imprint
+    title: Imprint
+  - path: pages://en/data-protection
+    title: Data protection

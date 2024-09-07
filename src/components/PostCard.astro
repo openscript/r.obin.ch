@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getContentEntryPath } from "../utils/i18n";
+import { Image } from "astro:assets";
+import type { Locale } from "../configuration";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+  locale: Locale;
+};
+
+const { post, locale } = Astro.props;
+const { remarkPluginFrontmatter } = await post.render();
+---
+
+<style>
+  div {
+
+  }
+</style>
+
+<div>
+  <a href={await getContentEntryPath("blog", post.slug)}>
+    {
+      post.data.cover ? (
+        <Image
+          src={post.data.cover.src}
+          alt={post.data.cover.alt || post.data.title}
+          widths={[720]}
+        />
+      ) : null
+    }
+    <div>
+      <div>
+        <h2>{post.data.title}</h2>
+        <p>{remarkPluginFrontmatter.excerpt}</p>
+        <div class="date">
+          {
+            `${new Date(post.data.publishedAt).toLocaleDateString(locale)} ${new Date(post.data.publishedAt).toLocaleTimeString(locale)}`
+          }
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

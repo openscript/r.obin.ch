@@ -1,0 +1,84 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { C, localeSlugs } from "../../configuration";
+import {
+  getFullLocale,
+  getLocaleFromUrl,
+  useTranslations,
+} from "../../utils/i18n";
+import { getRelativePath } from "../../utils/path";
+import { getMessage } from "../../utils/i18n";
+import { author } from "../../../package.json";
+
+type Props = {
+  translations?: Record<string, string>;
+};
+
+const locale = getLocaleFromUrl(Astro.url);
+const { translations } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<head>
+  <title>{t("title")}</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="author" content={author} />
+  {
+    !import.meta.env.DEV &&
+      import.meta.env.SITE &&
+      import.meta.env.BASE_URL && (
+        <base href={`${import.meta.env.SITE}${import.meta.env.BASE_URL}/`} />
+      )
+  }
+  <link
+    rel="alternate"
+    hreflang="x-default"
+    href={new URL(import.meta.env.SITE_URL || "/", Astro.url.href).href}
+  />
+  <link
+    rel="alternate"
+    hreflang={getFullLocale(locale)}
+    href={Astro.url.href}
+  />
+  <meta
+    property="og:locale"
+    content={getFullLocale(locale).replace(`-`, `_`)}
+  />
+  {
+    Object.entries(translations || {})
+      .filter(([locale]) => locale === C.DEFAULT_LOCALE)
+      .map(([locale, path]) => (
+        <Fragment>
+          <link
+            rel="alternate"
+            hreflang={getFullLocale(locale)}
+            href={new URL(path, Astro.url).href}
+          />
+          <meta
+            property="og:locale:alternate"
+            content={getFullLocale(locale).replace(`-`, `_`)}
+          />
+        </Fragment>
+      ))
+  }
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title={t("feedTitle")}
+    href={getRelativePath("/rss.xml")}
+  />
+  {
+    localeSlugs.map((l) => {
+      return (
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={getMessage("feedLanguage", l)}
+          href={getRelativePath(`/rss-${l}.xml`)}
+        />
+      );
+    })
+  }
+  <ViewTransitions />
+</head>

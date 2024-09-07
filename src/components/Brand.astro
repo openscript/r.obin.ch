@@ -1,0 +1,48 @@
+---
+
+---
+
+<style>
+  div {
+    transition: 0.5s;
+    font-weight: bold;
+    box-sizing: content-box;
+    white-space: nowrap;
+  }
+
+  span:last-of-type {
+    display: inline-block;
+    opacity: 0;
+  }
+
+  div:hover span:last-of-type {
+    transition: 0.5s;
+    opacity: 1;
+  }
+
+  span:first-of-type {
+    display: inline-block;
+    border: 3px solid var(--primary-color-130);
+    padding: 0 0.7rem;
+    text-align: center;
+    margin-right: 0.2rem;
+    border-radius: 5px;
+    margin-left: calc(-0.7rem - 3px);
+  }
+
+  @media (max-width: 480px) {
+    span:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    span:last-of-type {
+      display: none;
+    }
+  }
+</style>
+
+<div class="title">
+  <span>r.</span>obin<span>.ch</span>
+</div>

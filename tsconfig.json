@@ -1,28 +1,8 @@
 {
-  "include": [
-    "./src/**/*",
-    "./.gatsby/**/*",
-    "./*.ts",
-    "./plugins/**/*"
-  ],
+  "extends": "astro/tsconfigs/strictest",
+  "exclude": ["src.old", "dist"],
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": [
-      "dom",
-      "ES2017",
-      "ES2019"
-    ],
-    // "allowJs": true,
-    // "checkJs": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "moduleResolution": "bundler",
+    "exactOptionalPropertyTypes": false
   }
 }

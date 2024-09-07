@@ -1,0 +1,41 @@
+---
+import type { Locale } from "../../configuration";
+import { useTranslations } from "../../utils/i18n";
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
+import CardList from "../../components/CardList.astro";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const posts = (
+  await getCollection("blog", (e) => !e.data.draft)
+)
+  .reverse()
+  .slice(0, 4);
+---
+
+<style>
+  section :global(ul) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+</style>
+
+<section>
+  <h2>{t("latestPostsLabel")}</h2>
+  <CardList>
+    {
+      posts.map((post) => (
+        <li>
+          <PostCard post={post} locale={locale} />
+        </li>
+      ))
+    }
+  </CardList>
+</section>
