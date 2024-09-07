@@ -1,18 +1,18 @@
 de:
-  - path: blog
+  - path: /blog
     title: Blog
-  - path: medias
+  - path: /medias
     title: Medien
-  - path: projects
+  - path: /projects
     title: Projekte
   - path: pages://de/about-me
     title: Über mich
 en:
-  - path: blog
+  - path: /blog
     title: Blog
-  - path: medias
+  - path: /medias
     title: Medias
-  - path: projects
+  - path: /projects
     title: Projects
   - path: pages://en/about-me
     title: About me
