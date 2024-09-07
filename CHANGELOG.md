@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.6
+
+### Patch Changes
+
+- 23618ed: Fix release tagging
+
 ## 0.2.5
 
 ### Patch Changes
