@@ -28,6 +28,7 @@ export const C = {
       previousLabel: 'Zurück',
       nextLabel: 'Weiter',
       blogSlug: 'blog',
+      latestPostsLabel: 'Neueste Artikel',
     },
     en: {
       language: "English",
@@ -52,6 +53,7 @@ export const C = {
       previousLabel: 'Previous',
       nextLabel: 'Next',
       blogSlug: 'blog',
+      latestPostsLabel: 'Latest posts',
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings
