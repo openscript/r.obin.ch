@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.4
+
+### Patch Changes
+
+- 309161b: Remove relative paths
+
 ## 0.2.3
 
 ### Patch Changes
