@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.3
+
+### Patch Changes
+
+- 13f00ba: Add analytics
+
 ## 0.2.2
 
 ### Patch Changes
