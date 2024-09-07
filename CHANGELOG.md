@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.5
+
+### Patch Changes
+
+- 3c0d299: Fix search
+
 ## 0.2.4
 
 ### Patch Changes
