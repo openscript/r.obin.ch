@@ -18,6 +18,12 @@ export default defineConfig({
     locales: Object.keys(C.LOCALES)
   },
   markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
     remarkPlugins: [
       [remarkExcerpt, { length: C.SETTINGS.BLOG.EXCERPT_LENGTH }],
       [remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }]

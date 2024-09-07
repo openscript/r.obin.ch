@@ -44,7 +44,7 @@ Now the fun part begins. With a button the user should be able to append a new t
 
 By clicking on the three dots, when the drawing is selected, a script can be assigned. I've named it `clockInOrOut`. Via the `Extension` and `Apps Script` a new function is added with the same name. The script adds a start time and if there is a line, which has already a start time, it sets its end time.
 
-```
+```js
 function clockInOrOut() {
   const sheet = SpreadsheetApp.getActiveSheet();
   const nextOutCell = sheet.getRange('B1').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(1, 0);

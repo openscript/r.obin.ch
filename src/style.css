@@ -11,7 +11,7 @@
   --fonts-paragraph: "Poppins", "Roboto", sans-serif;
   --fonts-listings: "IBM Plex Mono", monospace;
   --fonts-size: 16px;
-  --page-horizontal-padding: 25%;
+  --page-horizontal-padding: 20%;
   --divider-fill: var(--primary-color);
   --gap: 1rem;
   --gap-huge: calc(var(--gap) * 4);
@@ -30,7 +30,7 @@ html.dark:root {
 @media (max-width: 1920px) {
   :root {
     --font-size: 16px;
-    --page-horizontal-padding: 20%;
+    --page-horizontal-padding: 15%;
   }
 }
 
@@ -38,7 +38,7 @@ html.dark:root {
 @media (max-width: 1600px) {
   :root {
     --font-size: 16px;
-    --page-horizontal-padding: 15%;
+    --page-horizontal-padding: 10%;
   }
 }
 
@@ -46,7 +46,7 @@ html.dark:root {
 @media (max-width: 1440px) {
   :root {
     --font-size: 16px;
-    --page-horizontal-padding: 10%;
+    --page-horizontal-padding: 7.5%;
   }
 }
 
