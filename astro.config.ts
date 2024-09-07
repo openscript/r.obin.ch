@@ -8,6 +8,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { remarkExcerpt } from './src/remark/remark-excerpt';
 import search from './src/integrations/search';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
@@ -50,5 +52,5 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [search(), mdx()],
+  integrations: [search(), mdx(), sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } })],
 });
