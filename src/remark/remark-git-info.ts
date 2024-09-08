@@ -30,9 +30,9 @@ export function remarkGitInfo({ remoteUrlBase }: Options) {
     file.data.astro.frontmatter.git = {};
 
     const filePath = file.path.replace(process.cwd(), '');
-    file.data.astro.frontmatter.git.remoteEditUrl = `${remoteUrlBase}/edit/main${filePath}`;
-    file.data.astro.frontmatter.git.remoteViewUrl = `${remoteUrlBase}/blob/main${filePath}`;
-    file.data.astro.frontmatter.git.remoteHistoryUrl = `${remoteUrlBase}/commits/main${filePath}`;
+    file.data.astro.frontmatter.git.remoteEditUrl = `${remoteUrlBase}/edit/master${filePath}`;
+    file.data.astro.frontmatter.git.remoteViewUrl = `${remoteUrlBase}/blob/master${filePath}`;
+    file.data.astro.frontmatter.git.remoteHistoryUrl = `${remoteUrlBase}/commits/master${filePath}`;
 
     const log = await git.log({ file: file.path, n: 1 });
     if (!log.latest) return;
