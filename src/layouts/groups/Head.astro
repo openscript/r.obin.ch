@@ -23,8 +23,14 @@ const t = useTranslations(locale);
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <meta name="author" content={author} />
+  <meta name="description" content={t('description')} />
   <meta name="referrer" content="no-referrer-when-downgrade" />
-  <script is:inline id="analytics" defer data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js" />
+  <script
+    is:inline
+    id="analytics"
+    defer
+    data-domain="r.obin.ch"
+    src="https://analytics.obin.ch/js/script.js"></script>
   {
     !import.meta.env.DEV &&
       import.meta.env.SITE &&
@@ -32,6 +38,7 @@ const t = useTranslations(locale);
         <base href={`${import.meta.env.SITE}${import.meta.env.BASE_URL}`} />
       )
   }
+  <link rel="sitemap" href="/sitemap-index.xml" />
   <link
     rel="alternate"
     hreflang="x-default"
