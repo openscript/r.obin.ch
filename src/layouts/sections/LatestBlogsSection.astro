@@ -12,9 +12,7 @@ type Props = {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
-const posts = (
-  await getCollection("blog", (e) => !e.data.draft)
-)
+const posts = (await getCollection("blog", (e) => !e.data.draft))
   .reverse()
   .slice(0, 4);
 ---
@@ -24,6 +22,12 @@ const posts = (
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+  }
+
+  @media (max-width: 1280px) {
+    section :global(ul) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 

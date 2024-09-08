@@ -14,8 +14,10 @@ const { remarkPluginFrontmatter } = await post.render();
 ---
 
 <style>
-  div {
-
+  img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
   }
 </style>
 
@@ -33,7 +35,7 @@ const { remarkPluginFrontmatter } = await post.render();
     <div>
       <div>
         <h2>{post.data.title}</h2>
-        <p>{remarkPluginFrontmatter.excerpt}</p>
+        <p>{remarkPluginFrontmatter.excerpt}...</p>
         <div class="date">
           {
             `${new Date(post.data.publishedAt).toLocaleDateString(locale)} ${new Date(post.data.publishedAt).toLocaleTimeString(locale)}`

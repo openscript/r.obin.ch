@@ -4,7 +4,7 @@
 <style>
   section {
     display: grid;
-    grid-template-columns: fit-content(30rem) 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 50%;
     grid-template-areas: "title spotlight" "content spotlight";
     min-height: 5rem;
@@ -24,6 +24,18 @@
   .content {
     font-size: 1.2rem;
     grid-area: content;
+  }
+
+
+  @media (max-width: 1280px) {
+    section {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "content";
+    }
+
+    .spotlight {
+      display: none;
+    }
   }
 </style>
 
