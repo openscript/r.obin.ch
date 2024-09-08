@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.8
+
+### Patch Changes
+
+- 18d1a99: Add blog covers
+
 ## 0.2.7
 
 ### Patch Changes
