@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.7
+
+### Patch Changes
+
+- 1553042: Add RSS feeds
+
 ## 0.2.6
 
 ### Patch Changes
