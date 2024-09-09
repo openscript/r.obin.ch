@@ -1,6 +1,8 @@
 de:
   - path: /blog
     title: Blog
+  - path: /notes
+    title: Notizen
   - path: /medias
     title: Medien
   - path: /projects
@@ -10,6 +12,8 @@ de:
 en:
   - path: /blog
     title: Blog
+  - path: /notes
+    title: Notes
   - path: /medias
     title: Medias
   - path: /projects

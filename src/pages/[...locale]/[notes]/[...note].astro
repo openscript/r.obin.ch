@@ -1,0 +1,19 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import DefaultLayout from "../../../layouts/DefaultLayout.astro";
+import { entryPaths } from "../../_paths";
+import PageWithAside from "../../../layouts/pages/PageWithAside.astro";
+
+export const getStaticPaths = entryPaths("notes", "note");
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const page = Astro.props as Props;
+
+const { Content, headings } = await page.render();
+---
+
+<DefaultLayout translations={page.translations}>
+  <PageWithAside headings={headings} frontmatter={page.data}>
+    <Content />
+  </PageWithAside>
+</DefaultLayout>

@@ -30,6 +30,8 @@ export const C = {
       nextLabel: 'Weiter',
       blogSlug: 'blog',
       latestPostsLabel: 'Neueste Artikel',
+      notesTitle: "Notizen",
+      notesSlug: "notizen",
     },
     en: {
       language: "English",
@@ -56,6 +58,8 @@ export const C = {
       nextLabel: 'Next',
       blogSlug: 'blog',
       latestPostsLabel: 'Latest posts',
+      notesTitle: "Notes",
+      notesSlug: "notes",
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

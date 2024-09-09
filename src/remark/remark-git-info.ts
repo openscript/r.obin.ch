@@ -13,7 +13,7 @@ const git = simpleGit(options);
 
 export type GitInfoFrontmatter = {
   git: {
-    lastCommit: DefaultLogFields & ListLogLine;
+    lastCommit?: DefaultLogFields & ListLogLine;
     remoteEditUrl: string;
     remoteViewUrl: string;
     remoteHistoryUrl: string;

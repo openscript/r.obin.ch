@@ -25,6 +25,11 @@ const blogCollection = defineCollection({
         .optional(),
     }),
 });
+const notesCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+  }),
+});
 const pagesCollection = defineCollection({
   schema: z.object({
     path: z.string(),
@@ -42,6 +47,7 @@ const navigationCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
+  notes: notesCollection,
   pages: pagesCollection,
   navigation: navigationCollection
 };
