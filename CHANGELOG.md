@@ -1,5 +1,13 @@
 # r.obin.ch
 
+## 0.2.9
+
+### Patch Changes
+
+- 52f7fde: Add ventoy article
+- e2d784e: Add notes
+- d93ea15: Fix git info links
+
 ## 0.2.8
 
 ### Patch Changes
