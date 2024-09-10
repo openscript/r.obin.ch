@@ -38,7 +38,7 @@ const bundle = `/pagefind/pagefind.js`;
     }
   }
 
-  document.addEventListener("astro:page-load", async () => {
+  async function initialize() {
     const searchWrapper = document.querySelector("[data-search-ui]") as HTMLDivElement;
     const searchInput = document.querySelector("input[type=search]") as HTMLInputElement;
     if (!searchInput || !searchWrapper || !searchWrapper.dataset.searchBundle) return;
@@ -48,7 +48,10 @@ const bundle = `/pagefind/pagefind.js`;
     searchInput.addEventListener("input", async () => {
       search(searchInput.value);
     });
-  });
+  }
+
+  document.addEventListener("astro:page-load", initialize);
+  document.addEventListener("DOMContentLoaded", initialize);
 </script>
 
 <style>
