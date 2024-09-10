@@ -81,7 +81,7 @@ const bundle = `/pagefind/pagefind.js`;
     padding: 1rem;
   }
 
-  .search:focus-within .results {
+  .search:focus-within input:not(:placeholder-shown) + .results {
     display: flex;
   }
 </style>
