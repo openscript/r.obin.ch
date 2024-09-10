@@ -2,6 +2,7 @@
 import type { InferGetStaticPropsType } from "astro";
 import { entryPaths } from "../_paths";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Meta from '../../layouts/groups/Meta.astro';
 
 export const getStaticPaths = entryPaths("pages");
 
@@ -12,5 +13,6 @@ const { Content } = await page.render();
 ---
 
 <DefaultLayout translations={page.translations}>
+  <Meta slot="meta" title={page.data.title} />
   <Content />
 </DefaultLayout>

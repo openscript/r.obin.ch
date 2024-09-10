@@ -10,6 +10,7 @@ import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
 import { resolvePath } from "../../../utils/path";
 import slug from "limax";
 import Comments from '../../../components/Comments.astro';
+import Meta from '../../../layouts/groups/Meta.astro';
 
 export const getStaticPaths = entryPaths("blog", "slug");
 
@@ -26,8 +27,9 @@ const blogSlug = "blog" in Astro.params ? Astro.params.blog : "";
 ---
 
 <DefaultLayout translations={translations}>
+  <Meta slot="meta" title={data.title} />
   <Post frontmatter={{title: data.title}}>
-    <Fragment slot="left"><TableOfContents headings={headings} /></Fragment>
+    <TableOfContents slot="left" headings={headings} />
     <Content />
     <Comments />
     <Fragment slot="right">
