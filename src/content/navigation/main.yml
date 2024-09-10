@@ -1,11 +1,11 @@
 de:
-  - path: /blog
+  - path: /de/blog
     title: Blog
-  - path: /notes
+  - path: /de/notizen
     title: Notizen
-  - path: /medias
+  - path: /de/medien
     title: Medien
-  - path: /projects
+  - path: /de/projekte
     title: Projekte
   - path: pages://de/about-me
     title: Über mich
