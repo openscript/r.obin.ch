@@ -7,7 +7,6 @@ import {
   useTranslations,
 } from "../../utils/i18n";
 import { getMessage } from "../../utils/i18n";
-import Meta from "./Meta.astro";
 
 type Props = {
   translations?: Record<string, string>;
@@ -19,9 +18,7 @@ const t = useTranslations(locale);
 ---
 
 <meta charset="utf-8" />
-<slot name="meta">
-  <Meta />
-</slot>
+<slot name="meta" />
 <meta name="viewport" content="width=device-width" />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 <script
