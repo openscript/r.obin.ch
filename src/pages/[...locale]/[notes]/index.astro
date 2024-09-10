@@ -9,6 +9,7 @@ import {
 import { getCollection } from "astro:content";
 import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
+import Meta from '../../../layouts/groups/Meta.astro';
 
 export const getStaticPaths = indexPaths("notes");
 
@@ -20,6 +21,7 @@ const t = useTranslations(locale);
 ---
 
 <DefaultLayout translations={translations}>
+  <Meta slot="meta" title={t("notesTitle")} />
   <Page>
     <h1>{t("notesTitle")}</h1>
     <ul>
