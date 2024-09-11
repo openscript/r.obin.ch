@@ -79,7 +79,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Install base system with `pacstrap /mnt base linux linux-firmware`
 1. Generate an fstab file `genfstab -U /mnt >> /mnt/etc/fstab`
 1. Change root into the new system with `arch-chroot /mnt`
-1. Install `lvm2`, `vim` and `btrfs-progs` with `pacman -Sy lvm2 vim btrfs-progs`
+1. Install `lvm2`, `vim` and `btrfs-progs` with `pacman -S lvm2 vim btrfs-progs`
 1. Update hooks in `/etc/mkinitcpio.conf` to `HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)` using vim
 1. Set time zone `ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime`
 1. Set hardware clock with `hwclock --systohc`
@@ -139,10 +139,13 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Enable `gdm` with `systemctl enable gdm`
 1. Set x11 keymap with `localectl --no-convert set-x11-keymap ch`
 1. Configure Gnome:
-   - Fast cursor speed: `gsettings set org.gnome.desktop.peripherals.mouse speed 1`
-   - Fast touchpad speed: `gsettings set org.gnome.desktop.peripherals.touchpad speed 1`
-   - Tab to click for touch pad: `gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true`
-   - Set keyboard layout: `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ch')]"`
+   - Fast cursor speed `gsettings set org.gnome.desktop.peripherals.mouse speed 1`
+   - Fast touchpad speed `gsettings set org.gnome.desktop.peripherals.touchpad speed 1`
+   - Tab to click for touch pad `gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true`
+   - Set keyboard layout `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ch')]"`
+   - Define keyboard shortcuts for opening terminal and browser
+   - Enable switching windows shortcut on <kbd>ALT</kbd> + <kbd>Tab</kbd> in `Keyboard` settings
+   - Enable night light mode
    - Enable Auto login
      1. Edit `/etc/gdm/custom.conf`:
         ```
@@ -163,23 +166,28 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 ## Drivers and firmware support
 
-1. Install firmware updated `pacman -S fwupd`
+1. Install firmware updated `paru -S fwupd`
 1. Get new update metadata `fwupdmgr get-updates`
 1. Install updates `fwupdmgr update`
 1. Enable bluetooth `systemctl enable --now bluetooth`
-1. Install fingerprint reader `pacman -S fprintd`
+1. Install fingerprint reader `paru -S fprintd`
    - Scan fingerprint in Gnome Settings
 
 ## Tools
 
-1. Install docker (Container runtime) `pacman -S docker`
+For more details about the software I use have a look at the [software page](./software).
+
+1. Install docker (Container runtime) `paru -S docker`
    1. Add user to docker group `gpasswd -a robin docker`
    1. Restart
 1. Install localesend (Share data and files locally) `paru -S localesend-bin`
 1. Install Firefox (Browser) `paru -S firefox`
    1. Login into Mozilla account
 1. Install Visual Studio Code (Editor) `paru -S visual-studio-code-bin`
+   1. Install Firacode font `paru -S ttf-fira-code`
+   1. Login with Github
 1. Install KeepassXC (Password manager) `paru -S keepassxc`
+1. Install Evolution (Mail client) `paru -S evolution`
 
 ## Device specific
 
