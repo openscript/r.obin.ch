@@ -15,20 +15,24 @@ This page contains the documentation of my usual workstation setup. Most of it w
    1. Disable secure boot[^1]
    1. Swap <kbd>Fn</kbd> and <kbd>Ctrl</kbd> keys
    1. Enable function keys as primary function
+   1. Enable virtualization
    1. Set BIOS passwords
 1. Connect the device to the internet
 1. Boot into Ventoy and select the Arch Linux image
 1. Change keyboard layout with `loadkeys de_CH-latin1`
 1. Update system clock with `timedatectl set-ntp true`
+1. Make sure the device is charged enough or connected to power
+   - Get battery capacity with `cat /sys/class/power_supply/BAT0/capacity`
 
 ## Access via SSH
 
 Connecting to the live environment via SSH becomes handy, when you need to do some research on the internet, copy some commands or working on a different and maybe more comfy workplace.
 
-1. Enable the SSH service with `systemctl start sshd.service`
 1. Reset the root password with `passwd`
+1. Allow login as root with password `sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config`
+1. Reload SSH service with `systemctl restart sshd.service`
 1. Find the IP address with `ip addr show`
-1. Connect from another computer with `ssh root@[ip-address]`
+1. Connect from another computer with `ssh -o PreferredAuthentications=password root@[ip-address]`
 
 ## Partitioning
 
@@ -41,6 +45,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
    /dev/nvme0n1p2 2099200 2000408575 1998309376 952.9G Linux filesystem
    ```
 1. Encrypt system partition with `cryptsetup luksFormat /dev/nvme0n1p2`
+   - Read carefully how to confirm
 1. Mount encrypted partition to `cryptlvm` with `cryptsetup open /dev/nvme0n1p2 cryptlvm`
 1. Create a physical volume on top of the LUKS container with `pvcreate /dev/mapper/cryptlvm`
 1. Create a volume group with the previously create physical volume with `vgcreate systemcryptlvm /dev/mapper/cryptlvm`
@@ -73,9 +78,10 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 1. Install base system with `pacstrap /mnt base linux linux-firmware`
 1. Generate an fstab file `genfstab -U /mnt >> /mnt/etc/fstab`
-1. Install `lvm2`, `vim` and `btrfs-progs` with `pacman -S lvm2 vim btrfs-progs`
-1. Update hooks in `mkinitcpio.conf` to `HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)`
-1. Set time zone ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
+1. Change root into the new system with `arch-chroot /mnt`
+1. Install `lvm2`, `vim` and `btrfs-progs` with `pacman -Sy lvm2 vim btrfs-progs`
+1. Update hooks in `/etc/mkinitcpio.conf` to `HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)` using vim
+1. Set time zone `ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime`
 1. Set hardware clock with `hwclock --systohc`
 1. Uncomment locale `en_US.UTF-8 UTF-8` und `de_CH.UTF-8 UTF-8` in `/etc/locale.gen`
 1. Generate locales with `locale-gen`
@@ -87,7 +93,6 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
    ```
    - All locales with `localectl list-keymaps`
    - All fonts with `ls -l /usr/share/kbd/consolefonts/ | grep -i ".psfu.gz"`
-1. Set x11 keymap with `localectl --no-convert set-x11-keymap ch`
 1. Set hostename in `/etc/hostname`
 1. Create new `initramfs` with `mkinitcpio -P`
 1. Set root password with `passwd`
@@ -96,15 +101,16 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 1. Install `grub` and `efibootmgr` packages with `pacman -S grub efibootmgr`
 1. Install bootloader with `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
-1. Add `GRUB_DISABLE_OS_PROBER=false` at the end of `/etc/default/grub` to prevent `Warning: os-prober will not be executed to detect other bootable partition` otherwise install package `os-prober`.
 1. Get UUID of cryptdevice with `blkid | grep crypto`
-1. Change `GRUB_CMDLINE_LINUX="cryptdevice=UUID=[UUID]:cryptlvm root=/dev/systemcryptlvm/root`"
+1. Edit `/etc/default/grub`:
+   1. Add `GRUB_DISABLE_OS_PROBER=false` at the end of the file to prevent `Warning: os-prober will not be executed to detect other bootable partition` otherwise install package `os-prober`
+   1. Change `GRUB_CMDLINE_LINUX="cryptdevice=UUID=cb257170-e4ef-0000-0000-000000000000:cryptlvm root=/dev/systemcryptlvm/root"`
 1. Generate GRUB configuration `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## DHCP client setup
 
-1. Install `dhcpcd` via `pacman -S dhcpcd`.
-1. Enable service with `systemctl enable dhcpcd
+1. Install `dhcpcd` via `pacman -S dhcpcd`
+1. Enable service with `systemctl enable dhcpcd`
 
 ## Reboot to system
 
@@ -114,7 +120,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 ## Microcode
 
-1. Add microcode package with `pacman -S intel-ucode`
+1. Add microcode package with `pacman -S amd-ucode` or `pacman -S intel-ucode`
 1. Regenerate GRUB configuration `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## User management
@@ -131,13 +137,12 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 1. Install Gnome with `pacman -S gnome`
 1. Enable `gdm` with `systemctl enable gdm`
-1. Important settings:
-   - Fast cursor speed
-   - Tab to click for touch pad
+1. Set x11 keymap with `localectl --no-convert set-x11-keymap ch`
+1. Configure Gnome:
+   - Fast cursor speed: `gsettings set org.gnome.desktop.peripherals.mouse speed 1.5`
+   - Tab to click for touch pad: `gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true`
+   - Set keyboard layout: `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ch')]"`
    - Automatic login
-
-## Networking
-
 1. Add network manager package `pacman -S networkmanager`
 1. Enable network manager `systemctl enable NetworkManager.service`
 
@@ -146,6 +151,12 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Install build tools `pacman -S --needed base-devel git`
 1. Clone paru `git clone https://aur.archlinux.org/paru.git`
 1. Build paru `cd paru && makepkg -si`
+
+## Drivers and firmware support
+
+1. Install firmware updated `pacman -S fwupd`
+1. Get new update metadata `fwupdmgr get-updates`
+1. Install updates `fwupdmgr update`
 
 ## Tools
 
