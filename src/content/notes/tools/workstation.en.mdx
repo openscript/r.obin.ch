@@ -139,12 +139,21 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Enable `gdm` with `systemctl enable gdm`
 1. Set x11 keymap with `localectl --no-convert set-x11-keymap ch`
 1. Configure Gnome:
-   - Fast cursor speed: `gsettings set org.gnome.desktop.peripherals.mouse speed 1.5`
+   - Fast cursor speed: `gsettings set org.gnome.desktop.peripherals.mouse speed 1`
+   - Fast touchpad speed: `gsettings set org.gnome.desktop.peripherals.touchpad speed 1`
    - Tab to click for touch pad: `gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true`
    - Set keyboard layout: `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ch')]"`
-   - Automatic login
+   - Enable Auto login
+     1. Edit `/etc/gdm/custom.conf`:
+        ```
+        [daemon]
+        AutomaticLoginEnable=True
+        AutomaticLogin=robin
+        ```
 1. Add network manager package `pacman -S networkmanager`
 1. Enable network manager `systemctl enable NetworkManager.service`
+1. Enable Gnome Keyring SSH Agent with `systemctl --user enable --now gcr-ssh-agent`
+1. Define `SSH_AUTH_SOCK` in `.bashrc` with `export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh`
 
 ## AUR helper
 
@@ -157,12 +166,32 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Install firmware updated `pacman -S fwupd`
 1. Get new update metadata `fwupdmgr get-updates`
 1. Install updates `fwupdmgr update`
+1. Enable bluetooth `systemctl enable --now bluetooth`
+1. Install fingerprint reader `pacman -S fprintd`
+   - Scan fingerprint in Gnome Settings
 
 ## Tools
 
+1. Install docker (Container runtime) `pacman -S docker`
+   1. Add user to docker group `gpasswd -a robin docker`
+   1. Restart
+1. Install localesend (Share data and files locally) `paru -S localesend-bin`
 1. Install Firefox (Browser) `paru -S firefox`
+   1. Login into Mozilla account
 1. Install Visual Studio Code (Editor) `paru -S visual-studio-code-bin`
 1. Install KeepassXC (Password manager) `paru -S keepassxc`
 
-[^1]: I want to look into secure boot for a while, but since you can brick your device and on recent Lenovo ThinkPads it's even more likely, I decided not to risk my new device. See [this](https://forums.lenovo.com/t5/Other-Linux-Discussions/Reports-of-custom-secure-boot-keys-bricking-recent-X-P-and-T-series-laptops/m-p/5105571).
+## Device specific
+
+### Lenovo ThinkPad P14s Gen 4 AMD
+
+- Prevent the touchpad from waking up the device[^3]
+  1. Create a new udev rule at `/etc/udev/rules.d/99-disable-touchpad-wakeup.rules`
+  1. Add the following content:
+     ```
+     KERNEL=="i2c-SYNA8018:00", SUBSYSTEM=="i2c", ATTR{power/wakeup}="disabled"
+     ```
+
+[^1]: I want to look into secure boot for a while, but since you can brick your device and on recent Lenovo ThinkPads it's even more likely, I decided not to risk my new device. See [this](https://forums.lenovo.com/t5/Other-Linux-Discussions/Reports-of-custom-secure-boot-keys-bricking-recent-X-P-and-T-series-laptops/m-p/5105571)
 [^2]: See [this](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#Preparing_the_boot_partition_2)
+[^3]: See [this](https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#Disable_wakeup_from_sleep_on_touchpad_activity)
