@@ -25,13 +25,13 @@ importers:
         version: 3.1.6
       '@fontsource/ibm-plex-mono':
         specifier: ^5.0.15
-        version: 5.0.15
+        version: 5.1.0
       '@fontsource/poppins':
         specifier: ^5.0.16
-        version: 5.0.16
+        version: 5.1.0
       '@fontsource/rajdhani':
         specifier: ^5.0.14
-        version: 5.0.14
+        version: 5.1.0
       astro:
         specifier: ^4.15.4
         version: 4.15.4(@types/node@22.5.4)(typescript@5.6.2)
@@ -631,14 +631,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/ibm-plex-mono@5.0.15':
-    resolution: {integrity: sha512-etA4nIhgrywWWV8RQ8lXQtxujJmiX7MT5JZq9T8vIdEhBH42ErsjD1ewLwhGlgfafA3veoqVGsEAF9CmgpRGwA==}
+  '@fontsource/ibm-plex-mono@5.1.0':
+    resolution: {integrity: sha512-XKsZNyRCj6tz8zlatHmniSoLVephMD5GQG2sXgcaEb8DkUO+O61r28uTlIMEZuoZXtP4c4STvL+KUlJM5jZOEg==}
 
-  '@fontsource/poppins@5.0.16':
-    resolution: {integrity: sha512-p+6UKekgFaNcjyRl0kVFwueyxF3CJd+JKbSSvUa5Nq1OsjXNWJsr2NJMixw57jmiAd/hEKMz/zyKeivWWuJZRA==}
+  '@fontsource/poppins@5.1.0':
+    resolution: {integrity: sha512-tpLXlnNi2fwQjiipvuj4uNFHCdoLA8izRsKdoexZuEzjx0r/g1aKLf4ta6lFgF7L+/+AFdmaXFlUwwvmDzYH+g==}
 
-  '@fontsource/rajdhani@5.0.14':
-    resolution: {integrity: sha512-pwxSCFeqgzm+aANXTaez8lziKMxFAdxkzr+i6bqClwjieFytdCtdN4wvTXjWYsNO2iT+wL9ZK2l7HSWOiB+MZA==}
+  '@fontsource/rajdhani@5.1.0':
+    resolution: {integrity: sha512-IpWFx4+c/QP+moXUhsDdjC+Pyq4vesl/XuX1NBQHSfR4/+uDv3cMHSB5cYHsWW2dzZonci4jscOzKOnj1qs5cA==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -3660,11 +3660,11 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@fontsource/ibm-plex-mono@5.0.15': {}
+  '@fontsource/ibm-plex-mono@5.1.0': {}
 
-  '@fontsource/poppins@5.0.16': {}
+  '@fontsource/poppins@5.1.0': {}
 
-  '@fontsource/rajdhani@5.0.14': {}
+  '@fontsource/rajdhani@5.1.0': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
