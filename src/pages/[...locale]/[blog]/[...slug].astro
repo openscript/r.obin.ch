@@ -28,7 +28,7 @@ const blogSlug = "blog" in Astro.params ? Astro.params.blog : "";
 
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={data.title} />
-  <Post frontmatter={{title: data.title}}>
+  <Post frontmatter={{title: data.title, publishedAt: data.publishedAt}}>
     <TableOfContents slot="left" headings={headings} />
     <Content />
     <Comments />

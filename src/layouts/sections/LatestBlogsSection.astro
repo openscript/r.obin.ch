@@ -37,7 +37,7 @@ const posts = (await getCollection("blog", (e) => !e.data.draft))
     {
       posts.map((post) => (
         <li>
-          <PostCard post={post} locale={locale} />
+          <PostCard post={post} />
         </li>
       ))
     }

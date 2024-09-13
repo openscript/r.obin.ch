@@ -73,7 +73,7 @@ header {
   gap: 4rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-family: var(--fonts-headings);
+  font-family: var(--font-headings);
 }
 
 header > a {
@@ -141,7 +141,7 @@ header .search input {
   font-size: 1.2rem;
   padding: 0.656rem;
   border: 3px solid var(--primary-color-130);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   color: var(--white-color);
   transition: var(--transition-duration);
 }
@@ -165,6 +165,10 @@ main a {
   color: var(--primary-color);
 }
 
+main h1 {
+  margin-top: 0;
+}
+
 main :is(h1, h2, h3, h4, h5, h6) a {
   color: inherit;
   text-decoration: none;
@@ -173,12 +177,22 @@ main :is(h1, h2, h3, h4, h5, h6) a {
 main :is(img, video) {
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+}
+
+article {
+  line-height: var(--line-height);
 }
 
 pre {
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+}
+
+code {
+  background-color: var(--white-color-140);
+  border-radius: var(--border-radius);
+  padding: 0.15rem;
 }
 
 footer {
@@ -235,7 +249,7 @@ h6 {
 }
 
 .label {
-  font-family: var(--fonts-headings);
+  font-family: var(--font-headings);
   font-size: 1.3rem;
   font-weight: bold;
 }

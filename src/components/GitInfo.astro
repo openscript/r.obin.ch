@@ -2,6 +2,7 @@
 import type { GitInfoFrontmatter } from '../remark/remark-git-info'
 import { getLocaleFromUrl, useTranslations } from '../utils/i18n';
 import Button from './Button.astro';
+import DateTime from './DateTime.astro';
 
 type Props = GitInfoFrontmatter;
 
@@ -19,7 +20,7 @@ const t = useTranslations(locale);
       <dt>{t('authorLabel')}</dt>
       <dd>{git.lastCommit.author_name}</dd>
       <dt>{t('lastUpdatedLabel')}</dt>
-      <dd>{git.lastCommit.date}</dd>
+      <dd><DateTime date={new Date(git.lastCommit.date)} /></dd>
       <dt>{t('linksLabel')}</dt>
       <dd>
         <Button href={git.remoteViewUrl}>{t('sourceLabel')}</Button>

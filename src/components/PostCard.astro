@@ -2,14 +2,13 @@
 import type { CollectionEntry } from "astro:content";
 import { getContentEntryPath } from "../utils/i18n";
 import { Image } from "astro:assets";
-import type { Locale } from "../configuration";
+import DateTime from './DateTime.astro';
 
 type Props = {
   post: CollectionEntry<"blog">;
-  locale: Locale;
 };
 
-const { post, locale } = Astro.props;
+const { post } = Astro.props;
 const { remarkPluginFrontmatter } = await post.render();
 ---
 
@@ -36,11 +35,7 @@ const { remarkPluginFrontmatter } = await post.render();
       <div>
         <h2>{post.data.title}</h2>
         <p>{remarkPluginFrontmatter.excerpt}...</p>
-        <div class="date">
-          {
-            `${new Date(post.data.publishedAt).toLocaleDateString(locale)} ${new Date(post.data.publishedAt).toLocaleTimeString(locale)}`
-          }
-        </div>
+        <DateTime date={post.data.publishedAt} />
       </div>
     </div>
   </a>

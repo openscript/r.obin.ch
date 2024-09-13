@@ -1,7 +1,10 @@
 ---
+import DateTime from '../../components/DateTime.astro';
+
 type Props = {
   frontmatter?: {
     title?: string
+    publishedAt?: Date;
   }
 };
 
@@ -39,14 +42,18 @@ const { frontmatter } = Astro.props;
     grid-area: left;
   }
 
-  h1 {
+  .title {
     grid-area: title;
     text-align: center;
   }
+
 </style>
 <div class="post">
   <slot name="title">
-    <h1>{frontmatter?.title}</h1>
+    <div class="title">
+      <h1>{frontmatter?.title}</h1>
+      {frontmatter?.publishedAt && <DateTime date={frontmatter.publishedAt} />}
+    </div>
   </slot>
   <aside>
     <slot name="left" />
