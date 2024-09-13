@@ -1,0 +1,34 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
+import { blogTagPagePaths } from "../../../_paths";
+import PostCard from "../../../../components/PostCard.astro";
+import CardList from "../../../../components/CardList.astro";
+import { useTranslations } from "../../../../utils/i18n";
+import Page from "../../../../layouts/pages/Page.astro";
+import Meta from "../../../../layouts/groups/Meta.astro";
+
+export const getStaticPaths = blogTagPagePaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page, locale, translations, tag } = Astro.props as Props;
+const t = useTranslations(locale);
+---
+
+<DefaultLayout translations={translations}>
+  <Meta slot="meta" title={t("blogTagTitle", { tag })} />
+  <Page>
+    <h1 slot="title">{t("blogTagTitle", { tag })}</h1>
+    <CardList>
+      {
+        page.data.map(async (post) => (
+          <li>
+            <PostCard post={post} />
+          </li>
+        ))
+      }
+    </CardList>
+    {page.url.prev ? <a href={page.url.prev}>Vorherige Seite</a> : null}
+    {page.url.next ? <a href={page.url.next}>Nächste Seite</a> : null}
+  </Page>
+</DefaultLayout>

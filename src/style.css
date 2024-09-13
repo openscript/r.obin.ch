@@ -31,7 +31,7 @@ html.dark:root {
 
 
 /* Large */
-@media (min-width: 2240px) {
+@media (min-width: 2560px) {
   :root {
     --font-size: 20px;
     --page-horizontal-padding: 20%;
@@ -39,9 +39,9 @@ html.dark:root {
 }
 
 /* Large */
-@media (max-width: 2240px) {
+@media (max-width: 2560px) {
   :root {
-    --font-size: 20px;
+    --font-size: 18px;
     --page-horizontal-padding: 20%;
   }
 }

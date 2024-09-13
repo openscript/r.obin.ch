@@ -32,6 +32,7 @@ export const C = {
       latestPostsLabel: 'Neueste Artikel',
       notesTitle: "Notizen",
       notesSlug: "notizen",
+      tagSlug: "kategorie",
     },
     en: {
       language: "English",
@@ -60,6 +61,7 @@ export const C = {
       latestPostsLabel: 'Latest posts',
       notesTitle: "Notes",
       notesSlug: "notes",
+      tagSlug: "tag",
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

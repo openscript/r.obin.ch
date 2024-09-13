@@ -713,7 +713,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
+            "title": "Test Article 28",
           },
           "id": "en/2020/09/1/test-article.md",
           "slug": "en/2020/09/1/test-article",
@@ -725,19 +725,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 2",
+            "title": "Test Article 29",
           },
           "id": "en/2020/09/2/test-article.md",
           "slug": "en/2020/09/2/test-article",
@@ -749,19 +737,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 2",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 3",
+            "title": "Test Article 30",
           },
           "id": "en/2020/09/3/test-article.md",
           "slug": "en/2020/09/3/test-article",
@@ -773,19 +749,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 3",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 4",
+            "title": "Test Article 31",
           },
           "id": "en/2020/09/4/test-article.md",
           "slug": "en/2020/09/4/test-article",
@@ -797,19 +761,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 4",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 5",
+            "title": "Test Article 32",
           },
           "id": "en/2020/09/5/test-article.md",
           "slug": "en/2020/09/5/test-article",
@@ -821,19 +773,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 5",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 6",
+            "title": "Test Article 33",
           },
           "id": "en/2020/09/6/test-article.md",
           "slug": "en/2020/09/6/test-article",
@@ -845,19 +785,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 6",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 7",
+            "title": "Test Article 34",
           },
           "id": "en/2020/09/7/test-article.md",
           "slug": "en/2020/09/7/test-article",
@@ -869,19 +797,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 7",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 8",
+            "title": "Test Article 35",
           },
           "id": "en/2020/09/8/test-article.md",
           "slug": "en/2020/09/8/test-article",
@@ -893,19 +809,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 8",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 9",
+            "title": "Test Article 36",
           },
           "id": "en/2020/09/9/test-article.md",
           "slug": "en/2020/09/9/test-article",
@@ -917,19 +821,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 9",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 10",
+            "title": "Test Article 37",
           },
           "id": "en/2020/09/10/test-article.md",
           "slug": "en/2020/09/10/test-article",
@@ -941,19 +833,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 10",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 11",
+            "title": "Test Article 38",
           },
           "id": "en/2020/09/11/test-article.md",
           "slug": "en/2020/09/11/test-article",
@@ -965,19 +845,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 11",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 12",
+            "title": "Test Article 39",
           },
           "id": "en/2020/09/12/test-article.md",
           "slug": "en/2020/09/12/test-article",
@@ -989,19 +857,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 12",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 13",
+            "title": "Test Article 40",
           },
           "id": "en/2020/09/13/test-article.md",
           "slug": "en/2020/09/13/test-article",
@@ -1013,19 +869,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 13",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 14",
+            "title": "Test Article 41",
           },
           "id": "en/2020/09/14/test-article.md",
           "slug": "en/2020/09/14/test-article",
@@ -1037,19 +881,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 14",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 15",
+            "title": "Test Article 42",
           },
           "id": "en/2020/09/15/test-article.md",
           "slug": "en/2020/09/15/test-article",
@@ -1061,19 +893,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 15",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 16",
+            "title": "Test Article 43",
           },
           "id": "en/2020/09/16/test-article.md",
           "slug": "en/2020/09/16/test-article",
@@ -1085,19 +905,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 16",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 17",
+            "title": "Test Article 44",
           },
           "id": "en/2020/09/17/test-article.md",
           "slug": "en/2020/09/17/test-article",
@@ -1109,19 +917,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 17",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 18",
+            "title": "Test Article 45",
           },
           "id": "en/2020/09/18/test-article.md",
           "slug": "en/2020/09/18/test-article",
@@ -1133,19 +929,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 18",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 19",
+            "title": "Test Article 46",
           },
           "id": "en/2020/09/19/test-article.md",
           "slug": "en/2020/09/19/test-article",
@@ -1157,19 +941,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 19",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 20",
+            "title": "Test Article 47",
           },
           "id": "en/2020/09/20/test-article.md",
           "slug": "en/2020/09/20/test-article",
@@ -1181,19 +953,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 20",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 21",
+            "title": "Test Article 48",
           },
           "id": "en/2020/09/21/test-article.md",
           "slug": "en/2020/09/21/test-article",
@@ -1205,19 +965,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 21",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 22",
+            "title": "Test Article 49",
           },
           "id": "en/2020/09/22/test-article.md",
           "slug": "en/2020/09/22/test-article",
@@ -1229,34 +977,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 22",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
+            "title": "Test Article 50",
           },
           "id": "en/2020/09/23/test-article.md",
           "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
         {
           "collection": "blog",
@@ -1277,34 +1001,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 24",
-          },
-          "id": "de/2020/09/24/test-article.md",
-          "slug": "de/2020/09/24/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
             "title": "Test Article 25",
           },
           "id": "en/2020/09/25/test-article.md",
           "slug": "en/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 25",
-          },
-          "id": "de/2020/09/25/test-article.md",
-          "slug": "de/2020/09/25/test-article",
         },
         {
           "collection": "blog",
@@ -1325,586 +1025,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 26",
-          },
-          "id": "de/2020/09/26/test-article.md",
-          "slug": "de/2020/09/26/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
             "title": "Test Article 27",
           },
           "id": "en/2020/09/27/test-article.md",
           "slug": "en/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 27",
-          },
-          "id": "de/2020/09/27/test-article.md",
-          "slug": "de/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
       ],
       {
@@ -1933,7 +1057,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
+            "title": "Test Article 28",
           },
           "id": "en/2020/09/1/test-article.md",
           "slug": "en/2020/09/1/test-article",
@@ -1945,19 +1069,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 2",
+            "title": "Test Article 29",
           },
           "id": "en/2020/09/2/test-article.md",
           "slug": "en/2020/09/2/test-article",
@@ -1969,19 +1081,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 2",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 3",
+            "title": "Test Article 30",
           },
           "id": "en/2020/09/3/test-article.md",
           "slug": "en/2020/09/3/test-article",
@@ -1993,19 +1093,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 3",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 4",
+            "title": "Test Article 31",
           },
           "id": "en/2020/09/4/test-article.md",
           "slug": "en/2020/09/4/test-article",
@@ -2017,19 +1105,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 4",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 5",
+            "title": "Test Article 32",
           },
           "id": "en/2020/09/5/test-article.md",
           "slug": "en/2020/09/5/test-article",
@@ -2041,19 +1117,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 5",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 6",
+            "title": "Test Article 33",
           },
           "id": "en/2020/09/6/test-article.md",
           "slug": "en/2020/09/6/test-article",
@@ -2065,19 +1129,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 6",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 7",
+            "title": "Test Article 34",
           },
           "id": "en/2020/09/7/test-article.md",
           "slug": "en/2020/09/7/test-article",
@@ -2089,19 +1141,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 7",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 8",
+            "title": "Test Article 35",
           },
           "id": "en/2020/09/8/test-article.md",
           "slug": "en/2020/09/8/test-article",
@@ -2113,19 +1153,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 8",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 9",
+            "title": "Test Article 36",
           },
           "id": "en/2020/09/9/test-article.md",
           "slug": "en/2020/09/9/test-article",
@@ -2137,19 +1165,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 9",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 10",
+            "title": "Test Article 37",
           },
           "id": "en/2020/09/10/test-article.md",
           "slug": "en/2020/09/10/test-article",
@@ -2161,19 +1177,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 10",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 11",
+            "title": "Test Article 38",
           },
           "id": "en/2020/09/11/test-article.md",
           "slug": "en/2020/09/11/test-article",
@@ -2185,19 +1189,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 11",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 12",
+            "title": "Test Article 39",
           },
           "id": "en/2020/09/12/test-article.md",
           "slug": "en/2020/09/12/test-article",
@@ -2209,19 +1201,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 12",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 13",
+            "title": "Test Article 40",
           },
           "id": "en/2020/09/13/test-article.md",
           "slug": "en/2020/09/13/test-article",
@@ -2233,19 +1213,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 13",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 14",
+            "title": "Test Article 41",
           },
           "id": "en/2020/09/14/test-article.md",
           "slug": "en/2020/09/14/test-article",
@@ -2257,19 +1225,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 14",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 15",
+            "title": "Test Article 42",
           },
           "id": "en/2020/09/15/test-article.md",
           "slug": "en/2020/09/15/test-article",
@@ -2281,19 +1237,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 15",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 16",
+            "title": "Test Article 43",
           },
           "id": "en/2020/09/16/test-article.md",
           "slug": "en/2020/09/16/test-article",
@@ -2305,19 +1249,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 16",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 17",
+            "title": "Test Article 44",
           },
           "id": "en/2020/09/17/test-article.md",
           "slug": "en/2020/09/17/test-article",
@@ -2329,19 +1261,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 17",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 18",
+            "title": "Test Article 45",
           },
           "id": "en/2020/09/18/test-article.md",
           "slug": "en/2020/09/18/test-article",
@@ -2353,19 +1273,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 18",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 19",
+            "title": "Test Article 46",
           },
           "id": "en/2020/09/19/test-article.md",
           "slug": "en/2020/09/19/test-article",
@@ -2377,19 +1285,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 19",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 20",
+            "title": "Test Article 47",
           },
           "id": "en/2020/09/20/test-article.md",
           "slug": "en/2020/09/20/test-article",
@@ -2401,19 +1297,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 20",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 21",
+            "title": "Test Article 48",
           },
           "id": "en/2020/09/21/test-article.md",
           "slug": "en/2020/09/21/test-article",
@@ -2425,19 +1309,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 21",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 22",
+            "title": "Test Article 49",
           },
           "id": "en/2020/09/22/test-article.md",
           "slug": "en/2020/09/22/test-article",
@@ -2449,34 +1321,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 22",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
+            "title": "Test Article 50",
           },
           "id": "en/2020/09/23/test-article.md",
           "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
         {
           "collection": "blog",
@@ -2497,34 +1345,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 24",
-          },
-          "id": "de/2020/09/24/test-article.md",
-          "slug": "de/2020/09/24/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
             "title": "Test Article 25",
           },
           "id": "en/2020/09/25/test-article.md",
           "slug": "en/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 25",
-          },
-          "id": "de/2020/09/25/test-article.md",
-          "slug": "de/2020/09/25/test-article",
         },
         {
           "collection": "blog",
@@ -2545,586 +1369,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 26",
-          },
-          "id": "de/2020/09/26/test-article.md",
-          "slug": "de/2020/09/26/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
             "title": "Test Article 27",
           },
           "id": "en/2020/09/27/test-article.md",
           "slug": "en/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 27",
-          },
-          "id": "de/2020/09/27/test-article.md",
-          "slug": "de/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
       ],
       {
@@ -3153,19 +1401,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 1",
+            "title": "Test Article 28",
           },
           "id": "de/2020/09/1/test-article.md",
           "slug": "de/2020/09/1/test-article",
@@ -3177,19 +1413,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 2",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 2",
+            "title": "Test Article 29",
           },
           "id": "de/2020/09/2/test-article.md",
           "slug": "de/2020/09/2/test-article",
@@ -3201,19 +1425,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 3",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 3",
+            "title": "Test Article 30",
           },
           "id": "de/2020/09/3/test-article.md",
           "slug": "de/2020/09/3/test-article",
@@ -3225,19 +1437,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 4",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 4",
+            "title": "Test Article 31",
           },
           "id": "de/2020/09/4/test-article.md",
           "slug": "de/2020/09/4/test-article",
@@ -3249,19 +1449,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 5",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 5",
+            "title": "Test Article 32",
           },
           "id": "de/2020/09/5/test-article.md",
           "slug": "de/2020/09/5/test-article",
@@ -3273,19 +1461,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 6",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 6",
+            "title": "Test Article 33",
           },
           "id": "de/2020/09/6/test-article.md",
           "slug": "de/2020/09/6/test-article",
@@ -3297,19 +1473,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 7",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 7",
+            "title": "Test Article 34",
           },
           "id": "de/2020/09/7/test-article.md",
           "slug": "de/2020/09/7/test-article",
@@ -3321,19 +1485,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 8",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 8",
+            "title": "Test Article 35",
           },
           "id": "de/2020/09/8/test-article.md",
           "slug": "de/2020/09/8/test-article",
@@ -3345,19 +1497,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 9",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 9",
+            "title": "Test Article 36",
           },
           "id": "de/2020/09/9/test-article.md",
           "slug": "de/2020/09/9/test-article",
@@ -3369,19 +1509,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 10",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 10",
+            "title": "Test Article 37",
           },
           "id": "de/2020/09/10/test-article.md",
           "slug": "de/2020/09/10/test-article",
@@ -3393,19 +1521,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 11",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 11",
+            "title": "Test Article 38",
           },
           "id": "de/2020/09/11/test-article.md",
           "slug": "de/2020/09/11/test-article",
@@ -3417,19 +1533,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 12",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 12",
+            "title": "Test Article 39",
           },
           "id": "de/2020/09/12/test-article.md",
           "slug": "de/2020/09/12/test-article",
@@ -3441,19 +1545,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 13",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 13",
+            "title": "Test Article 40",
           },
           "id": "de/2020/09/13/test-article.md",
           "slug": "de/2020/09/13/test-article",
@@ -3465,19 +1557,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 14",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 14",
+            "title": "Test Article 41",
           },
           "id": "de/2020/09/14/test-article.md",
           "slug": "de/2020/09/14/test-article",
@@ -3489,19 +1569,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 15",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 15",
+            "title": "Test Article 42",
           },
           "id": "de/2020/09/15/test-article.md",
           "slug": "de/2020/09/15/test-article",
@@ -3513,19 +1581,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 16",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 16",
+            "title": "Test Article 43",
           },
           "id": "de/2020/09/16/test-article.md",
           "slug": "de/2020/09/16/test-article",
@@ -3537,19 +1593,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 17",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 17",
+            "title": "Test Article 44",
           },
           "id": "de/2020/09/17/test-article.md",
           "slug": "de/2020/09/17/test-article",
@@ -3561,19 +1605,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 18",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 18",
+            "title": "Test Article 45",
           },
           "id": "de/2020/09/18/test-article.md",
           "slug": "de/2020/09/18/test-article",
@@ -3585,19 +1617,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 19",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 19",
+            "title": "Test Article 46",
           },
           "id": "de/2020/09/19/test-article.md",
           "slug": "de/2020/09/19/test-article",
@@ -3609,19 +1629,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 20",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 20",
+            "title": "Test Article 47",
           },
           "id": "de/2020/09/20/test-article.md",
           "slug": "de/2020/09/20/test-article",
@@ -3633,19 +1641,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 21",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 21",
+            "title": "Test Article 48",
           },
           "id": "de/2020/09/21/test-article.md",
           "slug": "de/2020/09/21/test-article",
@@ -3657,19 +1653,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 22",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 22",
+            "title": "Test Article 49",
           },
           "id": "de/2020/09/22/test-article.md",
           "slug": "de/2020/09/22/test-article",
@@ -3681,34 +1665,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 23",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
+            "title": "Test Article 50",
           },
           "id": "de/2020/09/23/test-article.md",
           "slug": "de/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 24",
-          },
-          "id": "en/2020/09/24/test-article.md",
-          "slug": "en/2020/09/24/test-article",
         },
         {
           "collection": "blog",
@@ -3731,32 +1691,8 @@ exports[`paths > generates blogTagPagePaths 1`] = `
             ],
             "title": "Test Article 25",
           },
-          "id": "en/2020/09/25/test-article.md",
-          "slug": "en/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 25",
-          },
           "id": "de/2020/09/25/test-article.md",
           "slug": "de/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 26",
-          },
-          "id": "en/2020/09/26/test-article.md",
-          "slug": "en/2020/09/26/test-article",
         },
         {
           "collection": "blog",
@@ -3779,572 +1715,8 @@ exports[`paths > generates blogTagPagePaths 1`] = `
             ],
             "title": "Test Article 27",
           },
-          "id": "en/2020/09/27/test-article.md",
-          "slug": "en/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 27",
-          },
           "id": "de/2020/09/27/test-article.md",
           "slug": "de/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
       ],
       {
@@ -4373,19 +1745,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 1",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 1",
+            "title": "Test Article 28",
           },
           "id": "de/2020/09/1/test-article.md",
           "slug": "de/2020/09/1/test-article",
@@ -4397,19 +1757,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 2",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 2",
+            "title": "Test Article 29",
           },
           "id": "de/2020/09/2/test-article.md",
           "slug": "de/2020/09/2/test-article",
@@ -4421,19 +1769,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 3",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 3",
+            "title": "Test Article 30",
           },
           "id": "de/2020/09/3/test-article.md",
           "slug": "de/2020/09/3/test-article",
@@ -4445,19 +1781,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 4",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 4",
+            "title": "Test Article 31",
           },
           "id": "de/2020/09/4/test-article.md",
           "slug": "de/2020/09/4/test-article",
@@ -4469,19 +1793,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 5",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 5",
+            "title": "Test Article 32",
           },
           "id": "de/2020/09/5/test-article.md",
           "slug": "de/2020/09/5/test-article",
@@ -4493,19 +1805,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 6",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 6",
+            "title": "Test Article 33",
           },
           "id": "de/2020/09/6/test-article.md",
           "slug": "de/2020/09/6/test-article",
@@ -4517,19 +1817,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 7",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 7",
+            "title": "Test Article 34",
           },
           "id": "de/2020/09/7/test-article.md",
           "slug": "de/2020/09/7/test-article",
@@ -4541,19 +1829,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 8",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 8",
+            "title": "Test Article 35",
           },
           "id": "de/2020/09/8/test-article.md",
           "slug": "de/2020/09/8/test-article",
@@ -4565,19 +1841,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 9",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 9",
+            "title": "Test Article 36",
           },
           "id": "de/2020/09/9/test-article.md",
           "slug": "de/2020/09/9/test-article",
@@ -4589,19 +1853,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 10",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 10",
+            "title": "Test Article 37",
           },
           "id": "de/2020/09/10/test-article.md",
           "slug": "de/2020/09/10/test-article",
@@ -4613,19 +1865,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 11",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 11",
+            "title": "Test Article 38",
           },
           "id": "de/2020/09/11/test-article.md",
           "slug": "de/2020/09/11/test-article",
@@ -4637,19 +1877,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 12",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 12",
+            "title": "Test Article 39",
           },
           "id": "de/2020/09/12/test-article.md",
           "slug": "de/2020/09/12/test-article",
@@ -4661,19 +1889,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 13",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 13",
+            "title": "Test Article 40",
           },
           "id": "de/2020/09/13/test-article.md",
           "slug": "de/2020/09/13/test-article",
@@ -4685,19 +1901,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 14",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 14",
+            "title": "Test Article 41",
           },
           "id": "de/2020/09/14/test-article.md",
           "slug": "de/2020/09/14/test-article",
@@ -4709,19 +1913,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 15",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 15",
+            "title": "Test Article 42",
           },
           "id": "de/2020/09/15/test-article.md",
           "slug": "de/2020/09/15/test-article",
@@ -4733,19 +1925,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 16",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 16",
+            "title": "Test Article 43",
           },
           "id": "de/2020/09/16/test-article.md",
           "slug": "de/2020/09/16/test-article",
@@ -4757,19 +1937,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 17",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 17",
+            "title": "Test Article 44",
           },
           "id": "de/2020/09/17/test-article.md",
           "slug": "de/2020/09/17/test-article",
@@ -4781,19 +1949,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 18",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 18",
+            "title": "Test Article 45",
           },
           "id": "de/2020/09/18/test-article.md",
           "slug": "de/2020/09/18/test-article",
@@ -4805,19 +1961,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 19",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 19",
+            "title": "Test Article 46",
           },
           "id": "de/2020/09/19/test-article.md",
           "slug": "de/2020/09/19/test-article",
@@ -4829,19 +1973,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 20",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 20",
+            "title": "Test Article 47",
           },
           "id": "de/2020/09/20/test-article.md",
           "slug": "de/2020/09/20/test-article",
@@ -4853,19 +1985,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 21",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 21",
+            "title": "Test Article 48",
           },
           "id": "de/2020/09/21/test-article.md",
           "slug": "de/2020/09/21/test-article",
@@ -4877,19 +1997,7 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 22",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 22",
+            "title": "Test Article 49",
           },
           "id": "de/2020/09/22/test-article.md",
           "slug": "de/2020/09/22/test-article",
@@ -4901,34 +2009,10 @@ exports[`paths > generates blogTagPagePaths 1`] = `
               "tag1",
               "tag2",
             ],
-            "title": "Test Article 23",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 23",
+            "title": "Test Article 50",
           },
           "id": "de/2020/09/23/test-article.md",
           "slug": "de/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 24",
-          },
-          "id": "en/2020/09/24/test-article.md",
-          "slug": "en/2020/09/24/test-article",
         },
         {
           "collection": "blog",
@@ -4951,32 +2035,8 @@ exports[`paths > generates blogTagPagePaths 1`] = `
             ],
             "title": "Test Article 25",
           },
-          "id": "en/2020/09/25/test-article.md",
-          "slug": "en/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 25",
-          },
           "id": "de/2020/09/25/test-article.md",
           "slug": "de/2020/09/25/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 26",
-          },
-          "id": "en/2020/09/26/test-article.md",
-          "slug": "en/2020/09/26/test-article",
         },
         {
           "collection": "blog",
@@ -4999,572 +2059,8 @@ exports[`paths > generates blogTagPagePaths 1`] = `
             ],
             "title": "Test Article 27",
           },
-          "id": "en/2020/09/27/test-article.md",
-          "slug": "en/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 27",
-          },
           "id": "de/2020/09/27/test-article.md",
           "slug": "de/2020/09/27/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "en/2020/09/1/test-article.md",
-          "slug": "en/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 28",
-          },
-          "id": "de/2020/09/1/test-article.md",
-          "slug": "de/2020/09/1/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "en/2020/09/2/test-article.md",
-          "slug": "en/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 29",
-          },
-          "id": "de/2020/09/2/test-article.md",
-          "slug": "de/2020/09/2/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "en/2020/09/3/test-article.md",
-          "slug": "en/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 30",
-          },
-          "id": "de/2020/09/3/test-article.md",
-          "slug": "de/2020/09/3/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "en/2020/09/4/test-article.md",
-          "slug": "en/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 31",
-          },
-          "id": "de/2020/09/4/test-article.md",
-          "slug": "de/2020/09/4/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "en/2020/09/5/test-article.md",
-          "slug": "en/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 32",
-          },
-          "id": "de/2020/09/5/test-article.md",
-          "slug": "de/2020/09/5/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "en/2020/09/6/test-article.md",
-          "slug": "en/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 33",
-          },
-          "id": "de/2020/09/6/test-article.md",
-          "slug": "de/2020/09/6/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "en/2020/09/7/test-article.md",
-          "slug": "en/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 34",
-          },
-          "id": "de/2020/09/7/test-article.md",
-          "slug": "de/2020/09/7/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "en/2020/09/8/test-article.md",
-          "slug": "en/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 35",
-          },
-          "id": "de/2020/09/8/test-article.md",
-          "slug": "de/2020/09/8/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "en/2020/09/9/test-article.md",
-          "slug": "en/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 36",
-          },
-          "id": "de/2020/09/9/test-article.md",
-          "slug": "de/2020/09/9/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "en/2020/09/10/test-article.md",
-          "slug": "en/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 37",
-          },
-          "id": "de/2020/09/10/test-article.md",
-          "slug": "de/2020/09/10/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "en/2020/09/11/test-article.md",
-          "slug": "en/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 38",
-          },
-          "id": "de/2020/09/11/test-article.md",
-          "slug": "de/2020/09/11/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "en/2020/09/12/test-article.md",
-          "slug": "en/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 39",
-          },
-          "id": "de/2020/09/12/test-article.md",
-          "slug": "de/2020/09/12/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "en/2020/09/13/test-article.md",
-          "slug": "en/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 40",
-          },
-          "id": "de/2020/09/13/test-article.md",
-          "slug": "de/2020/09/13/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "en/2020/09/14/test-article.md",
-          "slug": "en/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 41",
-          },
-          "id": "de/2020/09/14/test-article.md",
-          "slug": "de/2020/09/14/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "en/2020/09/15/test-article.md",
-          "slug": "en/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 42",
-          },
-          "id": "de/2020/09/15/test-article.md",
-          "slug": "de/2020/09/15/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "en/2020/09/16/test-article.md",
-          "slug": "en/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 43",
-          },
-          "id": "de/2020/09/16/test-article.md",
-          "slug": "de/2020/09/16/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "en/2020/09/17/test-article.md",
-          "slug": "en/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 44",
-          },
-          "id": "de/2020/09/17/test-article.md",
-          "slug": "de/2020/09/17/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "en/2020/09/18/test-article.md",
-          "slug": "en/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 45",
-          },
-          "id": "de/2020/09/18/test-article.md",
-          "slug": "de/2020/09/18/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "en/2020/09/19/test-article.md",
-          "slug": "en/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 46",
-          },
-          "id": "de/2020/09/19/test-article.md",
-          "slug": "de/2020/09/19/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "en/2020/09/20/test-article.md",
-          "slug": "en/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 47",
-          },
-          "id": "de/2020/09/20/test-article.md",
-          "slug": "de/2020/09/20/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "en/2020/09/21/test-article.md",
-          "slug": "en/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 48",
-          },
-          "id": "de/2020/09/21/test-article.md",
-          "slug": "de/2020/09/21/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "en/2020/09/22/test-article.md",
-          "slug": "en/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 49",
-          },
-          "id": "de/2020/09/22/test-article.md",
-          "slug": "de/2020/09/22/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "en/2020/09/23/test-article.md",
-          "slug": "en/2020/09/23/test-article",
-        },
-        {
-          "collection": "blog",
-          "data": {
-            "tags": [
-              "tag1",
-              "tag2",
-            ],
-            "title": "Test Article 50",
-          },
-          "id": "de/2020/09/23/test-article.md",
-          "slug": "de/2020/09/23/test-article",
         },
       ],
       {

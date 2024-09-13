@@ -184,8 +184,11 @@ export const blogTagPagePaths = (async ({ paginate }) => {
         },
         {},
       );
+
+      const filteredPages = uniquePagesByLocale(pages, l);
+
       const collectionSlug = getCollectionSlug("blog", l);
-      return paginate(pages, {
+      return paginate(filteredPages, {
         pageSize: C.SETTINGS.BLOG.PAGE_SIZE,
         params: { locale: getLocaleSlug(l), blog: collectionSlug, tag },
         props: { locale: l, translations, tag },
@@ -193,3 +196,24 @@ export const blogTagPagePaths = (async ({ paginate }) => {
     });
   });
 }) satisfies GetStaticPaths;
+
+const uniquePagesByLocale = (pages: CollectionEntry<"blog">[], locale: Locale) => {
+  const uniquePages = new Map<string, CollectionEntry<"blog">>();
+  pages.forEach((page) => {
+    const split = splitLocaleAndPath(page.id);
+    if (split && split.locale === locale) {
+      uniquePages.set(split.path, page);
+    }
+  });
+  pages.forEach((page) => {
+    const split = splitLocaleAndPath(page.id);
+    if (split && !uniquePages.has(split.path)) {
+      uniquePages.set(split.path, page);
+    }
+  });
+  return Array.from(uniquePages.values()).sort((a, b) => {
+    const publishedA = new Date(a.data.publishedAt);
+    const publishedB = new Date(b.data.publishedAt);
+    return publishedB.getTime() - publishedA.getTime();
+  });
+}
