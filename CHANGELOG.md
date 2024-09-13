@@ -1,5 +1,12 @@
 # r.obin.ch
 
+## 0.2.11
+
+### Patch Changes
+
+- 59a84c2: Fix base tag
+- 1e676b5: Add date time component
+
 ## 0.2.10
 
 ### Patch Changes
