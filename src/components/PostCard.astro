@@ -18,6 +18,18 @@ const { remarkPluginFrontmatter } = await post.render();
     height: 20rem;
     object-fit: cover;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  a :global(time) {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    margin-top: 0.5rem;
+  }
 </style>
 
 <div>
@@ -33,9 +45,9 @@ const { remarkPluginFrontmatter } = await post.render();
     }
     <div>
       <div>
+        <DateTime date={post.data.publishedAt} />
         <h2>{post.data.title}</h2>
         <p>{remarkPluginFrontmatter.excerpt}...</p>
-        <DateTime date={post.data.publishedAt} />
       </div>
     </div>
   </a>
