@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.12
+
+### Patch Changes
+
+- 6d0081d: Add tag pages
+
 ## 0.2.11
 
 ### Patch Changes
