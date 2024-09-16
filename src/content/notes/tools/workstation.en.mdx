@@ -107,17 +107,6 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
    1. Change `GRUB_CMDLINE_LINUX="cryptdevice=UUID=cb257170-e4ef-0000-0000-000000000000:cryptlvm root=/dev/systemcryptlvm/root"`
 1. Generate GRUB configuration `grub-mkconfig -o /boot/grub/grub.cfg`
 
-## DHCP client setup
-
-1. Install `dhcpcd` via `pacman -S dhcpcd`
-1. Enable service with `systemctl enable dhcpcd`
-
-## Reboot to system
-
-1. Logout <kbd>CTRL</kbd> + <kbd>D</kbd>
-1. Unmount `umount -R /mnt`
-1. Restart `reboot`
-
 ## Microcode
 
 1. Add microcode package with `pacman -S amd-ucode` or `pacman -S intel-ucode`
@@ -143,6 +132,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
    - Fast touchpad speed `gsettings set org.gnome.desktop.peripherals.touchpad speed 1`
    - Tab to click for touch pad `gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true`
    - Set keyboard layout `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ch')]"`
+   - Allow <kbd>ALT</kbd> and right mouse button to resize windows `gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true`
    - Define keyboard shortcuts for opening terminal and browser
    - Enable switching windows shortcut on <kbd>ALT</kbd> + <kbd>Tab</kbd> in `Keyboard` settings
    - Enable night light mode
@@ -158,6 +148,12 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Enable Gnome Keyring SSH Agent with `systemctl --user enable --now gcr-ssh-agent`
 1. Define `SSH_AUTH_SOCK` in `.bashrc` with `export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh`
 
+## Reboot to system
+
+1. Logout <kbd>CTRL</kbd> + <kbd>D</kbd>
+1. Unmount `umount -R /mnt`
+1. Restart `reboot`
+
 ## AUR helper
 
 1. Install build tools `pacman -S --needed base-devel git`
@@ -172,6 +168,15 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Enable bluetooth `systemctl enable --now bluetooth`
 1. Install fingerprint reader `paru -S fprintd`
    - Scan fingerprint in Gnome Settings
+1. Install tlp `paru -S tlp tlp-rdw`
+   - Enable service `systemctl enable --now tlp.service`
+   - Enable service `systemctl enable --now NetworkManager-dispatcher.service`
+   - Mask `systemctl mask systemd-rfkill.service` and `systemctl mask systemd-rfkill.socket`
+   - Set battery thresholds with `tlp setcharge 60 80 BAT0`
+
+## Configure VPN
+
+1. Configure Wireguard via NetworkManager
 
 ## Tools
 
@@ -188,6 +193,12 @@ For more details about the software I use have a look at the [software page](./s
    1. Login with Github
 1. Install KeepassXC (Password manager) `paru -S keepassxc`
 1. Install Evolution (Mail client) `paru -S evolution`
+   1. Configure email accounts
+   1. Configure webdav accounts
+1. Install LibreOffice (Office suite) `paru -S libreoffice-fresh`
+   1. Enable experimental features in settings "Options > LibreOffice > Advanced"
+   1. Enable Tabbed/Ribbon UI "View > User Interface"
+1. Install network tools `paru -S nmap bind-tools`
 
 ## Device specific
 
