@@ -120,6 +120,6 @@ h6,
   font-family: var(--font-headings);
 }
 
-code {
+code, kbd {
   font-family: var(--font-listings);
 }
