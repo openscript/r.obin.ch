@@ -1,5 +1,6 @@
 ---
 import { getLocaleFromUrl, useTranslations } from "../utils/i18n";
+import Foldable from "./Foldable.astro";
 
 type Props = {
   fromDepth?: number;
@@ -56,19 +57,6 @@ const t = useTranslations(locale);
   }
 </style>
 
-<nav class="table-of-contents">
-  <span class="label">{t("tableOfContentsLabel")}</span>
-  <ul>
-    {
-      headings.map((heading) => (
-        <li class={`depth-${heading.depth}`}>
-          <a href={`#${heading.slug}`}>{heading.text}</a>
-        </li>
-      ))
-    }
-  </ul>
-</nav>
-
 <script>
   document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -100,3 +88,18 @@ const t = useTranslations(locale);
     });
   });
 </script>
+
+<Foldable>
+  <span class="label" slot="title">{t("tableOfContentsLabel")}</span>
+  <nav class="table-of-contents">
+    <ul>
+      {
+        headings.map((heading) => (
+          <li class={`depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</Foldable>

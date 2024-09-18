@@ -3,6 +3,7 @@ import type { GitInfoFrontmatter } from '../remark/remark-git-info'
 import { getLocaleFromUrl, useTranslations } from '../utils/i18n';
 import Button from './Button.astro';
 import DateTime from './DateTime.astro';
+import Foldable from './Foldable.astro';
 
 type Props = GitInfoFrontmatter;
 
@@ -12,8 +13,8 @@ const t = useTranslations(locale);
 
 ---
 
-<div>
-  <span class="label">{t('gitInfoLabel')}</span>
+<Foldable>
+  <span class="label" slot="title">{t('gitInfoLabel')}</span>
   <dl>
     <slot name="before" />
     {git?.lastCommit && (
@@ -30,4 +31,4 @@ const t = useTranslations(locale);
     )}
     <slot name="after" />
   </dl>
-</div>
+</Foldable>

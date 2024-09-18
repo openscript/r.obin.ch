@@ -1,15 +1,16 @@
 ---
-import DateTime from '../../components/DateTime.astro';
+import DateTime from "../../components/DateTime.astro";
 
 type Props = {
   frontmatter?: {
-    title?: string
+    title?: string;
     publishedAt?: Date;
-  }
+  };
 };
 
 const { frontmatter } = Astro.props;
 ---
+
 <style>
   .post {
     padding: 1.4rem 0;
@@ -47,6 +48,18 @@ const { frontmatter } = Astro.props;
     text-align: center;
   }
 
+  @media (max-width: 1280px) {
+    .post {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "left" "right" "article";
+      gap: 1.4rem;
+    }
+    aside {
+      justify-self: center;
+      width: 100%;
+      max-width: 50rem;
+    }
+  }
 </style>
 <div class="post">
   <slot name="title">
