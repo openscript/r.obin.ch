@@ -28,13 +28,13 @@
   "dependencies": {
     "@anolilab/unplugin-favicons": "^1.0.5",
     "@astrojs/check": "^0.9.3",
-    "@astrojs/mdx": "^3.1.5",
+    "@astrojs/mdx": "^3.1.6",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@fontsource/ibm-plex-mono": "^5.1.0",
     "@fontsource/poppins": "^5.1.0",
     "@fontsource/rajdhani": "^5.1.0",
-    "astro": "^4.15.4",
+    "astro": "^4.15.7",
     "favicons": "^7.2.0",
     "limax": "^4.1.0",
     "pagefind": "^1.1.1",
@@ -47,12 +47,12 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.8",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.5.4",
-    "@vitest/coverage-v8": "^2.1.0",
+    "@types/node": "^22.5.5",
+    "@vitest/coverage-v8": "^2.1.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "sirv": "^2.0.4",
     "typescript": "^5.6.2",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.1"
   }
 }
