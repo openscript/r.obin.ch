@@ -1,9 +1,13 @@
 de:
+  - path: pages://de/website
+    title: Lizenz
   - path: pages://de/imprint
     title: Impressum
   - path: pages://de/data-protection
     title: Datenschutz
 en:
+  - path: pages://en/website
+    title: Licence
   - path: pages://en/imprint
     title: Imprint
   - path: pages://en/data-protection
