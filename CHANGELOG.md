@@ -1,5 +1,12 @@
 # r.obin.ch
 
+## 0.2.13
+
+### Patch Changes
+
+- ccaed51: Add <kbd> styles
+- bbfc577: Make post page responsive
+
 ## 0.2.12
 
 ### Patch Changes
