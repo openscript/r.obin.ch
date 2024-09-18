@@ -183,6 +183,10 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 For more details about the software I use have a look at the [software page](./software).
 
+1. Install git `pacman -S git`
+   - Configure user and email `git config --global user.name "Robin" && git config --global user.email "robin@example.com"`
+   - Configure GPG key `git config --global user.signing`
+   - Enable commit signing by default `git config --global commit.gpgsign true`
 1. Install docker (Container runtime) `paru -S docker`
    1. Add user to docker group `gpasswd -a robin docker`
    1. Restart
