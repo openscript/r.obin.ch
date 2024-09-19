@@ -7,7 +7,6 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { remarkExcerpt } from './src/remark/remark-excerpt';
 import search from './src/integrations/search';
-
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config

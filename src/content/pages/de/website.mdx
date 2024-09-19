@@ -1,9 +1,20 @@
 ---
 path: webseite
 title: Webseite
-layout: ../../../layouts/pages/Page.astro
+layout: ../../../layouts/pages/PageWithAside.astro
 ---
+
+
+import License from '../../../../LICENSE?raw';
+import Changelog from '../../../../CHANGELOG.md';
+import { Code } from 'astro:components';
 
 Hier sind die Informationen zur Webseite zu finden.
 
 ## Lizenz
+
+<Code code={License} lang="plaintext" theme="github-light" />
+
+## Änderungsverlauf
+
+<Changelog />

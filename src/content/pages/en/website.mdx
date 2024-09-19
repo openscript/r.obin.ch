@@ -4,6 +4,16 @@ title: Website
 layout: ../../../layouts/pages/Page.astro
 ---
 
+import License from '../../../../LICENSE?raw';
+import Changelog from '../../../../CHANGELOG.md';
+import { Code } from 'astro:components';
+
 Here you can find information about this website.
 
 ## License
+
+<Code code={License} lang="plaintext" theme="github-light" />
+
+## Changelog
+
+<Changelog />
