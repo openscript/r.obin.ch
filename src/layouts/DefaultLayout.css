@@ -205,6 +205,10 @@ footer nav ul {
   gap: var(--gap);
 }
 
+footer nav ul .active {
+  font-weight: bold;
+}
+
 #topbar,
 header,
 main,
@@ -250,6 +254,10 @@ code, kbd {
   background-color: var(--white-color-140);
   border-radius: var(--border-radius);
   padding: 0.15rem;
+}
+
+pre code {
+  padding: 0;
 }
 
 kbd {

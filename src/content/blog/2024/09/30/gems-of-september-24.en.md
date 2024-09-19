@@ -33,3 +33,9 @@ When installed my new laptop, I've made the mistake to install `dhcpcd`. Then wh
 ### Change name of Gnome Online Account in Evolution
 
 Gnome Online Accounts are integrated into Evolution. Evolution displays this accounts with a generated name, that is assembled from the username and the accounts server. If you want to rename them, you can edit the config file that is usually stored in `/home/user/.config/evolution/sources`. Change the value of `DisplayName` to a name of choice.
+
+## Tools
+
+### Visual Studio Code: Better Git Line Blame
+
+For a while I've been using GitLens. The paid features advertisements get more and more annoying. The feature of GitLens I've been using the most, is the inline blame feature. An alternative for that feature is the  [Better Git Line Blame](https://marketplace.visualstudio.com/items?itemName=mk12.better-git-line-blame) extension. It is also way faster than the inline blame from GitLens.

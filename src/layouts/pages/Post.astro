@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
   .post {
     padding: 1.4rem 0;
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-columns: 15rem minmax(0, 1fr) 15rem;
     grid-template-areas: ". title ." "left article right";
     gap: 1.4rem;
   }
@@ -31,8 +31,6 @@ const { frontmatter } = Astro.props;
 
   article {
     grid-area: article;
-    justify-self: center;
-    max-width: 50rem;
   }
 
   aside:nth-last-of-type(1) {
@@ -48,16 +46,31 @@ const { frontmatter } = Astro.props;
     text-align: center;
   }
 
+  article, .title {
+    justify-self: center;
+    width: 100%;
+    max-width: 50rem;
+  }
+
   @media (max-width: 1280px) {
     .post {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(100%, 1fr);
       grid-template-areas: "title" "left" "right" "article";
       gap: 1.4rem;
+      justify-content: center;
     }
-    aside {
+
+    .post > * {
       justify-self: center;
+    }
+
+    aside {
       width: 100%;
       max-width: 50rem;
+    }
+
+    article {
+      width: 100%;
     }
   }
 </style>

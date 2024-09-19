@@ -15,7 +15,7 @@ const { frontmatter, headings } = Astro.props;
 <style>
   .page-with-aside {
     display: grid;
-    grid-template-columns: 15rem 1fr;
+    grid-template-columns: 15rem minmax(0, 1fr);
     grid-template-areas: ". title" "aside article";
     gap: 1.4rem;
   }
@@ -32,6 +32,7 @@ const { frontmatter, headings } = Astro.props;
   article {
     grid-area: article;
     justify-self: center;
+    width: 100%;
     max-width: 50rem;
   }
 
@@ -42,6 +43,19 @@ const { frontmatter, headings } = Astro.props;
   h1 {
     grid-area: title;
     text-align: center;
+  }
+
+  @media (max-width: 1280px) {
+    .page-with-aside {
+      grid-template-columns: minmax(100%, 1fr);
+      grid-template-areas: "title" "aside" "article";
+      gap: 1.4rem;
+    }
+    aside {
+      justify-self: center;
+      width: 100%;
+      max-width: 50rem;
+    }
   }
 </style>
 <div class="page-with-aside">

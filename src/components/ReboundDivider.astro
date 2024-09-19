@@ -12,11 +12,11 @@ const flipVertically = Astro.props.flipVertically ? -1 : 1;
 
 <style define:vars={{'flip-horizontally': flipHorizontally, 'flip-vertically': flipVertically}}>
   svg {
-    width: calc(100% + 1px);
+    width: calc(100% + 1.5px);
     height: auto;
     transform: scaleX(var(--flip-horizontally)) scaleY(var(--flip-vertically));
     fill: var(--divider-fill, #000);
-    margin: -1px;
+    margin: -1.5px;
   }
 </style>
 
