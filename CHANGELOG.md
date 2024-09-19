@@ -1,5 +1,13 @@
 # r.obin.ch
 
+## 0.2.14
+
+### Patch Changes
+
+- 0906f3f: Add website page
+- e06a4ba: Upgrade dependencies
+- 18aec68: Improve responsiveness
+
 ## 0.2.13
 
 ### Patch Changes
