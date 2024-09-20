@@ -1,5 +1,12 @@
 # r.obin.ch
 
+## 0.2.15
+
+### Patch Changes
+
+- 71358aa: Fix inline code responsiveness
+- 6558906: Add goals to website description
+
 ## 0.2.14
 
 ### Patch Changes
