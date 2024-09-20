@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromUrl, useTranslations } from '../../utils/i18n';
+import { getLocaleFromUrl, useTranslations } from "../../utils/i18n";
 import { author as packageAuthor } from "../../../package.json";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   author?: string;
   description?: string;
   keywords?: string;
-}
+};
 
 const locale = getLocaleFromUrl(Astro.url);
 const props = Astro.props;
@@ -22,4 +22,4 @@ const keywords = props.keywords;
 <title>{title}</title>
 <meta name="author" content={author} />
 <meta name="description" content={description} />
-{ keywords && <meta name="keywords" content={keywords} /> }
+{keywords && <meta name="keywords" content={keywords} />}

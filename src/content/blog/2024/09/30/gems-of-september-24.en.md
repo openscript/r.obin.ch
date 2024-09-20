@@ -44,4 +44,4 @@ By default the package manager (or short pacman) downloads the packages sequenti
 
 ### Visual Studio Code: Better Git Line Blame
 
-For a while I've been using GitLens. The paid features advertisements get more and more annoying. The feature of GitLens I've been using the most, is the inline blame feature. An alternative for that feature is the  [Better Git Line Blame](https://marketplace.visualstudio.com/items?itemName=mk12.better-git-line-blame) extension. It is also way faster than the inline blame from GitLens.
+For a while I've been using GitLens. The paid features advertisements get more and more annoying. The feature of GitLens I've been using the most, is the inline blame feature. An alternative for that feature is the [Better Git Line Blame](https://marketplace.visualstudio.com/items?itemName=mk12.better-git-line-blame) extension. It is also way faster than the inline blame from GitLens.

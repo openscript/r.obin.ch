@@ -48,9 +48,12 @@ By clicking on the three dots, when the drawing is selected, a script can be ass
 ```js
 function clockInOrOut() {
   const sheet = SpreadsheetApp.getActiveSheet();
-  const nextOutCell = sheet.getRange('B1').getNextDataCell(SpreadsheetApp.Direction.DOWN).offset(1, 0);
+  const nextOutCell = sheet
+    .getRange("B1")
+    .getNextDataCell(SpreadsheetApp.Direction.DOWN)
+    .offset(1, 0);
   const nextInCell = nextOutCell.offset(0, -1);
-  if(nextInCell.isBlank()) {
+  if (nextInCell.isBlank()) {
     nextInCell.setValue(new Date());
   } else {
     nextOutCell.setValue(new Date());

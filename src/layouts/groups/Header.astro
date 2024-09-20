@@ -2,10 +2,10 @@
 import Brand from "../../components/Brand.astro";
 import { C } from "../../configuration";
 import { getLocaleFromUrl } from "../../utils/i18n";
-import { getEntry } from 'astro:content';
-import Search from '../../components/Search.astro';
-import Navigation from '../../components/Navigation.astro';
-import BurgerButton from '../../components/BurgerButton.astro';
+import { getEntry } from "astro:content";
+import Search from "../../components/Search.astro";
+import Navigation from "../../components/Navigation.astro";
+import BurgerButton from "../../components/BurgerButton.astro";
 
 const locale = getLocaleFromUrl(Astro.url);
 const navigation = (await getEntry("navigation", "main")).data;

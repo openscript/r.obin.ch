@@ -8,7 +8,8 @@ import { dirname, joinPath } from "./path";
 import slug from "limax";
 import { getCollectionSlug, getLocaleSlug } from "./slugs";
 
-const PATH_LOCALE_PATTERN = /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
+const PATH_LOCALE_PATTERN =
+  /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
 const FILE_LOCALE_PATTERN = /^(?<path>.*)\.(?<locale>\w{2}(?!\w)(-\w{1,})*)\./;
 const LOCALE_PATTERNS = [PATH_LOCALE_PATTERN, FILE_LOCALE_PATTERN];
 export const PROTOCOL_DELIMITER = "://";
@@ -26,7 +27,8 @@ export function splitLocaleAndPath(path: string) {
   if (!pattern) return undefined;
 
   const match = path.match(pattern);
-  if (!match || !match.groups || !match.groups.locale || !match.groups.path) return undefined;
+  if (!match || !match.groups || !match.groups.locale || !match.groups.path)
+    return undefined;
 
   const l = match.groups.locale;
   let p = match.groups.path;
@@ -40,7 +42,7 @@ export function splitCollectionAndSlug(path: string) {
 
   if (!split[0] || !split[1]) throw new Error("Couldn't split path.");
 
-  return { collection: split[0], slug: split[1] }
+  return { collection: split[0], slug: split[1] };
 }
 
 export function getNameFromLocale(locale?: string) {
@@ -94,7 +96,8 @@ export async function getContentEntryPath<
     );
 
   let pageSlug = split.path;
-  if ("title" in e.data) pageSlug = joinPath(dirname(pageSlug), slug(e.data.title));
+  if ("title" in e.data)
+    pageSlug = joinPath(dirname(pageSlug), slug(e.data.title));
   if ("path" in e.data) pageSlug = e.data.path;
 
   return getTranslatedPath(parseLocale(split.locale), collection, pageSlug);
@@ -129,9 +132,7 @@ function getTranslatedPath(
 ) {
   const localeSlug = getLocaleSlug(locale);
   const collectionSlug =
-    collection === "pages"
-      ? undefined
-      : getCollectionSlug(collection, locale);
+    collection === "pages" ? undefined : getCollectionSlug(collection, locale);
 
   return `/${[localeSlug, collectionSlug, pageSlug].filter(Boolean).join("/")}`;
 }

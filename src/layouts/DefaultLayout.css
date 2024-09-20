@@ -147,7 +147,7 @@ header .search input {
 }
 
 header .search input::placeholder {
-  color: var(--white-color)
+  color: var(--white-color);
 }
 
 header .search input:focus {
@@ -250,7 +250,8 @@ h6 {
   font-size: 1.1rem;
 }
 
-code, kbd {
+code,
+kbd {
   background-color: var(--white-color-140);
   border-radius: var(--border-radius);
   padding: 0.15rem;

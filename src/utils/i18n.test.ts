@@ -145,7 +145,7 @@ describe("parseLocaleFromPath", () => {
   it("should parse the locale from a file with relative path", () => {
     const locale = parseLocaleFromPath("../example.en-US.md");
     expect(locale).toBe("en-US");
-  })
+  });
 
   it("should undefined if no locale was found in file name", () => {
     const locale = parseLocaleFromPath("example.md");
@@ -181,7 +181,9 @@ describe("splitCollectionAndSlug", () => {
   });
 
   it("should split the locale from path without leading slash", () => {
-    expect(() => splitCollectionAndSlug("somethingElse")).toThrowErrorMatchingInlineSnapshot(`[Error: Couldn't split path.]`);
+    expect(() =>
+      splitCollectionAndSlug("somethingElse"),
+    ).toThrowErrorMatchingInlineSnapshot(`[Error: Couldn't split path.]`);
   });
 });
 

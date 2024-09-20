@@ -22,9 +22,7 @@ export const indexPaths = (kind?: string) => {
   return (async () => {
     const translations = localeSlugs.reduce(
       (acc, curr) => {
-        const collectionSlug = kind
-          ? getCollectionSlug(kind, curr)
-          : undefined;
+        const collectionSlug = kind ? getCollectionSlug(kind, curr) : undefined;
         const localeSlug = getLocaleSlug(curr);
         acc[curr] = resolvePath(localeSlug, collectionSlug);
         return acc;
@@ -103,7 +101,9 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
 };
 
 export const blogPagePaths = (async ({ paginate }) => {
-  const pages = (await getCollection("blog", (entry) => !entry.data.draft)).reverse();
+  const pages = (
+    await getCollection("blog", (entry) => !entry.data.draft)
+  ).reverse();
   const groupedPageSlug = pages.reduce<
     Record<string, CollectionEntry<"blog">[]>
   >((acc, page) => {
@@ -197,7 +197,10 @@ export const blogTagPagePaths = (async ({ paginate }) => {
   });
 }) satisfies GetStaticPaths;
 
-const uniquePagesByLocale = (pages: CollectionEntry<"blog">[], locale: Locale) => {
+const uniquePagesByLocale = (
+  pages: CollectionEntry<"blog">[],
+  locale: Locale,
+) => {
   const uniquePages = new Map<string, CollectionEntry<"blog">>();
   pages.forEach((page) => {
     const split = splitLocaleAndPath(page.id);
@@ -216,4 +219,4 @@ const uniquePagesByLocale = (pages: CollectionEntry<"blog">[], locale: Locale) =
     const publishedB = new Date(b.data.publishedAt);
     return publishedB.getTime() - publishedA.getTime();
   });
-}
+};

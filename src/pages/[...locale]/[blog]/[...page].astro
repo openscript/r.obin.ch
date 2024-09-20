@@ -7,7 +7,7 @@ import Page from "../../../layouts/pages/Page.astro";
 import PostCard from "../../../components/PostCard.astro";
 import CardList from "../../../components/CardList.astro";
 import Pagination from "../../../components/Pagination.astro";
-import Meta from '../../../layouts/groups/Meta.astro';
+import Meta from "../../../layouts/groups/Meta.astro";
 
 export const getStaticPaths = blogPagePaths;
 
@@ -32,7 +32,7 @@ const t = useTranslations(locale);
 </style>
 
 <DefaultLayout translations={pagedTranslations}>
-  <Meta slot="meta" title={t('blogTitle')} />
+  <Meta slot="meta" title={t("blogTitle")} />
   <Page>
     <h1 slot="title">{t("blogTitle")}</h1>
     <Pagination page={page} />

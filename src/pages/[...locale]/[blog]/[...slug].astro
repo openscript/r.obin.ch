@@ -9,9 +9,9 @@ import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
 import { resolvePath } from "../../../utils/path";
 import slug from "limax";
-import Comments from '../../../components/Comments.astro';
-import Meta from '../../../layouts/groups/Meta.astro';
-import { getCollectionSlug, getLocaleSlug } from '../../../utils/slugs';
+import Comments from "../../../components/Comments.astro";
+import Meta from "../../../layouts/groups/Meta.astro";
+import { getCollectionSlug, getLocaleSlug } from "../../../utils/slugs";
 
 export const getStaticPaths = entryPaths("blog", "slug");
 
@@ -28,7 +28,7 @@ const collectionSlug = getCollectionSlug("blog", locale);
 
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={data.title} />
-  <Post frontmatter={{title: data.title, publishedAt: data.publishedAt}}>
+  <Post frontmatter={{ title: data.title, publishedAt: data.publishedAt }}>
     <TableOfContents slot="left" headings={headings} />
     <Content />
     <Comments />
@@ -39,7 +39,9 @@ const collectionSlug = getCollectionSlug("blog", locale);
           <dd>
             {
               data.tags.map((tag) => (
-                <a href={resolvePath(localeSlug, collectionSlug, slug(tag))}>{tag}</a>
+                <a href={resolvePath(localeSlug, collectionSlug, slug(tag))}>
+                  {tag}
+                </a>
               ))
             }
           </dd>

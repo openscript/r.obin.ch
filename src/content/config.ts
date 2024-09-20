@@ -1,12 +1,16 @@
 import { defineCollection, z } from "astro:content";
-import { localeSlugs, type Locale } from '../configuration';
+import { localeSlugs, type Locale } from "../configuration";
 
-const localized = <T extends z.ZodTypeAny>(schema: T) => (
-  z.object(localeSlugs.reduce((acc, key) => {
-    acc[key] = schema;
-    return acc
-  }, {} as Record<Locale, T>))
-)
+const localized = <T extends z.ZodTypeAny>(schema: T) =>
+  z.object(
+    localeSlugs.reduce(
+      (acc, key) => {
+        acc[key] = schema;
+        return acc;
+      },
+      {} as Record<Locale, T>,
+    ),
+  );
 
 const blogCollection = defineCollection({
   schema: ({ image }) =>
@@ -37,17 +41,22 @@ const pagesCollection = defineCollection({
   }),
 });
 const navigationCollection = defineCollection({
-  type: 'data',
-  schema: ({ image }) => localized(z.array(z.object({
-    title: z.string(),
-    path: z.string().url().or(z.string()),
-    icon: image().optional()
-  })))
-})
+  type: "data",
+  schema: ({ image }) =>
+    localized(
+      z.array(
+        z.object({
+          title: z.string(),
+          path: z.string().url().or(z.string()),
+          icon: image().optional(),
+        }),
+      ),
+    ),
+});
 
 export const collections = {
   blog: blogCollection,
   notes: notesCollection,
   pages: pagesCollection,
-  navigation: navigationCollection
+  navigation: navigationCollection,
 };

@@ -33,7 +33,6 @@ html.dark:root {
   --text-color: #f8eded;
 }
 
-
 /* Large */
 @media (min-width: 2560px) {
   :root {
@@ -124,6 +123,7 @@ h6,
   font-family: var(--font-headings);
 }
 
-code, kbd {
+code,
+kbd {
   font-family: var(--font-listings);
 }

@@ -1,11 +1,15 @@
-import type { Root } from 'mdast';
-import type { VFile } from 'vfile';
-import simpleGit, { type DefaultLogFields, type ListLogLine, type SimpleGitOptions } from 'simple-git';
-import { isAstroData } from './common';
+import type { Root } from "mdast";
+import type { VFile } from "vfile";
+import simpleGit, {
+  type DefaultLogFields,
+  type ListLogLine,
+  type SimpleGitOptions,
+} from "simple-git";
+import { isAstroData } from "./common";
 
 const options: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(),
-  binary: 'git',
+  binary: "git",
   maxConcurrentProcesses: 6,
   trimmed: false,
 };
@@ -18,7 +22,7 @@ export type GitInfoFrontmatter = {
     remoteViewUrl: string;
     remoteHistoryUrl: string;
   };
-}
+};
 
 type Options = Readonly<{
   remoteUrlBase: string;
@@ -29,7 +33,7 @@ export function remarkGitInfo({ remoteUrlBase }: Options) {
     if (!isAstroData(file.data.astro)) return;
     file.data.astro.frontmatter.git = {};
 
-    const filePath = file.path.replace(process.cwd(), '');
+    const filePath = file.path.replace(process.cwd(), "");
     file.data.astro.frontmatter.git.remoteEditUrl = `${remoteUrlBase}/edit/master${filePath}`;
     file.data.astro.frontmatter.git.remoteViewUrl = `${remoteUrlBase}/blob/master${filePath}`;
     file.data.astro.frontmatter.git.remoteHistoryUrl = `${remoteUrlBase}/commits/master${filePath}`;

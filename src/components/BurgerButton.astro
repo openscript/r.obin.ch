@@ -55,7 +55,11 @@
 
   function createNextState() {
     const currentIndex = window.history.state.index || 0;
-    return { index: currentIndex + 1, scrollX: window.scrollX, scrollY: window.scrollY };
+    return {
+      index: currentIndex + 1,
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    };
   }
 
   function openBurger(event?: boolean) {
@@ -103,7 +107,7 @@
   });
 
   window.addEventListener("popstate", (event) => {
-    if(event.isTrusted && !navigateBackByScript && isOpen()) {
+    if (event.isTrusted && !navigateBackByScript && isOpen()) {
       closeBurger(true);
     }
     navigateBackByScript = false;
