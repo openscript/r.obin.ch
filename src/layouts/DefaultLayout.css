@@ -256,6 +256,10 @@ code, kbd {
   padding: 0.15rem;
 }
 
+p code {
+  word-wrap: break-word;
+}
+
 pre code {
   padding: 0;
 }
