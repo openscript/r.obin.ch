@@ -4,17 +4,50 @@ title: Webseite
 layout: ../../../layouts/pages/PageWithAside.astro
 ---
 
-
-import License from '../../../../LICENSE?raw';
-import Changelog from '../../../../CHANGELOG.md';
+import CodeLicense from '../../../../LICENSE?raw';
+import ContentLicense from '../../LICENSE?raw';
+import Foldable from '../../../components/Foldable.astro';
 import { Code } from 'astro:components';
 
-Hier sind die Informationen zur Webseite zu finden.
+Hier sind die Informationen über diese Webseite zu finden. Unter anderem geht es darum, welche Ziele ich mit dieser Webseite verfolge.
 
-## Lizenz
+## Ziele
 
-<Code code={License} lang="plaintext" theme="github-light" />
+Bei der Umsetzung dieser Webseite habe ich mir folgende Ziele gesetzt:
+
+- **Small Web**: Mit dieser Webseite möchte ich einen Beitrag zum Small Web leisten. Der Begriff "Small Web" steht typischerweise für kleine, nicht-kommerzielle Webseiten, die von Einzelpersonen betrieben werden. Es geht auch darum Wissen und Kreativität zu teilen, ohne dabei auf Werbung oder Tracking zu setzen. [^1] [^2]
+- **Handgemacht**: Der Inhalt dieser Webseite wird von Hand erstellt. Das bedeutet, dass ich auf die Unterstützung künstlicher Intelligenz verzichte und es sich um Eigenkreationen handelt.
+- **Persönlich**: Die Inhalte widerspiegeln meine Persönlichkeit und Interessen. Es geht darum, meine Gedanken und Ideen zu teilen und mit anderen zu diskutieren.
+
+## Technologien
+
+Der Quellcode der Webseite ist [hier auf Github](https://github.com/openscript/r.obin.ch) zu finden.
+
+Diese Webseite wird mit den folgenden Technologien und Tools erstellt:
+
+- [Astro](https://astro.build)
+- [FontSource](https://fontsource.org)
+- [PageFind](https://pagefind.app)
+
+## Lizenzen
+
+Der Code dieser Webseite ist unter der BSD Zero Clause License lizenziert.
+
+<Foldable>
+  <span slot="title">See code license</span>
+  <Code code={CodeLicense} lang="plaintext" theme="github-light" />
+</Foldable>
+
+Der Inhalt (Texte, Bilder, Videos, ..) dieser Webseite ist unter der Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License lizenziert.
+
+<Foldable>
+  <span slot="title">See content license</span>
+  <Code code={ContentLicense} lang="plaintext" theme="github-light" />
+</Foldable>
 
 ## Änderungsverlauf
 
-<Changelog />
+Der Änderungsverlauf kann [hier](https://github.com/openscript/r.obin.ch/blob/master/CHANGELOG.md) angesehen werden.
+
+[^1]: ["What is the Small Web?" von Aral Balkan](https://ar.al/2020/08/07/what-is-the-small-web/)
+[^2]: ["The small web is beautiful" von Ben Hoyt](https://small-tech.org/research-and-development/small-web/manifesto/)

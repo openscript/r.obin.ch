@@ -8,6 +8,10 @@
   --primary-color-130: hsl(from var(--primary-color) h s calc(l * 1.3));
   --primary-color-140: hsl(from var(--primary-color) h s calc(l * 1.4));
   --secondary-color: #eb6841;
+  --secondary-color-80: hsl(from var(--secondary-color) h s calc(l * 0.8));
+  --secondary-color-120: hsl(from var(--secondary-color) h s calc(l * 1.2));
+  --secondary-color-130: hsl(from var(--secondary-color) h s calc(l * 1.3));
+  --secondary-color-140: hsl(from var(--secondary-color) h s calc(l * 1.4));
   --font-headings: "Rajdhani", sans-serif;
   --font-paragraph: "Poppins", "Roboto", sans-serif;
   --font-listings: "IBM Plex Mono", monospace;

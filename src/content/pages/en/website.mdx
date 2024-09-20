@@ -1,19 +1,53 @@
 ---
 path: website
 title: Website
-layout: ../../../layouts/pages/Page.astro
+layout: ../../../layouts/pages/PageWithAside.astro
 ---
 
-import License from '../../../../LICENSE?raw';
-import Changelog from '../../../../CHANGELOG.md';
+import CodeLicense from '../../../../LICENSE?raw';
+import ContentLicense from '../../LICENSE?raw';
+import Foldable from '../../../components/Foldable.astro';
 import { Code } from 'astro:components';
 
-Here you can find information about this website.
+Here you can find information about this website. Among other things, it explains the goals I am pursuing with this website.
 
-## License
+## Goals
 
-<Code code={License} lang="plaintext" theme="github-light" />
+I have set the following goals for the realisation of this website:
+
+- **Small Web**: With this website I would like to contribute to the small web. The term "small web" typically stands for small, non-commercial websites run by individuals. It is also about sharing knowledge and creativity without relying on advertising or tracking. [^1] [^2]
+- **Handmade**: The content of this website is handmade. This means that I do not use artificial intelligence and the content is my own creation.
+- **Personal**: The content reflects my personality and interests. It's about sharing my thoughts and ideas and discussing them with others.
+
+## Technologies
+
+The source code of the website can be found [here on Github](https://github.com/openscript/r.obin.ch).
+
+This website is built with the following technologies and tools:
+
+- [Astro](https://astro.build)
+- [FontSource](https://fontsource.org)
+- [PageFind](https://pagefind.app)
+
+## Licenses
+
+The code of this website is licensed under the BSD Zero Clause License.
+
+<Foldable>
+  <span slot="title">See code license</span>
+  <Code code={CodeLicense} lang="plaintext" theme="github-light" />
+</Foldable>
+
+The content (texts, images, videos, ...) of this website is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+
+<Foldable>
+  <span slot="title">See content license</span>
+  <Code code={ContentLicense} lang="plaintext" theme="github-light" />
+</Foldable>
 
 ## Changelog
 
-<Changelog />
+See the changelog [here](https://github.com/openscript/r.obin.ch/blob/master/CHANGELOG.md).
+
+[^1]: ["What is the Small Web?" von Aral Balkan](https://ar.al/2020/08/07/what-is-the-small-web/)
+[^2]: ["The small web is beautiful" von Ben Hoyt](https://small-tech.org/research-and-development/small-web/manifesto/)
