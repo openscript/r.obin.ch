@@ -7,7 +7,7 @@ on:
     - cron: "0 18 * * *"
 
 jobs:
-  linkChecker:
+  check_links:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
