@@ -67,8 +67,6 @@ header {
   grid-template-columns: min-content 1fr min-content;
   grid-template-areas: "brand search menu";
   align-items: center;
-  padding-top: 2.2rem;
-  padding-bottom: 2.2rem;
   font-size: 2.2rem;
   gap: 4rem;
   padding-top: 2rem;
@@ -153,6 +151,26 @@ header .search input::placeholder {
 header .search input:focus {
   border-color: var(--white-color);
   outline: none;
+}
+
+.search-active header {
+  grid-template-areas: "search search search";
+}
+
+.search-active header > a {
+  display: none;
+}
+
+.search-active header button.burger-button {
+  display: none;
+}
+
+.search-active header nav {
+  display: none;
+}
+
+.burger-active header .search {
+  display: none;
 }
 
 main {

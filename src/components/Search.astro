@@ -54,6 +54,14 @@ const bundle = `/pagefind/pagefind.js`;
     searchInput.addEventListener("input", async () => {
       search(searchInput.value);
     });
+
+    searchWrapper.addEventListener("focusin", () => {
+      document.body.classList.add("search-active");
+    });
+
+    searchWrapper.addEventListener("focusout", () => {
+      document.body.classList.remove("search-active");
+    });
   }
 
   document.addEventListener("astro:page-load", initialize);
