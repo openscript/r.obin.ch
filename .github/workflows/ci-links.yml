@@ -18,10 +18,45 @@ jobs:
         with:
           args: --base . --verbose --no-progress './**/*.md' './**/*.mdx' './**/*.html' './**/*.rst'
 
+      - name: Find or Create Issue
+        id: issue_finder
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['report', 'automated issue'],
+            });
+
+            // Find an issue with the title "Link Checker Report"
+            let issue = issues.find(i => i.title === 'Link Checker Report');
+
+            if (!issue) {
+              // If no such issue exists, create a new one
+              const { data: newIssue } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Link Checker Report',
+                body: 'This issue tracks the broken links found by the link checker.',
+                labels: ['report', 'automated issue'],
+              });
+              issue = newIssue;
+              console.log(`Created issue #${newIssue.number}`);
+            } else {
+              console.log(`Found existing issue #${issue.number}`);
+            }
+
+            // Output the issue number to pass to the next steps
+            return { issue_number: issue.number };
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Issue From File
         if: env.lychee_exit_code != 0
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: Link Checker Report
+          issue-number: ${{ steps.issue_finder.outputs.issue_number }}
           content-filepath: ./lychee/out.md
-          labels: report, automated issue
