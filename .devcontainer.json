@@ -17,5 +17,6 @@
         "github.vscode-github-actions"
       ]
     }
-  }
+  },
+	"postCreateCommand": "npm install -g pnpm@9.11.0"
 }
