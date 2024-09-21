@@ -1,5 +1,13 @@
 # r.obin.ch
 
+## 0.2.16
+
+### Patch Changes
+
+- a107490: Enable nightly content updates
+- 53affeb: Enhance search
+- e7d9444: Enhance blog entries retrival
+
 ## 0.2.15
 
 ### Patch Changes
