@@ -21,10 +21,12 @@ jobs:
             });
             const releaseTag = latestRelease.data.tag_name;
             core.setOutput('release_tag', releaseTag);
+    outputs:
+      ref: "tags/${{ steps.get_latest_release.outputs.release_tag }}"
 
   deploy-to-static-file-host:
     name: Deploy to Static File Host
     needs: fetch-latest-release
     uses: ./.github/workflows/cd-deploy.yml
     with:
-      ref: "tags/${{ needs.get_latest_release.outputs.release_tag }}"
+      ref: ${{ needs.fetch-latest-release.outputs.ref }}
