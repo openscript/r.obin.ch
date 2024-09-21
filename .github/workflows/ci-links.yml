@@ -6,17 +6,52 @@ on:
   schedule:
     - cron: "0 18 * * *"
 
+env:
+  BUILD_PATH: "."
+
 jobs:
   check_links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Build with Astro
+        run: pnpm build --site "http://localhost:4321"
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Start Astro Preview in the background
+        run:  |
+          pnpm preview &
+          echo $! > astro-preview.pid
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Wait for Astro to be ready
+        run: |
+          timeout 15 sh -c 'until curl -s http://localhost:4321 > /dev/null; do sleep 1; done'
 
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --base . --verbose --no-progress './**/*.md' './**/*.mdx' './**/*.html' './**/*.rst'
+          args: --base ${{ env.BUILD_PATH }}/dist --verbose --no-progress --remap 'file:///home/runner/work/r.obin.ch/r.obin.ch/dist http://localhost:4321' './**/*.html'
+
+      - name: Stop Astro Preview
+        run: kill $(cat astro-preview.pid)
 
       - name: Find or Create Issue
         id: issue_finder
@@ -39,13 +74,21 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 title: 'Link Checker Report',
-                body: 'This issue tracks the broken links found by the link checker.',
+                body: 'There are no broken links in the site or action did not run successfully.',
                 labels: ['report', 'automated issue'],
               });
               issue = newIssue;
               console.log(`Created issue #${newIssue.number}`);
             } else {
-              console.log(`Found existing issue #${issue.number}`);
+              // If an issue with the title "Link Checker Report" already exists, update its body
+              const { data: updatedIssue } = await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: 'There are no broken links in the site or action did not run successfully.',
+              });
+              issue = updatedIssue;
+              console.log(`Updated issue #${issue.number}`);
             }
 
             // Output the issue number to pass to the next steps
