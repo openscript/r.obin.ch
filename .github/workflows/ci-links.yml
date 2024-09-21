@@ -49,7 +49,7 @@ jobs:
             }
 
             // Output the issue number to pass to the next steps
-            return { issue_number: issue.number };
+            core.setOutput('issue_number', issue.number);
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
