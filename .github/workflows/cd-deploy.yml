@@ -39,7 +39,8 @@ jobs:
 
       - name: Copy content from master
         run: |
-          cp -r master-content/src/content ${{ env.BUILD_PATH }}/src/content
+          rm -rf ${{ env.BUILD_PATH }}/src/content
+          cp -r master-content/src/content/ ${{ env.BUILD_PATH }}/src/
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
