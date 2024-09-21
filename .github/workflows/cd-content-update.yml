@@ -10,15 +10,21 @@ jobs:
     name: Fetch Latest Release
     runs-on: ubuntu-latest
     steps:
-      - name: Get Latest Release Tag
-        id: latest_release
-        run: |
-          latest_release=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
-          echo "::set-output name=tag::$latest_release"
+      - name: Get the latest release tag
+        id: get_latest_release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const latestRelease = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            const releaseTag = latestRelease.data.tag_name;
+            core.setOutput('release_tag', releaseTag);
 
   deploy-to-static-file-host:
     name: Deploy to Static File Host
     needs: fetch-latest-release
     uses: ./.github/workflows/cd-deploy.yml
     with:
-      ref: ${{ needs.fetch-latest-release.outputs.tag }}
+      ref: "tags/${{ needs.get_latest_release.outputs.release_tag }}"
