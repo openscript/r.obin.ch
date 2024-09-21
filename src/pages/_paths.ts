@@ -9,6 +9,7 @@ import {
 } from "astro:content";
 import { getCollectionSlug, getEntrySlug, getLocaleSlug } from "../utils/slugs";
 import slug from "limax";
+import { defaultBlogCollection } from '../collections/blog';
 
 export const rssXmlPaths = (async () => {
   const versions = [undefined, ...localeSlugs];
@@ -101,9 +102,7 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
 };
 
 export const blogPagePaths = (async ({ paginate }) => {
-  const pages = (
-    await getCollection("blog", (entry) => !entry.data.draft)
-  ).reverse();
+  const pages = defaultBlogCollection;
   const groupedPageSlug = pages.reduce<
     Record<string, CollectionEntry<"blog">[]>
   >((acc, page) => {

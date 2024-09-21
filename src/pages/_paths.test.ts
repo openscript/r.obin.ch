@@ -36,26 +36,28 @@ vi.mock("../configuration", () => ({
   localeSlugs: ["en", "de"],
 }));
 
-const blogCollectionMock = Array.from({ length: 50 }).flatMap((_, i) => [
-  {
-    id: `en/2020/09/${(i % 27) + 1}/test-article.md`,
-    slug: `en/2020/09/${(i % 27) + 1}/test-article`,
-    collection: "blog",
-    data: {
-      title: `Test Article ${i + 1}`,
-      tags: ["tag1", "tag2"],
+const { blogCollectionMock } = vi.hoisted(() => ({
+  blogCollectionMock: Array.from({ length: 50 }).flatMap((_, i) => [
+    {
+      id: `en/2020/09/${(i % 27) + 1}/test-article.md`,
+      slug: `en/2020/09/${(i % 27) + 1}/test-article`,
+      collection: "blog",
+      data: {
+        title: `Test Article ${i + 1}`,
+        tags: ["tag1", "tag2"],
+      },
     },
-  },
-  {
-    id: `de/2020/09/${(i % 27) + 1}/test-article.md`,
-    slug: `de/2020/09/${(i % 27) + 1}/test-article`,
-    collection: "blog",
-    data: {
-      title: `Test Article ${i + 1}`,
-      tags: ["tag1", "tag2"],
+    {
+      id: `de/2020/09/${(i % 27) + 1}/test-article.md`,
+      slug: `de/2020/09/${(i % 27) + 1}/test-article`,
+      collection: "blog",
+      data: {
+        title: `Test Article ${i + 1}`,
+        tags: ["tag1", "tag2"],
+      },
     },
-  },
-]);
+  ])
+}));
 
 const collectionMock = {
   blog: blogCollectionMock,
@@ -178,6 +180,10 @@ vi.mock("astro:content", () => ({
   getCollection: async (mock: keyof typeof collectionMock) => {
     return collectionMock[mock];
   },
+}));
+
+vi.mock("../collections/blog", () => ({
+  defaultBlogCollection: blogCollectionMock,
 }));
 
 describe("paths", () => {
