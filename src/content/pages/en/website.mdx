@@ -7,6 +7,7 @@ layout: ../../../layouts/pages/PageWithAside.astro
 import CodeLicense from "../../../../LICENSE?raw";
 import ContentLicense from "../../LICENSE?raw";
 import Foldable from "../../../components/Foldable.astro";
+import DateTime from "../../../components/DateTime.astro";
 import { Code } from "astro:components";
 
 Here you can find information about this website. Among other things, it explains the goals I am pursuing with this website.
@@ -46,6 +47,8 @@ The content (texts, images, videos, ...) of this website is licensed under the C
 </Foldable>
 
 ## Changelog
+
+The last update was build at <DateTime date={new Date()} />.
 
 See the changelog [here](https://github.com/openscript/r.obin.ch/blob/master/CHANGELOG.md).
 
