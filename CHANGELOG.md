@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.17
+
+### Patch Changes
+
+- 6f829cd: Adjust default blog collection
+
 ## 0.2.16
 
 ### Patch Changes
