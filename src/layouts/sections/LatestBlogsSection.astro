@@ -1,9 +1,9 @@
 ---
 import type { Locale } from "../../configuration";
 import { useTranslations } from "../../utils/i18n";
-import { getCollection } from "astro:content";
 import PostCard from "../../components/PostCard.astro";
 import CardList from "../../components/CardList.astro";
+import { defaultBlogCollection } from '../../collections/blog';
 
 type Props = {
   locale: Locale;
@@ -12,9 +12,7 @@ type Props = {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
-const posts = (await getCollection("blog", (e) => !e.data.draft))
-  .reverse()
-  .slice(0, 4);
+const posts = defaultBlogCollection.slice(0, 4);
 ---
 
 <style>

@@ -1,9 +1,8 @@
 ---
 title: Gems of September 24"
-publishedAt: 2024-09-10T18:20:18.708Z
+publishedAt: 2024-09-30T20:00:00.000Z
 tags:
   - Gems of the Month
-draft: true
 ---
 
 This article is a collection of gems I encountered during September 24". Hopefully a series or habit will develop out of this.
