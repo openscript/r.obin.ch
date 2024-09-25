@@ -39,6 +39,28 @@ Gnome Online Accounts are integrated into Evolution. Evolution displays this acc
 
 By default the package manager (or short pacman) downloads the packages sequentially. This can be changed in its config file, which resides at `/etc/pacman.conf`. Change or uncomment to `ParallelDownloads = 5`.
 
+### `cryptomator` from AUR doesn't update
+
+Sometimes I'm faced with the following error, when updating `cryptomator` from AUR:
+
+```txt
+==> Making package: cryptomator 1.14.0-1 (Mi 25 Sep 2024 08:34:34)
+==> Retrieving sources...
+  -> Found cryptomator-1.14.0.tar.gz
+  -> Found cryptomator-1.14.0.tar.gz.asc
+  -> Found jdk.tar.gz
+  -> Found openjfx.zip
+==> Validating source files with sha256sums...
+    cryptomator-1.14.0.tar.gz ... Passed
+    cryptomator-1.14.0.tar.gz.asc ... Skipped
+==> Validating source_x86_64 files with sha256sums...
+    jdk.tar.gz ... FAILED
+    openjfx.zip ... FAILED
+==> ERROR: One or more files did not pass the validity check!
+```
+
+The problem is, that there is already a `jdk.tar.gz` and `openjfx.zip` in Parus cache. `cryptomator` expect them to be another newer version than the one in the cache, so they don't match the expected checksum. You can manually delete them in `/home/user/.cache/paru/clone/cryptomator` or clear Parus cache with `paru -Scc`. After cleaning this up `cryptomator` should update normally.
+
 ## Tools
 
 ### Visual Studio Code: Better Git Line Blame
