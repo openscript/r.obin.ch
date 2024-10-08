@@ -46,7 +46,7 @@ jobs:
 
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1
+        uses: lycheeverse/lychee-action@v2
         with:
           args: --base ${{ env.BUILD_PATH }}/dist --verbose --no-progress --remap 'file:///home/runner/work/r.obin.ch/r.obin.ch/dist http://localhost:4321' './**/*.html'
 
