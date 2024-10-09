@@ -6,7 +6,6 @@
   section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50%;
     grid-template-areas: "title spotlight" "content spotlight";
     min-height: 5rem;
     gap: 1rem;
@@ -29,8 +28,6 @@
 
   @media (max-width: 1280px) {
     section {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
       grid-template-areas: "title" "content";
     }
 

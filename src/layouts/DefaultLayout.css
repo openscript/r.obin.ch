@@ -1,3 +1,9 @@
+html {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  background-color: var(--primary-color);
+}
+
 body {
   display: flex;
   flex-direction: column;
