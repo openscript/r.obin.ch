@@ -349,3 +349,9 @@ kbd:hover {
     column-gap: 1.5rem;
   }
 }
+
+@media print {
+  aside, #topbar, header .search, header nav, footer, body > svg, #remark42 {
+    display: none !important;
+  }
+}
