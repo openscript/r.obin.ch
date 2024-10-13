@@ -34,6 +34,7 @@ export const C = {
       notesTitle: "Notizen",
       notesSlug: "notizen",
       tagSlug: "kategorie",
+      gallerySlug: "galerie",
     },
     en: {
       language: "English",
@@ -64,6 +65,7 @@ export const C = {
       notesTitle: "Notes",
       notesSlug: "notes",
       tagSlug: "tag",
+      gallerySlug: "gallery",
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

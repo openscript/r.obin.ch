@@ -3,8 +3,8 @@ de:
     title: Blog
   - path: /de/notizen
     title: Notizen
-  - path: /de/medien
-    title: Medien
+  - path: /de/galerie
+    title: Galerie
   - path: /de/projekte
     title: Projekte
   - path: pages://de/about-me
@@ -14,8 +14,8 @@ en:
     title: Blog
   - path: /notes
     title: Notes
-  - path: /medias
-    title: Medias
+  - path: /gallery
+    title: Gallery
   - path: /projects
     title: Projects
   - path: pages://en/about-me
