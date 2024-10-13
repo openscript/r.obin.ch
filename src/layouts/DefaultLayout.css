@@ -199,7 +199,7 @@ main :is(h1, h2, h3, h4, h5, h6) a {
   text-decoration: none;
 }
 
-main :is(img, video) {
+main :is(img, video, svg) {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius);

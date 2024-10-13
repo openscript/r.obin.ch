@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { getContentEntryPath } from "../utils/i18n";
 import { Image } from "astro:assets";
 import DateTime from "./DateTime.astro";
+import DerivedCover from "./DerivedCover.astro";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -13,7 +14,7 @@ const { remarkPluginFrontmatter } = await post.render();
 ---
 
 <style>
-  img {
+  img, svg {
     width: 100%;
     height: 20rem;
     object-fit: cover;
@@ -41,7 +42,7 @@ const { remarkPluginFrontmatter } = await post.render();
           alt={post.data.cover.alt || post.data.title}
           widths={[720]}
         />
-      ) : null
+      ) : <DerivedCover value={post.id} />
     }
     <div>
       <div>

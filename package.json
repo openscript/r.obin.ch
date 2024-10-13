@@ -34,7 +34,7 @@
     "@fontsource/ibm-plex-mono": "^5.1.0",
     "@fontsource/poppins": "^5.1.0",
     "@fontsource/rajdhani": "^5.1.0",
-    "astro": "^4.16.1",
+    "astro": "^4.16.2",
     "favicons": "^7.2.0",
     "limax": "^4.1.0",
     "pagefind": "^1.1.1",
