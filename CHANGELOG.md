@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.18
+
+### Patch Changes
+
+- 567befc: Add derived cover
+
 ## 0.2.17
 
 ### Patch Changes
