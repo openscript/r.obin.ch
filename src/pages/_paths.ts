@@ -38,9 +38,9 @@ export const indexPaths = (kind?: string) => {
       };
       return kind
         ? {
-            ...path,
-            params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
-          }
+          ...path,
+          params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
+        }
         : path;
     });
   }) satisfies GetStaticPaths;
@@ -158,7 +158,7 @@ export const blogPagePaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 export const blogTagPagePaths = (async ({ paginate }) => {
-  const pages = (await getCollection("blog")).reverse();
+  const pages = defaultBlogCollection;
   const groupedPages = pages.reduce<Record<string, CollectionEntry<"blog">[]>>(
     (acc, page) => {
       page.data.tags.forEach((tag) => {
