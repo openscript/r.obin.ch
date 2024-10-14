@@ -2,12 +2,12 @@ name: Content Update
 
 on:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: "0 23 * * *"
   push:
     branches:
       - master
     paths:
-      - 'src/content/**' # Triggers only when files in /src/content change
+      - "src/content/**" # Triggers only when files in /src/content change
   workflow_dispatch:
 
 jobs:

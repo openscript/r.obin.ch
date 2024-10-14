@@ -1,0 +1,24 @@
+---
+import type { NestedNotes } from '../collections/notes';
+import { getContentEntryPath } from "../utils/i18n";
+
+type Props = {
+  notes: NestedNotes;
+};
+const { notes } = Astro.props;
+---
+
+<ul>
+  {await Object.entries(notes).map(async ([key, value]) => (
+    <li>
+      {'note' in value ? (
+        <a href={await getContentEntryPath("notes", (value.note as any).slug)}>
+          {(value.note as any).data.title}
+        </a>
+      ) : (
+        <span>{key}</span>
+        <Astro.self notes={value} />
+      )}
+    </li>
+  ))}
+</ul>

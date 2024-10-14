@@ -1,19 +1,18 @@
 ---
-import type { InferGetStaticPropsType } from 'astro';
-import DefaultLayout from '../../../layouts/DefaultLayout.astro';
-import { useTranslations } from '../../../utils/i18n';
-import { indexPaths } from '../../_paths';
-import Page from '../../../layouts/pages/Page.astro';
+import type { InferGetStaticPropsType } from "astro";
+import DefaultLayout from "../../../layouts/DefaultLayout.astro";
+import { useTranslations } from "../../../utils/i18n";
+import { indexPaths } from "../../_paths";
+import Page from "../../../layouts/pages/Page.astro";
 
-export const getStaticPaths = indexPaths('gallery');
+export const getStaticPaths = indexPaths("gallery");
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations, locale } = Astro.props as Props;
 const t = useTranslations(locale);
-
 ---
 
 <DefaultLayout translations={translations}>
   <Page>
     <h1>{t("galleryTitle")}</h1>
-  </SinglePaneContent>
+  </Page>
 </DefaultLayout>

@@ -35,7 +35,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
 
       - name: Start Astro Preview in the background
-        run:  |
+        run: |
           pnpm preview &
           echo $! > astro-preview.pid
         working-directory: ${{ env.BUILD_PATH }}

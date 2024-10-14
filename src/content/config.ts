@@ -35,20 +35,21 @@ const notesCollection = defineCollection({
   }),
 });
 const galleryCollection = defineCollection({
-  type: 'data',
-  schema: ({ image }) => z.object({
-    title: localized(z.string()),
-    cover: image(),
-    images: z.array(
-      z.object({
-        src: image().refine((img) => img.width >= 800, {
-          message: "Image must be at least 800 pixels wide!",
+  type: "data",
+  schema: ({ image }) =>
+    z.object({
+      title: localized(z.string()),
+      cover: image(),
+      images: z.array(
+        z.object({
+          src: image().refine((img) => img.width >= 800, {
+            message: "Image must be at least 800 pixels wide!",
+          }),
+          title: localized(z.string().optional()),
+          description: localized(z.string().optional()),
         }),
-        title: localized(z.string().optional()),
-        description: localized(z.string().optional()),
-      })
-    ),
-  }),
+      ),
+    }),
 });
 const pagesCollection = defineCollection({
   schema: z.object({

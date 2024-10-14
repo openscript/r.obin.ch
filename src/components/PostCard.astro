@@ -14,7 +14,8 @@ const { remarkPluginFrontmatter } = await post.render();
 ---
 
 <style>
-  img, svg {
+  img,
+  svg {
     width: 100%;
     height: 20rem;
     object-fit: cover;
@@ -42,7 +43,9 @@ const { remarkPluginFrontmatter } = await post.render();
           alt={post.data.cover.alt || post.data.title}
           widths={[720]}
         />
-      ) : <DerivedCover value={post.id} />
+      ) : (
+        <DerivedCover value={post.id} />
+      )
     }
     <div>
       <div>

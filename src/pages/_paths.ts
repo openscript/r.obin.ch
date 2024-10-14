@@ -9,7 +9,7 @@ import {
 } from "astro:content";
 import { getCollectionSlug, getEntrySlug, getLocaleSlug } from "../utils/slugs";
 import slug from "limax";
-import { defaultBlogCollection } from '../collections/blog';
+import { defaultBlogCollection } from "../collections/blog";
 
 export const rssXmlPaths = (async () => {
   const versions = [undefined, ...localeSlugs];
@@ -38,9 +38,9 @@ export const indexPaths = (kind?: string) => {
       };
       return kind
         ? {
-          ...path,
-          params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
-        }
+            ...path,
+            params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
+          }
         : path;
     });
   }) satisfies GetStaticPaths;

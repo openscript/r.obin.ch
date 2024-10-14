@@ -56,7 +56,7 @@ const { blogCollectionMock } = vi.hoisted(() => ({
         tags: ["tag1", "tag2"],
       },
     },
-  ])
+  ]),
 }));
 
 const collectionMock = {

@@ -60,4 +60,3 @@ After installing CEF, the SSO should open and you can log in with your personal 
 ![Pulse Secure UI](./vpn-sso.png)
 
 After successful login you should be connected to the VPN.
-

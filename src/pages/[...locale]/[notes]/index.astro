@@ -6,16 +6,18 @@ import {
   getLocaleFromUrl,
   useTranslations,
 } from "../../../utils/i18n";
-import { getCollection } from "astro:content";
 import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
+import { nestedNotesCollection } from "../../../collections/notes";
+import NotesList from "../../../components/NotesList.astro";
 
 export const getStaticPaths = indexPaths("notes");
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations } = Astro.props as Props;
-const notes = await getCollection("notes");
+const notes = nestedNotesCollection;
+console.log(notes);
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
@@ -24,22 +26,6 @@ const t = useTranslations(locale);
   <Meta slot="meta" title={t("notesTitle")} />
   <Page>
     <h1>{t("notesTitle")}</h1>
-    <ul>
-      {
-        notes
-          .map(async (note) => {
-            const p = note.data;
-            if (!p) return undefined;
-            return (
-              <li>
-                <a href={await getContentEntryPath("notes", note.slug)}>
-                  {p.title}
-                </a>
-              </li>
-            );
-          })
-          .filter(Boolean)
-      }
-    </ul>
+    <NotesList notes={notes} />
   </Page>
 </DefaultLayout>
