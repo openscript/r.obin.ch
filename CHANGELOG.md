@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.19
+
+### Patch Changes
+
+- 994a7ea: Fix navigation and intro section responsive layout
+
 ## 0.2.18
 
 ### Patch Changes
