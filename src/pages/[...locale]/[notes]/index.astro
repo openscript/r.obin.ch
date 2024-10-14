@@ -2,7 +2,6 @@
 import type { InferGetStaticPropsType } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import {
-  getContentEntryPath,
   getLocaleFromUrl,
   useTranslations,
 } from "../../../utils/i18n";
@@ -17,7 +16,6 @@ export const getStaticPaths = indexPaths("notes");
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations } = Astro.props as Props;
 const notes = nestedNotesCollection;
-console.log(notes);
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---

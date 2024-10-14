@@ -9,7 +9,7 @@ const { notes } = Astro.props;
 ---
 
 <ul>
-  {await Object.entries(notes).map(async ([key, value]) => (
+  {Object.entries(notes).map(async ([key, value]) => (
     <li>
       {'note' in value ? (
         <a href={await getContentEntryPath("notes", (value.note as any).slug)}>
