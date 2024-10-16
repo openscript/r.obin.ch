@@ -1,0 +1,51 @@
+---
+title: Proxy
+---
+
+In contrast to virtual private networks proxies act an intermediary between your device and another network or the internet. Sometimes cooperations enforce to use proxies to access the internet.
+
+## Configuration
+
+Usually proxies are configured and act on the application layer. Thus it can be fiddely to set them up uniformly for all network traffic coming out of a device.
+
+### Linux
+
+On Linux most of the applications apply proxies they find in environment variables such as `http_proxy` or `socks_proxy`.
+
+#### sudo
+
+/etc/sudoers:
+
+```txt
+Defaults env_keep += "ftp_proxy http_proxy https_proxy no_proxy"
+```
+
+#### docker
+
+/etc/docker/daemon.json:
+
+
+```json
+{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:1080",
+    "https-proxy": "http://127.0.0.1:1080",
+    "no-proxy": "localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1"
+  }
+}
+```
+
+~/.docker/config.json:
+
+```json
+{
+ "proxies": {
+   "default": {
+     "allProxy": "socks://172.17.0.1:1080",
+     "httpProxy": "http://172.17.0.1:1080",
+     "httpsProxy": "http://172.17.0.1:1080",
+     "noProxy": "localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1"
+   }
+ }
+}
+```
