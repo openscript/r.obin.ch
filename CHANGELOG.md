@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.2.20
+
+### Patch Changes
+
+- 1ae2192: Upgrade dependencies
+
 ## 0.2.19
 
 ### Patch Changes
