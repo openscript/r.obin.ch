@@ -1,22 +1,29 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import type { NestedNotes } from '../collections/notes';
 import { getContentEntryPath } from "../utils/i18n";
 
 type Props = {
   notes: NestedNotes;
 };
+
+function hasNote(value: any): value is { note: CollectionEntry<"notes"> } {
+  return 'note' in value && value.note !== undefined;
+}
+
+
 const { notes } = Astro.props;
 ---
 
 <ul>
   {Object.entries(notes).map(async ([key, value]) => (
     <li>
-      {'note' in value ? (
-        <a href={await getContentEntryPath("notes", (value.note as any).slug)}>
-          {(value.note as any).data.title}
+      {hasNote(value) ? (
+        <a href={await getContentEntryPath("notes", value.note.slug)}>
+          {value.note.data.title}
         </a>
       ) : (
-        <span>{key}</span>
+        <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
         <Astro.self notes={value} />
       )}
     </li>
