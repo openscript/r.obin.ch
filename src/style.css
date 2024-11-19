@@ -124,6 +124,7 @@ h6,
 }
 
 code,
-kbd {
+kbd,
+li::marker {
   font-family: var(--font-listings);
 }

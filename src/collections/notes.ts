@@ -6,7 +6,8 @@ export type NestedNotes = {
   [key: string]: NestedNotes | { note: CollectionEntry<'notes'> } | {};
 }
 
-export const nestedNotesCollection = defaultNotesCollection.reduce((acc, note) => {
+export const nestedNotesCollection = await defaultNotesCollection.reduce(async (accPromise, note) => {
+  const acc = await accPromise;
   const path = note.id.split("/").filter(Boolean);
   let current = acc;
   for (let part of path) {
@@ -16,4 +17,4 @@ export const nestedNotesCollection = defaultNotesCollection.reduce((acc, note) =
   }
   current.note = note;
   return acc;
-}, {} as NestedNotes);
+}, Promise.resolve({} as NestedNotes));

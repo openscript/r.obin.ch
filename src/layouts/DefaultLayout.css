@@ -307,6 +307,11 @@ kbd:hover {
   top: 1px;
 }
 
+main li {
+  list-style-type: ">";
+  padding-inline-start: 1ch;
+}
+
 .label {
   font-family: var(--font-headings);
   font-size: 1.3rem;

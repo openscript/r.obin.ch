@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getContentEntryPath } from "../utils/i18n";
+import type { GitInfoFrontmatter } from "../remark/remark-git-info";
+import DateTime from "./DateTime.astro";
+
+type Props = {
+  note: CollectionEntry<"notes">;
+};
+
+const { note } = Astro.props;
+const { remarkPluginFrontmatter } = await note.render();
+const gitInfo: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
+---
+
+<a href={await getContentEntryPath("notes", note.slug)}>
+  <span class="note-title">{note.data.title}</span>
+  {
+    gitInfo.lastCommit && (
+      <span class="note-modified">
+        <DateTime date={new Date(gitInfo.lastCommit?.date)} dateStyle="short" />
+      </span>
+    )
+  }
+</a>

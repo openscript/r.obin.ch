@@ -3,12 +3,19 @@ import { getLocaleFromUrl } from "../utils/i18n";
 
 type Props = {
   date: Date;
+  dateStyle?: Intl.DateTimeFormatOptions["dateStyle"];
+  timeStyle?: Intl.DateTimeFormatOptions["timeStyle"];
 };
 
-const { date } = Astro.props;
+const { date, dateStyle, timeStyle } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <time datetime={date.toISOString()}>
-  {date.toLocaleString(locale, { dateStyle: "long", timeStyle: "short" })}
+  {
+    date.toLocaleString(locale, {
+      dateStyle: dateStyle || "long",
+      timeStyle: timeStyle || "short",
+    })
+  }
 </time>
