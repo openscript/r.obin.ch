@@ -16,25 +16,19 @@ const { notes } = Astro.props;
 
 <style>
 
-ul.note-root {
-  margin: 0;
-  padding: 0;
-  margin-block-end: 1rem;
-}
+  ul.note-root {
+    margin-block-end: 1rem;
+  }
 
-span.note-category {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
+  ul.note-root, ul li {
+    list-style: none;
+    padding: 0;
+  }
 
-ul > li {
-  list-style: none;
-  padding: 0;
-}
-
-ul ul > li {
-  list-style-type: initial;
-}
+  span.note-category {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 
 </style>
 

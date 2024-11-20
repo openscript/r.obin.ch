@@ -308,7 +308,7 @@ kbd:hover {
 }
 
 main li {
-  list-style-type: ">";
+  list-style: ">";
   padding-inline-start: 1ch;
 }
 

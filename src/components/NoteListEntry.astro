@@ -13,6 +13,15 @@ const { remarkPluginFrontmatter } = await note.render();
 const gitInfo: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
 ---
 
+<style>
+  a {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white-color-140);
+    padding: var(--gap-small);
+  }
+</style>
+
 <a href={await getContentEntryPath("notes", note.slug)}>
   <span class="note-title">{note.data.title}</span>
   {
