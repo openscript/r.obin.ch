@@ -1,0 +1,33 @@
+title:
+  en: Structures
+  de: Strukturen
+cover: ./colosseum.jpg
+images:
+  - src: ./colosseum.jpg
+    title:
+      en: Colosseum
+      de: Kolosseum
+    description:
+      en: The Colosseum in Rome, Italy.
+      de: Das Kolosseum in Rom, Italien.
+  - src: ./palace-of-culture-and-science.jpg
+    title:
+      en: Palace of Culture and Science
+      de: Palast der Kultur und Wissenschaft
+    description:
+      en: The Palace of Culture and Science in Warsaw, Poland.
+      de: Der Palast der Kultur und Wissenschaft in Warschau, Polen.
+  - src: ./san-salvatore-melide.jpg
+    title:
+      en: San Salvatore
+      de: San Salvatore
+    description:
+      en: The San Salvatore in Melide, Switzerland.
+      de: Die San Salvatore in Melide, Schweiz.
+  - src: ./view-over-rome.jpg
+    title:
+      en: View over Rome
+      de: Blick über Rom
+    description:
+      en: A view over Rome, Italy.
+      de: Ein Blick über Rom, Italien.

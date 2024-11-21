@@ -1,0 +1,12 @@
+title:
+  en: Nature
+  de: Natur
+cover: ./passo-bornengo.jpg
+images:
+  - src: ./passo-bornengo.jpg
+    title:
+      en: Passo Bornengo
+      de: Passo Bornengo
+    description:
+      en: A beautiful view from Passo Bornengo in the Swiss Alps.
+      de: Ein wunderschöner Blick vom Passo Bornengo in den Schweizeralpen.

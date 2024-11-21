@@ -1,6 +1,8 @@
 import {
   getEntry,
+  type CollectionEntry,
   type ContentEntryMap,
+  type DataEntryMap,
   type ValidContentEntrySlug,
 } from "astro:content";
 import { C, type Locale } from "../configuration";
@@ -86,8 +88,7 @@ export async function getContentEntryPath<
   E extends ValidContentEntrySlug<C> | (string & {}),
 >(collection: C, entrySlug: E) {
   const e = await getEntry(collection, entrySlug);
-  if (!e)
-    throw new Error(`Content entry not found: ${collection}/${entrySlug}`);
+  if (!e) throw new Error(`Content entry not found: ${collection}/${entrySlug}`);
 
   const split = splitLocaleAndPath(e.id);
   if (!split)
@@ -103,7 +104,7 @@ export async function getContentEntryPath<
   return getTranslatedPath(parseLocale(split.locale), collection, pageSlug);
 }
 
-/*
+
 export async function getDataEntryPath<
   C extends keyof DataEntryMap,
   E extends keyof DataEntryMap[C]
@@ -116,14 +117,13 @@ export async function getDataEntryPath<
   if (!e) throw new Error(`Data entry not found: ${collection}/${String(entryId)}`);
 
   let pageSlug = dirname(e.id);
-  if (e.data.title) {
+  if ("title" in e.data) {
     const folders = pageSlug.split('/').slice(1, -1);
     pageSlug = joinPath(...folders, slug(e.data.title[locale] || e.data.title[C.DEFAULT_LOCALE]));
   }
 
   return getTranslatedPath(locale, collection, pageSlug);
 }
-  */
 
 function getTranslatedPath(
   locale: Locale,

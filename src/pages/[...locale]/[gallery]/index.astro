@@ -4,15 +4,26 @@ import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import { useTranslations } from "../../../utils/i18n";
 import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
+import { getCollection } from "astro:content";
+import CardList from "../../../components/CardList.astro";
+import GalleryCard from "../../../components/GalleryCard.astro";
 
 export const getStaticPaths = indexPaths("gallery");
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations, locale } = Astro.props as Props;
+const gallery = await getCollection('gallery');
 const t = useTranslations(locale);
 ---
 
 <DefaultLayout translations={translations}>
   <Page>
     <h1>{t("galleryTitle")}</h1>
+    <CardList>
+      {
+        gallery.map(async (category) => {
+          return <GalleryCard category={category} locale={locale} />;
+        }).filter(Boolean)
+      }
+    </CardList>
   </Page>
 </DefaultLayout>
