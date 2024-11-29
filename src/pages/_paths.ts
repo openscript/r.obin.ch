@@ -38,9 +38,9 @@ export const indexPaths = (kind?: string) => {
       };
       return kind
         ? {
-            ...path,
-            params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
-          }
+          ...path,
+          params: { ...path.params, [kind]: getCollectionSlug(kind, l) },
+        }
         : path;
     });
   }) satisfies GetStaticPaths;
@@ -81,20 +81,19 @@ export const entryPaths = <C extends keyof ContentEntryMap>(
       const localeSlug = getLocaleSlug(locale);
       const pageSlug = getEntrySlug(entry);
 
-      if (slugName && collection !== "pages") {
+      const props = { ...entry, locale, translations };
+      const defaultParams = { locale: localeSlug };
+
+      if (collection !== "pages") {
         const collectionSlug = getCollectionSlug(collection, locale);
-        return {
-          params: {
-            locale: localeSlug,
-            [collection]: collectionSlug,
-            [slugName]: pageSlug,
-          },
-          props: { ...entry, locale, translations },
-        };
+        const params = slugName
+          ? { ...defaultParams, [collection]: collectionSlug, [slugName]: pageSlug }
+          : { ...defaultParams, [collection]: collectionSlug };
+        return {params, props};
       } else {
         return {
-          params: { locale: localeSlug, pages: pageSlug },
-          props: { ...entry, locale, translations },
+          params: { ...defaultParams, pages: pageSlug },
+          props,
         };
       }
     });

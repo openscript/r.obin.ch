@@ -51,6 +51,27 @@ const galleryCollection = defineCollection({
       ),
     }),
 });
+const projectCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      homepage: z.string().url().optional(),
+      source: z.string().url().optional(),
+      cover: image().refine((img) => img.width >= 800, {
+        message: "Cover image must be at least 800 pixels wide!",
+      }).optional(),
+      images: z.array(
+        z.object({
+          src: image().refine((img) => img.width >= 800, {
+            message: "Image must be at least 800 pixels wide!",
+          }),
+          title: z.string().optional(),
+          description: z.string().optional(),
+        }),
+      ).optional(),
+    }),
+});
 const pagesCollection = defineCollection({
   schema: z.object({
     path: z.string(),
@@ -75,6 +96,7 @@ export const collections = {
   blog: blogCollection,
   notes: notesCollection,
   gallery: galleryCollection,
+  projects: projectCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
 };
