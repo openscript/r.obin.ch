@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@9.14.3",
+  "packageManager": "pnpm@9.14.4",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",
@@ -48,11 +48,11 @@
     "@changesets/cli": "^2.27.10",
     "@types/mdast": "^4.0.4",
     "@types/node": "^22.10.1",
-    "@vitest/coverage-v8": "2.1.6",
+    "@vitest/coverage-v8": "2.1.8",
     "prettier": "^3.4.1",
     "prettier-plugin-astro": "^0.14.1",
     "sirv": "^3.0.0",
     "typescript": "^5.7.2",
-    "vitest": "2.1.6"
+    "vitest": "2.1.8"
   }
 }
