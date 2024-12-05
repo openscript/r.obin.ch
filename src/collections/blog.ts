@@ -10,4 +10,4 @@ export const defaultBlogCollection = (
 
     return true;
   })
-).reverse();
+).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());

@@ -13,7 +13,6 @@ import {
   splitLocaleAndPath,
   useTranslations,
 } from "../utils/i18n";
-import { rejects } from "assert";
 
 vi.mock("../configuration", () => ({
   C: {
