@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
-  "exclude": ["src.old", "dist"],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "moduleResolution": "bundler",
     "exactOptionalPropertyTypes": false
