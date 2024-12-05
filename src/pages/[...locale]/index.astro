@@ -11,7 +11,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { translations, locale } = Astro.props as Props;
 const { Content: IntroSection } = await (
-  await getEntry("sections", `${locale}/intro`)
+  await getEntry("sections", `${locale}/intro`)!
 ).render();
 ---
 

@@ -13,6 +13,7 @@ const localized = <T extends z.ZodTypeAny>(schema: T) =>
   );
 
 const blogCollection = defineCollection({
+  type: "content",
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -21,15 +22,14 @@ const blogCollection = defineCollection({
       draft: z.boolean().optional(),
       cover: z
         .object({
-          src: image().refine((img) => img.width >= 800, {
-            message: "Cover image must be at least 800 pixels wide!",
-          }),
+          src: image(),
           alt: z.string().optional(),
         })
         .optional(),
     }),
 });
 const notesCollection = defineCollection({
+  type: "content",
   schema: z.object({
     title: z.string(),
   }),
@@ -42,9 +42,7 @@ const galleryCollection = defineCollection({
       cover: image(),
       images: z.array(
         z.object({
-          src: image().refine((img) => img.width >= 800, {
-            message: "Image must be at least 800 pixels wide!",
-          }),
+          src: image(),
           title: localized(z.string().optional()),
           description: localized(z.string().optional()),
         }),
@@ -52,20 +50,17 @@ const galleryCollection = defineCollection({
     }),
 });
 const projectCollection = defineCollection({
+  type: "content",
   schema: ({ image }) =>
     z.object({
       title: z.string(),
       summary: z.string(),
       homepage: z.string().url().optional(),
       source: z.string().url().optional(),
-      cover: image().refine((img) => img.width >= 800, {
-        message: "Cover image must be at least 800 pixels wide!",
-      }).optional(),
+      cover: image().optional(),
       images: z.array(
         z.object({
-          src: image().refine((img) => img.width >= 800, {
-            message: "Image must be at least 800 pixels wide!",
-          }),
+          src: image(),
           title: z.string().optional(),
           description: z.string().optional(),
         }),
@@ -73,6 +68,7 @@ const projectCollection = defineCollection({
     }),
 });
 const pagesCollection = defineCollection({
+  type: "content",
   schema: z.object({
     path: z.string(),
     title: z.string(),
@@ -91,6 +87,10 @@ const navigationCollection = defineCollection({
       ),
     ),
 });
+const sectionsCollection = defineCollection({
+  type: "content",
+  schema: z.object({}),
+})
 
 export const collections = {
   blog: blogCollection,
@@ -99,4 +99,5 @@ export const collections = {
   projects: projectCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
+  sections: sectionsCollection,
 };

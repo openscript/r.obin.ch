@@ -5,7 +5,7 @@ import Navigation from "../../components/Navigation.astro";
 import { version } from "../../../package.json";
 
 const locale = getLocaleFromUrl(Astro.url);
-const navigation = (await getEntry("navigation", "footer")).data;
+const navigation = (await getEntry("navigation", "footer"))!.data;
 ---
 
 <footer>

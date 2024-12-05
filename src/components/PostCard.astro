@@ -4,6 +4,7 @@ import { getContentEntryPath } from "../utils/i18n";
 import { Image } from "astro:assets";
 import DateTime from "./DateTime.astro";
 import DerivedCover from "./DerivedCover.astro";
+import { getEntry } from "astro:content";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -35,7 +36,7 @@ const { remarkPluginFrontmatter } = await post.render();
 </style>
 
 <div>
-  <a href={await getContentEntryPath("blog", post.slug)}>
+  <a href={getContentEntryPath(await getEntry("blog", post.slug))}>
     {
       post.data.cover ? (
         <Image

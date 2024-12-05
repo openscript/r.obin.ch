@@ -8,7 +8,7 @@ import Navigation from "../../components/Navigation.astro";
 import BurgerButton from "../../components/BurgerButton.astro";
 
 const locale = getLocaleFromUrl(Astro.url);
-const navigation = (await getEntry("navigation", "main")).data;
+const navigation = (await getEntry("navigation", "main"))!.data;
 ---
 
 <header>

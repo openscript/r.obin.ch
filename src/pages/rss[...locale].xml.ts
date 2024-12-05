@@ -10,7 +10,7 @@ import {
   parseLocale,
   parseLocaleFromPath,
 } from "../utils/i18n";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { rssXmlPaths } from "./_paths";
 
 export const getStaticPaths = rssXmlPaths;
@@ -34,7 +34,7 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       blogs.map(async (blog) => ({
         title: blog.data.title,
         pubDate: blog.data.publishedAt,
-        link: await getContentEntryPath("blog", blog.slug),
+        link: getContentEntryPath(await getEntry("blog", blog.slug)),
       })),
     ),
     customData: `<language>${C.LOCALES[locale]}</language>`,

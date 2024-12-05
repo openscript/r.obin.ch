@@ -8,6 +8,7 @@ import {
   splitCollectionAndSlug,
   getContentEntryPath,
 } from "../utils/i18n";
+import { getEntry } from "astro:content";
 
 type Props = {
   locale: Locale;
@@ -17,7 +18,8 @@ type Props = {
 async function processPath(path: string) {
   if (path.includes(PROTOCOL_DELIMITER) && !path.startsWith("http")) {
     const split = splitCollectionAndSlug(path);
-    path = await getContentEntryPath(split.collection as any, split.slug);
+    const entry = await getEntry(split.collection as any, split.slug);
+    path = getContentEntryPath(entry);
   }
   return path;
 }
