@@ -19,7 +19,7 @@ const t = useTranslations(locale);
     <slot name="before" />
     {git?.lastCommit && (
       <dt>{t('authorLabel')}</dt>
-      <dd>{git.lastCommit.author_name}</dd>
+      <dd>{git.lastCommit.authorName}</dd>
       <dt>{t('lastUpdatedLabel')}</dt>
       <dd><DateTime date={new Date(git.lastCommit.date)} /></dd>
       <dt>{t('linksLabel')}</dt>

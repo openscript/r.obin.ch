@@ -87,6 +87,10 @@ const navigationCollection = defineCollection({
       ),
     ),
 });
+const sectionsCollection = defineCollection({
+  type: "content",
+  schema: z.object({}),
+})
 
 export const collections = {
   blog: blogCollection,
@@ -95,4 +99,5 @@ export const collections = {
   projects: projectCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
+  sections: sectionsCollection,
 };
