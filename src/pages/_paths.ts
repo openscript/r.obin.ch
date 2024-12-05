@@ -2,11 +2,7 @@ import type { GetStaticPaths } from "astro";
 import { C, localeSlugs, type Locale } from "../configuration";
 import { parseLocale, splitLocaleAndPath } from "../utils/i18n";
 import { resolvePath } from "../utils/path";
-import {
-  getCollection,
-  type CollectionEntry,
-  type ContentEntryMap,
-} from "astro:content";
+import {getCollection, type CollectionEntry, type CollectionKey} from "astro:content";
 import { getCollectionSlug, getEntrySlug, getLocaleSlug } from "../utils/slugs";
 import slug from "limax";
 import { defaultBlogCollection } from "../collections/blog";
@@ -46,7 +42,7 @@ export const indexPaths = (kind?: string) => {
   }) satisfies GetStaticPaths;
 };
 
-export const entryPaths = <C extends keyof ContentEntryMap>(
+export const entryPaths = <C extends CollectionKey>(
   collection: C,
   slugName?: string,
 ) => {
