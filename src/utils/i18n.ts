@@ -1,9 +1,8 @@
 import {
   getEntry,
   type CollectionEntry,
-  type ContentEntryMap,
+  type CollectionKey,
   type DataEntryMap,
-  type ValidContentEntrySlug,
 } from "astro:content";
 import { C, type Locale } from "../configuration";
 import { dirname, joinPath } from "./path";
@@ -83,27 +82,18 @@ export function getMessage(key: string, locale: Locale) {
   return C.MESSAGES[locale][k];
 }
 
-export async function getContentEntryPath<
-  C extends keyof ContentEntryMap,
-  E extends ValidContentEntrySlug<C> | (string & {}),
->(collection: C, entrySlug: E) {
-  const e = await getEntry(collection, entrySlug);
-  if (!e) throw new Error(`Content entry not found: ${collection}/${entrySlug}`);
+export function getContentEntryPath<K extends CollectionKey>(entry?: CollectionEntry<K>) {
+  if (!entry) throw new Error(`Entry not found`);
+  const split = splitLocaleAndPath(entry.id);
 
-  const split = splitLocaleAndPath(e.id);
-  if (!split)
-    throw new Error(
-      `Entry has no international path: ${collection}/${entrySlug}`,
-    );
+  if (!split) throw new Error(`Entry has no international path: ${entry.collection}/${entry.id}`);
 
   let pageSlug = split.path;
-  if ("title" in e.data)
-    pageSlug = joinPath(dirname(pageSlug), slug(e.data.title));
-  if ("path" in e.data) pageSlug = e.data.path;
+  if ("title" in entry.data && typeof entry.data.title === "string") pageSlug = joinPath(dirname(pageSlug), slug(entry.data.title));
+  if ("path" in entry.data) pageSlug = entry.data.path;
 
-  return getTranslatedPath(parseLocale(split.locale), collection, pageSlug);
+  return getTranslatedPath(parseLocale(split.locale), entry.collection, pageSlug);
 }
-
 
 export async function getDataEntryPath<
   C extends keyof DataEntryMap,
@@ -117,7 +107,7 @@ export async function getDataEntryPath<
   if (!e) throw new Error(`Data entry not found: ${collection}/${String(entryId)}`);
 
   let pageSlug = dirname(e.id);
-  if ("title" in e.data) {
+  if ("title" in e.data && typeof e.data.title !== "string") {
     const folders = pageSlug.split('/').slice(1, -1);
     pageSlug = joinPath(...folders, slug(e.data.title[locale] || e.data.title[C.DEFAULT_LOCALE]));
   }

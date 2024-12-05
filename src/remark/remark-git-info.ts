@@ -1,10 +1,6 @@
 import type { Root } from "mdast";
 import type { VFile } from "vfile";
-import simpleGit, {
-  type DefaultLogFields,
-  type ListLogLine,
-  type SimpleGitOptions,
-} from "simple-git";
+import simpleGit, { type SimpleGitOptions } from "simple-git";
 import { isAstroData } from "./common";
 
 const options: Partial<SimpleGitOptions> = {
@@ -30,11 +26,10 @@ type Options = Readonly<{
 
 export function remarkGitInfo({ remoteUrlBase }: Options) {
   return async (_: Root, file: VFile) => {
-    if (!isAstroData(file.data.astro)) return;
     const log = await git.log({ file: file.path, n: 1 });
-    if (!log.latest) return;
-    const { author_name: authorName, date, message } = log.latest;
+    if (!isAstroData(file.data.astro) || !log.latest) return;
 
+    const { author_name: authorName, date, message } = log.latest;
     const filePath = file.path.replace(process.cwd(), "");
     const remoteEditUrl = `${remoteUrlBase}/edit/master${filePath}`;
     const remoteViewUrl = `${remoteUrlBase}/blob/master${filePath}`;

@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
+import { getEntry } from "astro:content";
 import {
   getContentEntryPath,
   getFullLocale,
@@ -12,6 +13,7 @@ import {
   splitLocaleAndPath,
   useTranslations,
 } from "../utils/i18n";
+import { rejects } from "assert";
 
 vi.mock("../configuration", () => ({
   C: {
@@ -237,23 +239,25 @@ describe("getMessage", () => {
 
 describe("getContentEntryPath", () => {
   it("should throw an error if content entry not found", async () => {
-    await expect(getContentEntryPath("docs" as any, "invalid")).rejects.toThrow(
-      "Content entry not found: docs/invalid",
+    const entry = await getEntry("docs" as any, "invalid");
+    expect(() => getContentEntryPath(entry)).toThrow(
+      "Entry not found",
     );
   });
   it("should throw an error if entry has no international path", async () => {
-    await expect(
-      getContentEntryPath("docs" as any, "no-international-path"),
-    ).rejects.toThrow(
-      "Entry has no international path: docs/no-international-path",
+    const entry = await getEntry("docs" as any, "no-international-path");
+    expect(() => getContentEntryPath(entry)).toThrow(
+      "Entry has no international path: docs/2020/09/11/test-article.md",
     );
   });
   it("should return the content entry path", async () => {
-    const path = await getContentEntryPath("docs" as any, "getting-started");
+    const entry = await getEntry("docs" as any, "getting-started")
+    const path = getContentEntryPath(entry);
     expect(path).toMatchInlineSnapshot(`"/de/docs/2020/09/11/test-article"`);
   });
   it("should return the content entry path without double slug", async () => {
-    const path = await getContentEntryPath("docs" as any, "root");
+    const entry = await getEntry("docs" as any, "root");
+    const path = getContentEntryPath(entry);
     expect(path).toMatchInlineSnapshot(`"/de/docs/test-article"`);
   });
 });
@@ -275,7 +279,7 @@ describe("makeMenu", () => {
     const menu = await makeMenu("en", [
       {
         title: "License",
-        path: () => getContentEntryPath("docs" as any, "getting-started"),
+        path: async () => getContentEntryPath(await getEntry("docs" as any, "getting-started")),
       },
       { title: "Privacy", path: "privacy" },
       { title: "Terms", path: "terms" },
