@@ -34,7 +34,7 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       blogs.map(async (blog) => ({
         title: blog.data.title,
         pubDate: blog.data.publishedAt,
-        link: getContentEntryPath(await getEntry("blog", blog.slug)),
+        link: getContentEntryPath(await getEntry("blog", blog.id)),
       })),
     ),
     customData: `<language>${C.LOCALES[locale]}</language>`,

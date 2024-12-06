@@ -12,13 +12,14 @@ import slug from "limax";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { getCollectionSlug, getLocaleSlug } from "../../../utils/slugs";
+import { render } from "astro:content";
 
 export const getStaticPaths = entryPaths("blog", "slug");
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { translations, render, data } = Astro.props as Props;
-const { Content, headings, remarkPluginFrontmatter } = await render();
+const { translations, data } = Astro.props as Props;
+const { Content, headings, remarkPluginFrontmatter } = await render(Astro.props);
 const git: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);

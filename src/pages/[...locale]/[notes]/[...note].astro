@@ -4,13 +4,14 @@ import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import { entryPaths } from "../../_paths";
 import PageWithAside from "../../../layouts/pages/PageWithAside.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
+import { render } from "astro:content";
 
 export const getStaticPaths = entryPaths("notes", "note");
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const page = Astro.props as Props;
 
-const { Content, headings } = await page.render();
+const { Content, headings } = await render(page);
 ---
 
 <DefaultLayout translations={page.translations}>
