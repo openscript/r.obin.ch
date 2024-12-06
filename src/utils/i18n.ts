@@ -1,8 +1,6 @@
 import {
-  getEntry,
   type CollectionEntry,
   type CollectionKey,
-  type DataEntryMap,
 } from "astro:content";
 import { C, type Locale } from "../configuration";
 import { dirname, joinPath } from "./path";
@@ -82,37 +80,33 @@ export function getMessage(key: string, locale: Locale) {
   return C.MESSAGES[locale][k];
 }
 
-export function getContentEntryPath<K extends CollectionKey>(entry?: CollectionEntry<K>) {
+export function getContentEntryPath<K extends CollectionKey>(entry?: CollectionEntry<K>, locale?: Locale) {
   if (!entry) throw new Error(`Entry not found`);
-  const split = splitLocaleAndPath(entry.id);
 
-  if (!split) throw new Error(`Entry has no international path: ${entry.collection}/${entry.id}`);
+  let pageLocale: Locale;
+  let pageSlug = "";
 
-  let pageSlug = split.path;
-  if ("title" in entry.data && typeof entry.data.title === "string") pageSlug = joinPath(dirname(pageSlug), slug(entry.data.title));
-  if ("path" in entry.data) pageSlug = entry.data.path;
-
-  return getTranslatedPath(parseLocale(split.locale), entry.collection, pageSlug);
-}
-
-export async function getDataEntryPath<
-  C extends keyof DataEntryMap,
-  E extends keyof DataEntryMap[C]
->(
-  collection: C,
-  entryId: E,
-  locale: Locale
-) {
-  const e = await getEntry(collection, entryId) as CollectionEntry<C> | undefined;
-  if (!e) throw new Error(`Data entry not found: ${collection}/${String(entryId)}`);
-
-  let pageSlug = dirname(e.id);
-  if ("title" in e.data && typeof e.data.title !== "string") {
-    const folders = pageSlug.split('/').slice(1, -1);
-    pageSlug = joinPath(...folders, slug(e.data.title[locale] || e.data.title[C.DEFAULT_LOCALE]));
+  if (!locale) {
+    const split = splitLocaleAndPath(entry.id);
+    if (!split) throw new Error(`Entry has no international path: ${entry.collection}/${entry.id}`);
+    pageLocale = parseLocale(split.locale);
+    pageSlug = dirname(split.path);
+  } else {
+    pageLocale = locale;
+    pageSlug = dirname(entry.id);
   }
 
-  return getTranslatedPath(locale, collection, pageSlug);
+  if ("title" in entry.data) {
+    if (typeof entry.data.title === "string") {
+      pageSlug = joinPath(pageSlug, slug(entry.data.title))
+    } else if (locale) {
+      const folders = pageSlug.split('/').slice(1, -1);
+      pageSlug = joinPath(...folders, slug(entry.data.title[locale] || entry.data.title[C.DEFAULT_LOCALE]));
+    }
+  }
+  if ("path" in entry.data) pageSlug = entry.data.path;
+
+  return getTranslatedPath(pageLocale, entry.collection, pageSlug);
 }
 
 function getTranslatedPath(

@@ -261,18 +261,6 @@ describe("getContentEntryPath", () => {
   });
 });
 
-/*
-describe("getDataEntryPath", () => {
-  it("should throw an error if data entry not found", async () => {
-    await expect(getDataEntryPath("docs" as any, "invalid", "en")).rejects.toThrow("Data entry not found: docs/invalid");
-  });
-  it("should return the data entry path", async () => {
-    const path = await getDataEntryPath("data" as any, "daten", "en");
-    expect(path).toMatchInlineSnapshot(`"/data/2020/09/test-article"`);
-  });
-})
-*/
-
 describe("makeMenu", () => {
   it("should return the menu", async () => {
     const menu = await makeMenu("en", [
