@@ -14,7 +14,7 @@ const localized = <T extends z.ZodTypeAny>(schema: T) =>
   );
 
 const blogCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/blog"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog", generateId: ({entry}) => entry }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -30,7 +30,7 @@ const blogCollection = defineCollection({
     }),
 });
 const notesCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/notes"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes", generateId: ({entry}) => entry }),
   schema: z.object({
     title: z.string(),
   }),
@@ -51,7 +51,7 @@ const galleryCollection = defineCollection({
     }),
 });
 const projectsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/projects"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects"}),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -69,7 +69,7 @@ const projectsCollection = defineCollection({
     }),
 });
 const pagesCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/pages"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages"}),
   schema: z.object({
     path: z.string(),
     title: z.string(),
@@ -89,7 +89,7 @@ const navigationCollection = defineCollection({
     ),
 });
 const sectionsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/sections"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections"}),
   schema: z.object({}),
 })
 
