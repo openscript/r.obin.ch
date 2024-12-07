@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import { localeSlugs, type Locale } from "../configuration";
+import { localeSlugs, type Locale } from "./configuration";
+import { glob } from "astro/loaders";
 
 const localized = <T extends z.ZodTypeAny>(schema: T) =>
   z.object(
@@ -13,7 +14,7 @@ const localized = <T extends z.ZodTypeAny>(schema: T) =>
   );
 
 const blogCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog", generateId: ({entry}) => entry }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -29,13 +30,13 @@ const blogCollection = defineCollection({
     }),
 });
 const notesCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes", generateId: ({entry}) => entry }),
   schema: z.object({
     title: z.string(),
   }),
 });
 const galleryCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/[^_]*.yml", base: "./src/content/gallery"}),
   schema: ({ image }) =>
     z.object({
       title: localized(z.string()),
@@ -49,8 +50,8 @@ const galleryCollection = defineCollection({
       ),
     }),
 });
-const projectCollection = defineCollection({
-  type: "content",
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects"}),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -68,14 +69,14 @@ const projectCollection = defineCollection({
     }),
 });
 const pagesCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages"}),
   schema: z.object({
     path: z.string(),
     title: z.string(),
   }),
 });
 const navigationCollection = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/[^_]*.yml", base: "./src/content/navigation"}),
   schema: ({ image }) =>
     localized(
       z.array(
@@ -88,7 +89,7 @@ const navigationCollection = defineCollection({
     ),
 });
 const sectionsCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections"}),
   schema: z.object({}),
 })
 
@@ -96,7 +97,7 @@ export const collections = {
   blog: blogCollection,
   notes: notesCollection,
   gallery: galleryCollection,
-  projects: projectCollection,
+  projects: projectsCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
   sections: sectionsCollection,
