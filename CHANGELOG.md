@@ -1,5 +1,18 @@
 # r.obin.ch
 
+## 0.3.0
+
+### Minor Changes
+
+- 88b3af6: Adopt Astro 5
+- 4ef3c56: Add gallery
+
+### Patch Changes
+
+- 9249a4f: Improve notes indes page styling
+- 564b6dc: Fix non unique derived covers
+- cc0e835: Upgrade dependencies
+
 ## 0.2.20
 
 ### Patch Changes
