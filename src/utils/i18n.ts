@@ -7,8 +7,7 @@ import { dirname, joinPath } from "./path";
 import slug from "limax";
 import { getCollectionSlug, getLocaleSlug } from "./slugs";
 
-const PATH_LOCALE_PATTERN =
-  /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
+const PATH_LOCALE_PATTERN = /^\/?(?<locale>\w{2}(?!\w)(-\w{1,})*)\/?(?<path>.*)?/;
 const FILE_LOCALE_PATTERN = /^(?<path>.*)\.(?<locale>\w{2}(?!\w)(-\w{1,})*)\./;
 const LOCALE_PATTERNS = [PATH_LOCALE_PATTERN, FILE_LOCALE_PATTERN];
 export const PROTOCOL_DELIMITER = "://";
@@ -26,8 +25,7 @@ export function splitLocaleAndPath(path: string) {
   if (!pattern) return undefined;
 
   const match = path.match(pattern);
-  if (!match || !match.groups || !match.groups.locale || !match.groups.path)
-    return undefined;
+  if (!match || !match.groups || !match.groups.locale || !match.groups.path) return undefined;
 
   const l = match.groups.locale;
   let p = match.groups.path;
@@ -131,8 +129,7 @@ export async function makeMenu(
   return Promise.all(
     items.map(async (item) => {
       const urlLocale = locale === C.DEFAULT_LOCALE ? "" : locale;
-      const path =
-        typeof item.path === "string"
+      const path = typeof item.path === "string"
           ? `/${[urlLocale, item.path].filter(Boolean).join("/")}`
           : await item.path(locale);
       return {
@@ -146,12 +143,12 @@ export async function makeMenu(
 export function useTranslations<L extends keyof typeof C.MESSAGES>(locale: L) {
   return function t(
     key: keyof (typeof C.MESSAGES)[L],
-    substituions?: Record<string, string | number>,
+    substitutions?: Record<string, string | number>,
   ) {
-    if (substituions) {
+    if (substitutions) {
       let message = C.MESSAGES[locale][key] as string;
-      for (const key in substituions) {
-        const value = substituions[key];
+      for (const key in substitutions) {
+        const value = substitutions[key];
         if (!value) continue;
         message = message.replace(`{${key}}`, String(value));
       }
