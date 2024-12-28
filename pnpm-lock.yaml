@@ -13,7 +13,7 @@ importers:
     dependencies:
       '@anolilab/unplugin-favicons':
         specifier: ^1.0.5
-        version: 1.0.5(esbuild@0.24.2)(favicons@7.2.0)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))(yaml@2.6.1)
+        version: 1.0.5(esbuild@0.24.2)(favicons@7.2.0)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))
       '@astrojs/check':
         specifier: ^0.9.4
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.2)
@@ -942,22 +942,17 @@ packages:
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
 
-  '@visulima/find-cache-dir@1.0.16':
-    resolution: {integrity: sha512-wuRLE96rDe61HdIMbIVRFJ39zIpvbKsSd+ZTsmBN6RrhYJRDg4DDZhHV4rSFBK+OML5ZwcehBMAmhQ2bUKLQtQ==}
+  '@visulima/find-cache-dir@1.0.17':
+    resolution: {integrity: sha512-fkJnqnxLaVmdBdBrAZ93dMPiimWfPo71vFE6QM/93GHEvn57F5hGV0DNoXXJ+ChvzUqb1us7CpECXsn2rATSyw==}
     engines: {node: '>=18.* <=23.*'}
 
-  '@visulima/fs@2.3.1':
-    resolution: {integrity: sha512-kRCzcnZhbsBXgsWrwZh4mdOBGFfZ67uya4xkZLIqaAqtjngsdCRdR7e89nQ8Je8lgG9aL7OW8egK/BrEFMsXzw==}
+  '@visulima/fs@2.3.2':
+    resolution: {integrity: sha512-m1O2sVYNLDiSxlb0O0gmdxB3KRDm/s1bmBY8E5u52sCB3V3iVgkWAVBQKEzDDDluVFwjBsZrOZu67+BdpvmDoA==}
     engines: {node: '>=18.* <=23.*'}
     os: [darwin, linux, win32]
-    peerDependencies:
-      yaml: '>=2.4'
-    peerDependenciesMeta:
-      yaml:
-        optional: true
 
-  '@visulima/package@3.2.0':
-    resolution: {integrity: sha512-5NAMG6AFBSWcUdOjZbj5PhMgHsog4tatPiA/op7cBBoGP5PCe0kFnpq0Xpr0PkFWUupQYv8u+XRIfrX40MtpvQ==}
+  '@visulima/package@3.2.1':
+    resolution: {integrity: sha512-OWNfgSAeQ5kOPNOLyA88Bes7Mmuvp6SLN53nURMKHhbXkHJsKVe4BkYzcWYWz8z+rF0uPLXlFfhA/BeLlEH/vw==}
     engines: {node: '>=18.* <=23.*'}
     os: [darwin, linux, win32]
 
@@ -2609,8 +2604,8 @@ packages:
     resolution: {integrity: sha512-5liCNPuJW8dqh3+DM6uNM2EI3MLLpCKp/KY+9pB5M2S2SR2qvvDHhKgBOaTWEbZTAws3CXfB0rKTIolWKL05VQ==}
     engines: {node: '>=14.0.0'}
 
-  unstorage@1.14.3:
-    resolution: {integrity: sha512-nj1rtc2XWCck2fDB39sboAajqooj9LmxZ9/eBM1XR+iUQAFctKvLl0FcPP5f4vzRgU1dmJ03SZhqZMLc9RDXIA==}
+  unstorage@1.14.4:
+    resolution: {integrity: sha512-1SYeamwuYeQJtJ/USE1x4l17LkmQBzg7deBJ+U9qOBoHo15d1cDxG4jM31zKRgF7pG0kirZy4wVMX6WL6Zoscg==}
     peerDependencies:
       '@azure/app-configuration': ^1.8.0
       '@azure/cosmos': ^4.2.0
@@ -2979,10 +2974,10 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@anolilab/unplugin-favicons@1.0.5(esbuild@0.24.2)(favicons@7.2.0)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))(yaml@2.6.1)':
+  '@anolilab/unplugin-favicons@1.0.5(esbuild@0.24.2)(favicons@7.2.0)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))':
     dependencies:
-      '@visulima/find-cache-dir': 1.0.16(yaml@2.6.1)
-      '@visulima/package': 3.2.0(yaml@2.6.1)
+      '@visulima/find-cache-dir': 1.0.17
+      '@visulima/package': 3.2.1
       cacache: 18.0.4
       consola: 3.2.3
       fast-json-stable-stringify: 2.1.0
@@ -2994,8 +2989,6 @@ snapshots:
     optionalDependencies:
       esbuild: 0.24.2
       vite: 6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1)
-    transitivePeerDependencies:
-      - yaml
 
   '@astrojs/check@0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.2)':
     dependencies:
@@ -3786,26 +3779,21 @@ snapshots:
 
   '@ungap/structured-clone@1.2.1': {}
 
-  '@visulima/find-cache-dir@1.0.16(yaml@2.6.1)':
+  '@visulima/find-cache-dir@1.0.17':
     dependencies:
-      '@visulima/fs': 2.3.1(yaml@2.6.1)
+      '@visulima/fs': 2.3.2
       '@visulima/path': 1.1.2
-    transitivePeerDependencies:
-      - yaml
 
-  '@visulima/fs@2.3.1(yaml@2.6.1)':
+  '@visulima/fs@2.3.2':
     dependencies:
       '@visulima/path': 1.1.2
-    optionalDependencies:
       yaml: 2.6.1
 
-  '@visulima/package@3.2.0(yaml@2.6.1)':
+  '@visulima/package@3.2.1':
     dependencies:
-      '@visulima/fs': 2.3.1(yaml@2.6.1)
+      '@visulima/fs': 2.3.2
       '@visulima/path': 1.1.2
       normalize-package-data: 7.0.0
-    transitivePeerDependencies:
-      - yaml
 
   '@visulima/path@1.1.2': {}
 
@@ -4024,7 +4012,7 @@ snapshots:
       tsconfck: 3.1.4(typescript@5.7.2)
       ultrahtml: 1.5.3
       unist-util-visit: 5.0.0
-      unstorage: 1.14.3
+      unstorage: 1.14.4
       vfile: 6.0.3
       vite: 6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1)
       vitefu: 1.0.4(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))
@@ -6054,7 +6042,7 @@ snapshots:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
 
-  unstorage@1.14.3:
+  unstorage@1.14.4:
     dependencies:
       anymatch: 3.1.3
       chokidar: 3.6.0
