@@ -28,13 +28,13 @@ importers:
         version: 3.2.1
       '@fontsource/ibm-plex-mono':
         specifier: ^5.1.0
-        version: 5.1.0
+        version: 5.1.1
       '@fontsource/poppins':
         specifier: ^5.1.0
-        version: 5.1.0
+        version: 5.1.1
       '@fontsource/rajdhani':
         specifier: ^5.1.0
-        version: 5.1.0
+        version: 5.1.1
       astro:
         specifier: ^5.1.1
         version: 5.1.1(@types/node@22.10.2)(jiti@2.4.2)(typescript@5.7.2)(yaml@2.6.1)
@@ -566,14 +566,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/ibm-plex-mono@5.1.0':
-    resolution: {integrity: sha512-XKsZNyRCj6tz8zlatHmniSoLVephMD5GQG2sXgcaEb8DkUO+O61r28uTlIMEZuoZXtP4c4STvL+KUlJM5jZOEg==}
+  '@fontsource/ibm-plex-mono@5.1.1':
+    resolution: {integrity: sha512-1aayqPe/ZkD3MlvqpmOHecfA3f2B8g+fAEkgvcCd3lkPP0pS1T0xG5Zmn2EsJQqr1JURtugPUH+5NqvKyfFZMQ==}
 
-  '@fontsource/poppins@5.1.0':
-    resolution: {integrity: sha512-tpLXlnNi2fwQjiipvuj4uNFHCdoLA8izRsKdoexZuEzjx0r/g1aKLf4ta6lFgF7L+/+AFdmaXFlUwwvmDzYH+g==}
+  '@fontsource/poppins@5.1.1':
+    resolution: {integrity: sha512-PQVKHGQOK+UpVNPzTFF9Z9ez3CIDkunfvRXGH95hiDoqWJc1shW4JFqe4tEoqnq7RtZaYrw9aWQq58L4eny5xg==}
 
-  '@fontsource/rajdhani@5.1.0':
-    resolution: {integrity: sha512-IpWFx4+c/QP+moXUhsDdjC+Pyq4vesl/XuX1NBQHSfR4/+uDv3cMHSB5cYHsWW2dzZonci4jscOzKOnj1qs5cA==}
+  '@fontsource/rajdhani@5.1.1':
+    resolution: {integrity: sha512-aAe194s86x7ALPmOcfWtFZk1tnJjPKcyvkfCIv6SsOO2+yd1u57uhGV4wwhXRB357X03zW0v7EUEarU51FFmiA==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -3438,11 +3438,11 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@fontsource/ibm-plex-mono@5.1.0': {}
+  '@fontsource/ibm-plex-mono@5.1.1': {}
 
-  '@fontsource/poppins@5.1.0': {}
+  '@fontsource/poppins@5.1.1': {}
 
-  '@fontsource/rajdhani@5.1.0': {}
+  '@fontsource/rajdhani@5.1.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
