@@ -5,9 +5,9 @@ tags:
   - Gems of the Month
 ---
 
-Hopefully back to the habit after a longer trip in Asia.
+Hopefully I get back to the habit after a trip to Asia.
 
-## Archlinux
+## Arch Linux
 
 ### Manage Pacmans mirror list
 
@@ -16,3 +16,9 @@ Archlinux package manager Pacman stores a list of mirrors from which the package
 ```bash
 reflector --country Switzerland --age 12 --protocol https --sort rate --download-timeout 10 --save /etc/pacman.d/mirrorlist
 ```
+
+## Tools
+
+### Visual Studio Code: Editor Git Blame decoration
+
+In September I [wrote](../09/30/gems-of-september-24) about a VS Code extension called "Better Git Blame". This extension shows the git blame information in the editor per line. With [version 1.96](https://code.visualstudio.com/updates/v1_96#_git-blame-information-experimental) of VS Code, this feature is now built-in. You can enable it with the setting `"git.blame.editorDecoration.enabled": true` in your settings json.
