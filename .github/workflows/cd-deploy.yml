@@ -37,12 +37,13 @@ jobs:
           ref: master
           path: master-content
 
-      - name: Setup sparse checkout for content from master
-        run: |
-          git -C ${{ env.BUILD_PATH }} sparse-checkout init --cone
-          git -C ${{ env.BUILD_PATH }} sparse-checkout set src/content
-          git -C ${{ env.BUILD_PATH }} fetch origin master
-          git -C ${{ env.BUILD_PATH }} checkout origin/master -- src/content
+      - name: Checkout src/content from master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: ${{ env.BUILD_PATH }}/src/content
+          sparse-checkout: |
+            src/content
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
