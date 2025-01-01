@@ -9,12 +9,12 @@
         "streetsidesoftware.code-spell-checker",
         "streetsidesoftware.code-spell-checker-german",
         "esbenp.prettier-vscode",
-        "eamodio.gitlens",
         "mgmcdermott.vscode-language-babel",
         "dbaeumer.vscode-eslint",
         "eliostruyf.vscode-front-matter",
         "unifiedjs.vscode-mdx",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github"
       ]
     }
   },
