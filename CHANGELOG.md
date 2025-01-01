@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.1
+
+### Patch Changes
+
+- c67cf38: Sparse checkout master content instead copy
+
 ## 0.3.0
 
 ### Minor Changes
