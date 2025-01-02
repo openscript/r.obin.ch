@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.4
+
+### Patch Changes
+
+- 66f70de: Upgrade dependencies
+
 ## 0.3.3
 
 ### Patch Changes
