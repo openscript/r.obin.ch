@@ -29,14 +29,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
+          ref: master
+          # Fetch all history for tags
+          # https://github.com/actions/checkout/issues/1471#issuecomment-1755639487
+          fetch-depth: 0
+          filter: tree:0
 
-      - name: Checkout src/content from master
+      - name: Replace everything but content with current release
         run: |
-          git sparse-checkout init --cone
-          git sparse-checkout set src/content
-          git fetch origin master
-          git checkout origin/master -- src/content
+          git worktree add ../release tags/${{ inputs.ref }}
+          rsync -a --exclude '.git' --exclude 'src/content' --delete ../release/ ./
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
