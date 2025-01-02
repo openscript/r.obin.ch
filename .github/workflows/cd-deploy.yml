@@ -32,11 +32,11 @@ jobs:
           ref: ${{ inputs.ref }}
 
       - name: Checkout src/content from master
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          sparse-checkout: |
-            src/content
+        run: |
+          git sparse-checkout init --cone
+          git sparse-checkout set src/content
+          git fetch origin master
+          git checkout origin/master -- src/content
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
