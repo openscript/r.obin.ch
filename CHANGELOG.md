@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.3
+
+### Patch Changes
+
+- 1d881ac: Fix release
+
 ## 0.3.2
 
 ### Patch Changes
