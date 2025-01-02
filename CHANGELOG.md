@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.2
+
+### Patch Changes
+
+- ae707b4: Fix release
+
 ## 0.3.1
 
 ### Patch Changes
