@@ -31,17 +31,10 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
 
-      - name: Checkout master for content
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          path: master-content
-
       - name: Checkout src/content from master
         uses: actions/checkout@v4
         with:
           ref: master
-          path: ${{ env.BUILD_PATH }}/src/content
           sparse-checkout: |
             src/content
 
