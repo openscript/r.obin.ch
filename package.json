@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",
