@@ -5,11 +5,13 @@ import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
 import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
+import { defaultProjectsCollection } from "../../../collections/projects";
 
 export const getStaticPaths = indexPaths("projects");
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations } = Astro.props as Props;
+const projects = defaultProjectsCollection;
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
