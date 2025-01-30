@@ -23,6 +23,28 @@ from the top of my head so I want to write it down here.
 
 ### Send emails with Curl
 
+Sometimes you quickly want to test if your email server is working. This can be easily done with curl. First create an email file `email.txt` with the following content:
+
+```txt
+From: John Smith <r@example.com>
+To: Joe Smith <r@example.com>
+Subject: an example.com example email
+Date: Mon, 28 Jan 2025 17:55:16
+
+Dear Joe,
+Welcome to this example email. What a lovely day.
+```
+
+For example, you can send this email with the following command:
+
+```bash
+curl --ssl-reqd smtps://example.com --mail-from r@example.com \
+     --mail-rcpt r@example.com --upload-file email.txt \
+     --user 'user:password'
+```
+
+This is also documented [here](https://everything.curl.dev/usingcurl/smtp.html).
+
 ## Other
 
 ### SBB: Offered tickets are not always the cheapest option
