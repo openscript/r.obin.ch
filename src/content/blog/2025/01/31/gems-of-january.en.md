@@ -45,6 +45,23 @@ curl --ssl-reqd smtps://example.com --mail-from r@example.com \
 
 This is also documented [here](https://everything.curl.dev/usingcurl/smtp.html).
 
+### Forgejo/Gitea: Send email notifications only on mention
+
+By default Forgejo/Gitea sends emails notifications on every action. This can be annoying and if there are many users it can also be a lot of emails.
+
+To only send emails on mention, you can set the following configuration in the `app.ini`:
+
+```ini
+[admin]
+DEFAULT_EMAIL_NOTIFICATIONS = onmention
+```
+
+To update existing users, you can run the following SQL query:
+
+```sql
+UPDATE public.user SET email_notifications_preference = 'onmention';
+```
+
 ## Other
 
 ### SBB: Offered tickets are not always the cheapest option
