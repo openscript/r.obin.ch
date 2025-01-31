@@ -62,6 +62,36 @@ To update existing users, you can run the following SQL query:
 UPDATE public.user SET email_notifications_preference = 'onmention';
 ```
 
+### Break out from a locked SSH session
+
+Sometimes you are in a locked SSH session and you can't exit. You can try the following key combination:
+
+<kbd>Enter</kbd> then <kbd>~</kbd> and <kbd>.</kbd>
+
+To print the escape character, you can also use the following key combination:
+
+<kbd>Enter</kbd> then <kbd>~</kbd> and <kbd>?</kbd>
+
+This will result in the following output:
+
+```txt
+Supported escape sequences:
+ ~.   - terminate connection (and any multiplexed sessions)
+ ~B   - send a BREAK to the remote system
+ ~R   - request rekey
+ ~V/v - decrease/increase verbosity (LogLevel)
+ ~^Z  - suspend ssh
+ ~#   - list forwarded connections
+ ~&   - background ssh (when waiting for connections to terminate)
+ ~?   - this message
+ ~~   - send the escape character by typing it twice
+(Note that escapes are only recognized immediately after newline.)
+```
+
 ## Other
 
 ### SBB: Offered tickets are not always the cheapest option
+
+I recently noticed that the SBB app does not always offer the cheapest ticket. For example when you want to travel from Meilen to the Rhine Fall, the app offers a ticket for CHF 29.00. It includes all public transport in the cantons of Zurich and Schaffhausen for a whole day. However, if you buy a 9 o'clock pass for CHF 13.50 and a ticket from Rafz to the Rhine Fall and back for CHF 10.00, you pay only CHF 23.50. You also get an all day ticket on this track. This is CHF 5.50 or ~19% cheaper. I think the app should show the cheapest option first.
+
+![Bad offer by the SBB app](./bad-offer-sbb.jpg)
