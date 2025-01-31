@@ -19,7 +19,7 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.3)
       '@astrojs/mdx':
         specifier: ^4.0.7
-        version: 4.0.8(astro@5.2.1(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0))
+        version: 4.0.8(astro@5.2.2(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0))
       '@astrojs/rss':
         specifier: ^4.0.11
         version: 4.0.11
@@ -37,7 +37,7 @@ importers:
         version: 5.1.1
       astro:
         specifier: ^5.1.10
-        version: 5.2.1(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0)
+        version: 5.2.2(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0)
       favicons:
         specifier: ^7.2.0
         version: 7.2.0
@@ -998,8 +998,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro@5.2.1:
-    resolution: {integrity: sha512-OYR2kUo9EqX6OYZ1OmM14xP8mjFwgrk1FzIr+3K3tS0gCCKJsXtfboCUhX3lODZFIsmY/on7NPZd+2PURA0R2Q==}
+  astro@5.2.2:
+    resolution: {integrity: sha512-KfLlrpIIokaSQsRsNxov+SVu7EI7F45syHbBdxuSuh2YKG9fEBrbsxKkJ9CGI67G4i+tXGzlHT0OQjSeMMBzuQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2989,12 +2989,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.0.8(astro@5.2.1(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0))':
+  '@astrojs/mdx@4.0.8(astro@5.2.2(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.1.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.2.1(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0)
+      astro: 5.2.2(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.4
@@ -3872,7 +3872,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@5.2.1(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0):
+  astro@5.2.2(@types/node@22.12.0)(jiti@2.4.2)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.5.0
