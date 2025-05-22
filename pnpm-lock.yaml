@@ -35,6 +35,9 @@ importers:
       astro:
         specifier: ^5.8.0
         version: 5.8.0(@types/node@22.15.21)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
+      astro-loader-i18n:
+        specifier: ^0.7.0
+        version: 0.7.0(astro@5.8.0(@types/node@22.15.21)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0))
       favicons:
         specifier: ^7.2.0
         version: 7.2.0
@@ -1137,6 +1140,11 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
+
+  astro-loader-i18n@0.7.0:
+    resolution: {integrity: sha512-kssWOstRtsuUDdlQZf0syiWtk7jg5F9kr0ZjwfvsnQCagksHz5Yv+jywhOnDdul5bJuXjmVcRnwX86rmRJbspA==}
+    peerDependencies:
+      astro: ^5.5.0
 
   astro@5.8.0:
     resolution: {integrity: sha512-G57ELkdIntDiSrucA5lQaRtBOjquaZ9b9NIwoz2f471ZuuJcynLjWgItgBzlrz5UMY4WqnFbVWUCKlJb7nt9bA==}
@@ -4169,6 +4177,10 @@ snapshots:
   assertion-error@2.0.1: {}
 
   astring@1.9.0: {}
+
+  astro-loader-i18n@0.7.0(astro@5.8.0(@types/node@22.15.21)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)):
+    dependencies:
+      astro: 5.8.0(@types/node@22.15.21)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
 
   astro@5.8.0(@types/node@22.15.21)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0):
     dependencies:
