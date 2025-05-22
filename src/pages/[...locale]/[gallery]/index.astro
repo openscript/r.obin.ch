@@ -4,14 +4,14 @@ import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import { useTranslations } from "../../../utils/i18n";
 import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
-import { getCollection } from "astro:content";
 import CardList from "../../../components/CardList.astro";
 import GalleryCard from "../../../components/GalleryCard.astro";
+import { defaultGalleryCollection } from "../../../collections/gallery";
 
 export const getStaticPaths = indexPaths("gallery");
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { translations, locale } = Astro.props as Props;
-const gallery = await getCollection('gallery');
+const gallery = defaultGalleryCollection;
 const t = useTranslations(locale);
 ---
 

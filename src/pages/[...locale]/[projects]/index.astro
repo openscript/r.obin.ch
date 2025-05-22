@@ -6,6 +6,8 @@ import { indexPaths } from "../../_paths";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { defaultProjectsCollection } from "../../../collections/projects";
+import CardList from "../../../components/CardList.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
 
 export const getStaticPaths = indexPaths("projects");
 
@@ -20,5 +22,12 @@ const t = useTranslations(locale);
   <Meta slot="meta" title={t("projectsTitle")} />
   <Page>
     <h1>{t("projectsTitle")}</h1>
+    <CardList>
+      {
+        projects.map(async (project) => {
+          return <ProjectCard project={project} locale={locale} />;
+        }).filter(Boolean)
+      }
+    </CardList>
   </Page>
 </DefaultLayout>

@@ -12,7 +12,7 @@ type Props = {
 
 const { note } = Astro.props;
 const { remarkPluginFrontmatter } = await render(note);
-const gitInfo: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
+const gitInfo: GitInfoFrontmatter["git"] | undefined = remarkPluginFrontmatter.git;
 ---
 
 <style>
@@ -27,7 +27,7 @@ const gitInfo: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
 <a href={getContentEntryPath(await getEntry("notes", note.id))}>
   <span class="note-title">{note.data.title}</span>
   {
-    gitInfo.lastCommit && (
+    gitInfo?.lastCommit && (
       <span class="note-modified">
         <DateTime date={new Date(gitInfo.lastCommit?.date)} dateStyle="short" />
       </span>

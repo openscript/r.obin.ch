@@ -5,8 +5,11 @@ import { indexPaths } from "../_paths";
 import { getEntry } from "astro:content";
 import LatestBlogsSection from "../../layouts/sections/LatestBlogsSection.astro";
 import { render } from "astro:content";
+import { getCollection } from "astro:content";
 
 export const getStaticPaths = indexPaths();
+
+console.log(await getCollection("pages"));
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
