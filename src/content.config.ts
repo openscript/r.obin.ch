@@ -6,7 +6,7 @@ import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as loc
 const localized = <T extends z.ZodTypeAny>(schema: T) => localizedSchema(schema, localeSlugs);
 
 const blogCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog", generateId: ({entry}) => entry }),
+  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
   schema: ({ image }) => extendI18nLoaderSchema(
     z.object({
       title: z.string(),
@@ -23,28 +23,29 @@ const blogCollection = defineCollection({
   ),
 });
 const notesCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes", generateId: ({entry}) => entry }),
-  schema: z.object({
+  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes" }),
+  schema: extendI18nLoaderSchema(z.object({
     title: z.string(),
-  }),
+  })),
 });
 const galleryCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.yml", base: "./src/content/gallery"}),
-  schema: ({ image }) =>
+  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/gallery" }),
+  schema: ({ image }) => extendI18nLoaderSchema(
     z.object({
       title: localized(z.string()),
       cover: image(),
       images: z.array(
         z.object({
           src: image(),
-          title: localized(z.string().optional()),
-          description: localized(z.string().optional()),
+          title: localized(z.string().optional()).optional(),
+          description: localized(z.string().optional()).optional(),
         }),
       ),
     }),
+  ),
 });
 const projectsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -86,7 +87,7 @@ const navigationCollection = defineCollection({
   })),
 });
 const sectionsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections"}),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections" }),
   schema: z.object({}),
 })
 

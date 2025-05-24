@@ -1,18 +1,74 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
+import type { GetStaticPaths } from "astro";
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
-import { blogTagPagePaths } from "../../../_paths";
 import PostCard from "../../../../components/PostCard.astro";
 import CardList from "../../../../components/CardList.astro";
-import { useTranslations } from "../../../../utils/i18n";
+import { parseLocale, useTranslations } from "../../../../utils/i18n";
 import Page from "../../../../layouts/pages/Page.astro";
 import Meta from "../../../../layouts/groups/Meta.astro";
+import slug from "limax";
+import { defaultPropsAndParamsOptions, resolvePath } from "../../../../utils/paths";
+import { i18nPropsAndParams } from "astro-loader-i18n";
+import { getCollection, render } from "astro:content";
+import Pagination from "../../../../components/Pagination.astro";
+import { C } from "../../../../configuration";
 
-export const getStaticPaths = blogTagPagePaths;
+export const getStaticPaths = (async ({ paginate }) => {
+  const routePattern = "[...locale]/[blog]/[...slug]";
+  const collection = await getCollection("blog");
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { page, locale, translations, tag } = Astro.props as Props;
-const t = useTranslations(locale);
+  const propsAndParams = i18nPropsAndParams(collection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+  });
+
+  const locales = propsAndParams.reduce(
+    (acc, item) => {
+      acc[item.props.data.locale] = item.params.locale;
+      return acc;
+    },
+    {} as Record<string, string | undefined>,
+  );
+
+  const tags = Array.from(
+    new Set(propsAndParams.flatMap((item) => item.props.data.tags)),
+  );
+
+  return tags.flatMap((tag) => {
+    return Object.entries(locales).flatMap(([propsLocale, paramsLocale]) => {
+      const items = propsAndParams.filter(
+        (item) =>
+          item.props.data.locale === propsLocale &&
+          item.props.data.tags.includes(tag),
+      );
+      const data = items.map((item) => item.props);
+      const blog = items[0]?.params.blog;
+      const translations = Object.entries(locales).reduce(
+        (acc, [locale, localeSlug]) => {
+          acc[locale] = resolvePath(localeSlug, blog, slug(tag));
+          return acc;
+        },
+        {} as Record<string, string>,
+      );
+      return paginate(data, {
+        pageSize: C.SETTINGS.BLOG.PAGE_SIZE,
+        props: {
+          locale: propsLocale,
+          translations,
+          tag,
+        },
+        params: {
+          locale: paramsLocale,
+          blog,
+          tag: slug(tag),
+        },
+      });
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { page, tag, locale, translations } = Astro.props;
+const t = useTranslations(parseLocale(locale));
 ---
 
 <DefaultLayout translations={translations}>
@@ -21,14 +77,22 @@ const t = useTranslations(locale);
     <h1 slot="title">{t("blogTagTitle", { tag })}</h1>
     <CardList>
       {
-        page.data.map(async (post) => (
+        page.data.map(async (post) => {
+        const { remarkPluginFrontmatter } = await render(post);
+        return (
           <li>
-            <PostCard post={post} />
+            <PostCard
+              title={post.data.title}
+              cover={post.data.cover}
+              publishedAt={post.data.publishedAt}
+              translatedPath={post.data.translationId}
+              excerpt={remarkPluginFrontmatter.excerpt}
+            />
           </li>
-        ))
+        );
+      })
       }
     </CardList>
-    {page.url.prev ? <a href={page.url.prev}>Vorherige Seite</a> : null}
-    {page.url.next ? <a href={page.url.next}>Nächste Seite</a> : null}
+    <Pagination page={page} />
   </Page>
 </DefaultLayout>

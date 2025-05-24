@@ -1,25 +1,69 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
+import type { GetStaticPaths } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { useTranslations } from "../../../utils/i18n";
-import { blogPagePaths } from "../../_paths";
+import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import PostCard from "../../../components/PostCard.astro";
 import CardList from "../../../components/CardList.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
+import { i18nPropsAndParams } from "astro-loader-i18n";
+import slug from "limax";
+import { defaultBlogCollection } from "../../../collections/blog";
+import {
+  defaultPropsAndParamsOptions,
+  resolvePath,
+} from "../../../utils/paths";
+import { C } from "../../../configuration";
+import { render } from "astro:content";
 
-export const getStaticPaths = blogPagePaths;
+export const getStaticPaths = (async ({ paginate }) => {
+  const routePattern = "[...locale]/[blog]/[...slug]";
+  const collection = defaultBlogCollection;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { page, locale, translations } = Astro.props as Props;
-const pagedTranslations = Object.entries(translations).reduce<
-  Record<string, string>
->((acc, [l, t]) => {
-  acc[l] = page.currentPage === 1 ? t : `${t}/${page.currentPage}`;
-  return acc;
-}, {});
-const t = useTranslations(locale);
+  const propsAndParams = i18nPropsAndParams(collection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+    generateSegments: (entry) => ({ slug: slug(entry.data.title) }),
+  });
+
+  const locales = propsAndParams.reduce(
+    (acc, item) => {
+      acc[item.props.data.locale] = item.params.locale;
+      return acc;
+    },
+    {} as Record<string, string | undefined>
+  );
+
+  return Object.entries(locales).flatMap(([propsLocale, paramsLocale]) => {
+    const items = propsAndParams.filter(
+      (item) => item.props.data.locale === propsLocale
+    );
+    const data = items.map((item) => item.props);
+    const blog = items[0]?.params.blog;
+    const translations = Object.entries(locales).reduce(
+      (acc, [locale, slug]) => {
+        acc[locale] = resolvePath(slug, blog);
+        return acc;
+      },
+      {} as Record<string, string>
+    );
+    return paginate(data, {
+      pageSize: C.SETTINGS.BLOG.PAGE_SIZE,
+      props: {
+        locale: propsLocale,
+        translations,
+      },
+      params: {
+        locale: paramsLocale,
+        blog,
+      },
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { page, locale, translations } = Astro.props;
+const t = useTranslations(parseLocale(locale));
 ---
 
 <style>
@@ -31,18 +75,27 @@ const t = useTranslations(locale);
   }
 </style>
 
-<DefaultLayout translations={pagedTranslations}>
+<DefaultLayout translations={translations}>
   <Meta slot="meta" title={t("blogTitle")} />
   <Page>
     <h1 slot="title">{t("blogTitle")}</h1>
     <Pagination page={page} />
     <CardList classNames="vertical">
       {
-        page.data.map(async (post) => (
-          <li>
-            <PostCard post={post} />
-          </li>
-        ))
+        page.data.map(async (post) => {
+          const { remarkPluginFrontmatter } = await render(post);
+          return (
+            <li>
+              <PostCard
+                title={post.data.title}
+                cover={post.data.cover}
+                publishedAt={post.data.publishedAt}
+                translatedPath={post.data.translationId}
+                excerpt={remarkPluginFrontmatter.excerpt}
+              />
+            </li>
+          );
+        })
       }
     </CardList>
     <Pagination page={page} />

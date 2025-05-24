@@ -1,22 +1,31 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { entryPaths } from "../../_paths";
 import PageWithAside from "../../../layouts/pages/PageWithAside.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
+import { defaultNotesCollection } from "../../../collections/notes";
+import { i18nPropsAndParams } from "astro-loader-i18n";
+import { defaultPropsAndParamsOptions } from "../../../utils/paths";
+import slug from "limax";
 
-export const getStaticPaths = entryPaths("notes", "note");
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[notes]/[...note]";
+  const collection = defaultNotesCollection;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const page = Astro.props as Props;
+  return i18nPropsAndParams(collection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+    generateSegments: (entry) => ({ note: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+  });
+};
 
-const { Content, headings } = await render(page);
+const { translations, data } = Astro.props;
+const { Content, headings } = await render(Astro.props);
 ---
 
-<DefaultLayout translations={page.translations}>
-  <Meta slot="meta" title={page.data.title} />
-  <PageWithAside headings={headings} frontmatter={page.data}>
+<DefaultLayout translations={translations}>
+  <Meta slot="meta" title={data.title} />
+  <PageWithAside headings={headings} frontmatter={data}>
     <Content />
   </PageWithAside>
 </DefaultLayout>

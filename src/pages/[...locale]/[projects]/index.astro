@@ -1,17 +1,19 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
-import { indexPaths } from "../../_paths";
+import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
+import { generateGetStaticIndexPaths } from "../../../utils/paths";
 
-export const getStaticPaths = indexPaths("projects");
+export const getStaticPaths = generateGetStaticIndexPaths(
+  "[...locale]/[projects]",
+);
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { translations } = Astro.props as Props;
-const locale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(locale);
+const {
+  translations,
+  data: { locale },
+} = Astro.props;
+const t = useTranslations(parseLocale(locale));
 ---
 
 <DefaultLayout translations={translations}>
