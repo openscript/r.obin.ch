@@ -1,17 +1,17 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getContentEntryPath } from "../utils/i18n";
 import { Image } from "astro:assets";
 import DateTime from "./DateTime.astro";
 import DerivedCover from "./DerivedCover.astro";
-import { getEntry, render } from "astro:content";
 
 type Props = {
-  post: CollectionEntry<"blog">;
+  title: string;
+  cover?: { alt?: string; src: ImageMetadata };
+  publishedAt: Date;
+  translatedPath: string;
+  excerpt: string;
 };
 
-const { post } = Astro.props;
-const { remarkPluginFrontmatter } = await render(post);
+const { title, cover, publishedAt, translatedPath, excerpt } = Astro.props;
 ---
 
 <style>
@@ -36,23 +36,23 @@ const { remarkPluginFrontmatter } = await render(post);
 </style>
 
 <div>
-  <a href={getContentEntryPath(await getEntry("blog", post.id))}>
+  <a href={translatedPath}>
     {
-      post.data.cover ? (
+      cover ? (
         <Image
-          src={post.data.cover.src}
-          alt={post.data.cover.alt || post.data.title}
+          src={cover.src}
+          alt={cover.alt || title}
           widths={[720]}
         />
       ) : (
-        <DerivedCover value={post.id} />
+        <DerivedCover value={title} />
       )
     }
     <div>
       <div>
-        <DateTime date={post.data.publishedAt} />
-        <h2>{post.data.title}</h2>
-        <p>{remarkPluginFrontmatter.excerpt}...</p>
+        <DateTime date={publishedAt} />
+        <h2>{title}</h2>
+        <p>{excerpt}...</p>
       </div>
     </div>
   </a>

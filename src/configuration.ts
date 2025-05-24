@@ -3,6 +3,19 @@ export const C = {
   LOCALES: { en: "en-US", de: "de-CH" },
   // Default locale referencing one of the keys in LOCALES
   DEFAULT_LOCALE: "en" as const,
+  // Segment translations
+  SEGMENT_TRANSLATIONS: {
+    de: {
+      'gallery': 'galerie',
+      'projects': 'projekte',
+      'blog': 'blog',
+    },
+    en: {
+      'gallery': 'gallery',
+      'projects': 'projects',
+      'blog': 'blog',
+    },
+  },
   // Static messages for each locale
   MESSAGES: {
     de: {
