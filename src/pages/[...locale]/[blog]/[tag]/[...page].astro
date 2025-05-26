@@ -9,13 +9,14 @@ import Meta from "../../../../layouts/groups/Meta.astro";
 import slug from "limax";
 import { defaultPropsAndParamsOptions, resolvePath } from "../../../../utils/paths";
 import { i18nPropsAndParams } from "astro-loader-i18n";
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import Pagination from "../../../../components/Pagination.astro";
 import { C } from "../../../../configuration";
+import { defaultBlogCollection } from "../../../../collections/blog";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const routePattern = "[...locale]/[blog]/[...slug]";
-  const collection = await getCollection("blog");
+  const collection = defaultBlogCollection;
 
   const propsAndParams = i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
@@ -42,7 +43,7 @@ export const getStaticPaths = (async ({ paginate }) => {
           item.props.data.tags.includes(tag),
       );
       const data = items.map((item) => item.props);
-      const blog = items[0]?.params.blog;
+      const blog = C.SEGMENT_TRANSLATIONS[parseLocale(propsLocale)].blog;
       const translations = Object.entries(locales).reduce(
         (acc, [locale, localeSlug]) => {
           acc[locale] = resolvePath(localeSlug, blog, slug(tag));

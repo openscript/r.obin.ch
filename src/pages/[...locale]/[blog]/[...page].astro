@@ -24,7 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const propsAndParams = i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
-    generateSegments: (entry) => ({ slug: slug(entry.data.title) }),
+    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
   });
 
   const locales = propsAndParams.reduce(
@@ -40,7 +40,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       (item) => item.props.data.locale === propsLocale
     );
     const data = items.map((item) => item.props);
-    const blog = items[0]?.params.blog;
+    const blog = C.SEGMENT_TRANSLATIONS[parseLocale(propsLocale)].blog;
     const translations = Object.entries(locales).reduce(
       (acc, [locale, slug]) => {
         acc[locale] = resolvePath(slug, blog);
@@ -50,13 +50,13 @@ export const getStaticPaths = (async ({ paginate }) => {
     );
     return paginate(data, {
       pageSize: C.SETTINGS.BLOG.PAGE_SIZE,
-      props: {
-        locale: propsLocale,
-        translations,
-      },
       params: {
         locale: paramsLocale,
         blog,
+      },
+      props: {
+        locale: propsLocale,
+        translations,
       },
     });
   });
@@ -90,7 +90,7 @@ const t = useTranslations(parseLocale(locale));
                 title={post.data.title}
                 cover={post.data.cover}
                 publishedAt={post.data.publishedAt}
-                translatedPath={post.data.translationId}
+                translatedPath={post.translatedPath}
                 excerpt={remarkPluginFrontmatter.excerpt}
               />
             </li>

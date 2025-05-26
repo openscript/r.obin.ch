@@ -1,73 +1,44 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import { C, localeSlugs } from "../../configuration";
-import {
-  getFullLocale,
-  getLocaleFromUrl,
-  useTranslations,
-} from "../../utils/i18n";
+import { localeSlugs } from "../../configuration";
+import { getFullLocale, parseLocale, useTranslations } from "../../utils/i18n";
 import { getMessage } from "../../utils/i18n";
+import { resolvePath } from "astro-loader-i18n";
 
 type Props = {
   translations?: Record<string, string>;
 };
 
-const locale = getLocaleFromUrl(Astro.url);
-const props = Astro.props;
+const locale = parseLocale(Astro.params.locale);
+const { translations } = Astro.props;
 const t = useTranslations(locale);
+let base = `${import.meta.env.SITE ? import.meta.env.SITE : ""}${import.meta.env.BASE_URL ? import.meta.env.BASE_URL : ""}`;
+base = base.endsWith("/") ? base : `${base}/`;
 ---
 
-<meta charset="utf-8" />
-<slot name="meta" />
-<meta name="viewport" content="width=device-width" />
-<meta name="referrer" content="no-referrer-when-downgrade" />
-<script
-  is:inline
-  id="analytics"
-  defer
-  data-domain="r.obin.ch"
-  src="https://analytics.obin.ch/js/script.js"></script>
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link
-  rel="alternate"
-  hreflang="x-default"
-  href={new URL(import.meta.env.SITE_URL || "/", Astro.url.href).href}
-/>
-<link rel="alternate" hreflang={getFullLocale(locale)} href={Astro.url.href} />
-<meta property="og:locale" content={getFullLocale(locale).replace(`-`, `_`)} />
-{
-  Object.entries(props.translations || {})
-    .filter(([locale]) => locale === C.DEFAULT_LOCALE)
-    .map(([locale, path]) => (
-      <Fragment>
-        <link
-          rel="alternate"
-          hreflang={getFullLocale(locale)}
-          href={new URL(path, Astro.url).href}
-        />
-        <meta
-          property="og:locale:alternate"
-          content={getFullLocale(locale).replace(`-`, `_`)}
-        />
-      </Fragment>
-    ))
-}
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  title={t("feedTitle")}
-  href="/rss.xml"
-/>
-{
-  localeSlugs.map((l) => {
-    return (
-      <link
-        rel="alternate"
-        type="application/rss+xml"
-        title={getMessage("feedLanguage", l)}
-        href={`/rss-${l}.xml`}
-      />
-    );
-  })
-}
-<ClientRouter />
+<head>
+  <meta charset="utf-8" />
+  <slot name="meta" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <script
+    is:inline
+    id="analytics"
+    defer
+    data-domain="r.obin.ch"
+    src="https://analytics.obin.ch/js/script.js"></script>
+
+  <link rel="alternate" hreflang="x-default" href={base} />
+  <link rel="alternate" hreflang={getFullLocale(locale)} href={Astro.url.href} />
+  <meta property="og:locale" content={getFullLocale(locale).replace(`-`, `_`)} />
+  {Object.entries(translations || {}).filter(([l]) => l !== locale).map(([locale, path]) => (
+    <link rel="alternate" hreflang={getFullLocale(locale)} href={new URL(path, Astro.url).href} />
+    <meta property="og:locale:alternate" content={getFullLocale(locale).replace(`-`, `_`)} />
+  ))}
+  <link rel="alternate" type="application/rss+xml" title={t('feedTitle')} href={resolvePath("rss.xml")} />
+  {localeSlugs.map((l) => {
+    return <link rel="alternate" type="application/rss+xml" title={getMessage('feedLanguage', l)} href={resolvePath(`rss-${l}.xml`)} />
+  })}
+  <link rel="sitemap" href={resolvePath("sitemap-index.xml")} />
+  <ClientRouter />
+</head>

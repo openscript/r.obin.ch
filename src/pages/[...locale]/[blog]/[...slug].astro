@@ -5,7 +5,6 @@ import TableOfContents from "../../../components/TableOfContents.astro";
 import GitInfo from "../../../components/GitInfo.astro";
 import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { parseLocale, useTranslations } from "../../../utils/i18n";
-import { resolvePath } from "../../../utils/path";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
@@ -13,7 +12,7 @@ import { i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-lo
 import { C } from "../../../configuration";
 import { getCollection } from "astro:content";
 import slug from "limax";
-import { defaultPropsAndParamsOptions } from "../../../utils/paths";
+import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -22,7 +21,7 @@ export const getStaticPaths = async () => {
   return i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
-    generateSegments: (entry) => ({ slug: slug(entry.data.title) }),
+    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
   });
 };
 

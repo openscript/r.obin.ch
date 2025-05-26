@@ -6,6 +6,7 @@ import { defaultBlogCollection } from "../../collections/blog";
 import { i18nProps } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../utils/paths";
 import { render } from "astro:content";
+import slug from "limax";
 
 type Props = {
   locale: string;
@@ -16,6 +17,7 @@ const t = useTranslations(locale);
 const posts = i18nProps(defaultBlogCollection, {
   ...defaultPropsAndParamsOptions,
   routePattern: `[...locale]/[blog]/[...slug]`,
+  generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
 });
 
 const filteredPosts = posts.slice(0, 4);
@@ -47,7 +49,7 @@ const filteredPosts = posts.slice(0, 4);
               title={post.data.title}
               cover={post.data.cover}
               publishedAt={post.data.publishedAt}
-              translatedPath={post.data.translationId}
+              translatedPath={post.translatedPath}
               excerpt={remarkPluginFrontmatter.excerpt}
             />
           </li>

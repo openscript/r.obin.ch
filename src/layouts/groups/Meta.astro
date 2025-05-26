@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromUrl, useTranslations } from "../../utils/i18n";
+import { parseLocale, useTranslations } from "../../utils/i18n";
 import { author as packageAuthor } from "../../../package.json";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   keywords?: string;
 };
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.params.locale);
 const props = Astro.props;
 const t = useTranslations(locale);
 

@@ -1,14 +1,14 @@
 ---
 import type { Page } from "astro";
 import Button from "./Button.astro";
-import { getLocaleFromUrl, useTranslations } from "../utils/i18n";
+import { parseLocale, useTranslations } from "../utils/i18n";
 
 type Props = {
   page: Page;
 };
 
 const { page } = Astro.props as Props;
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 ---
 
