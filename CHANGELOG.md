@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.5
+
+### Patch Changes
+
+- 389fb59: Upgrade dependencies
+
 ## 0.3.4
 
 ### Patch Changes
