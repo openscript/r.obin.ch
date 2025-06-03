@@ -1,6 +1,6 @@
 ---
 import type { GitInfoFrontmatter } from '../remark/remark-git-info'
-import { getLocaleFromUrl, useTranslations } from '../utils/i18n';
+import { parseLocale, useTranslations } from '../utils/i18n';
 import Button from './Button.astro';
 import DateTime from './DateTime.astro';
 import Foldable from './Foldable.astro';
@@ -8,7 +8,7 @@ import Foldable from './Foldable.astro';
 type Props = GitInfoFrontmatter;
 
 const { git } = Astro.props;
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 
 ---

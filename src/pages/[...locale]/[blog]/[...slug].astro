@@ -1,35 +1,53 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { entryPaths } from "../../_paths";
 import Post from "../../../layouts/pages/Post.astro";
 import TableOfContents from "../../../components/TableOfContents.astro";
 import GitInfo from "../../../components/GitInfo.astro";
 import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
-import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
-import { resolvePath } from "../../../utils/path";
-import slug from "limax";
+import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
-import { getCollectionSlug, getLocaleSlug } from "../../../utils/slugs";
 import { render } from "astro:content";
+import { i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-loader-i18n";
+import { C } from "../../../configuration";
+import { getCollection } from "astro:content";
+import slug from "limax";
+import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
 
-export const getStaticPaths = entryPaths("blog", "slug");
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[blog]/[...slug]";
+  const collection = await getCollection("blog");
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+  return i18nPropsAndParams(collection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+  });
+};
 
-const { translations, data } = Astro.props as Props;
-const { Content, headings, remarkPluginFrontmatter } = await render(Astro.props);
+const {
+  translations,
+  data: { tags, locale, title, publishedAt },
+} = Astro.props;
+
+const { Content, headings, remarkPluginFrontmatter } = await render(
+  Astro.props,
+);
+
+const paramsBlog = C.SEGMENT_TRANSLATIONS[parseLocale(locale)].blog;
+
+const blogPath =
+  locale === C.DEFAULT_LOCALE
+    ? originalResolvePath(paramsBlog)
+    : originalResolvePath(locale, paramsBlog);
+
 const git: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
-const locale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(locale);
-const localeSlug = getLocaleSlug(locale);
-const collectionSlug = getCollectionSlug("blog", locale);
+const t = useTranslations(parseLocale(locale));
 ---
 
 <DefaultLayout translations={translations}>
-  <Meta slot="meta" title={data.title} />
-  <Post frontmatter={{ title: data.title, publishedAt: data.publishedAt }}>
+  <Meta slot="meta" title={title} />
+  <Post frontmatter={{ title, publishedAt }}>
     <TableOfContents slot="left" headings={headings} />
     <Content />
     <Comments />
@@ -39,8 +57,8 @@ const collectionSlug = getCollectionSlug("blog", locale);
           <dt>{t("tagsLabel")}</dt>
           <dd>
             {
-              data.tags.map((tag) => (
-                <a href={resolvePath(localeSlug, collectionSlug, slug(tag))}>
+              tags.map((tag) => (
+                <a href={resolvePath(blogPath, slug(tag))}>
                   {tag}
                 </a>
               ))

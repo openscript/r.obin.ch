@@ -1,14 +1,22 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
-import { entryPaths } from "../_paths";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import Meta from "../../layouts/groups/Meta.astro";
-import { render } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { i18nPropsAndParams } from "astro-loader-i18n";
+import { defaultPropsAndParamsOptions } from "../../utils/paths";
 
-export const getStaticPaths = entryPaths("pages");
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[...pages]";
+  const collection = await getCollection("pages");
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const page = Astro.props as Props;
+  return i18nPropsAndParams(collection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+    generateSegments: (entry) => ({ pages: entry.data.path }),
+  });
+};
+
+const page = Astro.props;
 
 const { Content } = await render(page);
 ---

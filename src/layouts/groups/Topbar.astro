@@ -1,19 +1,20 @@
 ---
-import { getEntry } from "astro:content";
-import { getLocaleFromUrl } from "../../utils/i18n";
+import { parseLocale } from "../../utils/i18n";
 import Navigation from "../../components/Navigation.astro";
 import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
+import { prepareNavigation } from "../../utils/paths";
 
 type Props = {
   translations?: Record<string, string>;
 };
 
 const { translations } = Astro.props;
-const navigation = (await getEntry("navigation", "topbar")!).data;
-const locale = getLocaleFromUrl(Astro.url);
+
+const locale = parseLocale(Astro.params.locale);
+const navigation = await prepareNavigation(`topbar/${locale}`);
 ---
 
 <div id="topbar" transition:animate="none">
-  <Navigation items={navigation} locale={locale} />
+  <Navigation items={navigation} />
   <LanguageSwitcher translations={translations} currentLocale={locale} />
 </div>

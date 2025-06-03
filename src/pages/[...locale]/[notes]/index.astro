@@ -1,26 +1,65 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { getLocaleFromUrl, useTranslations } from "../../../utils/i18n";
-import { indexPaths } from "../../_paths";
+import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
-import { nestedNotesCollection } from "../../../collections/notes";
 import NotesList from "../../../components/NoteList.astro";
+import { defaultPropsAndParamsOptions, generateGetStaticIndexPaths } from "../../../utils/paths";
+import { i18nProps } from "astro-loader-i18n";
+import slug from "limax";
+import { defaultNotesCollection } from "../../../collections/notes";
+import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
+import { render } from "astro:content";
 
-export const getStaticPaths = indexPaths("notes");
+export const getStaticPaths = generateGetStaticIndexPaths(
+  "[...locale]/[notes]",
+);
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { translations } = Astro.props as Props;
-const notes = nestedNotesCollection;
-const locale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(locale);
+const {
+  translations,
+  data: { locale },
+} = Astro.props;
+const t = useTranslations(parseLocale(locale));
+
+const collection = defaultNotesCollection;
+const notes = i18nProps(collection, {
+  ...defaultPropsAndParamsOptions,
+  routePattern: `${Astro.routePattern}/[...note]`,
+  generateSegments: (entry) => ({ note: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+});
+
+type NestedNotes = {
+  [key: string]: NestedNotes | { note: { path: string; title: string; gitInfo: GitInfoFrontmatter["git"] } };
+};
+
+const nestedNotes = notes.reduce<NestedNotes>((acc, note) => {
+  const pathSegments = note.data.contentPath.split("/").filter(Boolean);
+  pathSegments.push(slug(note.data.title));
+  let current = acc;
+
+  pathSegments.forEach(async (segment, index) => {
+    if (!current[segment]) {
+      current[segment] = {};
+    }
+
+    if (index === pathSegments.length - 1) {
+      const { remarkPluginFrontmatter } = await render(note);
+      const gitInfo = remarkPluginFrontmatter?.git as GitInfoFrontmatter["git"];
+      current[segment].note = { title: note.data.title, path: note.translatedPath, gitInfo };
+    } else {
+      current = current[segment] as NestedNotes;
+    }
+  });
+
+  return acc;
+}, {});
+
 ---
 
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={t("notesTitle")} />
   <Page>
     <h1>{t("notesTitle")}</h1>
-    <NotesList notes={notes} />
+    <NotesList notes={nestedNotes} />
   </Page>
 </DefaultLayout>

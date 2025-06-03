@@ -1,21 +1,21 @@
 ---
 import Brand from "../../components/Brand.astro";
 import { C } from "../../configuration";
-import { getLocaleFromUrl } from "../../utils/i18n";
-import { getEntry } from "astro:content";
+import { parseLocale } from "../../utils/i18n";
 import Search from "../../components/Search.astro";
 import Navigation from "../../components/Navigation.astro";
 import BurgerButton from "../../components/BurgerButton.astro";
+import { prepareNavigation, resolvePath } from "../../utils/paths";
 
-const locale = getLocaleFromUrl(Astro.url);
-const navigation = (await getEntry("navigation", "main"))!.data;
+const locale = parseLocale(Astro.params.locale);
+const navigation = await prepareNavigation(`main/${locale}`);
 ---
 
 <header>
-  <a href={`/${locale === C.DEFAULT_LOCALE ? "" : locale}`}>
+  <a href={resolvePath(`${locale === C.DEFAULT_LOCALE ? '' : locale}`)}>
     <Brand />
   </a>
   <Search />
-  <Navigation items={navigation} locale={locale} />
+  <Navigation items={navigation} />
   <BurgerButton />
 </header>

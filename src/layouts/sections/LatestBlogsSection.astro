@@ -1,18 +1,26 @@
 ---
-import type { Locale } from "../../configuration";
-import { useTranslations } from "../../utils/i18n";
+import { parseLocale, useTranslations } from "../../utils/i18n";
 import PostCard from "../../components/PostCard.astro";
 import CardList from "../../components/CardList.astro";
 import { defaultBlogCollection } from "../../collections/blog";
+import { i18nProps } from "astro-loader-i18n";
+import { defaultPropsAndParamsOptions } from "../../utils/paths";
+import { render } from "astro:content";
+import slug from "limax";
 
 type Props = {
-  locale: Locale;
+  locale: string;
 };
 
-const { locale } = Astro.props;
+const locale = parseLocale(Astro.props.locale);
 const t = useTranslations(locale);
+const posts = i18nProps(defaultBlogCollection, {
+  ...defaultPropsAndParamsOptions,
+  routePattern: `[...locale]/[blog]/[...slug]`,
+  generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+});
 
-const posts = defaultBlogCollection.slice(0, 4);
+const filteredPosts = posts.slice(0, 4);
 ---
 
 <style>
@@ -33,11 +41,20 @@ const posts = defaultBlogCollection.slice(0, 4);
   <h2>{t("latestPostsLabel")}</h2>
   <CardList>
     {
-      posts.map((post) => (
-        <li>
-          <PostCard post={post} />
-        </li>
-      ))
+      filteredPosts.map(async (post) => {
+        const { remarkPluginFrontmatter } = await render(post);
+        return (
+          <li>
+            <PostCard
+              title={post.data.title}
+              cover={post.data.cover}
+              publishedAt={post.data.publishedAt}
+              translatedPath={post.translatedPath}
+              excerpt={remarkPluginFrontmatter.excerpt}
+            />
+          </li>
+        );
+      })
     }
   </CardList>
 </section>

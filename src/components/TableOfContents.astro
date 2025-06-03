@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromUrl, useTranslations } from "../utils/i18n";
+import { parseLocale, useTranslations } from "../utils/i18n";
 import Foldable from "./Foldable.astro";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 const { headings: headingsProp, fromDepth: fromDepthProp } = Astro.props;
 const fromDepth = fromDepthProp || 2;
 const headings = headingsProp.filter((heading) => heading.depth >= fromDepth);
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 ---
 

@@ -1,7 +1,7 @@
 ---
-import { getLocaleFromUrl, useTranslations } from "../utils/i18n";
+import { parseLocale, useTranslations } from "../utils/i18n";
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const bundle = `/pagefind/pagefind.js`;
 ---

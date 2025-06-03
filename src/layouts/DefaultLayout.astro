@@ -1,7 +1,7 @@
 ---
 import "./layouts";
 import "./DefaultLayout.css";
-import { getLocaleFromUrl } from "../utils/i18n.ts";
+import { parseLocale } from "../utils/i18n.ts";
 import Head from "./groups/Head.astro";
 import Header from "./groups/Header.astro";
 import Footer from "./groups/Footer.astro";
@@ -13,18 +13,16 @@ type Props = {
   translations?: Record<string, string>;
 };
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale = parseLocale(Astro.params.locale);
 const { translations } = Astro.props;
 ---
 
 <html lang={locale}>
-  <head>
-    <Head translations={translations}>
-      <slot name="meta" slot="meta">
-        <Meta />
-      </slot>
-    </Head>
-  </head>
+  <Head translations={translations}>
+    <slot name="meta" slot="meta">
+      <Meta />
+    </slot>
+  </Head>
   <body>
     <Topbar translations={translations} />
     <Header />
