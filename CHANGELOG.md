@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.3.6
+
+### Patch Changes
+
+- 33bfa99: Fix notes rendering
+
 ## 0.3.5
 
 ### Patch Changes
