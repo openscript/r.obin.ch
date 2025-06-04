@@ -6,7 +6,7 @@ type Props = {
   notes: NestedNotes;
 };
 
-function hasNote(value: any): value is { note: Note} {
+function hasNote(value: any): value is { note: Note } {
   return 'note' in value && value.note !== undefined;
 }
 

@@ -32,20 +32,33 @@ type NestedNotes = {
   [key: string]: NestedNotes | { note: { path: string; title: string; gitInfo: GitInfoFrontmatter["git"] } };
 };
 
-const nestedNotes = notes.reduce<NestedNotes>((acc, note) => {
+const notesWithGitInfo = await Promise.all(
+  notes.map(async (note) => {
+    const { remarkPluginFrontmatter } = await render(note);
+    const gitInfo = remarkPluginFrontmatter?.git as GitInfoFrontmatter["git"];
+    return {
+      ...note,
+      gitInfo,
+    };
+  })
+);
+
+const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
   const pathSegments = note.data.contentPath.split("/").filter(Boolean);
   pathSegments.push(slug(note.data.title));
   let current = acc;
 
-  pathSegments.forEach(async (segment, index) => {
+  pathSegments.forEach((segment, index) => {
     if (!current[segment]) {
       current[segment] = {};
     }
 
     if (index === pathSegments.length - 1) {
-      const { remarkPluginFrontmatter } = await render(note);
-      const gitInfo = remarkPluginFrontmatter?.git as GitInfoFrontmatter["git"];
-      current[segment].note = { title: note.data.title, path: note.translatedPath, gitInfo };
+      current[segment].note = {
+        title: note.data.title,
+        path: note.translatedPath,
+        gitInfo: note.gitInfo
+      };
     } else {
       current = current[segment] as NestedNotes;
     }
