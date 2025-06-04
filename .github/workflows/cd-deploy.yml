@@ -37,7 +37,7 @@ jobs:
 
       - name: Replace everything but content with current release
         run: |
-          git worktree add ../release tags/${{ inputs.ref }}
+          git worktree add ../release ${{ inputs.ref }}
           rsync -a --exclude '.git' --exclude 'src/content' --delete ../release/ ./
 
       - name: Setup pnpm

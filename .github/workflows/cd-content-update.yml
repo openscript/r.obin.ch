@@ -27,7 +27,7 @@ jobs:
             const releaseTag = latestRelease.data.tag_name;
             core.setOutput('release_tag', releaseTag);
     outputs:
-      ref: ${{ steps.get_latest_release.outputs.release_tag }}
+      ref: refs/tags/${{ steps.get_latest_release.outputs.release_tag }}
 
   deploy-to-static-file-host:
     name: Deploy to Static File Host
