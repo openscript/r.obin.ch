@@ -1,12 +1,12 @@
 ---
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
-import { Image } from "astro:assets";
 import CardList from '../../../../components/CardList.astro';
 import Page from "../../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../../../utils/paths";
 import slug from "limax";
+import GalleryCard from "../../../../components/GalleryCard.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[gallery]/[category]";
@@ -31,8 +31,8 @@ const {
 
 <style>
   :global(.grid) {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 </style>
@@ -43,17 +43,7 @@ const {
     <CardList classNames="grid">
       {
         images.map((image, index) => (
-          <li>
-            <a
-              href={`${translatedPath}/${index.toString()}`}
-            >
-              <Image
-                src={image.src}
-                alt={`Photo: ${image.title}`}
-                width={320}
-              />
-            </a>
-          </li>
+          <GalleryCard title={image.title?.toString() || ""} cover={image.src} path={`${translatedPath}/${index.toString()}`} />
         ))
       }
     </CardList>

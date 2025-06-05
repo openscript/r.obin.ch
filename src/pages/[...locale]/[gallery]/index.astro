@@ -23,10 +23,19 @@ const collection = await getCollection(
 const t = useTranslations(locale);
 ---
 
+
+<style>
+  :global(.grid) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>
+
 <DefaultLayout translations={translations}>
   <Page>
     <h1>{t("galleryTitle")}</h1>
-    <CardList>
+    <CardList classNames="grid">
       {
         collection
           .map(({ data: { cover, title } }) => {
