@@ -5,7 +5,6 @@ import LatestBlogsSection from "../../layouts/sections/LatestBlogsSection.astro"
 import { render } from "astro:content";
 import { generateGetStaticIndexPaths } from "../../utils/paths";
 
-
 export const getStaticPaths = generateGetStaticIndexPaths("[...locale]");
 const {
   translations,

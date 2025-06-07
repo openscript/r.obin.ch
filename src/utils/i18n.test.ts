@@ -7,7 +7,7 @@ import {
   useTranslations,
 } from "../utils/i18n";
 
-vi.mock("../configuration", () => ({
+vi.mock("../site.config", () => ({
   C: {
     LOCALES: { en: "en-US", de: "de-CH" },
     DEFAULT_LOCALE: "en" as const,
