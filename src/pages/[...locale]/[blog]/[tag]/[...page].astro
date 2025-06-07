@@ -21,6 +21,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const propsAndParams = i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
+    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
   });
 
   const locales = propsAndParams.reduce(
@@ -86,7 +87,7 @@ const t = useTranslations(parseLocale(locale));
               title={post.data.title}
               cover={post.data.cover}
               publishedAt={post.data.publishedAt}
-              translatedPath={post.data.translationId}
+              translatedPath={post.translatedPath}
               excerpt={remarkPluginFrontmatter.excerpt}
             />
           </li>
