@@ -4,6 +4,7 @@ import { parseLocale, useTranslations } from "../utils/i18n";
 const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const bundle = `/pagefind/pagefind.js`;
+const loadingText = t("searchLoading");
 ---
 
 <script>
@@ -16,6 +17,10 @@ const bundle = `/pagefind/pagefind.js`;
   function render(results: PagefindSearchFragment[]) {
     const resultsList = document.querySelector(".results") as HTMLUListElement;
     resultsList.innerHTML = "";
+    if (results.length === 0) {
+      resultsList.textContent = resultsList.dataset.loadingText || "Loading...";
+      return;
+    }
     results.forEach((result) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
@@ -30,9 +35,11 @@ const bundle = `/pagefind/pagefind.js`;
     if (!globalThis.pagefind) return;
     const records = await globalThis.pagefind.debouncedSearch(query);
 
+    render([]);
+
     if (records?.results) {
       render(
-        await Promise.all(records.results.slice(0, 5).map((r) => r.data())),
+        await Promise.all(records.results.slice(0, 5).map((r) => r.data()))
       );
     } else {
       render([]);
@@ -41,21 +48,22 @@ const bundle = `/pagefind/pagefind.js`;
 
   async function initialize() {
     const searchWrapper = document.querySelector(
-      "[data-search-ui]",
+      "[data-search-ui]"
     ) as HTMLDivElement;
     const searchInput = document.querySelector(
-      "input[type=search]",
+      "input[type=search]"
     ) as HTMLInputElement;
     if (!searchInput || !searchWrapper || !searchWrapper.dataset.searchBundle)
       return;
 
     initializeSearch(searchWrapper.dataset.searchBundle);
 
-    searchInput.addEventListener("input", async () => {
+    searchInput.addEventListener("input", () => {
       search(searchInput.value);
     });
 
-    searchWrapper.addEventListener("focusin", () => {
+    searchWrapper.addEventListener("focusin", (event) => {
+      if (event.target === searchInput) search(searchInput.value);
       document.body.classList.add("search-active");
     });
 
@@ -96,12 +104,13 @@ const bundle = `/pagefind/pagefind.js`;
     padding: 1rem;
   }
 
-  .search:focus-within input:not(:placeholder-shown) + .results {
+  .search:focus-within input:not(:placeholder-shown) + .results,
+  .results:focus-within {
     display: flex;
   }
 </style>
 
 <div class="search" data-search-ui data-search-bundle={bundle}>
   <input type="search" placeholder={t("searchPlaceholder")} />
-  <ul class="results"></ul>
+  <ul class="results" data-loading-text={loadingText}>{loadingText}</ul>
 </div>
