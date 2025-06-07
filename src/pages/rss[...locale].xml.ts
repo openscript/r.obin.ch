@@ -5,7 +5,7 @@ import type {
   InferGetStaticParamsType,
   InferGetStaticPropsType,
 } from "astro";
-import { C, localeSlugs } from "../configuration";
+import { C, localeSlugs } from "../site.config";
 import {
   parseLocale,
 } from "../utils/i18n";

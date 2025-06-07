@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { localeSlugs } from "./configuration";
+import { localeSlugs } from "./site.config";
 import { glob } from "astro/loaders";
 import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as localizedSchema } from 'astro-loader-i18n';
 

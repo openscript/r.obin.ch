@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import unpluginFavicons from "@anolilab/unplugin-favicons/vite";
-import { C } from "./src/configuration";
+import { C } from "./src/site.config";
 import mdx from "@astrojs/mdx";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";

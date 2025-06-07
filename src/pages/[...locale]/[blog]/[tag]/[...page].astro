@@ -11,7 +11,7 @@ import { defaultPropsAndParamsOptions, resolvePath } from "../../../../utils/pat
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { render } from "astro:content";
 import Pagination from "../../../../components/Pagination.astro";
-import { C } from "../../../../configuration";
+import { C } from "../../../../site.config";
 import { defaultBlogCollection } from "../../../../collections/blog";
 
 export const getStaticPaths = (async ({ paginate }) => {

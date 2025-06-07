@@ -1,4 +1,4 @@
-import { C, type Locale } from "../configuration";
+import { C, type Locale } from "../site.config";
 
 export function getNameFromLocale(locale?: string) {
   const l = parseLocale(locale);

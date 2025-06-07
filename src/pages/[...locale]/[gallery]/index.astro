@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 import CardList from "../../../components/CardList.astro";
 import GalleryCard from "../../../components/GalleryCard.astro";
 import { generateGetStaticIndexPaths, resolvePath } from "../../../utils/paths";
-import { C } from "../../../configuration";
+import { C } from "../../../site.config";
 import slug from "limax";
 
 export const getStaticPaths = generateGetStaticIndexPaths(
