@@ -1,5 +1,13 @@
 # r.obin.ch
 
+## 0.3.7
+
+### Patch Changes
+
+- 1e29c09: Enhance search experience
+- 75f119d: Fix tag page entries paths
+- 1cc5689: Improve gallery styling
+
 ## 0.3.6
 
 ### Patch Changes
