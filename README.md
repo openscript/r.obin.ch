@@ -1,8 +1,8 @@
+<img align="center" src="./res/brand/icon.png" width="64" height="64">
+
 # r.obin.ch
 
-<img align="right" src="./res/brand/icon.png" width="64" height="64">
-
-Feel free to checkout how the website was built and reuse its code, but please don't copy the content, design and brand.
+Feel free to checkout how the website was built and reuse its code, but please don't copy the content, design and brand as it is.
 
 ## License
 
