@@ -1,4 +1,4 @@
-<img align="center" src="./res/brand/icon.png" width="64" height="64">
+<center><img src="./res/brand/icon.png" width="64" height="64"></center>
 
 # r.obin.ch
 
