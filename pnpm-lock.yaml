@@ -25,13 +25,13 @@ importers:
         version: 3.4.1
       '@fontsource/ibm-plex-mono':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.2.6
       '@fontsource/poppins':
         specifier: ^5.2.6
         version: 5.2.6
       '@fontsource/rajdhani':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.2.6
       astro:
         specifier: ^5.9.1
         version: 5.9.1(@types/node@22.15.30)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
@@ -438,14 +438,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/ibm-plex-mono@5.2.5':
-    resolution: {integrity: sha512-G09N3GfuT9qj3Ax2FDZvKqZttzM3v+cco2l8uXamhKyXLdmlaUDH5o88/C3vtTHj2oT7yRKsvxz9F+BXbWKMYA==}
+  '@fontsource/ibm-plex-mono@5.2.6':
+    resolution: {integrity: sha512-LTZJNTcpoT19fmwERZNMDI+ljHueuyhF2Qn+bICJ4Y4hxBLAAoJ2MRsGnyp0QNutW6t/25eyZpvaUK1LDrCo7Q==}
 
   '@fontsource/poppins@5.2.6':
     resolution: {integrity: sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ==}
 
-  '@fontsource/rajdhani@5.2.5':
-    resolution: {integrity: sha512-0PNeyzq6ZpIKWeylY+eGbKPB/Ep0RgModGIzpPbfMOSPXJ+8AmPr0oRCR7tfjpfqfp3pO5KxbzjSNn8J+Mh4kA==}
+  '@fontsource/rajdhani@5.2.6':
+    resolution: {integrity: sha512-B9hBDcwKf4VMM3Pc1WLlomIsaBpWReH5j8GZFy2sIfHCz4cwOLbyxQQ40PsKD6zmLVlvU17zCmfAZGX4+qB6Dw==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -3552,11 +3552,11 @@ snapshots:
   '@esbuild/win32-x64@0.25.5':
     optional: true
 
-  '@fontsource/ibm-plex-mono@5.2.5': {}
+  '@fontsource/ibm-plex-mono@5.2.6': {}
 
   '@fontsource/poppins@5.2.6': {}
 
-  '@fontsource/rajdhani@5.2.5': {}
+  '@fontsource/rajdhani@5.2.6': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
