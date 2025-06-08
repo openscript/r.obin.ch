@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.1
+
+### Patch Changes
+
+- 15ca82d: Redesign cards
+
 ## 0.4.0
 
 ### Minor Changes
