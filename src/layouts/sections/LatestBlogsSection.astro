@@ -1,12 +1,13 @@
 ---
 import { parseLocale, useTranslations } from "../../utils/i18n";
-import PostCard from "../../components/PostCard.astro";
 import CardList from "../../components/CardList.astro";
 import { defaultBlogCollection } from "../../collections/blog";
 import { i18nProps } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../utils/paths";
 import { render } from "astro:content";
 import slug from "limax";
+import Card from "../../components/Card.astro";
+import DateTime from "../../components/DateTime.astro";
 
 type Props = {
   locale: string;
@@ -27,7 +28,7 @@ const filteredPosts = posts.slice(0, 4);
   section :global(ul) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 4rem;
   }
 
   @media (max-width: 1280px) {
@@ -41,17 +42,14 @@ const filteredPosts = posts.slice(0, 4);
   <h2>{t("latestPostsLabel")}</h2>
   <CardList>
     {
-      filteredPosts.map(async (post) => {
+      filteredPosts.map(async (post, i) => {
         const { remarkPluginFrontmatter } = await render(post);
         return (
           <li>
-            <PostCard
-              title={post.data.title}
-              cover={post.data.cover}
-              publishedAt={post.data.publishedAt}
-              translatedPath={post.translatedPath}
-              excerpt={remarkPluginFrontmatter.excerpt}
-            />
+            <Card title={post.data.title} cover={post.data.cover} link={post.translatedPath} dividerFlip={i % 2 === 0}>
+              <DateTime slot="super-title" date={post.data.publishedAt} />
+              {remarkPluginFrontmatter.excerpt}...
+            </Card>
           </li>
         );
       })

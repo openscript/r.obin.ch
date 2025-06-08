@@ -9,6 +9,8 @@ import {
 } from "../../../utils/paths";
 import { i18nProps } from "astro-loader-i18n";
 import { defaultProjectsCollection } from "../../../collections/projects";
+import Card from "../../../components/Card.astro";
+import DateTime from "../../../components/DateTime.astro";
 
 export const getStaticPaths = generateGetStaticIndexPaths(
   "[...locale]/[projects]"
@@ -31,24 +33,30 @@ const projects = i18nProps(filteredProjects, {
 });
 
 // Group projects by status and sort by lastCommit date
-const projectsByStatus = projects.reduce((acc, project) => {
-  const status = project.data.status || 'unknown';
-  if (!acc[status]) {
-    acc[status] = [];
-  }
-  acc[status].push(project);
-  return acc;
-}, {} as Record<string, typeof projects>);
+const projectsByStatus = projects.reduce(
+  (acc, project) => {
+    const status = project.data.status || "unknown";
+    if (!acc[status]) {
+      acc[status] = [];
+    }
+    acc[status].push(project);
+    return acc;
+  },
+  {} as Record<string, typeof projects>
+);
 
 // Sort each status group by lastCommit date (most recent first)
-Object.keys(projectsByStatus).forEach(status => {
+Object.keys(projectsByStatus).forEach((status) => {
   projectsByStatus[status]?.sort((a, b) => {
-    const dateA = a.data.gitInfo?.lastCommit?.date ? new Date(a.data.gitInfo.lastCommit.date) : new Date(0);
-    const dateB = b.data.gitInfo?.lastCommit?.date ? new Date(b.data.gitInfo.lastCommit.date) : new Date(0);
+    const dateA = a.data.gitInfo?.lastCommit?.date
+      ? new Date(a.data.gitInfo.lastCommit.date)
+      : new Date(0);
+    const dateB = b.data.gitInfo?.lastCommit?.date
+      ? new Date(b.data.gitInfo.lastCommit.date)
+      : new Date(0);
     return dateB.getTime() - dateA.getTime();
   });
 });
-
 ---
 
 <DefaultLayout translations={translations}>
@@ -56,28 +64,29 @@ Object.keys(projectsByStatus).forEach(status => {
   <Page>
     <h1 slot="title">{t("projectsTitle")}</h1>
 
-    {Object.entries(projectsByStatus).map(([status, statusProjects]) => (
-      <section>
-        <h2>{t(status as any)}</h2>
-        <div class="projects-grid">
-          {statusProjects.map(project => (
-            <article class="project-card">
-              <h3>
-                <a href={project.translatedPath}>{project.data.title}</a>
-              </h3>
-              {project.data.summary && (
-                <p class="description">{project.data.summary}</p>
-              )}
-              {project.data.gitInfo?.lastCommit && (
-                <div class="git-info">
-                  <p>Last updated: {new Date(project.data.gitInfo.lastCommit.date).toLocaleDateString()}</p>
-                  <p>By: {project.data.gitInfo.lastCommit.authorName}</p>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
-    ))}
+    {
+      Object.entries(projectsByStatus).map(([status, statusProjects]) => (
+        <section>
+          <h2>{t(status as any)}</h2>
+          <div class="projects-grid">
+            {statusProjects.map((project) => (
+              <Card
+                title={project.data.title}
+                cover={project.data.cover}
+                link={project.translatedPath}
+              >
+                {project.data.gitInfo?.lastCommit?.date && (
+                  <DateTime
+                    slot="super-title"
+                    date={new Date(project.data.gitInfo.lastCommit.date)}
+                  />
+                )}
+                {project.data.summary}
+              </Card>
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </Page>
 </DefaultLayout>

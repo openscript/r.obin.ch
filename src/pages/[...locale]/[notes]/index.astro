@@ -72,7 +72,7 @@ const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={t("notesTitle")} />
   <Page>
-    <h1>{t("notesTitle")}</h1>
+    <h1 slot="title">{t("notesTitle")}</h1>
     <NotesList notes={nestedNotes} />
   </Page>
 </DefaultLayout>

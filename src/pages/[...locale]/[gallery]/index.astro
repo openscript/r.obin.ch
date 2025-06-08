@@ -4,31 +4,33 @@ import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import CardList from "../../../components/CardList.astro";
-import GalleryCard from "../../../components/GalleryCard.astro";
 import { generateGetStaticIndexPaths, resolvePath } from "../../../utils/paths";
 import { C } from "../../../site.config";
 import slug from "limax";
 import Meta from "../../../layouts/groups/Meta.astro";
+import Card from "../../../components/Card.astro";
 
 export const getStaticPaths = generateGetStaticIndexPaths(
-  "[...locale]/[gallery]",
+  "[...locale]/[gallery]"
 );
-const { translations, data: { locale } } = Astro.props;
+const {
+  translations,
+  data: { locale },
+} = Astro.props;
 
 const localeParam = locale === C.DEFAULT_LOCALE ? undefined : locale;
 const collection = await getCollection(
   "gallery",
-  (category) => category.data.locale === locale,
+  (category) => category.data.locale === locale
 );
 const t = useTranslations(parseLocale(locale));
 ---
-
 
 <style>
   :global(.grid) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 4rem;
   }
 </style>
 
@@ -43,8 +45,12 @@ const t = useTranslations(parseLocale(locale));
             if (typeof title !== "string") {
               return null;
             }
-            const url = resolvePath(localeParam, Astro.params.gallery, slug(title));
-            return <GalleryCard title={title} cover={cover} path={url} />;
+            const url = resolvePath(
+              localeParam,
+              Astro.params.gallery,
+              slug(title)
+            );
+            return <Card title={title} cover={{ src: cover }} link={url} />;
           })
           .filter(Boolean)
       }

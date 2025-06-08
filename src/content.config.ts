@@ -50,7 +50,10 @@ const projectsCollection = defineCollection({
     z.object({
       homepage: z.string().url().optional(),
       source: z.string().url().optional(),
-      cover: image().optional(),
+      cover: z.object({
+        src: image(),
+        alt: z.string().optional(),
+      }).optional(),
       status: z.enum(["active", "maintenance", "archived"]),
       type: z.enum(["website", "app", "library", "tool", "other"]),
       images: z.array(

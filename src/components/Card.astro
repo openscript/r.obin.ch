@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import DerivedCover from "./DerivedCover.astro";
+
+type Props = {
+  link: string;
+  title: string;
+  cover?: { alt?: string; src: ImageMetadata };
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+  dividerFlip?: boolean;
+};
+
+const {
+  link,
+  title,
+  cover,
+  headingLevel = 3,
+  dividerFlip,
+} = Astro.props;
+const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
+---
+
+<style>
+  a {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% + var(--gap) * 2);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    margin: calc(var(--gap) * -1);
+    height: calc(100% + var(--gap) * 2);
+    hyphens: auto;
+  }
+
+  .cover {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    height: 20rem;
+  }
+
+  .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-color-240);
+    color: var(--text-color);
+    padding: var(--gap);
+    padding-top: var(--gap-big);
+    clip-path: polygon(0 0, 100% 1rem, 100% 100%, 0 100%);
+    font-size: 0.8rem;
+  }
+
+  .overlay.divider-flip {
+    clip-path: polygon(0 1rem, 100% 0, 100% 100%, 0 100%);
+  }
+
+  a:hover .overlay,
+  a:hover .content {
+    background-color: var(--primary-color-220);
+    transition: var(--transition-duration);
+  }
+
+  a:hover :global(svg),
+  a:hover :global(img) {
+    transform: scale(1.05);
+    transition: var(--transition-duration);
+    transition-origin: center;
+  }
+
+  .overlay :global(h3),
+  .overlay :global(h4),
+  .overlay :global(h5),
+  .overlay :global(h6) {
+    margin: 0;
+  }
+
+  .super-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .content {
+    background-color: var(--primary-color-240);
+    color: var(--text-color);
+    padding-inline: var(--gap);
+    padding-bottom: var(--gap);
+    margin-top: -0.5px;
+    z-index: 10;
+  }
+
+  a :global(svg),
+  a :global(img) {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    flex-grow: 1;
+    object-fit: cover;
+  }
+</style>
+
+<a href={link}>
+  <div class="cover">
+    {
+      cover ? (
+        <Image src={cover.src} alt={cover.alt || title} widths={[1280, 720]} />
+      ) : (
+        <DerivedCover value={title} />
+      )
+    }
+    <div class:list={{ overlay: true, "divider-flip": dividerFlip }}>
+      <slot name="super-title" />
+      <HeadingTag>{title}</HeadingTag>
+      <slot name="sub-title" />
+    </div>
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</a>

@@ -3,7 +3,6 @@ import type { GetStaticPaths } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
-import PostCard from "../../../components/PostCard.astro";
 import CardList from "../../../components/CardList.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
@@ -16,6 +15,8 @@ import {
 } from "../../../utils/paths";
 import { C } from "../../../site.config";
 import { render } from "astro:content";
+import Card from "../../../components/Card.astro";
+import DateTime from "../../../components/DateTime.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -24,7 +25,9 @@ export const getStaticPaths = (async ({ paginate }) => {
   const propsAndParams = i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
-    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+    generateSegments: (entry) => ({
+      slug: `${entry.data.contentPath}/${slug(entry.data.title)}`,
+    }),
   });
 
   const locales = propsAndParams.reduce(
@@ -70,8 +73,8 @@ const t = useTranslations(parseLocale(locale));
   :global(.vertical) {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
-    margin: 1.4rem 0 !important;
+    gap: 4rem;
+    margin-block: 3rem !important;
   }
 </style>
 
@@ -82,17 +85,19 @@ const t = useTranslations(parseLocale(locale));
     <Pagination page={page} />
     <CardList classNames="vertical">
       {
-        page.data.map(async (post) => {
+        page.data.map(async (post, i) => {
           const { remarkPluginFrontmatter } = await render(post);
           return (
             <li>
-              <PostCard
+              <Card
                 title={post.data.title}
                 cover={post.data.cover}
-                publishedAt={post.data.publishedAt}
-                translatedPath={post.translatedPath}
-                excerpt={remarkPluginFrontmatter.excerpt}
-              />
+                link={post.translatedPath}
+                dividerFlip={i % 2 === 0}
+              >
+                <DateTime slot="super-title" date={post.data.publishedAt} />
+                {remarkPluginFrontmatter.excerpt}...
+              </Card>
             </li>
           );
         })

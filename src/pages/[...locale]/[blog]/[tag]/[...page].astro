@@ -1,18 +1,22 @@
 ---
 import type { GetStaticPaths } from "astro";
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
-import PostCard from "../../../../components/PostCard.astro";
 import CardList from "../../../../components/CardList.astro";
 import { parseLocale, useTranslations } from "../../../../utils/i18n";
 import Page from "../../../../layouts/pages/Page.astro";
 import Meta from "../../../../layouts/groups/Meta.astro";
 import slug from "limax";
-import { defaultPropsAndParamsOptions, resolvePath } from "../../../../utils/paths";
+import {
+  defaultPropsAndParamsOptions,
+  resolvePath,
+} from "../../../../utils/paths";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { render } from "astro:content";
 import Pagination from "../../../../components/Pagination.astro";
 import { C } from "../../../../site.config";
 import { defaultBlogCollection } from "../../../../collections/blog";
+import Card from "../../../../components/Card.astro";
+import DateTime from "../../../../components/DateTime.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -21,7 +25,9 @@ export const getStaticPaths = (async ({ paginate }) => {
   const propsAndParams = i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
-    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+    generateSegments: (entry) => ({
+      slug: `${entry.data.contentPath}/${slug(entry.data.title)}`,
+    }),
   });
 
   const locales = propsAndParams.reduce(
@@ -29,11 +35,11 @@ export const getStaticPaths = (async ({ paginate }) => {
       acc[item.props.data.locale] = item.params.locale;
       return acc;
     },
-    {} as Record<string, string | undefined>,
+    {} as Record<string, string | undefined>
   );
 
   const tags = Array.from(
-    new Set(propsAndParams.flatMap((item) => item.props.data.tags)),
+    new Set(propsAndParams.flatMap((item) => item.props.data.tags))
   );
 
   return tags.flatMap((tag) => {
@@ -41,7 +47,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       const items = propsAndParams.filter(
         (item) =>
           item.props.data.locale === propsLocale &&
-          item.props.data.tags.includes(tag),
+          item.props.data.tags.includes(tag)
       );
       const data = items.map((item) => item.props);
       const blog = C.SEGMENT_TRANSLATIONS[parseLocale(propsLocale)].blog;
@@ -50,7 +56,7 @@ export const getStaticPaths = (async ({ paginate }) => {
           acc[locale] = resolvePath(localeSlug, blog, slug(tag));
           return acc;
         },
-        {} as Record<string, string>,
+        {} as Record<string, string>
       );
       return paginate(data, {
         pageSize: C.SETTINGS.BLOG.PAGE_SIZE,
@@ -73,26 +79,37 @@ const { page, tag, locale, translations } = Astro.props;
 const t = useTranslations(parseLocale(locale));
 ---
 
+<style>
+  :global(.vertical) {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-block: 3rem !important;
+  }
+</style>
+
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={t("blogTagTitle", { tag })} />
   <Page>
     <h1 slot="title">{t("blogTagTitle", { tag })}</h1>
-    <CardList>
+    <CardList classNames="vertical">
       {
-        page.data.map(async (post) => {
-        const { remarkPluginFrontmatter } = await render(post);
-        return (
-          <li>
-            <PostCard
-              title={post.data.title}
-              cover={post.data.cover}
-              publishedAt={post.data.publishedAt}
-              translatedPath={post.translatedPath}
-              excerpt={remarkPluginFrontmatter.excerpt}
-            />
-          </li>
-        );
-      })
+        page.data.map(async (post, i) => {
+          const { remarkPluginFrontmatter } = await render(post);
+          return (
+            <li>
+              <Card
+                title={post.data.title}
+                cover={post.data.cover}
+                link={post.translatedPath}
+                dividerFlip={i % 2 === 0}
+              >
+                <DateTime slot="super-title" date={post.data.publishedAt} />
+                {remarkPluginFrontmatter.excerpt}...
+              </Card>
+            </li>
+          );
+        })
       }
     </CardList>
     <Pagination page={page} />

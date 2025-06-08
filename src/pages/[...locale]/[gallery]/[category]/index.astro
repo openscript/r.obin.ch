@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../../../utils/paths";
 import slug from "limax";
-import GalleryCard from "../../../../components/GalleryCard.astro";
+import Card from "../../../../components/Card.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[gallery]/[category]";
@@ -33,17 +33,17 @@ const {
   :global(.grid) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 4rem;
   }
 </style>
 
 <DefaultLayout translations={translations}>
   <Page>
-    <h1>{title}</h1>
+    <h1 slot="title">{title}</h1>
     <CardList classNames="grid">
       {
         images.map((image, index) => (
-          <GalleryCard title={image.title?.toString() || ""} cover={image.src} path={`${translatedPath}/${index.toString()}`} />
+          <Card title={image.title?.toString() || ""} cover={image} link={`${translatedPath}/${index.toString()}`} />
         ))
       }
     </CardList>

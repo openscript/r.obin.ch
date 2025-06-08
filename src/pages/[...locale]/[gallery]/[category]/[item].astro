@@ -75,7 +75,7 @@ const t = useTranslations(parseLocale(locale));
 
 <DefaultLayout translations={translations}>
   <Page>
-    <h1>Bild</h1>
+    <h1 slot="title">{image.title}</h1>
     <Image src={image.src} alt={`Photo: ${image.title}`} width={1920} />
     <div>
       {
