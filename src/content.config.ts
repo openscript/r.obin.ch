@@ -45,14 +45,14 @@ const galleryCollection = defineCollection({
   ),
 });
 const projectsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
-  schema: ({ image }) =>
+  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/projects" }),
+  schema: ({ image }) => extendI18nLoaderSchema(
     z.object({
-      title: z.string(),
-      summary: z.string(),
       homepage: z.string().url().optional(),
       source: z.string().url().optional(),
       cover: image().optional(),
+      status: z.enum(["active", "maintenance", "archived"]),
+      type: z.enum(["website", "app", "library", "tool", "other"]),
       images: z.array(
         z.object({
           src: image(),
@@ -61,6 +61,16 @@ const projectsCollection = defineCollection({
         }),
       ).optional(),
     }),
+  ),
+});
+const projectsContentCollection = defineCollection({
+  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
+  schema: extendI18nLoaderSchema(
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+    }),
+  ),
 });
 const pagesCollection = defineCollection({
   loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
@@ -96,6 +106,7 @@ export const collections = {
   notes: notesCollection,
   gallery: galleryCollection,
   projects: projectsCollection,
+  projectsContent: projectsContentCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
   sections: sectionsCollection,

@@ -1,0 +1,33 @@
+---
+import { i18nPropsAndParams } from "astro-loader-i18n";
+import { defaultProjectsCollection } from "../../../collections/projects";
+import { defaultPropsAndParamsOptions } from "../../../utils/paths";
+import DefaultLayout from "../../../layouts/DefaultLayout.astro";
+import Meta from "../../../layouts/groups/Meta.astro";
+import { render } from "astro:content";
+import Page from "../../../layouts/pages/Page.astro";
+
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[projects]/[project]";
+
+  return i18nPropsAndParams(defaultProjectsCollection, {
+    ...defaultPropsAndParamsOptions,
+    routePattern,
+    generateSegments: (entry) => ({ project: entry.data.contentPath }),
+  });
+};
+
+const page = Astro.props;
+
+console.log(page.data);
+const { Content } = await render(page);
+---
+
+<DefaultLayout translations={page.translations}>
+  <Meta slot="meta" title={page.data.title} />
+  <Page>
+    <h1 slot="title">{page.data.title}</h1>
+    <p>{page.data.summary}</p>
+    <Content />
+  </Page>
+</DefaultLayout>

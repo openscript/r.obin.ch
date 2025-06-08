@@ -3,7 +3,7 @@ import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import Post from "../../../layouts/pages/Post.astro";
 import TableOfContents from "../../../components/TableOfContents.astro";
 import GitInfo from "../../../components/GitInfo.astro";
-import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
+import { getGitInfo } from "../../../remark/remark-git-info";
 import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
@@ -41,7 +41,7 @@ const blogPath =
     ? originalResolvePath(paramsBlog)
     : originalResolvePath(locale, paramsBlog);
 
-const git: GitInfoFrontmatter["git"] = remarkPluginFrontmatter.git;
+const gitInfo = getGitInfo(remarkPluginFrontmatter);
 const t = useTranslations(parseLocale(locale));
 ---
 
@@ -52,7 +52,7 @@ const t = useTranslations(parseLocale(locale));
     <Content />
     <Comments />
     <Fragment slot="right">
-      <GitInfo git={git}>
+      <GitInfo gitInfo={gitInfo}>
         <Fragment slot="after">
           <dt>{t("tagsLabel")}</dt>
           <dd>

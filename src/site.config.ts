@@ -47,6 +47,10 @@ export const C = {
       nextLabel: "Weiter",
       latestPostsLabel: "Neueste Artikel",
       notesTitle: "Notizen",
+      active: "Aktiv",
+      maintenance: "Wartung",
+      archived: "Archiviert",
+      idea: "Idee",
     },
     en: {
       language: "English",
@@ -75,6 +79,10 @@ export const C = {
       nextLabel: "Next",
       latestPostsLabel: "Latest posts",
       notesTitle: "Notes",
+      active: "Active",
+      maintenance: "Maintenance",
+      archived: "Archived",
+      idea: "Idea",
     },
   } satisfies { [key: string]: { [key: string]: string } },
   // Various settings

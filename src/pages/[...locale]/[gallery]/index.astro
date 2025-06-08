@@ -8,19 +8,19 @@ import GalleryCard from "../../../components/GalleryCard.astro";
 import { generateGetStaticIndexPaths, resolvePath } from "../../../utils/paths";
 import { C } from "../../../site.config";
 import slug from "limax";
+import Meta from "../../../layouts/groups/Meta.astro";
 
 export const getStaticPaths = generateGetStaticIndexPaths(
   "[...locale]/[gallery]",
 );
-const { translations } = Astro.props;
+const { translations, data: { locale } } = Astro.props;
 
-const locale = parseLocale(Astro.props.data.locale);
 const localeParam = locale === C.DEFAULT_LOCALE ? undefined : locale;
 const collection = await getCollection(
   "gallery",
   (category) => category.data.locale === locale,
 );
-const t = useTranslations(locale);
+const t = useTranslations(parseLocale(locale));
 ---
 
 
@@ -33,8 +33,9 @@ const t = useTranslations(locale);
 </style>
 
 <DefaultLayout translations={translations}>
+  <Meta slot="meta" title={t("galleryTitle")} />
   <Page>
-    <h1>{t("galleryTitle")}</h1>
+    <h1 slot="title">{t("galleryTitle")}</h1>
     <CardList classNames="grid">
       {
         collection

@@ -3,6 +3,17 @@ import type { VFile } from "vfile";
 import simpleGit, { type SimpleGitOptions } from "simple-git";
 import { isAstroData } from "./common";
 
+export type GitInfoFrontmatter = {
+  lastCommit?: { authorName: string, date: string, message: string };
+  remoteEditUrl: string;
+  remoteViewUrl: string;
+  remoteHistoryUrl: string;
+};
+
+export const getGitInfo = (remarkPluginFrontmatter: Record<string, any>) => {
+  return remarkPluginFrontmatter.gitInfo as GitInfoFrontmatter | undefined;
+}
+
 const options: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(),
   binary: "git",
@@ -10,15 +21,6 @@ const options: Partial<SimpleGitOptions> = {
   trimmed: false,
 };
 const git = simpleGit(options);
-
-export type GitInfoFrontmatter = {
-  git: {
-    lastCommit?: { authorName: string, date: string, message: string };
-    remoteEditUrl: string;
-    remoteViewUrl: string;
-    remoteHistoryUrl: string;
-  };
-};
 
 type Options = Readonly<{
   remoteUrlBase: string;
@@ -36,6 +38,6 @@ export function remarkGitInfo({ remoteUrlBase }: Options) {
     const remoteHistoryUrl = `${remoteUrlBase}/commits/master${filePath}`;
     const lastCommit = { authorName, date, message };
 
-    file.data.astro.frontmatter.git = { lastCommit, remoteEditUrl, remoteViewUrl, remoteHistoryUrl };
+    file.data.astro.frontmatter.gitInfo = { lastCommit, remoteEditUrl, remoteViewUrl, remoteHistoryUrl };
   };
 }

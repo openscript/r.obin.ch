@@ -5,7 +5,7 @@ import DateTime from "./DateTime.astro";
 type Props = {
   path: string;
   title: string;
-  gitInfo: GitInfoFrontmatter["git"];
+  gitInfo?: GitInfoFrontmatter;
 };
 
 const { path, title, gitInfo } = Astro.props;
@@ -23,7 +23,7 @@ const { path, title, gitInfo } = Astro.props;
 <a href={path}>
   <span class="note-title">{title}</span>
   {
-    gitInfo.lastCommit && (
+    gitInfo?.lastCommit && (
       <span class="note-modified">
         <DateTime date={new Date(gitInfo.lastCommit?.date)} dateStyle="short" />
       </span>

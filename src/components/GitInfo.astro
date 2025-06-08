@@ -5,9 +5,9 @@ import Button from './Button.astro';
 import DateTime from './DateTime.astro';
 import Foldable from './Foldable.astro';
 
-type Props = GitInfoFrontmatter;
+type Props = { gitInfo?: GitInfoFrontmatter };
 
-const { git } = Astro.props;
+const { gitInfo } = Astro.props;
 const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 
@@ -17,16 +17,16 @@ const t = useTranslations(locale);
   <span class="label" slot="title">{t('gitInfoLabel')}</span>
   <dl>
     <slot name="before" />
-    {git?.lastCommit && (
+    {gitInfo?.lastCommit && (
       <dt>{t('authorLabel')}</dt>
-      <dd>{git.lastCommit.authorName}</dd>
+      <dd>{gitInfo.lastCommit.authorName}</dd>
       <dt>{t('lastUpdatedLabel')}</dt>
-      <dd><DateTime date={new Date(git.lastCommit.date)} /></dd>
+      <dd><DateTime date={new Date(gitInfo.lastCommit.date)} /></dd>
       <dt>{t('linksLabel')}</dt>
       <dd>
-        <Button href={git.remoteViewUrl}>{t('sourceLabel')}</Button>
-        <Button href={git.remoteHistoryUrl}>{t('historyLabel')}</Button>
-        <Button href={git.remoteEditUrl}>{t('editLabel')}</Button>
+        <Button href={gitInfo.remoteViewUrl}>{t('sourceLabel')}</Button>
+        <Button href={gitInfo.remoteHistoryUrl}>{t('historyLabel')}</Button>
+        <Button href={gitInfo.remoteEditUrl}>{t('editLabel')}</Button>
       </dd>
     )}
     <slot name="after" />

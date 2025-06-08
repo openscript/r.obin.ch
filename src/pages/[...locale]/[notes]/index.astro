@@ -8,7 +8,7 @@ import { defaultPropsAndParamsOptions, generateGetStaticIndexPaths } from "../..
 import { i18nProps } from "astro-loader-i18n";
 import slug from "limax";
 import { defaultNotesCollection } from "../../../collections/notes";
-import type { GitInfoFrontmatter } from "../../../remark/remark-git-info";
+import { getGitInfo, type GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { render } from "astro:content";
 
 export const getStaticPaths = generateGetStaticIndexPaths(
@@ -29,13 +29,13 @@ const notes = i18nProps(collection, {
 });
 
 type NestedNotes = {
-  [key: string]: NestedNotes | { note: { path: string; title: string; gitInfo: GitInfoFrontmatter["git"] } };
+  [key: string]: NestedNotes | { note: { path: string; title: string; gitInfo?: GitInfoFrontmatter } };
 };
 
 const notesWithGitInfo = await Promise.all(
   notes.map(async (note) => {
     const { remarkPluginFrontmatter } = await render(note);
-    const gitInfo = remarkPluginFrontmatter?.git as GitInfoFrontmatter["git"];
+    const gitInfo = getGitInfo(remarkPluginFrontmatter)
     return {
       ...note,
       gitInfo,
