@@ -345,6 +345,10 @@ main li {
     grid-template-areas: "brand search burger" ". menu .";
   }
 
+  .burger-active header {
+    grid-template-areas: "brand menu burger" ". menu .";
+  }
+
   header button.burger-button {
     display: block;
   }
