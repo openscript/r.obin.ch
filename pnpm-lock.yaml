@@ -13,7 +13,7 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)
       '@astrojs/mdx':
         specifier: ^4.3.0
-        version: 4.3.0(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0))
+        version: 4.3.0(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.12
@@ -30,14 +30,11 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       astro:
-        specifier: ^5.9.2
-        version: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
+        specifier: ^5.9.3
+        version: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
       astro-loader-i18n:
         specifier: ^0.7.2
-        version: 0.7.2(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0))
-      favicons:
-        specifier: ^7.2.0
-        version: 7.2.0
+        version: 0.7.2(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))
       limax:
         specifier: ^4.1.0
         version: 4.1.0
@@ -978,11 +975,6 @@ packages:
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  acorn@8.14.1:
-    resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
   acorn@8.15.0:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
@@ -1223,8 +1215,8 @@ packages:
       supports-color:
         optional: true
 
-  decode-named-character-reference@1.1.0:
-    resolution: {integrity: sha512-Wy+JTSbFThEOXQIR2L6mxJvEs+veIzpmqD7ynWxMXGpnk3smkHQOp6forLdHsKpAMW9iJpaBBIxz285t1n1C3w==}
+  decode-named-character-reference@1.2.0:
+    resolution: {integrity: sha512-c6fcElNV6ShtZXmsgNgFFV5tVX2PaV4g+MOAkb8eXHvn6sryJBrZa9r0zV6+dtTyoCKxtDy5tyQ5ZwQuidtd+Q==}
 
   deep-eql@5.0.2:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
@@ -1294,10 +1286,6 @@ packages:
   enquirer@2.4.1:
     resolution: {integrity: sha512-rRqJg/6gd538VHvR3PSrdRBb/1Vy2YfzHqzvbhGIQpDRKIa4FgV/54b5Q1xYSxOOwKvjXweS26E0Q+nAMwp2pQ==}
     engines: {node: '>=8.6'}
-
-  entities@4.5.0:
-    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
-    engines: {node: '>=0.12'}
 
   entities@6.0.1:
     resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
@@ -2830,9 +2818,6 @@ packages:
       typescript: ^4.9.4 || ^5.0.2
       zod: ^3
 
-  zod@3.25.51:
-    resolution: {integrity: sha512-TQSnBldh+XSGL+opiSIq0575wvDPqu09AqWe1F7JhUMKY+M91/aGlK4MhpVNO7MgYfHcVCB1ffwAUTJzllKJqg==}
-
   zod@3.25.64:
     resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
 
@@ -2845,30 +2830,6 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
-
-  '@anolilab/unplugin-favicons@1.0.5(@types/node@24.0.1)(esbuild@0.25.5)(favicons@7.2.0)(vite@6.3.5(@types/node@24.0.1)(jiti@2.4.2)(yaml@2.7.0))(yaml@2.7.0)':
-    dependencies:
-      '@visulima/find-cache-dir': 1.0.26(yaml@2.7.0)
-      '@visulima/package': 3.5.1(@types/node@24.0.1)(yaml@2.7.0)
-      cacache: 18.0.4
-      consola: 3.2.3
-      fast-json-stable-stringify: 2.1.0
-      favicons: 7.2.0
-      parse-author: 2.0.0
-      parse5: 7.2.1
-      ssri: 10.0.6
-      unplugin: 1.16.1
-    optionalDependencies:
-      esbuild: 0.25.5
-      vite: 6.3.5(@types/node@24.0.1)(jiti@2.4.2)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - '@types/node'
-      - yaml
-
-  '@antfu/install-pkg@1.0.0':
-    dependencies:
-      package-manager-detector: 0.2.11
-      tinyexec: 0.3.2
 
   '@astrojs/check@0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)':
     dependencies:
@@ -2937,12 +2898,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.0(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0))':
+  '@astrojs/mdx@4.3.0(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.2
-      '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
-      acorn: 8.14.1
-      astro: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
+      '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
+      acorn: 8.15.0
+      astro: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -3511,11 +3472,7 @@ snapshots:
   '@nodelib/fs.walk@1.2.8':
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
-      fastq: 1.19.0
-
-  '@npmcli/fs@3.1.1':
-    dependencies:
-      semver: 7.7.2
+      fastq: 1.19.1
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -3813,9 +3770,7 @@ snapshots:
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
-      acorn: 8.14.1
-
-  acorn@8.14.1: {}
+      acorn: 8.15.0
 
   acorn@8.15.0: {}
 
@@ -3871,11 +3826,11 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-loader-i18n@0.7.2(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)):
+  astro-loader-i18n@0.7.2(astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)):
     dependencies:
-      astro: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0)
+      astro: 5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
 
-  astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.0):
+  astro@5.9.3(@types/node@24.0.1)(jiti@2.4.2)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.6.1
@@ -4117,7 +4072,7 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  decode-named-character-reference@1.1.0:
+  decode-named-character-reference@1.2.0:
     dependencies:
       character-entities: 2.0.2
 
@@ -4172,8 +4127,6 @@ snapshots:
     dependencies:
       ansi-colors: 4.1.3
       strip-ansi: 6.0.1
-
-  entities@4.5.0: {}
 
   entities@6.0.1: {}
 
@@ -4710,7 +4663,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
-      decode-named-character-reference: 1.1.0
+      decode-named-character-reference: 1.2.0
       devlop: 1.1.0
       mdast-util-to-string: 4.0.0
       micromark: 4.0.2
@@ -4868,7 +4821,7 @@ snapshots:
 
   micromark-core-commonmark@2.0.3:
     dependencies:
-      decode-named-character-reference: 1.1.0
+      decode-named-character-reference: 1.2.0
       devlop: 1.1.0
       micromark-factory-destination: 2.0.1
       micromark-factory-label: 2.0.1
@@ -5064,7 +5017,7 @@ snapshots:
 
   micromark-util-decode-string@2.0.1:
     dependencies:
-      decode-named-character-reference: 1.1.0
+      decode-named-character-reference: 1.2.0
       micromark-util-character: 2.1.1
       micromark-util-decode-numeric-character-reference: 2.0.2
       micromark-util-symbol: 2.0.1
@@ -5112,7 +5065,7 @@ snapshots:
     dependencies:
       '@types/debug': 4.1.12
       debug: 4.4.1
-      decode-named-character-reference: 1.1.0
+      decode-named-character-reference: 1.2.0
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.3
       micromark-factory-space: 2.0.1
@@ -5164,12 +5117,6 @@ snapshots:
       whatwg-url: 5.0.0
 
   node-mock-http@1.0.0: {}
-
-  normalize-package-data@7.0.0:
-    dependencies:
-      hosted-git-info: 8.0.2
-      semver: 7.7.2
-      validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
 
@@ -5243,7 +5190,7 @@ snapshots:
       '@types/unist': 2.0.11
       character-entities-legacy: 3.0.0
       character-reference-invalid: 2.0.1
-      decode-named-character-reference: 1.1.0
+      decode-named-character-reference: 1.2.0
       is-alphanumerical: 2.0.1
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
@@ -5873,11 +5820,6 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin@1.16.1:
-    dependencies:
-      acorn: 8.15.0
-      webpack-virtual-modules: 0.6.2
-
   unstorage@1.16.0:
     dependencies:
       anymatch: 3.1.3
@@ -6027,7 +5969,7 @@ snapshots:
     dependencies:
       path-browserify: 1.0.1
       semver: 7.7.2
-      typescript-auto-import-cache: 0.3.5
+      typescript-auto-import-cache: 0.3.6
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
       vscode-uri: 3.1.0
@@ -6188,8 +6130,6 @@ snapshots:
     dependencies:
       typescript: 5.8.3
       zod: 3.25.64
-
-  zod@3.25.51: {}
 
   zod@3.25.64: {}
 
