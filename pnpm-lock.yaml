@@ -33,7 +33,7 @@ importers:
         specifier: ^5.10.0
         version: 5.10.0(@types/node@24.0.3)(rollup@4.44.0)(typescript@5.8.3)(yaml@2.8.0)
       astro-loader-i18n:
-        specifier: ^0.7.2
+        specifier: ^0.7.3
         version: 0.7.3(astro@5.10.0(@types/node@24.0.3)(rollup@4.44.0)(typescript@5.8.3)(yaml@2.8.0))
       limax:
         specifier: ^4.1.0
