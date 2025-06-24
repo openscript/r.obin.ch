@@ -30,7 +30,7 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       astro:
-        specifier: ^5.10.0
+        specifier: ^5.10.1
         version: 5.10.1(@types/node@24.0.3)(rollup@4.44.0)(typescript@5.8.3)(yaml@2.8.0)
       astro-loader-i18n:
         specifier: ^0.7.3
@@ -76,7 +76,7 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0
       prettier:
-        specifier: ^3.5.3
+        specifier: ^3.6.0
         version: 3.6.0
       prettier-plugin-astro:
         specifier: ^0.14.1
