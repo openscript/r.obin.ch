@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.2
+
+### Patch Changes
+
+- dca6bc2: Enhance details style
+
 ## 0.4.1
 
 ### Patch Changes
