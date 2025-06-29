@@ -14,7 +14,8 @@
         "eliostruyf.vscode-front-matter",
         "unifiedjs.vscode-mdx",
         "github.vscode-github-actions",
-        "GitHub.vscode-pull-request-github"
+        "GitHub.vscode-pull-request-github",
+        "vunguyentuan.vscode-css-variables"
       ]
     }
   },

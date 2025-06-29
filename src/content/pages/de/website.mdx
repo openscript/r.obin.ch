@@ -6,7 +6,7 @@ layout: ../../../layouts/pages/PageWithAside.astro
 
 import CodeLicense from "../../../../LICENSE?raw";
 import ContentLicense from "../../LICENSE?raw";
-import Foldable from "../../../components/Foldable.astro";
+import Details from "../../../components/Details.astro";
 import DateTime from "../../../components/DateTime.astro";
 import { Code } from "astro:components";
 
@@ -34,17 +34,17 @@ Diese Webseite wird mit den folgenden Technologien und Tools erstellt:
 
 Der Code dieser Webseite ist unter der BSD Zero Clause License lizenziert.
 
-<Foldable>
+<Details>
   <span slot="title">Lizenzierung des Codes</span>
   <Code code={CodeLicense} lang="plaintext" theme="github-light" />
-</Foldable>
+</Details>
 
 Der Inhalt (Texte, Bilder, Videos, ..) dieser Webseite ist unter der Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License lizenziert.
 
-<Foldable>
+<Details>
   <span slot="title">Lizenzierung der Inhalte</span>
   <Code code={ContentLicense} lang="plaintext" theme="github-light" />
-</Foldable>
+</Details>
 
 ## Änderungsverlauf
 

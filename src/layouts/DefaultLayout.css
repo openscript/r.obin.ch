@@ -1,18 +1,18 @@
 html {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: var(--white-color);
+  background-color: var(--color-white);
 }
 
 #topbar {
-  background-color: var(--primary-color-120);
-  color: var(--white-color);
+  background-color: var(--color-primary-120);
+  color: var(--color-white);
   font-size: 0.8rem;
   padding-top: var(--gap-tiny);
   padding-bottom: var(--gap-tiny);
@@ -64,8 +64,8 @@ body {
 
 header,
 footer {
-  background-color: var(--primary-color);
-  color: var(--white-color);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 header {
@@ -142,22 +142,22 @@ header .search {
 }
 
 header .search input {
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   font-size: 1.2rem;
   padding: 0.656rem;
-  border: 3px solid var(--primary-color-130);
+  border: 3px solid var(--color-primary-130);
   border-radius: var(--border-radius);
-  color: var(--white-color);
+  color: var(--color-white);
   transition: var(--transition-duration);
 }
 
 header .search input::placeholder {
-  color: var(--primary-color-180);
+  color: var(--color-primary-180);
 }
 
 header .search input:focus,
 header .search input:hover {
-  border-color: var(--white-color);
+  border-color: var(--color-white);
   outline: none;
 }
 
@@ -208,7 +208,7 @@ main {
 }
 
 main a {
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 main h1 {
@@ -231,7 +231,9 @@ p:has(> img) {
 }
 
 article {
+  width: 100%;
   line-height: var(--line-height);
+  max-width: var(--width-max-content);
 }
 
 pre {
@@ -259,13 +261,13 @@ footer nav ul .active {
 header,
 main,
 footer {
-  padding-left: var(--page-horizontal-padding);
-  padding-right: var(--page-horizontal-padding);
+  padding-left: var(--padding-page);
+  padding-right: var(--padding-page);
 }
 
 :is(#topbar, header, footer) a {
   text-decoration: none;
-  color: var(--white-color);
+  color: var(--color-white);
 }
 
 header button.burger-button {
@@ -298,7 +300,7 @@ h6 {
 
 code,
 kbd {
-  background-color: var(--white-color-140);
+  background-color: var(--color-white-140);
   border-radius: var(--border-radius);
   padding: 0.15rem;
 }
@@ -312,8 +314,8 @@ pre code {
 }
 
 kbd {
-  border: 1px solid var(--primary-color);
-  box-shadow: 0 2px 0 1px var(--primary-color);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 2px 0 1px var(--color-primary);
   cursor: default;
   font-size: 0.75em;
   line-height: 1;

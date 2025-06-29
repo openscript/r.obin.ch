@@ -1,0 +1,64 @@
+---
+
+type Props = {
+  defaultOpen?: boolean;
+}
+
+const { defaultOpen = false } = Astro.props;
+
+---
+
+<details class="details" open={defaultOpen} data-default-open={defaultOpen}>
+  <summary><slot name="title" /></summary>
+  <div class="content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    list-style: none;
+  }
+
+  summary::before {
+    display: inline-block;
+    font-family: var(--font-listings);
+    content: ">";
+    color: var(--color-secondary);
+    margin-right: 1ch;
+    transition: var(--transition-duration);
+  }
+
+  details[open] summary::before {
+    rotate: 90deg;
+  }
+
+  details {
+    background-color: var(--color-white-95);
+    margin: -1rem;
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 0 1ch;
+  }
+</style>
+
+<script>
+  const details = document.querySelectorAll('.details') as NodeListOf<HTMLDetailsElement>;
+  const matchQuery = window.matchMedia('(max-width: 1280px)');
+
+  matchQuery.addEventListener('change', () => {
+    details.forEach(detail => {
+      if (matchQuery.matches) {
+        detail.removeAttribute('open');
+      } else {
+        detail.dataset.defaultOpen === 'true' && detail.setAttribute('open', '');
+      }
+    });
+  });
+
+</script>

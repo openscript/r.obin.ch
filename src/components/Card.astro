@@ -45,8 +45,8 @@ const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--primary-color-240);
-    color: var(--text-color);
+    background-color: var(--color-primary-240);
+    color: var(--color-text);
     padding: var(--gap);
     padding-top: var(--gap-big);
     clip-path: polygon(0 0, 100% 1rem, 100% 100%, 0 100%);
@@ -59,7 +59,7 @@ const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
 
   a:hover .overlay,
   a:hover .content {
-    background-color: var(--primary-color-220);
+    background-color: var(--color-primary-220);
     transition: var(--transition-duration);
   }
 
@@ -83,8 +83,8 @@ const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
   }
 
   .content {
-    background-color: var(--primary-color-240);
-    color: var(--text-color);
+    background-color: var(--color-primary-240);
+    color: var(--color-text);
     padding-inline: var(--gap);
     padding-bottom: var(--gap);
     margin-top: -0.5px;

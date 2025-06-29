@@ -1,6 +1,6 @@
 ---
 import { parseLocale, useTranslations } from "../utils/i18n";
-import Foldable from "./Foldable.astro";
+import Details from "./Details.astro";
 
 type Props = {
   fromDepth?: number;
@@ -21,6 +21,7 @@ const t = useTranslations(locale);
   ul {
     padding: 0;
     margin-left: calc(-1rem * (var(--from-depth) - 1));
+    margin-bottom: 0;
   }
 
   li {
@@ -29,6 +30,10 @@ const t = useTranslations(locale);
 
   li.active {
     font-weight: bold;
+  }
+
+  li:last-of-type {
+    margin-bottom: 0;
   }
 
   a {
@@ -88,7 +93,7 @@ const t = useTranslations(locale);
   });
 </script>
 
-<Foldable>
+<Details defaultOpen={true}>
   <span class="label" slot="title">{t("tableOfContentsLabel")}</span>
   <nav class="table-of-contents">
     <ul>
@@ -101,4 +106,4 @@ const t = useTranslations(locale);
       }
     </ul>
   </nav>
-</Foldable>
+</Details>

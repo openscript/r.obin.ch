@@ -15,12 +15,6 @@ const { frontmatter } = Astro.props;
     align-items: center;
   }
 
-  article {
-    width: 100%;
-    max-width: 50rem;
-    padding: 1rem;
-  }
-
   article > :global(*:first-child) {
     margin-top: 0;
   }
@@ -30,11 +24,9 @@ const { frontmatter } = Astro.props;
   }
 </style>
 
-<div class="page">
+<article class="page">
   <slot name="title">
     <h1>{frontmatter?.title}</h1>
   </slot>
-  <article>
-    <slot />
-  </article>
-</div>
+  <slot />
+</article>

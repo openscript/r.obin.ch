@@ -3,7 +3,7 @@ import type { GitInfoFrontmatter } from '../remark/remark-git-info'
 import { parseLocale, useTranslations } from '../utils/i18n';
 import Button from './Button.astro';
 import DateTime from './DateTime.astro';
-import Foldable from './Foldable.astro';
+import Details from './Details.astro';
 
 type Props = { gitInfo?: GitInfoFrontmatter };
 
@@ -13,7 +13,7 @@ const t = useTranslations(locale);
 
 ---
 
-<Foldable>
+<Details>
   <span class="label" slot="title">{t('gitInfoLabel')}</span>
   <dl>
     <slot name="before" />
@@ -31,4 +31,4 @@ const t = useTranslations(locale);
     )}
     <slot name="after" />
   </dl>
-</Foldable>
+</Details>
