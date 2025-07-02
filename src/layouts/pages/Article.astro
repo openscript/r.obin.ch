@@ -1,0 +1,36 @@
+---
+type Props = {
+  title?: string;
+};
+
+const { title } = Astro.props;
+---
+
+<style>
+  :global(main):has(article) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article > :global(*:first-child) {
+    margin-top: 0;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  article {
+    max-width: var(--width-max-content);
+  }
+</style>
+
+<article>
+  <header>
+    <slot name="title">
+      <h1>{title}</h1>
+    </slot>
+  </header>
+  <slot />
+</article>

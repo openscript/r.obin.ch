@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import Post from "../../../layouts/pages/Post.astro";
 import TableOfContents from "../../../components/TableOfContents.astro";
 import GitInfo from "../../../components/GitInfo.astro";
 import { getGitInfo } from "../../../remark/remark-git-info";
@@ -8,11 +7,19 @@ import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
-import { i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-loader-i18n";
+import {
+  i18nPropsAndParams,
+  resolvePath as originalResolvePath,
+} from "astro-loader-i18n";
 import { C } from "../../../site.config";
 import { getCollection } from "astro:content";
 import slug from "limax";
-import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
+import {
+  defaultPropsAndParamsOptions,
+  resolvePath,
+} from "../../../utils/paths";
+import ArticleWithAside from "../../../layouts/pages/ArticleWithAside.astro";
+import DateTime from "../../../components/DateTime.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -21,7 +28,9 @@ export const getStaticPaths = async () => {
   return i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
     routePattern,
-    generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+    generateSegments: (entry) => ({
+      slug: `${entry.data.contentPath}/${slug(entry.data.title)}`,
+    }),
   });
 };
 
@@ -31,7 +40,7 @@ const {
 } = Astro.props;
 
 const { Content, headings, remarkPluginFrontmatter } = await render(
-  Astro.props,
+  Astro.props
 );
 
 const paramsBlog = C.SEGMENT_TRANSLATIONS[parseLocale(locale)].blog;
@@ -47,25 +56,27 @@ const t = useTranslations(parseLocale(locale));
 
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={title} />
-  <Post frontmatter={{ title, publishedAt }}>
-    <TableOfContents slot="left" headings={headings} />
+  <ArticleWithAside>
     <Content />
     <Comments />
-    <Fragment slot="right">
+    <Fragment slot="title">
+      <h1>{title}</h1>
+      {publishedAt && <DateTime date={publishedAt} />}
+    </Fragment>
+    <Fragment slot="aside">
+      <TableOfContents headings={headings} />
       <GitInfo gitInfo={gitInfo}>
         <Fragment slot="after">
           <dt>{t("tagsLabel")}</dt>
           <dd>
             {
               tags.map((tag) => (
-                <a href={resolvePath(blogPath, slug(tag))}>
-                  {tag}
-                </a>
+                <a href={resolvePath(blogPath, slug(tag))}>{tag}</a>
               ))
             }
           </dd>
         </Fragment>
       </GitInfo>
     </Fragment>
-  </Post>
+  </ArticleWithAside>
 </DefaultLayout>

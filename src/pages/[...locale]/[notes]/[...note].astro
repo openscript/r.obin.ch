@@ -1,12 +1,13 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import PageWithAside from "../../../layouts/pages/PageWithAside.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
 import { defaultNotesCollection } from "../../../collections/notes";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../../utils/paths";
 import slug from "limax";
+import ArticleWithAside from "../../../layouts/pages/ArticleWithAside.astro";
+import TableOfContents from "../../../components/TableOfContents.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[notes]/[...note]";
@@ -25,7 +26,10 @@ const { Content, headings } = await render(Astro.props);
 
 <DefaultLayout translations={translations}>
   <Meta slot="meta" title={data.title} />
-  <PageWithAside headings={headings} frontmatter={data}>
+  <ArticleWithAside title={data.title}>
     <Content />
-  </PageWithAside>
+    <Fragment slot="aside">
+      <TableOfContents headings={headings} />
+    </Fragment>
+  </ArticleWithAside>
 </DefaultLayout>

@@ -4,6 +4,9 @@ import Meta from "../../layouts/groups/Meta.astro";
 import { getCollection, render } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../utils/paths";
+import Article from "../../layouts/pages/Article.astro";
+import ArticleWithAside from "../../layouts/pages/ArticleWithAside.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[...pages]";
@@ -16,11 +19,30 @@ export const getStaticPaths = async () => {
   });
 };
 
-const page = Astro.props;
-const { Content } = await render(page);
+const {
+  translations,
+  data: { title, template },
+} = Astro.props;
+const { Content, headings } = await render(Astro.props);
 ---
 
-<DefaultLayout translations={page.translations}>
-  <Meta slot="meta" title={page.data.title} />
-  <Content />
+<DefaultLayout translations={translations}>
+  <Meta slot="meta" title={title} />
+  {
+    template === "article" && (
+      <Article title={title}>
+        <Content />
+      </Article>
+    )
+  }
+  {
+    template === "article-with-aside" && (
+      <ArticleWithAside title={title}>
+        <Content />
+        <Fragment slot="aside">
+          <TableOfContents headings={headings} />
+        </Fragment>
+      </ArticleWithAside>
+    )
+  }
 </DefaultLayout>

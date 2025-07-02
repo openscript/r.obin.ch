@@ -1,32 +1,34 @@
 ---
 type Props = {
-  frontmatter?: {
-    title?: string;
-  };
+  title?: string;
 };
 
-const { frontmatter } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <style>
-  .page {
+  :global(main):has(> div) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  article > :global(*:first-child) {
+  div {
+    width: var(--width-max-content);
+  }
+
+  section > :global(*:first-child) {
     margin-top: 0;
   }
 
-  h1 {
+  :global(h1) {
     text-align: center;
   }
 </style>
 
-<article class="page">
+<div>
   <slot name="title">
-    <h1>{frontmatter?.title}</h1>
+    <h1>{title}</h1>
   </slot>
   <slot />
-</article>
+</div>

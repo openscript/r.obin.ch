@@ -1,0 +1,84 @@
+---
+type Props = {
+  title?: string;
+};
+
+const { title } = Astro.props;
+---
+
+<style>
+  aside {
+    grid-area: aside;
+  }
+
+  aside > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    position: sticky;
+    top: 1.4rem;
+  }
+
+  article {
+    display: grid;
+    grid-template-areas: "title title title" "content . aside";
+    grid-template-columns:
+      minmax(0, var(--width-max-content)) minmax(2rem, auto)
+      20rem;
+    width: 100%;
+  }
+
+  article > :global(*:first-child) {
+    margin-top: 0;
+  }
+
+  header {
+    grid-area: title;
+    text-align: center;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  @media (max-width: 1280px) {
+    article {
+      grid-template-columns: minmax(100%, var(--width-max-content));
+      grid-template-areas: "title" "aside" "content";
+    }
+    aside {
+      justify-self: center;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    :global(main):has(article) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    article {
+      grid-template-areas: "title title" "content aside";
+      grid-template-columns: minmax(0, var(--width-max-content)) 20rem;
+      gap: var(--gap);
+      width: auto;
+    }
+  }
+</style>
+<article>
+  <header>
+    <slot name="title">
+      <h1>{title}</h1>
+    </slot>
+  </header>
+  <div class="content">
+    <slot />
+  </div>
+  <aside>
+    <div>
+      <slot name="aside" />
+    </div>
+  </aside>
+</article>

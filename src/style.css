@@ -39,7 +39,7 @@ html.dark:root {
   --color-text: #f8eded;
 }
 
-/* Large */
+/* Huge */
 @media (min-width: 2560px) {
   :root {
     --font-size: 20px;

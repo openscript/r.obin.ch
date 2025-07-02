@@ -8,7 +8,7 @@ const { defaultOpen = false } = Astro.props;
 
 ---
 
-<details class="details" open={defaultOpen} data-default-open={defaultOpen}>
+<details open={defaultOpen} data-default-open={defaultOpen}>
   <summary><slot name="title" /></summary>
   <div class="content">
     <slot />
@@ -42,13 +42,17 @@ const { defaultOpen = false } = Astro.props;
     padding: 1rem;
   }
 
+  :global(article) details {
+    margin: 0;
+  }
+
   .content {
     padding: 0 1ch;
   }
 </style>
 
 <script>
-  const details = document.querySelectorAll('.details') as NodeListOf<HTMLDetailsElement>;
+  const details = document.querySelectorAll('details') as NodeListOf<HTMLDetailsElement>;
   const matchQuery = window.matchMedia('(max-width: 1280px)');
 
   matchQuery.addEventListener('change', () => {
