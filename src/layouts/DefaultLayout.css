@@ -269,7 +269,7 @@ footer {
   padding-right: var(--padding-page);
 }
 
-:is(#topbar, header, footer) a {
+body > :is(#topbar, header, footer) a {
   text-decoration: none;
   color: var(--color-white);
 }

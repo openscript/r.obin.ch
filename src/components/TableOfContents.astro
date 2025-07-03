@@ -93,8 +93,7 @@ const t = useTranslations(locale);
   });
 </script>
 
-<Details defaultOpen={true}>
-  <span class="label" slot="title">{t("tableOfContentsLabel")}</span>
+<Details defaultOpen={true} title={t("tableOfContentsLabel")}>
   <nav class="table-of-contents">
     <ul>
       {

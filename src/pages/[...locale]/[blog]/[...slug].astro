@@ -1,7 +1,6 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import TableOfContents from "../../../components/TableOfContents.astro";
-import GitInfo from "../../../components/GitInfo.astro";
 import { getGitInfo } from "../../../remark/remark-git-info";
 import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
@@ -20,6 +19,8 @@ import {
 } from "../../../utils/paths";
 import ArticleWithAside from "../../../layouts/pages/ArticleWithAside.astro";
 import DateTime from "../../../components/DateTime.astro";
+import VersioningDetails from "../../../components/VersioningDetails.astro";
+import Details from "../../../components/Details.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -61,22 +62,18 @@ const t = useTranslations(parseLocale(locale));
     <Comments />
     <Fragment slot="title">
       <h1>{title}</h1>
-      {publishedAt && <DateTime date={publishedAt} />}
     </Fragment>
     <Fragment slot="aside">
       <TableOfContents headings={headings} />
-      <GitInfo gitInfo={gitInfo}>
-        <Fragment slot="after">
-          <dt>{t("tagsLabel")}</dt>
-          <dd>
-            {
-              tags.map((tag) => (
-                <a href={resolvePath(blogPath, slug(tag))}>{tag}</a>
-              ))
-            }
-          </dd>
-        </Fragment>
-      </GitInfo>
+      <Details defaultOpen title={t("detailsLabel")}>
+        <dl>
+          <dt>{t("createdAtLabel")}</dt>
+          <dd><DateTime date={publishedAt} /></dd>
+          <dt>{t("categorizedWithLabel")}</dt>
+          <dd>{tags.map((tag) => <a href={resolvePath(blogPath, slug(tag))}>{tag}</a>)}</dd>
+        </dl>
+      </Details>
+      <VersioningDetails gitInfo={gitInfo} />
     </Fragment>
   </ArticleWithAside>
 </DefaultLayout>

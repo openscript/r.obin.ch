@@ -13,10 +13,8 @@ const t = useTranslations(locale);
 
 ---
 
-<Details>
-  <span class="label" slot="title">{t('gitInfoLabel')}</span>
+<Details title={t('versioningLabel')}>
   <dl>
-    <slot name="before" />
     {gitInfo?.lastCommit && (
       <dt>{t('authorLabel')}</dt>
       <dd>{gitInfo.lastCommit.authorName}</dd>
@@ -29,6 +27,5 @@ const t = useTranslations(locale);
         <Button href={gitInfo.remoteEditUrl}>{t('editLabel')}</Button>
       </dd>
     )}
-    <slot name="after" />
   </dl>
 </Details>
