@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.3
+
+### Patch Changes
+
+- f47ebfe: Add post details
+
 ## 0.4.2
 
 ### Patch Changes
