@@ -1,5 +1,14 @@
 # r.obin.ch
 
+## 0.4.4
+
+### Patch Changes
+
+- 1537c2e: Fix antialiasing issues in card
+- d4bd450: Upgrade dependencies
+- 1894cd5: Improve fidget display
+- 3afa3da: Improve details spacing
+
 ## 0.4.3
 
 ### Patch Changes
