@@ -49,12 +49,12 @@ const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
     color: var(--color-text);
     padding: var(--gap);
     padding-top: var(--gap-big);
-    clip-path: polygon(0 0, 100% 1rem, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% + 1px) 1rem, calc(100% + 1px) calc(100% + 1px), 0 calc(100% + 1px));
     font-size: 0.8rem;
   }
 
   .overlay.divider-flip {
-    clip-path: polygon(0 1rem, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 1rem, calc(100% + 1px) 0, calc(100% + 1px) calc(100% + 1px), 0 calc(100% + 1px));
   }
 
   a:hover .overlay,
