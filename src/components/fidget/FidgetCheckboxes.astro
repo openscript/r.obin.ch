@@ -1,5 +1,5 @@
 ---
-const AMOUNT = 252;
+const AMOUNT = 260;
 const SUPABASE_URL = "https://fulwzvmwtfuykfwqesni.supabase.co";
 const SUPABASE_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHd6dm13dGZ1eWtmd3Flc25pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3MjU3NTgsImV4cCI6MjA0MTMwMTc1OH0.QiG12IlH8YmTEeI0BKQ-p87-S8JaXt2oyeLlXxBloyI";
@@ -83,8 +83,18 @@ const SUPABASE_KEY =
 
   .wrapper {
     display: grid;
-    width: 36rem;
-    grid-template-columns: repeat(auto-fill, 2rem);
+    width: 30rem;
+    grid-template-columns: repeat(auto-fill, 1.5rem);
+
+    border: 1px solid var(--color-primary-240);
+    background-color: var(--color-white-95);
+    border-radius: var(--border-radius);
+    padding: 0.8rem;
+  }
+
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
   }
 </style>
 

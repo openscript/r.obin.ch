@@ -202,6 +202,10 @@ body > header {
   display: none;
 }
 
+nav {
+  user-select: none;
+}
+
 main {
   flex-grow: 1;
   padding-top: 2rem;
@@ -333,6 +337,25 @@ kbd {
 kbd:hover {
   box-shadow: 0 1px 0 0.5px var(--kbd-color-border);
   top: 1px;
+}
+
+dt {
+  font-style: italic;
+}
+
+dd {
+  margin-left: 1ch;
+  margin-bottom: 1rem;
+  padding-left: 1ch;
+  border-left: 1px solid var(--color-primary-240);
+
+  & > * {
+    margin-bottom: var(--gap-tiny);
+  }
+}
+
+dd:last-child {
+  margin-bottom: 0;
 }
 
 main li {
