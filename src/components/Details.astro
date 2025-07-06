@@ -10,11 +10,7 @@ const { defaultOpen = false, title } = Astro.props;
 ---
 
 <details data-default-open={defaultOpen}>
-  <summary>
-    <slot name="title">
-      {title}
-    </slot>
-  </summary>
+  <summary><slot name="title">{title}</slot></summary>
   <div class="content">
     <slot />
   </div>
@@ -52,7 +48,7 @@ const { defaultOpen = false, title } = Astro.props;
   }
 
   .content {
-    padding: 0 1ch;
+    padding: 0 2ch;
   }
 </style>
 
