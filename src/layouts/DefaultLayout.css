@@ -160,6 +160,10 @@ body > header {
     outline: none;
   }
 
+  input:not(:focus)::-webkit-search-cancel-button {
+    display: none;
+  }
+
   input::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
