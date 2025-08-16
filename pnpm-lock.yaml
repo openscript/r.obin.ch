@@ -15,13 +15,13 @@ importers:
         specifier: ^0.9.4
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
       '@astrojs/mdx':
-        specifier: ^4.3.1
+        specifier: ^4.3.4
         version: 4.3.4(astro@5.13.2(@types/node@24.3.0)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.12
       '@astrojs/sitemap':
-        specifier: ^3.4.1
+        specifier: ^3.5.0
         version: 3.5.0
       '@fontsource/ibm-plex-mono':
         specifier: ^5.2.6
@@ -33,10 +33,10 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       astro:
-        specifier: ^5.12.3
+        specifier: ^5.13.2
         version: 5.13.2(@types/node@24.3.0)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0)
       astro-loader-i18n:
-        specifier: ^0.7.5
+        specifier: ^0.7.8
         version: 0.7.8(astro@5.13.2(@types/node@24.3.0)(rollup@4.46.2)(typescript@5.9.2)(yaml@2.8.0))
       limax:
         specifier: ^4.1.0
@@ -61,7 +61,7 @@ importers:
         version: 6.0.3
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.29.5
+        specifier: ^2.29.6
         version: 2.29.6(@types/node@24.3.0)
       '@openscript/unplugin-favicons':
         specifier: ^1.1.6
@@ -70,7 +70,7 @@ importers:
         specifier: ^4.0.4
         version: 4.0.4
       '@types/node':
-        specifier: ^24.1.0
+        specifier: ^24.3.0
         version: 24.3.0
       '@vitest/coverage-v8':
         specifier: 3.2.4
@@ -88,7 +88,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       typescript:
-        specifier: ^5.8.3
+        specifier: ^5.9.2
         version: 5.9.2
       vitest:
         specifier: 3.2.4
