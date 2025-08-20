@@ -9,6 +9,14 @@ Long time no see, huh? Let's try to bring this habit back.
 
 ## Technology
 
+### Fish
+
+Recently I started using the Fish shell again. Fish is greeting you every time you open a new instance. To disable this you can set the `fish_greeting` variable to an empty string in your `~/.config/fish/config.fish`:
+
+```bash
+set fish_greeting
+```
+
 ### MacOS
 
 #### Host names
