@@ -5,63 +5,6 @@ const SUPABASE_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHd6dm13dGZ1eWtmd3Flc25pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3MjU3NTgsImV4cCI6MjA0MTMwMTc1OH0.QiG12IlH8YmTEeI0BKQ-p87-S8JaXt2oyeLlXxBloyI";
 ---
 
-<script is:inline type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
-  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-  if (!window.supabase) window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  async function updateFidget(id, checked) {
-    const { error } = await supabase.from("fidget1").upsert({ id, state: checked });
-
-    if (error) {
-      console.error(error);
-    }
-  }
-
-  document.addEventListener("astro:page-load", async () => {
-    const checkboxes = document.querySelectorAll("input[type=checkbox]");
-
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("change", async (e) => {
-        const id = e.target.dataset.id;
-        const checked = e.target.checked;
-
-        updateFidget(id, checked);
-      });
-    });
-
-    const { data, error } = await supabase.from("fidget1").select("id, state");
-
-    if (error) {
-      console.error(error);
-    }
-
-    data.forEach(({ id, state }) => {
-      const checkbox = document.querySelector(`input[data-id="${id}"]`);
-      if (checkbox) checkbox.checked = state;
-    });
-  });
-
-  const checkboxChannel = supabase
-    .channel("public:fidget1")
-    .on("postgres_changes", { event: "*", schema: "public", table: "fidget1" }, (payload) => {
-      const checkboxId = payload.new.id;
-      const isChecked = payload.new.state;
-
-      const checkboxElement = document.querySelector(`input[data-id="${checkboxId}"]`);
-      if (checkboxElement) {
-        checkboxElement.checked = isChecked;
-      }
-    })
-    .subscribe();
-
-  document.addEventListener("astro:before-preparation", () => {
-    if (checkboxChannel) {
-      checkboxChannel.unsubscribe();
-    }
-  });
-</script>
-
 <style>
   .fidget {
     display: flex;
@@ -92,3 +35,65 @@ const SUPABASE_KEY =
     {Array.from({ length: AMOUNT }).map((_, i) => <input type="checkbox" data-id={i} />)}
   </div>
 </div>
+
+<script is:inline type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+  let checkboxChannel;
+
+  async function updateFidget(id, checked) {
+    const { error } = await supabase.from("fidget1").upsert({ id, state: checked });
+
+    if (error) {
+      console.error(error);
+    }
+  }
+
+  async function initializeFidget() {
+    if (!window.supabase) window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", async (e) => {
+        const id = e.target.dataset.id;
+        const checked = e.target.checked;
+
+        updateFidget(id, checked);
+      });
+    });
+
+    const { data, error } = await supabase.from("fidget1").select("id, state");
+
+    if (error) {
+      console.error(error);
+    }
+
+    data.forEach(({ id, state }) => {
+      const checkbox = document.querySelector(`input[data-id="${id}"]`);
+      if (checkbox) checkbox.checked = state;
+    });
+
+    checkboxChannel = supabase
+      .channel("public:fidget1")
+      .on("postgres_changes", { event: "*", schema: "public", table: "fidget1" }, (payload) => {
+        const checkboxId = payload.new.id;
+        const isChecked = payload.new.state;
+
+        const checkboxElement = document.querySelector(`input[data-id="${checkboxId}"]`);
+        if (checkboxElement) {
+          checkboxElement.checked = isChecked;
+        }
+      })
+      .subscribe();
+  }
+
+  initializeFidget();
+  document.addEventListener("astro:page-load", initializeFidget);
+
+  document.addEventListener("astro:before-preparation", () => {
+    if (checkboxChannel) {
+      checkboxChannel.unsubscribe();
+    }
+  });
+</script>
