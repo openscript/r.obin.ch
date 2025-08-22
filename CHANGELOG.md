@@ -1,5 +1,12 @@
 # r.obin.ch
 
+## 0.4.5
+
+### Patch Changes
+
+- e849bfd: Hide search cancel button when not focused
+- 693f925: Style footnotes
+
 ## 0.4.4
 
 ### Patch Changes
