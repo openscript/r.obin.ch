@@ -358,8 +358,12 @@ dd:last-child {
   margin-bottom: 0;
 }
 
-main li {
+main ul li {
   list-style: ">";
+  padding-inline-start: 1ch;
+}
+
+main ol li {
   padding-inline-start: 1ch;
 }
 
@@ -367,6 +371,14 @@ main li {
   font-family: var(--font-headings);
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+.footnotes {
+  font-size: 0.7rem;
+
+  p {
+    margin: 0;
+  }
 }
 
 @media (max-width: 800px) {

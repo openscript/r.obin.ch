@@ -134,3 +134,7 @@ kbd,
 li::marker {
   font-family: var(--font-listings);
 }
+
+.sr-only {
+  display: none;
+}
