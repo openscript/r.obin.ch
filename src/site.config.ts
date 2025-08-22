@@ -6,16 +6,16 @@ export const C = {
   // Segment translations
   SEGMENT_TRANSLATIONS: {
     de: {
-      'gallery': 'galerie',
-      'projects': 'projekte',
-      'blog': 'blog',
-      'notes': 'notizen',
+      gallery: "galerie",
+      projects: "projekte",
+      blog: "blog",
+      notes: "notizen",
     },
     en: {
-      'gallery': 'gallery',
-      'projects': 'projects',
-      'blog': 'blog',
-      'notes': 'notes',
+      gallery: "gallery",
+      projects: "projects",
+      blog: "blog",
+      notes: "notes",
     },
   },
   // Static messages for each locale

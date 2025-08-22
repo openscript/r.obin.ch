@@ -10,19 +10,14 @@ import slug from "limax";
 import Meta from "../../../layouts/groups/Meta.astro";
 import Card from "../../../components/Card.astro";
 
-export const getStaticPaths = generateGetStaticIndexPaths(
-  "[...locale]/[gallery]"
-);
+export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[gallery]");
 const {
   translations,
   data: { locale },
 } = Astro.props;
 
 const localeParam = locale === C.DEFAULT_LOCALE ? undefined : locale;
-const collection = await getCollection(
-  "gallery",
-  (category) => category.data.locale === locale
-);
+const collection = await getCollection("gallery", (category) => category.data.locale === locale);
 const t = useTranslations(parseLocale(locale));
 ---
 
@@ -45,11 +40,7 @@ const t = useTranslations(parseLocale(locale));
             if (typeof title !== "string") {
               return null;
             }
-            const url = resolvePath(
-              localeParam,
-              Astro.params.gallery,
-              slug(title)
-            );
+            const url = resolvePath(localeParam, Astro.params.gallery, slug(title));
             return <Card title={title} cover={{ src: cover }} link={url} />;
           })
           .filter(Boolean)

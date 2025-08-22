@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import DerivedCover from "./DerivedCover.astro";
+import type { ImageMetadata } from "astro";
 
 type Props = {
   link: string;
@@ -10,14 +11,8 @@ type Props = {
   dividerFlip?: boolean;
 };
 
-const {
-  link,
-  title,
-  cover,
-  headingLevel = 3,
-  dividerFlip,
-} = Astro.props;
-const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
+const { link, title, cover, headingLevel = 3, dividerFlip } = Astro.props;
+const HeadingTag = `h${headingLevel}`;
 ---
 
 <style>
@@ -103,13 +98,7 @@ const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
 
 <a href={link}>
   <div class="cover">
-    {
-      cover ? (
-        <Image src={cover.src} alt={cover.alt || title} widths={[1280, 720]} />
-      ) : (
-        <DerivedCover value={title} />
-      )
-    }
+    {cover ? <Image src={cover.src} alt={cover.alt || title} widths={[1280, 720]} /> : <DerivedCover value={title} />}
     <div class:list={{ overlay: true, "divider-flip": dividerFlip }}>
       <slot name="super-title" />
       <HeadingTag>{title}</HeadingTag>

@@ -51,9 +51,5 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [
-    search(),
-    mdx(),
-    sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } }),
-  ],
+  integrations: [search(), mdx(), sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } })],
 });

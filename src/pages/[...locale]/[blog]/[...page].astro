@@ -9,10 +9,7 @@ import Meta from "../../../layouts/groups/Meta.astro";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import slug from "limax";
 import { defaultBlogCollection } from "../../../collections/blog";
-import {
-  defaultPropsAndParamsOptions,
-  resolvePath,
-} from "../../../utils/paths";
+import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
 import { C } from "../../../site.config";
 import { render } from "astro:content";
 import Card from "../../../components/Card.astro";
@@ -35,13 +32,11 @@ export const getStaticPaths = (async ({ paginate }) => {
       acc[item.props.data.locale] = item.params.locale;
       return acc;
     },
-    {} as Record<string, string | undefined>
+    {} as Record<string, string | undefined>,
   );
 
   return Object.entries(locales).flatMap(([propsLocale, paramsLocale]) => {
-    const items = propsAndParams.filter(
-      (item) => item.props.data.locale === propsLocale
-    );
+    const items = propsAndParams.filter((item) => item.props.data.locale === propsLocale);
     const data = items.map((item) => item.props);
     const blog = C.SEGMENT_TRANSLATIONS[parseLocale(propsLocale)].blog;
     const translations = Object.entries(locales).reduce(
@@ -49,7 +44,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         acc[locale] = resolvePath(slug, blog);
         return acc;
       },
-      {} as Record<string, string>
+      {} as Record<string, string>,
     );
     return paginate(data, {
       pageSize: C.SETTINGS.BLOG.PAGE_SIZE,

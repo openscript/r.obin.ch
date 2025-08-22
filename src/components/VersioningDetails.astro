@@ -1,31 +1,36 @@
 ---
-import type { GitInfoFrontmatter } from '../remark/remark-git-info'
-import { parseLocale, useTranslations } from '../utils/i18n';
-import Button from './Button.astro';
-import DateTime from './DateTime.astro';
-import Details from './Details.astro';
+import type { GitInfoFrontmatter } from "../remark/remark-git-info";
+import { parseLocale, useTranslations } from "../utils/i18n";
+import Button from "./Button.astro";
+import DateTime from "./DateTime.astro";
+import Details from "./Details.astro";
 
 type Props = { gitInfo?: GitInfoFrontmatter };
 
 const { gitInfo } = Astro.props;
 const locale = parseLocale(Astro.currentLocale);
 const t = useTranslations(locale);
-
 ---
 
-<Details title={t('versioningLabel')}>
+<Details title={t("versioningLabel")}>
   <dl>
-    {gitInfo?.lastCommit && (
-      <dt>{t('authorLabel')}</dt>
-      <dd>{gitInfo.lastCommit.authorName}</dd>
-      <dt>{t('lastUpdatedLabel')}</dt>
-      <dd><DateTime date={new Date(gitInfo.lastCommit.date)} /></dd>
-      <dt>{t('linksLabel')}</dt>
-      <dd>
-        <Button href={gitInfo.remoteViewUrl}>{t('sourceLabel')}</Button>
-        <Button href={gitInfo.remoteHistoryUrl}>{t('historyLabel')}</Button>
-        <Button href={gitInfo.remoteEditUrl}>{t('editLabel')}</Button>
-      </dd>
-    )}
+    {
+      gitInfo?.lastCommit && (
+        <Fragment>
+          <dt>{t("authorLabel")}</dt>
+          <dd>{gitInfo.lastCommit.authorName}</dd>
+          <dt>{t("lastUpdatedLabel")}</dt>
+          <dd>
+            <DateTime date={new Date(gitInfo.lastCommit.date)} />
+          </dd>
+          <dt>{t("linksLabel")}</dt>
+          <dd>
+            <Button href={gitInfo.remoteViewUrl}>{t("sourceLabel")}</Button>
+            <Button href={gitInfo.remoteHistoryUrl}>{t("historyLabel")}</Button>
+            <Button href={gitInfo.remoteEditUrl}>{t("editLabel")}</Button>
+          </dd>
+        </Fragment>
+      )
+    }
   </dl>
 </Details>

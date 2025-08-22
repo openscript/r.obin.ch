@@ -38,23 +38,16 @@ const loadingText = t("searchLoading");
     render([]);
 
     if (records?.results) {
-      render(
-        await Promise.all(records.results.slice(0, 5).map((r) => r.data()))
-      );
+      render(await Promise.all(records.results.slice(0, 5).map((r) => r.data())));
     } else {
       render([]);
     }
   }
 
   async function initialize() {
-    const searchWrapper = document.querySelector(
-      "[data-search-ui]"
-    ) as HTMLDivElement;
-    const searchInput = document.querySelector(
-      "input[type=search]"
-    ) as HTMLInputElement;
-    if (!searchInput || !searchWrapper || !searchWrapper.dataset.searchBundle)
-      return;
+    const searchWrapper = document.querySelector("[data-search-ui]") as HTMLDivElement;
+    const searchInput = document.querySelector("input[type=search]") as HTMLInputElement;
+    if (!searchInput || !searchWrapper || !searchWrapper.dataset.searchBundle) return;
 
     initializeSearch(searchWrapper.dataset.searchBundle);
 

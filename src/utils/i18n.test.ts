@@ -1,11 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import {
-  getFullLocale,
-  getMessage,
-  getNameFromLocale,
-  parseLocale,
-  useTranslations,
-} from "../utils/i18n";
+import { getFullLocale, getMessage, getNameFromLocale, parseLocale, useTranslations } from "../utils/i18n";
 
 vi.mock("../site.config", () => ({
   C: {
@@ -27,7 +21,6 @@ vi.mock("../site.config", () => ({
     },
   },
 }));
-
 
 vi.mock("astro:content", () => ({
   getEntry: async (collection: string, entrySlug: string) => {
@@ -108,14 +101,11 @@ describe("getFullLocale", () => {
 
 describe("getMessage", () => {
   it("should throw an error if locale is invalid", () => {
-    expect(() => getMessage("language", "es" as any)).toThrow(
-      "Invalid locale: es",
-    );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(() => getMessage("language", "es" as any)).toThrow("Invalid locale: es");
   });
   it("should throw an error if message key is invalid", () => {
-    expect(() => getMessage("invalid", "en")).toThrow(
-      "Invalid message key: invalid",
-    );
+    expect(() => getMessage("invalid", "en")).toThrow("Invalid message key: invalid");
   });
   it("should return the message", () => {
     expect(getMessage("language", "en")).toBe("English");
@@ -129,14 +119,12 @@ describe("useTranslations", () => {
   });
   it("should substitute placeholders", () => {
     const t = useTranslations("en");
-    expect(
-      t("substitution" as any, { one: "one", two: "two" }),
-    ).toMatchInlineSnapshot(`"one of two"`);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(t("substitution" as any, { one: "one", two: "two" })).toMatchInlineSnapshot(`"one of two"`);
   });
   it("should ignore missing placeholders", () => {
     const t = useTranslations("en");
-    expect(t("substitution" as any, { one: "one" })).toMatchInlineSnapshot(
-      `"one of {two}"`,
-    );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(t("substitution" as any, { one: "one" })).toMatchInlineSnapshot(`"one of {two}"`);
   });
 });

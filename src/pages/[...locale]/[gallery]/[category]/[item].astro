@@ -1,7 +1,7 @@
 ---
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
 import { Image } from "astro:assets";
-import { parseLocale, useTranslations } from '../../../../utils/i18n';
+import { parseLocale, useTranslations } from "../../../../utils/i18n";
 import Page from "../../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
     generateSegments: (entry) => {
       const title = typeof entry.data.title === "string" ? entry.data.title : "";
       return { category: slug(title) };
-    }
+    },
   });
 
   return propsAndParams.flatMap((item) => {
@@ -31,12 +31,8 @@ export const getStaticPaths = async () => {
             src: image.src,
             title: image.title,
           },
-          next: item.props.data.images[index + 1]
-            ? (index + 1).toString()
-            : undefined,
-          prev: item.props.data.images[index - 1]
-            ? (index - 1).toString()
-            : undefined,
+          next: item.props.data.images[index + 1] ? (index + 1).toString() : undefined,
+          prev: item.props.data.images[index - 1] ? (index - 1).toString() : undefined,
           translations: Object.entries(item.props.translations).reduce(
             (acc, [key, value]) => {
               acc[key] = `${value}/${index}`;
@@ -78,20 +74,8 @@ const t = useTranslations(parseLocale(locale));
     <h1 slot="title">{image.title}</h1>
     <Image src={image.src} alt={`Photo: ${image.title}`} width={1920} />
     <div>
-      {
-        prev && (
-          <a href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>
-            {t("previousLabel")}
-          </a>
-        )
-      }
-      {
-        next && (
-          <a href={new URL(`../${next}`, `${Astro.url}/`).pathname}>
-            {t("nextLabel")}
-          </a>
-        )
-      }
+      {prev && <a href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>{t("previousLabel")}</a>}
+      {next && <a href={new URL(`../${next}`, `${Astro.url}/`).pathname}>{t("nextLabel")}</a>}
     </div>
   </Page>
 </DefaultLayout>

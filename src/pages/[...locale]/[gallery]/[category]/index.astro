@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
-import CardList from '../../../../components/CardList.astro';
+import CardList from "../../../../components/CardList.astro";
 import Page from "../../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
     generateSegments: (entry) => {
       const title = typeof entry.data.title === "string" ? entry.data.title : "";
       return { category: slug(title) };
-    }
+    },
   });
 };
 

@@ -7,11 +7,7 @@ export default getViteConfig({
   test: {
     unstubEnvs: true,
     coverage: {
-      exclude: [
-        "astro.config.ts",
-        "**/*.astro",
-        ...coverageConfigDefaults.exclude,
-      ],
+      exclude: ["astro.config.ts", "**/*.astro", ...coverageConfigDefaults.exclude],
     },
   },
 });

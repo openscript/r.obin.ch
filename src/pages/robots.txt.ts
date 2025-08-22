@@ -4,7 +4,9 @@ const sitemapUrl = [
   import.meta.env.SITE,
   import.meta.env.BASE_URL !== "/" ? import.meta.env.BASE_URL : "",
   "sitemap-index.xml",
-].filter(Boolean).join("/");
+]
+  .filter(Boolean)
+  .join("/");
 
 const robotsTxt = `
 User-agent: *

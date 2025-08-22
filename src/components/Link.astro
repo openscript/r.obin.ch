@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"a"> & {
   href: string | { pathname: string; query?: Record<string, string> };
 };
-const { href: rawHref, style, ...attrs } = Astro.props as Props;
+const { href: rawHref, ...attrs } = Astro.props as Props;
 const href = (() => {
   if (typeof rawHref === "string") {
     return rawHref;

@@ -10,9 +10,7 @@ const {
   translations,
   data: { locale },
 } = Astro.props;
-const { Content: IntroSection } = await render(
-  await getEntry("sections", `${locale}/intro`)!
-);
+const { Content: IntroSection } = await render(await getEntry("sections", `${locale}/intro`)!);
 ---
 
 <style>

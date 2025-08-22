@@ -40,6 +40,9 @@ jobs:
         run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
 
+      - name: Lint
+        run: pnpm check
+
       - name: Check with Astro
         run: |
           pnpm astro check

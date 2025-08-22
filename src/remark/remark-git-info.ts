@@ -4,15 +4,16 @@ import simpleGit, { type SimpleGitOptions } from "simple-git";
 import { isAstroData } from "./common";
 
 export type GitInfoFrontmatter = {
-  lastCommit?: { authorName: string, date: string, message: string };
+  lastCommit?: { authorName: string; date: string; message: string };
   remoteEditUrl: string;
   remoteViewUrl: string;
   remoteHistoryUrl: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getGitInfo = (remarkPluginFrontmatter: Record<string, any>) => {
   return remarkPluginFrontmatter.gitInfo as GitInfoFrontmatter | undefined;
-}
+};
 
 const options: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(),

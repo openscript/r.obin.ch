@@ -8,15 +8,10 @@ const SUPABASE_KEY =
 <script is:inline type="module" define:vars={{ SUPABASE_URL, SUPABASE_KEY }}>
   import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-  if (!window.supabase)
-    window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  let checkboxChannel;
+  if (!window.supabase) window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
   async function updateFidget(id, checked) {
-    const { data, error } = await supabase
-      .from("fidget1")
-      .upsert({ id, state: checked });
+    const { error } = await supabase.from("fidget1").upsert({ id, state: checked });
 
     if (error) {
       console.error(error);
@@ -47,23 +42,17 @@ const SUPABASE_KEY =
     });
   });
 
-  checkboxChannel = supabase
+  const checkboxChannel = supabase
     .channel("public:fidget1")
-    .on(
-      "postgres_changes",
-      { event: "*", schema: "public", table: "fidget1" },
-      (payload) => {
-        const checkboxId = payload.new.id;
-        const isChecked = payload.new.state;
+    .on("postgres_changes", { event: "*", schema: "public", table: "fidget1" }, (payload) => {
+      const checkboxId = payload.new.id;
+      const isChecked = payload.new.state;
 
-        const checkboxElement = document.querySelector(
-          `input[data-id="${checkboxId}"]`,
-        );
-        if (checkboxElement) {
-          checkboxElement.checked = isChecked;
-        }
-      },
-    )
+      const checkboxElement = document.querySelector(`input[data-id="${checkboxId}"]`);
+      if (checkboxElement) {
+        checkboxElement.checked = isChecked;
+      }
+    })
     .subscribe();
 
   document.addEventListener("astro:before-preparation", () => {
@@ -100,10 +89,6 @@ const SUPABASE_KEY =
 
 <div class="fidget">
   <div class="wrapper">
-    {
-      Array.from({ length: AMOUNT }).map((_, i) => (
-        <input type="checkbox" data-id={i} />
-      ))
-    }
+    {Array.from({ length: AMOUNT }).map((_, i) => <input type="checkbox" data-id={i} />)}
   </div>
 </div>

@@ -3,18 +3,13 @@ import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
-import {
-  defaultPropsAndParamsOptions,
-  generateGetStaticIndexPaths,
-} from "../../../utils/paths";
+import { defaultPropsAndParamsOptions, generateGetStaticIndexPaths } from "../../../utils/paths";
 import { i18nProps } from "astro-loader-i18n";
 import { defaultProjectsCollection } from "../../../collections/projects";
 import Card from "../../../components/Card.astro";
 import DateTime from "../../../components/DateTime.astro";
 
-export const getStaticPaths = generateGetStaticIndexPaths(
-  "[...locale]/[projects]"
-);
+export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[projects]");
 
 const {
   translations,
@@ -22,9 +17,7 @@ const {
 } = Astro.props;
 const t = useTranslations(parseLocale(locale));
 
-const filteredProjects = defaultProjectsCollection.filter(
-  (project) => project.data.locale === locale
-);
+const filteredProjects = defaultProjectsCollection.filter((project) => project.data.locale === locale);
 
 const projects = i18nProps(filteredProjects, {
   ...defaultPropsAndParamsOptions,
@@ -42,18 +35,14 @@ const projectsByStatus = projects.reduce(
     acc[status].push(project);
     return acc;
   },
-  {} as Record<string, typeof projects>
+  {} as Record<string, typeof projects>,
 );
 
 // Sort each status group by lastCommit date (most recent first)
 Object.keys(projectsByStatus).forEach((status) => {
   projectsByStatus[status]?.sort((a, b) => {
-    const dateA = a.data.gitInfo?.lastCommit?.date
-      ? new Date(a.data.gitInfo.lastCommit.date)
-      : new Date(0);
-    const dateB = b.data.gitInfo?.lastCommit?.date
-      ? new Date(b.data.gitInfo.lastCommit.date)
-      : new Date(0);
+    const dateA = a.data.gitInfo?.lastCommit?.date ? new Date(a.data.gitInfo.lastCommit.date) : new Date(0);
+    const dateB = b.data.gitInfo?.lastCommit?.date ? new Date(b.data.gitInfo.lastCommit.date) : new Date(0);
     return dateB.getTime() - dateA.getTime();
   });
 });
@@ -67,19 +56,12 @@ Object.keys(projectsByStatus).forEach((status) => {
     {
       Object.entries(projectsByStatus).map(([status, statusProjects]) => (
         <section>
-          <h2>{t(status as any)}</h2>
+          <h2>{t(status as "active" | "archived")}</h2>
           <div class="projects-grid">
             {statusProjects.map((project) => (
-              <Card
-                title={project.data.title}
-                cover={project.data.cover}
-                link={project.translatedPath}
-              >
+              <Card title={project.data.title} cover={project.data.cover} link={project.translatedPath}>
                 {project.data.gitInfo?.lastCommit?.date && (
-                  <DateTime
-                    slot="super-title"
-                    date={new Date(project.data.gitInfo.lastCommit.date)}
-                  />
+                  <DateTime slot="super-title" date={new Date(project.data.gitInfo.lastCommit.date)} />
                 )}
                 {project.data.summary}
               </Card>

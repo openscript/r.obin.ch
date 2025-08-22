@@ -1,12 +1,10 @@
 ---
-
 type Props = {
   defaultOpen?: boolean;
   title?: string;
-}
+};
 
 const { defaultOpen = false, title } = Astro.props;
-
 ---
 
 <details data-default-open={defaultOpen}>
@@ -58,19 +56,20 @@ const { defaultOpen = false, title } = Astro.props;
 </style>
 
 <script>
-  const matchQuery = window.matchMedia('(max-width: 1280px)');
+  const matchQuery = window.matchMedia("(max-width: 1280px)");
 
   const handleBreakpoint = () => {
-    const details = document.querySelectorAll('details') as NodeListOf<HTMLDetailsElement>;
-    details.forEach(detail => {
+    const details = document.querySelectorAll("details") as NodeListOf<HTMLDetailsElement>;
+    details.forEach((detail) => {
       if (matchQuery.matches) {
-        detail.removeAttribute('open');
+        detail.removeAttribute("open");
       } else {
-        detail.dataset.defaultOpen === 'true' && detail.setAttribute('open', '');
+        if (detail.dataset.defaultOpen === "true") {
+          detail.setAttribute("open", "");
+        }
       }
     });
   };
-  document.addEventListener('astro:page-load', handleBreakpoint);
-  matchQuery.addEventListener('change', handleBreakpoint);
-
+  document.addEventListener("astro:page-load", handleBreakpoint);
+  matchQuery.addEventListener("change", handleBreakpoint);
 </script>

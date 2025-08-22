@@ -1,25 +1,26 @@
 ---
-import NoteListEntry from './NoteListEntry.astro';
-import type { Note, NestedNotes } from '../collections/notes';
+import NoteListEntry from "./NoteListEntry.astro";
+import type { Note, NestedNotes } from "../collections/notes";
 
 type Props = {
   notes: NestedNotes;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function hasNote(value: any): value is { note: Note } {
-  return 'note' in value && value.note !== undefined;
+  return "note" in value && value.note !== undefined;
 }
 
 const { notes } = Astro.props;
 ---
 
 <style>
-
   ul.note-root {
     margin-block-end: 1rem;
   }
 
-  ul.note-root, ul li {
+  ul.note-root,
+  ul li {
     list-style: none;
     padding: 0;
   }
@@ -28,18 +29,21 @@ const { notes } = Astro.props;
     font-weight: bold;
     font-size: 1.2rem;
   }
-
 </style>
 
 <ul class="note-root">
-  {Object.entries(notes).map(([key, value]) => (
-    <li>
-      {hasNote(value) ? (
-        <NoteListEntry title={value.note.title} path={value.note.path} gitInfo={value.note.gitInfo} />
-      ) : (
-        <span class="note-category">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-        <Astro.self notes={value} />
-      )}
-    </li>
-  ))}
+  {
+    Object.entries(notes).map(([key, value]) => (
+      <li>
+        {hasNote(value) ? (
+          <NoteListEntry title={value.note.title} path={value.note.path} gitInfo={value.note.gitInfo} />
+        ) : (
+          <Fragment>
+            <span class="note-category">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+            <Astro.self notes={value} />
+          </Fragment>
+        )}
+      </li>
+    ))
+  }
 </ul>

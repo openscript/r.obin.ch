@@ -21,24 +21,34 @@ base = base.endsWith("/") ? base : `${base}/`;
   <slot name="meta" />
   <meta name="viewport" content="width=device-width" />
   <meta name="referrer" content="no-referrer-when-downgrade" />
-  <script
-    is:inline
-    id="analytics"
-    defer
-    data-domain="r.obin.ch"
-    src="https://analytics.obin.ch/js/script.js"></script>
+  <script is:inline id="analytics" defer data-domain="r.obin.ch" src="https://analytics.obin.ch/js/script.js"></script>
 
   <link rel="alternate" hreflang="x-default" href={base} />
   <link rel="alternate" hreflang={getFullLocale(locale)} href={Astro.url.href} />
   <meta property="og:locale" content={getFullLocale(locale).replace(`-`, `_`)} />
-  {Object.entries(translations || {}).filter(([l]) => l !== locale).map(([locale, path]) => (
-    <link rel="alternate" hreflang={getFullLocale(locale)} href={new URL(path, Astro.url).href} />
-    <meta property="og:locale:alternate" content={getFullLocale(locale).replace(`-`, `_`)} />
-  ))}
-  <link rel="alternate" type="application/rss+xml" title={t('feedTitle')} href={resolvePath("rss.xml")} />
-  {localeSlugs.map((l) => {
-    return <link rel="alternate" type="application/rss+xml" title={getMessage('feedLanguage', l)} href={resolvePath(`rss-${l}.xml`)} />
-  })}
+  {
+    Object.entries(translations || {})
+      .filter(([l]) => l !== locale)
+      .map(([locale, path]) => (
+        <Fragment>
+          <link rel="alternate" hreflang={getFullLocale(locale)} href={new URL(path, Astro.url).href} />
+          <meta property="og:locale:alternate" content={getFullLocale(locale).replace(`-`, `_`)} />
+        </Fragment>
+      ))
+  }
+  <link rel="alternate" type="application/rss+xml" title={t("feedTitle")} href={resolvePath("rss.xml")} />
+  {
+    localeSlugs.map((l) => {
+      return (
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={getMessage("feedLanguage", l)}
+          href={resolvePath(`rss-${l}.xml`)}
+        />
+      );
+    })
+  }
   <link rel="sitemap" href={resolvePath("sitemap-index.xml")} />
   <ClientRouter />
 </head>

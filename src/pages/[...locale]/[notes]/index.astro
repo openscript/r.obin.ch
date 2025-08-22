@@ -11,9 +11,7 @@ import { defaultNotesCollection } from "../../../collections/notes";
 import { getGitInfo, type GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { render } from "astro:content";
 
-export const getStaticPaths = generateGetStaticIndexPaths(
-  "[...locale]/[notes]",
-);
+export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[notes]");
 
 const {
   translations,
@@ -35,12 +33,12 @@ type NestedNotes = {
 const notesWithGitInfo = await Promise.all(
   notes.map(async (note) => {
     const { remarkPluginFrontmatter } = await render(note);
-    const gitInfo = getGitInfo(remarkPluginFrontmatter)
+    const gitInfo = getGitInfo(remarkPluginFrontmatter);
     return {
       ...note,
       gitInfo,
     };
-  })
+  }),
 );
 
 const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
@@ -57,7 +55,7 @@ const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
       current[segment].note = {
         title: note.data.title,
         path: note.translatedPath,
-        gitInfo: note.gitInfo
+        gitInfo: note.gitInfo,
       };
     } else {
       current = current[segment] as NestedNotes;
@@ -66,7 +64,6 @@ const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
 
   return acc;
 }, {});
-
 ---
 
 <DefaultLayout translations={translations}>

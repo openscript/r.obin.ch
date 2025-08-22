@@ -9,8 +9,7 @@ const isDEV = import.meta.env.DEV;
 
 <script is:inline define:vars={{ host, siteId, originalUrl, isDEV }} async>
   const remark42 = window.REMARK42;
-  let url =
-    (isDEV ? originalUrl : window.location.origin) + window.location.pathname;
+  let url = (isDEV ? originalUrl : window.location.origin) + window.location.pathname;
   if (url.endsWith("/")) {
     url = url.slice(0, -1);
   }
@@ -25,15 +24,20 @@ const isDEV = import.meta.env.DEV;
     remark42.destroy();
     remark42.createInstance(window.remark_config);
   }
-  !(function (e, n) {
-    for (let o = 0; o < e.length; o++) {
-      let r = n.createElement("script"),
-        c = ".js",
-        d = n.head || n.body;
-      "noModule" in r ? ((r.type = "module"), (c = ".mjs")) : (r.async = !0),
-        (r.defer = !0),
-        (r.src = remark_config.host + "/web/" + e[o] + c),
-        d.appendChild(r);
+  (function injectScripts(components, doc) {
+    for (let o = 0; o < components.length; o++) {
+      const r = doc.createElement("script");
+      let c = ".js";
+      const d = doc.head || doc.body;
+      if ("noModule" in r) {
+        r.type = "module";
+        c = ".mjs";
+      } else {
+        r.async = true;
+      }
+      r.defer = true;
+      r.src = remark_config.host + "/web/" + components[o] + c;
+      d.appendChild(r);
     }
   })(remark_config.components || ["embed"], document);
 </script>

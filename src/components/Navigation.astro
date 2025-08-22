@@ -8,14 +8,15 @@ type Props = {
     path: string;
     title: string;
     icon?: ImageMetadata;
-  }>
+  }>;
 };
 
 const { items } = Astro.props;
 ---
 
 <style>
-  nav ul, nav ul li {
+  nav ul,
+  nav ul li {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -28,9 +29,7 @@ const { items } = Astro.props;
       items.map((item) => (
         <li>
           <Link href={item.path}>
-            {item.icon ? (
-              <Image src={item.icon} alt={`${item.title} Icon`} width="16" />
-            ) : null}
+            {item.icon ? <Image src={item.icon} alt={`${item.title} Icon`} width="16" /> : null}
             {item.title}
           </Link>
         </li>

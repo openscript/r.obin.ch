@@ -6,17 +6,11 @@ import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
-import {
-  i18nPropsAndParams,
-  resolvePath as originalResolvePath,
-} from "astro-loader-i18n";
+import { i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-loader-i18n";
 import { C } from "../../../site.config";
 import { getCollection } from "astro:content";
 import slug from "limax";
-import {
-  defaultPropsAndParamsOptions,
-  resolvePath,
-} from "../../../utils/paths";
+import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
 import ArticleWithAside from "../../../layouts/pages/ArticleWithAside.astro";
 import DateTime from "../../../components/DateTime.astro";
 import VersioningDetails from "../../../components/VersioningDetails.astro";
@@ -40,16 +34,12 @@ const {
   data: { tags, locale, title, publishedAt },
 } = Astro.props;
 
-const { Content, headings, remarkPluginFrontmatter } = await render(
-  Astro.props
-);
+const { Content, headings, remarkPluginFrontmatter } = await render(Astro.props);
 
 const paramsBlog = C.SEGMENT_TRANSLATIONS[parseLocale(locale)].blog;
 
 const blogPath =
-  locale === C.DEFAULT_LOCALE
-    ? originalResolvePath(paramsBlog)
-    : originalResolvePath(locale, paramsBlog);
+  locale === C.DEFAULT_LOCALE ? originalResolvePath(paramsBlog) : originalResolvePath(locale, paramsBlog);
 
 const gitInfo = getGitInfo(remarkPluginFrontmatter);
 const t = useTranslations(parseLocale(locale));
