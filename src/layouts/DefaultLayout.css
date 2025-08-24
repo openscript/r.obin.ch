@@ -265,10 +265,7 @@ footer nav ul .active {
   font-weight: bold;
 }
 
-#topbar,
-header,
-main,
-footer {
+body > :is(#topbar, header, main, footer) {
   padding-left: var(--padding-page);
   padding-right: var(--padding-page);
 }

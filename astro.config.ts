@@ -8,8 +8,8 @@ import { remarkGitInfo } from "./src/remark/remark-git-info";
 import { remarkExcerpt } from "./src/remark/remark-excerpt";
 import search from "./src/integrations/search";
 import sitemap from "@astrojs/sitemap";
+import Icons from "unplugin-icons/vite";
 
-// https://astro.build/config
 export default defineConfig({
   prefetch: true,
   build: {
@@ -49,6 +49,7 @@ export default defineConfig({
           },
         },
       }),
+      Icons({ compiler: "astro" }),
     ],
   },
   integrations: [search(), mdx(), sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } })],

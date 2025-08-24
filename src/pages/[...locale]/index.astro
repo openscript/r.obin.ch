@@ -1,7 +1,6 @@
 ---
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import { getEntry } from "astro:content";
-import LatestBlogsSection from "../../layouts/sections/LatestBlogsSection.astro";
 import { render } from "astro:content";
 import { generateGetStaticIndexPaths } from "../../utils/paths";
 
@@ -11,6 +10,7 @@ const {
   data: { locale },
 } = Astro.props;
 const { Content: IntroSection } = await render(await getEntry("sections", `${locale}/intro`)!);
+const { Content: LatestBlogsSection } = await render(await getEntry("sections", `${locale}/latest-blogs`)!);
 ---
 
 <style>
@@ -21,5 +21,5 @@ const { Content: IntroSection } = await render(await getEntry("sections", `${loc
 
 <DefaultLayout translations={translations}>
   <IntroSection />
-  <LatestBlogsSection locale={locale} />
+  <LatestBlogsSection />
 </DefaultLayout>
