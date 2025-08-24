@@ -23,6 +23,7 @@ export const C = {
     de: {
       language: "Deutsch",
       title: "Robin Bühlers Webseite",
+      author: "Robin Bühler",
       description:
         "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
       feedTitle: "Robins Blog",
@@ -57,6 +58,7 @@ export const C = {
     en: {
       language: "English",
       title: "Robin Bühlers Website",
+      author: "Robin Bühler",
       description:
         "On this website I collect interesting things from my adventures in the world of bits and bytes and also share some things from the analog reality.",
       feedTitle: "Robins Blog",
