@@ -1,5 +1,14 @@
 # r.obin.ch
 
+## 0.4.6
+
+### Patch Changes
+
+- d79b087: Advertise RSS
+- 29100c4: Fix rss feed
+- 7ee8679: Make card more responsive
+- 38d8334: Modify divider
+
 ## 0.4.5
 
 ### Patch Changes
