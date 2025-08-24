@@ -1,0 +1,33 @@
+---
+type Props = {
+  flipHorizontally?: boolean;
+  flipVertically?: boolean;
+};
+
+const flipHorizontally = Astro.props.flipHorizontally ? -1 : 1;
+const flipVertically = Astro.props.flipVertically ? -1 : 1;
+---
+
+<style
+  define:vars={{
+    "flip-horizontally": flipHorizontally,
+    "flip-vertically": flipVertically,
+  }}
+>
+  .rebound-divider {
+    width: 100%;
+    height: 1rem;
+    background: var(--color-primary, #000);
+    transform: scaleX(var(--flip-horizontally)) scaleY(var(--flip-vertically));
+    clip-path: polygon(0 0, var(--padding-page, 24px) 100%, calc(100% - var(--padding-page, 24px)) 100%, 100% 0, 0 0);
+    border-bottom: 5px solid var(--color-border, var(--color-primary-120));
+  }
+
+  @media (max-width: 1280px) {
+    .rebound-divider {
+      clip-path: none;
+    }
+  }
+</style>
+
+<div class="rebound-divider"></div>
