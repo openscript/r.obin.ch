@@ -23,7 +23,7 @@ const HeadingTag = `h${headingLevel}`;
     border-radius: var(--border-radius);
     overflow: hidden;
     text-decoration: none;
-    margin: calc(var(--gap) * -1);
+    margin: 0 calc(var(--gap) * -1);
     height: calc(100% + var(--gap) * 2);
     hyphens: auto;
   }
@@ -93,6 +93,13 @@ const HeadingTag = `h${headingLevel}`;
     border-radius: 0;
     flex-grow: 1;
     object-fit: cover;
+  }
+
+  @media (max-width: 800px) {
+    a {
+      width: 100%;
+      margin: 0;
+    }
   }
 </style>
 
