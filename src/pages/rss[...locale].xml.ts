@@ -27,7 +27,6 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       slug: `${entry.data.contentPath}/${slug(entry.data.title)}`,
     }),
   });
-  console.log(propsAndParams);
 
   return rss({
     title: C.MESSAGES[locale]["title"],
@@ -40,6 +39,11 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       link: blog.translatedPath,
     })),
     trailingSlash: false,
-    customData: `<language>${C.LOCALES[locale]}</language>`,
+    xmlns: { atom: "http://www.w3.org/2005/Atom" },
+    customData: `
+      <language>${C.LOCALES[locale]}</language>
+      <atom:link rel="self" type="application/rss+xml" href="${context.url}" />
+    `,
+    stylesheet: "/rss.xslt",
   });
 };
