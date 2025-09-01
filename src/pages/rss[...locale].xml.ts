@@ -27,6 +27,7 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       slug: `${entry.data.contentPath}/${slug(entry.data.title)}`,
     }),
   });
+  console.log(propsAndParams);
 
   return rss({
     title: C.MESSAGES[locale]["title"],
@@ -38,6 +39,7 @@ export const GET: APIRoute<Props, Params> = async (context) => {
       pubDate: blog.data.publishedAt,
       link: blog.translatedPath,
     })),
+    trailingSlash: false,
     customData: `<language>${C.LOCALES[locale]}</language>`,
   });
 };

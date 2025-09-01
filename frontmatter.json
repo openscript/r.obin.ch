@@ -66,6 +66,44 @@
           "required": true
         }
       ]
+    },
+    {
+      "name": "notes",
+      "previewPath": "'notes'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "translationId",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "contentPath",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "basePath",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        }
+      ]
     }
   ],
   "frontMatter.framework.id": "astro",
@@ -83,6 +121,13 @@
       "path": "[[workspace]]/src/content/pages",
       "contentTypes": [
         "pages"
+      ]
+    },
+    {
+      "title": "notes",
+      "path": "[[workspace]]/src/content/notes",
+      "contentTypes": [
+        "notes"
       ]
     }
   ]
