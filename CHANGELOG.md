@@ -1,5 +1,12 @@
 # r.obin.ch
 
+## 0.4.7
+
+### Patch Changes
+
+- e08fd1f: Add RSS styles
+- 9bcbde5: Remove trailing slash from RSS items
+
 ## 0.4.6
 
 ### Patch Changes
