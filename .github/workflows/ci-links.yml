@@ -57,7 +57,7 @@ jobs:
 
       - name: Find or Create Issue
         id: issue_finder
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const { data: issues } = await github.rest.issues.listForRepo({
