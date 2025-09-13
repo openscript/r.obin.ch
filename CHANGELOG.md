@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.8
+
+### Patch Changes
+
+- 95bf136: Hide draft and not released posts
+
 ## 0.4.7
 
 ### Patch Changes
