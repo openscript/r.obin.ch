@@ -8,17 +8,17 @@ import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
 import { i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-loader-i18n";
 import { C } from "../../../site.config";
-import { getCollection } from "astro:content";
 import slug from "limax";
 import { defaultPropsAndParamsOptions, resolvePath } from "../../../utils/paths";
 import ArticleWithAside from "../../../layouts/pages/ArticleWithAside.astro";
 import DateTime from "../../../components/DateTime.astro";
 import VersioningDetails from "../../../components/VersioningDetails.astro";
 import Details from "../../../components/Details.astro";
+import { defaultBlogCollection } from "../../../collections/blog";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
-  const collection = await getCollection("blog");
+  const collection = defaultBlogCollection;
 
   return i18nPropsAndParams(collection, {
     ...defaultPropsAndParamsOptions,
