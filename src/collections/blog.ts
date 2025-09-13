@@ -2,6 +2,8 @@ import { getCollection } from "astro:content";
 
 export const defaultBlogCollection = (
   await getCollection("blog", (entry) => {
+    if (import.meta.env.DEV) return true;
+
     // Don't include draft entries
     if (entry.data.draft) return false;
 
