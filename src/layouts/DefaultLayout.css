@@ -341,14 +341,13 @@ dt {
 }
 
 dd {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--gap-tiny);
   margin-left: 1ch;
   margin-bottom: 1rem;
   padding-left: 1ch;
   border-left: 1px solid var(--color-primary-240);
-
-  & > * {
-    margin-bottom: var(--gap-tiny);
-  }
 }
 
 dd:last-child {

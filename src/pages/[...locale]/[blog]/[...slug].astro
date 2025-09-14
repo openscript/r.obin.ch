@@ -15,6 +15,7 @@ import DateTime from "../../../components/DateTime.astro";
 import VersioningDetails from "../../../components/VersioningDetails.astro";
 import Details from "../../../components/Details.astro";
 import { defaultBlogCollection } from "../../../collections/blog";
+import Button from "../../../components/Button.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -60,7 +61,7 @@ const t = useTranslations(parseLocale(locale));
           <dt>{t("createdAtLabel")}</dt>
           <dd><DateTime date={publishedAt} /></dd>
           <dt>{t("categorizedWithLabel")}</dt>
-          <dd>{tags.map((tag) => <a href={resolvePath(blogPath, slug(tag))}>{tag}</a>)}</dd>
+          <dd>{tags.map((tag) => <Button href={resolvePath(blogPath, slug(tag))}>{tag}</Button>)}</dd>
         </dl>
       </Details>
       <VersioningDetails gitInfo={gitInfo} />
