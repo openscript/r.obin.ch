@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.9
+
+### Patch Changes
+
+- da348ab: Enhance sidebar buttons display
+
 ## 0.4.8
 
 ### Patch Changes
