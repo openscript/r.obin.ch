@@ -61,6 +61,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
    mkfs.btrfs /dev/systemcryptlvm/home
    mkswap /dev/systemcryptlvm/swap
    ```
+1. If necessary format EFI partition with `mkfs.fat -F32 /dev/nvme0n1p1`
 1. Mount filesystems:
    ```bash
    mount /dev/systemcryptlvm/root /mnt
@@ -76,11 +77,12 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 
 ## Install base system
 
+1. Set appropriate mirrors in `/etc/pacman.d/mirrorlist` or via `reflector --country Switzerland --age 12 --protocol https --sort rate --download-timeout 10 --save /etc/pacman.d/mirrorlist`
 1. Install base system with `pacstrap /mnt base linux linux-firmware`
 1. Generate an fstab file `genfstab -U /mnt >> /mnt/etc/fstab`
 1. Change root into the new system with `arch-chroot /mnt`
 1. Install `lvm2`, `vim` and `btrfs-progs` with `pacman -S lvm2 vim btrfs-progs`
-1. Update hooks in `/etc/mkinitcpio.conf` to `HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)` using vim
+1. Update hooks in `/etc/mkinitcpio.conf` to `HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)` by adding `encrypt lvm2` using vim
 1. Set time zone `ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime`
 1. Set hardware clock with `hwclock --systohc`
 1. Uncomment locale `en_US.UTF-8 UTF-8` und `de_CH.UTF-8 UTF-8` in `/etc/locale.gen`
@@ -103,8 +105,8 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Install bootloader with `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 1. Get UUID of cryptdevice with `blkid | grep crypto`
 1. Edit `/etc/default/grub`:
-   1. Add `GRUB_DISABLE_OS_PROBER=false` at the end of the file to prevent `Warning: os-prober will not be executed to detect other bootable partition` otherwise install package `os-prober`
-   1. Change `GRUB_CMDLINE_LINUX="cryptdevice=UUID=cb257170-e4ef-0000-0000-000000000000:cryptlvm root=/dev/systemcryptlvm/root"`
+   1. Add `GRUB_DISABLE_OS_PROBER=false` at the end of the file to prevent `Warning: os-prober will not be executed to detect other bootable partition` and install package `os-prober` if you want to dual boot
+   1. Change `GRUB_CMDLINE_LINUX="cryptdevice=UUID=904eab28-ca25-4c03-a948-75539689b4d1:cryptlvm root=/dev/systemcryptlvm/root"`
 1. Generate GRUB configuration `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## Microcode
@@ -118,7 +120,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Set password `passwd robin`
 1. Add sudo package `pacman -S sudo`
 1. Edit sudoers file with `EDITOR=vim visudo`
-1. Uncomment that members of group `sudo` can execute any command
+1. Uncomment that members of group `sudo` can execute any command by uncommenting the line `%sudo ALL=(ALL:ALL) ALL`
 1. Add group sudo with `groupadd sudo`
 1. Add user to group sudo `gpasswd -a robin sudo`
 
@@ -147,7 +149,7 @@ Connecting to the live environment via SSH becomes handy, when you need to do so
 1. Enable network manager `systemctl enable NetworkManager.service`
 1. Enable Gnome Keyring SSH Agent with `systemctl --user enable --now gcr-ssh-agent`
 1. Define `SSH_AUTH_SOCK` in `.bashrc` with `export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh`
-1. Install a Chinese font `paru -S noto-fonts-cjk`
+1. Install a Chinese font `pacman -S noto-fonts-cjk`
 
 ## Reboot to system
 
