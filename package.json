@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.18.0",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",
@@ -35,7 +35,7 @@
     "@fontsource/poppins": "^5.2.7",
     "@fontsource/rajdhani": "^5.2.7",
     "astro": "^5.13.9",
-    "astro-loader-i18n": "^0.7.9",
+    "astro-loader-i18n": "^0.8.0",
     "limax": "^4.1.0",
     "pagefind": "^1.4.0",
     "rehype-autolink-headings": "^7.1.0",
