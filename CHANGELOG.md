@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.10
+
+### Patch Changes
+
+- 00fbbbb: Upgrade dependencies
+
 ## 0.4.9
 
 ### Patch Changes
