@@ -1,6 +1,6 @@
 ---
 title: Set up iWay Fiber Internet with Nokia Bridge XS-010X-Q
-publishedAt: 2025-01-31T00:00:00.000Z
+publishedAt: 2025-10-24T00:00:00.000Z
 tags:
   - OpenWRT
   - Router
