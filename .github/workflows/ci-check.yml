@@ -44,14 +44,15 @@ jobs:
         run: pnpm check
 
       - name: Check with Astro
-        run: |
-          pnpm astro check
+        run: pnpm astro check
 
       - name: Run tests
-        run: |
-          pnpm coverage
+        run: pnpm coverage
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5.5.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build
+        run: pnpm build
