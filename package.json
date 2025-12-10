@@ -35,7 +35,7 @@
     "@fontsource/poppins": "^5.2.7",
     "@fontsource/rajdhani": "^5.2.7",
     "astro": "^5.16.4",
-    "astro-loader-i18n": "^0.10.7",
+    "astro-loader-i18n": "^0.10.9",
     "limax": "^4.2.1",
     "pagefind": "^1.4.0",
     "rehype-autolink-headings": "^7.1.0",
