@@ -1,17 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Article from "../layouts/pages/Article.astro";
 ---
-
-<script>
-  const localeElements = document.querySelectorAll("[data-translation]");
-  localeElements.forEach((element) => {
-    if (!(element instanceof HTMLElement)) return;
-    const { translation } = element.dataset;
-    if (translation && !navigator.language.startsWith(translation)) return;
-
-    element.classList.add("active");
-  });
-</script>
 
 <style>
   [data-translation] {
@@ -25,9 +15,33 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 
 <DefaultLayout>
   <div data-translation="en">
-    <h1>404 Page not found</h1>
+    <Article title="404 Page not found">
+      <p>The page you are looking for does not exist.</p>
+      <p>Please check the URL or return to the <a href="/">homepage</a>.</p>
+    </Article>
   </div>
   <div data-translation="de">
-    <h1>404 Seite nicht gefunden</h1>
+    <Article title="404 Seite nicht gefunden">
+      <p>Die von Ihnen gesuchte Seite existiert nicht.</p>
+      <p>Bitte überprüfen Sie die URL oder kehren Sie zur <a href="/">Startseite</a> zurück.</p>
+    </Article>
   </div>
 </DefaultLayout>
+
+<script>
+  function register() {
+    const localeElements = document.querySelectorAll("[data-translation]");
+    const pathname = window.location.pathname;
+    const activeElement =
+      Array.from(localeElements).find(
+        (el) => el instanceof HTMLElement && pathname.startsWith(`/${el.dataset.translation}/`),
+      ) || document.querySelector('[data-translation="en"]');
+
+    if (activeElement instanceof HTMLElement) {
+      activeElement.classList.add("active");
+    }
+  }
+
+  register();
+  document.addEventListener("astro:after-swap", register);
+</script>
