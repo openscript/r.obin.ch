@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.11
+
+### Patch Changes
+
+- 4136af3: Fix supabase client import
+
 ## 0.4.10
 
 ### Patch Changes
