@@ -6,7 +6,6 @@ import Head from "./groups/Head.astro";
 import Header from "./groups/Header.astro";
 import Footer from "./groups/Footer.astro";
 import Topbar from "./groups/Topbar.astro";
-import Divider from "../components/Divider.astro";
 import Meta from "./groups/Meta.astro";
 
 type Props = {
@@ -26,11 +25,9 @@ const { translations } = Astro.props;
   <body>
     <Topbar translations={translations} />
     <Header />
-    <Divider />
     <main data-pagefind-body transition:animate="fade">
       <slot />
     </main>
-    <Divider flipHorizontally flipVertically />
     <Footer />
   </body>
 </html>
