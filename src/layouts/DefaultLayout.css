@@ -64,74 +64,6 @@ body > footer {
   color: var(--color-white);
 }
 
-body > header {
-  display: grid;
-  grid-template-columns: min-content 1fr min-content;
-  grid-template-areas: "brand search menu";
-  align-items: center;
-  font-size: 2.2rem;
-  column-gap: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  font-family: var(--font-headings);
-
-  & > a {
-    grid-area: brand;
-  }
-
-  button.burger-button {
-    grid-area: burger;
-  }
-
-  nav {
-    grid-area: menu;
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin-right: -1.6rem;
-
-    ul {
-      display: flex;
-
-      li {
-        white-space: nowrap;
-
-        a::before {
-          content: "<";
-          transform: translateX(20px);
-        }
-
-        a::after {
-          content: "/>";
-          text-align: right;
-          transform: translateX(-20px);
-        }
-
-        a::before,
-        a::after {
-          transition:
-            opacity 0.5s,
-            transform 0.3s;
-          display: inline-block;
-          opacity: 0;
-          font-weight: normal;
-        }
-
-        a.active {
-          font-weight: bold;
-        }
-
-        a:hover::before,
-        a:hover::after,
-        a.active::before,
-        a.active::after {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-    }
-  }
-}
-
 .search {
   grid-area: search;
   transition: var(--transition-duration);
@@ -175,31 +107,6 @@ body > header {
     opacity: 0.7;
     transition: var(--transition-duration);
   }
-}
-
-.search-active header {
-  grid-template-areas: "search search search";
-}
-
-.search-active header .search {
-  margin-inline: calc(-0.7rem - 3px);
-  width: calc(100% + 2 * (0.7rem + 3px));
-}
-
-.search-active header > a {
-  display: none;
-}
-
-.search-active header button.burger-button {
-  display: none;
-}
-
-.search-active header nav {
-  display: none;
-}
-
-.burger-active header .search {
-  display: none;
 }
 
 nav {
@@ -266,17 +173,12 @@ footer nav ul .active {
 }
 
 body > :is(#topbar, header, main, footer) {
-  padding-left: var(--padding-page);
-  padding-right: var(--padding-page);
+  padding-inline: var(--padding-page);
 }
 
 body > :is(#topbar, header, footer) a {
   text-decoration: none;
   color: var(--color-white);
-}
-
-header button.burger-button {
-  display: none;
 }
 
 h1 {
@@ -374,46 +276,6 @@ main ol li {
 
   p {
     margin: 0;
-  }
-}
-
-@media (max-width: 800px) {
-  body > header {
-    grid-template-areas: "brand search burger" ". . .";
-  }
-
-  .burger-active header {
-    grid-template-areas: "brand menu burger" ". menu .";
-  }
-
-  header button.burger-button {
-    display: block;
-  }
-
-  header nav {
-    display: none;
-  }
-
-  header nav ul {
-    gap: var(--gap-tiny);
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .burger-active header nav {
-    display: block;
-  }
-}
-
-@media (max-width: 1280px) {
-  header {
-    column-gap: 1rem;
-  }
-}
-
-@media (max-width: 1600px) {
-  header {
-    column-gap: 1.5rem;
   }
 }
 
