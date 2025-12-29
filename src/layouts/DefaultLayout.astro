@@ -5,7 +5,7 @@ import { parseLocale } from "../utils/i18n";
 import Head from "./groups/Head.astro";
 import Header from "./groups/Header.astro";
 import Footer from "./groups/Footer.astro";
-import Topbar from "./groups/Topbar.astro";
+import Ribbon from "./groups/Ribbon.astro";
 import Meta from "./groups/Meta.astro";
 
 type Props = {
@@ -23,7 +23,7 @@ const { translations } = Astro.props;
     </slot>
   </Head>
   <body>
-    <Topbar translations={translations} />
+    <Ribbon translations={translations} />
     <Header />
     <main data-pagefind-body transition:animate="fade">
       <slot />

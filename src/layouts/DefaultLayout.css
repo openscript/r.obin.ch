@@ -10,56 +10,7 @@ body {
   background-color: var(--color-white);
 }
 
-#topbar {
-  background-color: var(--color-primary-120);
-  color: var(--color-white);
-  font-size: 0.8rem;
-  padding-top: var(--gap-tiny);
-  padding-bottom: var(--gap-tiny);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#topbar nav:not(.language-switcher) {
-  flex-grow: 1;
-  max-width: 100%;
-  margin-right: 1rem;
-  overflow-x: scroll;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) calc(100% - 2rem), transparent);
-  scrollbar-width: none;
-}
-
-#topbar nav.language-switcher .active {
-  display: none;
-}
-
-#topbar nav ul {
-  display: flex;
-  gap: var(--gap);
-}
-
-#topbar nav ul li {
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-#topbar nav ul li a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gap-tiny);
-  transition: var(--transition-duration);
-  filter: grayscale(1);
-}
-
-#topbar nav ul li a:hover {
-  filter: grayscale(0);
-}
-
-body > header,
-body > footer {
+body > :is(header, footer) {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
@@ -172,11 +123,11 @@ footer nav ul .active {
   font-weight: bold;
 }
 
-body > :is(#topbar, header, main, footer) {
+body > :is(#ribbon, header, main, footer) {
   padding-inline: var(--padding-page);
 }
 
-body > :is(#topbar, header, footer) a {
+body > :is(#ribbon, header, footer) a {
   text-decoration: none;
   color: var(--color-white);
 }
@@ -281,7 +232,7 @@ main ol li {
 
 @media print {
   aside,
-  #topbar,
+  #ribbon,
   header .search,
   header nav,
   footer,
