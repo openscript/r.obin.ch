@@ -66,27 +66,26 @@ nav {
 
 main {
   flex-grow: 1;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
+  padding-block: 2rem;
 
-main a {
-  color: var(--color-primary);
-}
+  a {
+    color: var(--color-primary);
+  }
 
-main h1 {
-  margin-top: 0;
-}
+  h1 {
+    margin-block-start: 0;
+  }
 
-main :is(h1, h2, h3, h4, h5, h6) a {
-  color: inherit;
-  text-decoration: none;
-}
+  :is(h1, h2, h3, h4, h5, h6) a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-main :is(img, video, svg) {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius);
+  :is(img, video, svg) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+  }
 }
 
 p:has(> img) {
@@ -95,32 +94,16 @@ p:has(> img) {
 
 article {
   line-height: var(--line-height);
+
+  details {
+    margin: 0;
+    padding: 1rem;
+  }
 }
 
-article details {
-  margin: 0;
-  padding: 1rem;
-}
-
-pre {
+article pre {
   padding: 1rem;
   border-radius: var(--border-radius);
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  height: 3rem;
-  padding-top: 0.75rem;
-}
-
-footer nav ul {
-  display: flex;
-  gap: var(--gap);
-}
-
-footer nav ul .active {
-  font-weight: bold;
 }
 
 body > :is(#ribbon, header, main, footer) {
@@ -197,14 +180,14 @@ dd {
   display: inline-flex;
   flex-wrap: wrap;
   gap: var(--gap-tiny);
-  margin-left: 1ch;
-  margin-bottom: 1rem;
-  padding-left: 1ch;
-  border-left: 1px solid var(--color-primary-240);
+  margin-inline-start: 1ch;
+  margin-block-end: 1rem;
+  padding-inline-start: 1ch;
+  border-inline-start: 1px solid var(--color-primary-240);
 }
 
 dd:last-child {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 main ul li {

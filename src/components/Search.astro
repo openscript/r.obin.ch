@@ -69,6 +69,11 @@ const loadingText = t("searchLoading");
   document.addEventListener("DOMContentLoaded", initialize);
 </script>
 
+<div class="search" data-search-ui data-search-bundle={bundle}>
+  <input type="search" placeholder={t("searchPlaceholder")} />
+  <ul class="results" data-loading-text={loadingText}>{loadingText}</ul>
+</div>
+
 <style>
   .search {
     display: flex;
@@ -102,8 +107,3 @@ const loadingText = t("searchLoading");
     display: flex;
   }
 </style>
-
-<div class="search" data-search-ui data-search-bundle={bundle}>
-  <input type="search" placeholder={t("searchPlaceholder")} />
-  <ul class="results" data-loading-text={loadingText}>{loadingText}</ul>
-</div>
