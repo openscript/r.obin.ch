@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../../../utils/paths";
 import slug from "limax";
+import Button from "../../../../components/Button.astro";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[gallery]/[category]";
@@ -74,8 +75,8 @@ const t = useTranslations(parseLocale(locale));
     <h1 slot="title">{image.title}</h1>
     <Image src={image.src} alt={`Photo: ${image.title}`} width={1920} />
     <div>
-      {prev && <a href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>{t("previousLabel")}</a>}
-      {next && <a href={new URL(`../${next}`, `${Astro.url}/`).pathname}>{t("nextLabel")}</a>}
+      {prev && <Button href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>{t("previousLabel")}</Button>}
+      {next && <Button href={new URL(`../${next}`, `${Astro.url}/`).pathname}>{t("nextLabel")}</Button>}
     </div>
   </Page>
 </DefaultLayout>

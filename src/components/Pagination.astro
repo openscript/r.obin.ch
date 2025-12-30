@@ -23,7 +23,7 @@ const t = useTranslations(locale);
 </style>
 
 <div>
-  {page.url.prev ? <Button href={page.url.prev}>{t("previousLabel")}</Button> : null}
+  {page.url.prev && <Button href={page.url.prev}>{t("previousLabel")}</Button>}
   <span>{t("pageOfLabel", { current: page.currentPage, total: page.lastPage })}</span>
-  {page.url.next ? <Button href={page.url.next}>{t("nextLabel")}</Button> : null}
+  {page.url.next && <Button href={page.url.next}>{t("nextLabel")}</Button>}
 </div>
