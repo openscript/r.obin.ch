@@ -10,7 +10,7 @@ body {
   background-color: var(--color-white);
 
   > :is(#ribbon, footer) {
-    background-color: var(--color-primary-120);
+    background-color: var(--color-primary-105);
     color: var(--color-white);
     font-size: 0.8rem;
     height: 2rem;
@@ -112,7 +112,7 @@ h6 {
 
 code,
 kbd {
-  background-color: var(--color-white-140);
+  background-color: var(--color-white-105);
   border-radius: var(--border-radius);
   padding: 0.15rem;
 }
@@ -154,7 +154,7 @@ dd {
   margin-inline-start: 1ch;
   margin-block-end: 1rem;
   padding-inline-start: 1ch;
-  border-inline-start: 1px solid var(--color-primary-240);
+  border-inline-start: 1px solid var(--color-white-105);
 }
 
 dd:last-child {
