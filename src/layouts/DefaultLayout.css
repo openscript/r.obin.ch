@@ -8,11 +8,20 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--color-white);
-}
 
-body > :is(header, footer) {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  > :is(header, footer) {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  > :is(#ribbon, header, main, footer) {
+    padding-inline: var(--padding-page);
+  }
+
+  > :is(#ribbon, header, footer) a {
+    text-decoration: none;
+    color: var(--color-white);
+  }
 }
 
 nav {
@@ -41,6 +50,15 @@ main {
     height: auto;
     border-radius: var(--border-radius);
   }
+
+  ul li {
+    list-style: ">";
+    padding-inline-start: 1ch;
+  }
+
+  ol li {
+    padding-inline-start: 1ch;
+  }
 }
 
 p:has(> img) {
@@ -59,15 +77,6 @@ article {
 article pre {
   padding: 1rem;
   border-radius: var(--border-radius);
-}
-
-body > :is(#ribbon, header, main, footer) {
-  padding-inline: var(--padding-page);
-}
-
-body > :is(#ribbon, header, footer) a {
-  text-decoration: none;
-  color: var(--color-white);
 }
 
 h1 {
@@ -143,15 +152,6 @@ dd {
 
 dd:last-child {
   margin-block-end: 0;
-}
-
-main ul li {
-  list-style: ">";
-  padding-inline-start: 1ch;
-}
-
-main ol li {
-  padding-inline-start: 1ch;
 }
 
 .label {

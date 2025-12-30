@@ -32,7 +32,7 @@ const navigation = await prepareNavigation(`main/${locale}`);
     padding-block-end: 1rem;
     font-family: var(--font-headings);
 
-    & > a {
+    > a {
       grid-area: brand;
     }
 
@@ -98,7 +98,7 @@ const navigation = await prepareNavigation(`main/${locale}`);
   :global(.search-active) header {
     grid-template-areas: "search search search";
 
-    & > a {
+    > a {
       display: none;
     }
 
