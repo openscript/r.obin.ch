@@ -30,6 +30,7 @@
   --gap-tiny: calc(var(--gap) / 4);
   --width-max-content: 50rem;
   --border-radius: 5px;
+  --border-width: 3px;
   --transition-duration: 0.5s;
   --line-height: 1.8;
 }

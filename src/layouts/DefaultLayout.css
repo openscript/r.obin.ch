@@ -9,12 +9,19 @@ body {
   flex-direction: column;
   background-color: var(--color-white);
 
-  > :is(header, footer) {
+  > :is(#ribbon, footer) {
+    background-color: var(--color-primary-120);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    height: 2rem;
+  }
+
+  > header {
     background-color: var(--color-primary);
     color: var(--color-white);
   }
 
-  > :is(#ribbon, header, main, footer) {
+  > :is(#ribbon, main, footer) {
     padding-inline: var(--padding-page);
   }
 
