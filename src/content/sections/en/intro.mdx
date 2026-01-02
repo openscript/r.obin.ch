@@ -1,17 +1,21 @@
 ---
 ---
 
-import IntroSection from '../../../layouts/sections/IntroSection.astro';
-import FidgetCheckboxes from '../../../components/fidget/FidgetCheckboxes.astro';
-import Button from '../../../components/Button.astro';
+import IntroSection from "../../../layouts/sections/IntroSection.astro";
+import FidgetCheckboxes from "../../../components/fidget/FidgetCheckboxes.astro";
+import Button from "../../../components/Button.astro";
+import EndlessVideo from '../../../components/EndlessVideo.astro';
+import Video from "../../assets/windmill.webm";
+import Poster from "../../assets/windmill.webp";
 
 <IntroSection>
 
-  <Fragment slot="title">My life between bits and bytes.</Fragment>
-  <FidgetCheckboxes slot="spotlight" />
+<Fragment slot="title">My life between bits and bytes.</Fragment>
 
-  **Great to have you here!** On this website you will find content created by me, such as articles, projects and some photos or other media. I do not use artificial intelligence and create everything by hand.
+**Great to have you here!** On this website you will find content created by me, such as articles, projects and some photos or other media. I do not use artificial intelligence and create everything by hand.
 
-  <Button href="/website">Learn more</Button>
+<Button href="/website">Learn more</Button>
+
+<EndlessVideo slot="spotlight" videoSrc={Video} posterSrc={Poster.src} />
 
 </IntroSection>

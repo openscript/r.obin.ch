@@ -1,0 +1,21 @@
+---
+type Props = {
+  videoSrc: string;
+  posterSrc: string;
+};
+
+const { videoSrc, posterSrc } = Astro.props;
+---
+
+<video autoplay loop muted playsinline poster={posterSrc}>
+  <source src={videoSrc} type="video/webm" />
+</video>
+
+<style>
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+  }
+</style>
