@@ -1,0 +1,34 @@
+---
+
+---
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "content";
+    min-height: 5rem;
+  }
+
+  h2 {
+    grid-area: title;
+    align-self: flex-end;
+    margin: 0;
+  }
+
+  .content {
+    font-size: 1.2rem;
+    grid-area: content;
+  }
+</style>
+
+<section>
+  <header>
+    <h2>
+      <slot name="title" />
+    </h2>
+  </header>
+  <div class="content">
+    <slot />
+  </div>
+</section>
