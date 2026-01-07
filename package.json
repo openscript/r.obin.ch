@@ -37,6 +37,7 @@
     "astro": "^5.16.6",
     "astro-loader-i18n": "^0.10.9",
     "limax": "^4.2.1",
+    "lit": "^3.3.2",
     "pagefind": "^1.4.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
