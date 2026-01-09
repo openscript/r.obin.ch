@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property, state, query } from "lit/decorators.js";
 
-@customElement("pixel-display")
-export class PixelDisplay extends LitElement {
+@customElement("pixel-editor")
+export class PixelEditor extends LitElement {
   static override styles = css`
     :host {
       display: block;
@@ -410,6 +410,6 @@ export class PixelDisplay extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pixel-display": PixelDisplay;
+    "pixel-editor": PixelEditor;
   }
 }
