@@ -1,0 +1,60 @@
+{
+  "components.pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageOf": "Page {current} of {total}"
+  },
+  "components.search": {
+    "searching": "Searching...",
+    "placeholder": "Type to search..."
+  },
+  "components.tableOfContents": {
+    "title": "Table of Contents"
+  },
+  "components.versioningDetails": {
+    "title": "Versioning",
+    "author": "Author",
+    "lastUpdated": "Last updated",
+    "links": "Links",
+    "source": "Source",
+    "history": "History",
+    "edit": "Edit"
+  },
+  "layouts.head": {
+    "title": "Robins Blog",
+    "filteredByLanguage": "Robins Blog: {language} posts only"
+  },
+  "layouts.meta": {
+    "title": "Robin Bühlers Website",
+    "description": "On this website I collect interesting things from my adventures in the world of bits and bytes and also share some things from the analog reality."
+  },
+  "layouts.latestSection": {
+    "title": "Latest posts"
+  },
+  "pages.blog": {
+    "title": "Blog"
+  },
+  "pages.projects": {
+    "title": "Projects",
+    "active": "Active",
+    "maintenance": "Maintenance",
+    "archived": "Archived",
+    "idea": "Idea"
+  },
+  "pages.blogTag": {
+    "details": "Details",
+    "createdAt": "Created at",
+    "categorizedWith": "Categorized with",
+    "title": "Tag \"{tag}\""
+  },
+  "pages.gallery": {
+    "title": "Gallery"
+  },
+  "pages.galleryCategory": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "pages.notes": {
+    "title": "Notes"
+  }
+}

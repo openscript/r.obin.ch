@@ -1,13 +1,13 @@
 ---
 import DefaultLayout from "../../../../layouts/DefaultLayout.astro";
 import { Image } from "astro:assets";
-import { parseLocale, useTranslations } from "../../../../utils/i18n";
 import Page from "../../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { defaultPropsAndParamsOptions } from "../../../../utils/paths";
 import slug from "limax";
 import Button from "../../../../components/Button.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[gallery]/[category]";
@@ -51,14 +51,11 @@ export const getStaticPaths = async () => {
   });
 };
 
-const {
-  image,
-  translations,
-  next,
-  prev,
-  data: { locale },
-} = Astro.props;
-const t = useTranslations(parseLocale(locale));
+const { image, translations, next, prev } = Astro.props;
+const messages = useI18n("pages.galleryCategory", {
+  previous: "Previous",
+  next: "Next",
+});
 ---
 
 <style>
@@ -75,8 +72,8 @@ const t = useTranslations(parseLocale(locale));
     <h1 slot="title">{image.title}</h1>
     <Image src={image.src} alt={`Photo: ${image.title}`} width={1920} />
     <div>
-      {prev && <Button href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>{t("previousLabel")}</Button>}
-      {next && <Button href={new URL(`../${next}`, `${Astro.url}/`).pathname}>{t("nextLabel")}</Button>}
+      {prev && <Button href={new URL(`../${prev}`, `${Astro.url}/`).pathname}>{messages.previous}</Button>}
+      {next && <Button href={new URL(`../${next}`, `${Astro.url}/`).pathname}>{messages.next}</Button>}
     </div>
   </Page>
 </DefaultLayout>

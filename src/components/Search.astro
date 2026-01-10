@@ -1,10 +1,11 @@
 ---
-import { parseLocale, useTranslations } from "../utils/i18n";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
-const locale = parseLocale(Astro.currentLocale);
-const t = useTranslations(locale);
+const messages = useI18n("components.search", {
+  searching: "Searching...",
+  placeholder: "Type to search...",
+});
 const bundle = `/pagefind/pagefind.js`;
-const loadingText = t("searchLoading");
 ---
 
 <script>
@@ -70,8 +71,8 @@ const loadingText = t("searchLoading");
 </script>
 
 <div class="search" data-search-ui data-search-bundle={bundle}>
-  <input type="search" placeholder={t("searchPlaceholder")} />
-  <ul class="results" data-loading-text={loadingText}>{loadingText}</ul>
+  <input type="search" placeholder={messages.placeholder} />
+  <ul class="results" data-loading-text={messages.searching}>{messages.searching}</ul>
 </div>
 
 <style>

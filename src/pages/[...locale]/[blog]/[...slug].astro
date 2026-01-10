@@ -2,7 +2,7 @@
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
 import TableOfContents from "../../../components/TableOfContents.astro";
 import { getGitInfo } from "../../../remark/remark-git-info";
-import { parseLocale, useTranslations } from "../../../utils/i18n";
+import { parseLocale } from "../../../utils/i18n";
 import Comments from "../../../components/Comments.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { render } from "astro:content";
@@ -16,6 +16,7 @@ import VersioningDetails from "../../../components/VersioningDetails.astro";
 import Details from "../../../components/Details.astro";
 import { defaultBlogCollection } from "../../../collections/blog";
 import Button from "../../../components/Button.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -43,7 +44,11 @@ const blogPath =
   locale === C.DEFAULT_LOCALE ? originalResolvePath(paramsBlog) : originalResolvePath(locale, paramsBlog);
 
 const gitInfo = getGitInfo(remarkPluginFrontmatter);
-const t = useTranslations(parseLocale(locale));
+const messages = useI18n("pages.blogTag", {
+  details: "Details",
+  createdAt: "Created at",
+  categorizedWith: "Categorized with",
+});
 ---
 
 <DefaultLayout translations={translations}>
@@ -56,11 +61,11 @@ const t = useTranslations(parseLocale(locale));
     </Fragment>
     <Fragment slot="aside">
       <TableOfContents headings={headings} />
-      <Details defaultOpen title={t("detailsLabel")}>
+      <Details defaultOpen title={messages.details}>
         <dl>
-          <dt>{t("createdAtLabel")}</dt>
+          <dt>{messages.createdAt}</dt>
           <dd><DateTime date={publishedAt} /></dd>
-          <dt>{t("categorizedWithLabel")}</dt>
+          <dt>{messages.categorizedWith}</dt>
           <dd>{tags.map((tag) => <Button href={resolvePath(blogPath, slug(tag))}>{tag}</Button>)}</dd>
         </dl>
       </Details>

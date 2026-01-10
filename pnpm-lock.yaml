@@ -29,18 +29,27 @@ importers:
       '@fontsource/rajdhani':
         specifier: ^5.2.7
         version: 5.2.7
+      '@nanostores/i18n':
+        specifier: ^1.2.2
+        version: 1.2.2(nanostores@1.1.0)
       astro:
         specifier: ^5.16.6
         version: 5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)
       astro-loader-i18n:
         specifier: ^0.10.9
         version: 0.10.9(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2))
+      astro-nanostores-i18n:
+        specifier: ^0.2.6
+        version: 0.2.6(@nanostores/i18n@1.2.2(nanostores@1.1.0))(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2))(nanostores@1.1.0)
       limax:
         specifier: ^4.2.1
         version: 4.2.1
       lit:
         specifier: ^3.3.2
         version: 3.3.2
+      nanostores:
+        specifier: ^1.1.0
+        version: 1.1.0
       pagefind:
         specifier: ^1.4.0
         version: 1.4.0
@@ -1011,6 +1020,12 @@ packages:
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
+  '@nanostores/i18n@1.2.2':
+    resolution: {integrity: sha512-5LLxl95+ZI46MrM/Kn7YjORKsD7+Xy2tgjZ7/oDT/BGPEiaBM9lK89/afeK+BqaQL0Xd9Xaa5MPuuVSyWAo+/w==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
+
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1572,10 +1587,23 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  astro-integration-kit@0.19.1:
+    resolution: {integrity: sha512-0MORMlwJXM3d2RlYoFMKpdBTEOqFEZ7rY5TnQssLsUTfaZgF4XkNJW0mNsDiOdM9LgDn9Px2dZtz8NbuUW75nw==}
+    peerDependencies:
+      astro: ^4.14.0 || ^5.0.0
+
   astro-loader-i18n@0.10.9:
     resolution: {integrity: sha512-/zo9sjbZQKQe4gMuwU/AC5Wwm15zN/WjW2F1OMY4rfM8hP7CJGwazRK2uRvEC5YW9/qG7kkkKv5LP4MG+hNy0w==}
     peerDependencies:
       astro: ^5.5.0
+
+  astro-nanostores-i18n@0.2.6:
+    resolution: {integrity: sha512-QODf2XvjUfgn+Wi1LOoI317XjaHdEBjF8mFepCji/8zQlRIIw9N51nvZtv/wQJCHkwoG92FgJhUvYhaK4PJ8uQ==}
+    hasBin: true
+    peerDependencies:
+      '@nanostores/i18n': ^1.2.0
+      astro: ^5.5.0
+      nanostores: ^1.0.1
 
   astro@5.16.6:
     resolution: {integrity: sha512-6mF/YrvwwRxLTu+aMEa5pwzKUNl5ZetWbTyZCs9Um0F12HUmxUiF5UHiZPy4rifzU3gtpM3xP2DfdmkNX9eZRg==}
@@ -2942,6 +2970,10 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanostores@1.1.0:
+    resolution: {integrity: sha512-yJBmDJr18xy47dbNVlHcgdPrulSn1nhSE6Ns9vTG+Nx9VPT6iV1MD6aQFp/t52zpf82FhLLTXAXr30NuCnxvwA==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -3110,6 +3142,9 @@ packages:
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+
+  pathe@1.1.2:
+    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
@@ -5019,6 +5054,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@nanostores/i18n@1.2.2(nanostores@1.1.0)':
+    dependencies:
+      nanostores: 1.1.0
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -5616,9 +5655,24 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  astro-integration-kit@0.19.1(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)):
+    dependencies:
+      astro: 5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)
+      pathe: 1.1.2
+
   astro-loader-i18n@0.10.9(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)):
     dependencies:
       astro: 5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)
+
+  astro-nanostores-i18n@0.2.6(@nanostores/i18n@1.2.2(nanostores@1.1.0))(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2))(nanostores@1.1.0):
+    dependencies:
+      '@astrojs/compiler': 2.13.0
+      '@nanostores/i18n': 1.2.2(nanostores@1.1.0)
+      astro: 5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)
+      astro-integration-kit: 0.19.1(astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2))
+      fast-glob: 3.3.3
+      nanostores: 1.1.0
+      typescript: 5.9.3
 
   astro@5.16.6(@types/node@24.10.4)(jiti@2.6.1)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
@@ -7563,6 +7617,8 @@ snapshots:
 
   nanoid@3.3.11: {}
 
+  nanostores@1.1.0: {}
+
   natural-compare@1.4.0: {}
 
   neotraverse@0.6.18: {}
@@ -7750,6 +7806,8 @@ snapshots:
       minipass: 7.1.2
 
   path-type@4.0.0: {}
+
+  pathe@1.1.2: {}
 
   pathe@2.0.3: {}
 

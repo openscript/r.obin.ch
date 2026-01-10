@@ -9,6 +9,9 @@ import { remarkExcerpt } from "./src/remark/remark-excerpt";
 import search from "./src/integrations/search";
 import sitemap from "@astrojs/sitemap";
 import Icons from "unplugin-icons/vite";
+import nanostoresI18n from "astro-nanostores-i18n";
+import deCH from "./src/translations/de-CH.json";
+import enUS from "./src/translations/en-US.json";
 
 export default defineConfig({
   prefetch: true,
@@ -52,5 +55,16 @@ export default defineConfig({
       Icons({ compiler: "astro" }),
     ],
   },
-  integrations: [search(), mdx(), sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } })],
+  integrations: [
+    search(),
+    mdx(),
+    sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } }),
+    nanostoresI18n({
+      translations: {
+        de: deCH,
+        en: enUS,
+      },
+      addMiddleware: true,
+    }),
+  ],
 });

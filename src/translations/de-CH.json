@@ -1,0 +1,60 @@
+{
+  "components.pagination": {
+    "previous": "Zurück",
+    "next": "Weiter",
+    "pageOf": "Seite {current} von {total}"
+  },
+  "components.search": {
+    "searching": "Suche läuft...",
+    "placeholder": "Tippe um zu suchen..."
+  },
+  "components.versioningDetails": {
+    "title": "Versionierung",
+    "author": "Autor",
+    "lastUpdated": "Letzte Aktualisierung",
+    "links": "Links",
+    "source": "Quelle",
+    "history": "Versionen",
+    "edit": "Bearbeiten"
+  },
+  "components.tableOfContents": {
+    "title": "Inhaltsverzeichnis"
+  },
+  "layouts.latestSection": {
+    "title": "Neueste Artikel"
+  },
+  "layouts.head": {
+    "title": "Robins Blog",
+    "filteredByLanguage": "Robins Blog: Nur Deutsche Artikel"
+  },
+  "layouts.meta": {
+    "title": "Robin Bühlers Webseite",
+    "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität."
+  },
+  "pages.blog": {
+    "title": "Blog"
+  },
+  "pages.blogTag": {
+    "title": "Kategorie \"{tag}\"",
+    "details": "Details",
+    "createdAt": "Erstellt am",
+    "categorizedWith": "Kategorisiert mit"
+  },
+  "pages.gallery": {
+    "title": "Galerie"
+  },
+  "pages.notes": {
+    "title": "Notizen"
+  },
+  "pages.projects": {
+    "title": "Projekte",
+    "active": "Aktiv",
+    "maintenance": "Wartung",
+    "archived": "Archiviert",
+    "idea": "Idee"
+  },
+  "pages.galleryCategory": {
+    "previous": "Zurück",
+    "next": "Weiter"
+  }
+}
