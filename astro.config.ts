@@ -11,7 +11,9 @@ import sitemap from "@astrojs/sitemap";
 import Icons from "unplugin-icons/vite";
 import nanostoresI18n from "astro-nanostores-i18n";
 import deCH from "./src/translations/de-CH.json";
+import deCHExt from "./src/translations/de-CH.ext.json";
 import enUS from "./src/translations/en-US.json";
+import enUSExt from "./src/translations/en-US.ext.json";
 
 export default defineConfig({
   prefetch: true,
@@ -61,8 +63,8 @@ export default defineConfig({
     sitemap({ i18n: { defaultLocale: C.DEFAULT_LOCALE, locales: C.LOCALES } }),
     nanostoresI18n({
       translations: {
-        de: deCH,
-        en: enUS,
+        de: { ...deCH, ...deCHExt },
+        en: { ...enUS, ...enUSExt },
       },
       addMiddleware: true,
     }),

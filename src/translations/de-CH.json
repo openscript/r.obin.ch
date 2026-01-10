@@ -1,60 +1,60 @@
 {
   "components.pagination": {
-    "previous": "Zurück",
     "next": "Weiter",
-    "pageOf": "Seite {current} von {total}"
+    "pageOf": "Seite {current} von {total}",
+    "previous": "Zurück"
   },
   "components.search": {
-    "searching": "Suche läuft...",
-    "placeholder": "Tippe um zu suchen..."
-  },
-  "components.versioningDetails": {
-    "title": "Versionierung",
-    "author": "Autor",
-    "lastUpdated": "Letzte Aktualisierung",
-    "links": "Links",
-    "source": "Quelle",
-    "history": "Versionen",
-    "edit": "Bearbeiten"
+    "placeholder": "Tippe um zu suchen...",
+    "searching": "Suche läuft..."
   },
   "components.tableOfContents": {
     "title": "Inhaltsverzeichnis"
   },
+  "components.versioningDetails": {
+    "author": "Autor",
+    "edit": "Bearbeiten",
+    "history": "Versionen",
+    "lastUpdated": "Letzte Aktualisierung",
+    "links": "Links",
+    "source": "Quelle",
+    "title": "Versionierung"
+  },
+  "layouts.head": {
+    "filteredByLanguage": "Robins Blog: Nur Deutsche Artikel",
+    "title": "Robins Blog"
+  },
   "layouts.latestSection": {
     "title": "Neueste Artikel"
   },
-  "layouts.head": {
-    "title": "Robins Blog",
-    "filteredByLanguage": "Robins Blog: Nur Deutsche Artikel"
-  },
   "layouts.meta": {
-    "title": "Robin Bühlers Webseite",
-    "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuer in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität."
+    "description": "Auf dieser Webseite sammle ich interessante Dinge aus meinen Abenteuern in der Welt von Bits und Bytes und teile auch das Eine oder Andere aus der analogen Realität.",
+    "title": "Robin Bühlers Webseite"
   },
   "pages.blog": {
     "title": "Blog"
   },
   "pages.blogTag": {
-    "title": "Kategorie \"{tag}\"",
-    "details": "Details",
+    "categorizedWith": "Kategorisiert mit",
     "createdAt": "Erstellt am",
-    "categorizedWith": "Kategorisiert mit"
+    "details": "Details",
+    "title": "Kategorie \"{tag}\""
   },
   "pages.gallery": {
     "title": "Galerie"
+  },
+  "pages.galleryCategory": {
+    "next": "Weiter",
+    "previous": "Zurück"
   },
   "pages.notes": {
     "title": "Notizen"
   },
   "pages.projects": {
-    "title": "Projekte",
     "active": "Aktiv",
-    "maintenance": "Wartung",
     "archived": "Archiviert",
-    "idea": "Idee"
-  },
-  "pages.galleryCategory": {
-    "previous": "Zurück",
-    "next": "Weiter"
+    "idea": "Idee",
+    "maintenance": "Wartung",
+    "title": "Projekte"
   }
 }
