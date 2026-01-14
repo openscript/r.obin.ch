@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",
@@ -36,6 +36,7 @@
     "@fontsource/poppins": "^5.2.7",
     "@fontsource/rajdhani": "^5.2.7",
     "@nanostores/i18n": "^1.2.2",
+    "@supabase/supabase-js": "^2.90.1",
     "astro": "^5.16.8",
     "astro-loader-i18n": "^0.10.11",
     "astro-nanostores-i18n": "^0.3.0",
@@ -71,6 +72,7 @@
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1",
     "sirv": "^3.0.2",
+    "supabase": "^2.72.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.52.0",
     "vitest": "4.0.16"
