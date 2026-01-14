@@ -113,7 +113,7 @@ export class PixelEditor extends LitElement {
   @property({ type: Number }) pixelSize = 20;
 
   @state() private currentColor = "#ff0000";
-  @state() private tool: "draw" | "erase" | "fill" = "draw";
+  @state() private tool: "draw" | "erase" = "draw";
   @state() private pixels: string[][] = [];
 
   @query("canvas") private canvas!: HTMLCanvasElement;
@@ -217,17 +217,8 @@ export class PixelEditor extends LitElement {
     const row = this.pixels[y];
     if (!row) return;
 
-    if (this.tool === "fill") {
-      const targetColor = row[x] ?? "#000000";
-      const filledPixels = this.floodFill(x, y, targetColor, color);
-      // Emit individual events for each filled pixel
-      for (const pixel of filledPixels) {
-        this.emitPixelDrawn(pixel.x, pixel.y, color);
-      }
-    } else {
-      row[x] = color;
-      this.emitPixelDrawn(x, y, color);
-    }
+    row[x] = color;
+    this.emitPixelDrawn(x, y, color);
 
     this.drawPixels();
     this.requestUpdate();
@@ -243,29 +234,6 @@ export class PixelEditor extends LitElement {
     );
   }
 
-  private floodFill(x: number, y: number, targetColor: string, fillColor: string): { x: number; y: number }[] {
-    const filledPixels: { x: number; y: number }[] = [];
-    if (targetColor === fillColor) return filledPixels;
-    if (x < 0 || x >= this.width || y < 0 || y >= this.height) return filledPixels;
-    const initialRow = this.pixels[y];
-    if (!initialRow || initialRow[x] !== targetColor) return filledPixels;
-
-    const stack: [number, number][] = [[x, y]];
-
-    while (stack.length > 0) {
-      const [cx, cy] = stack.pop()!;
-      if (cx < 0 || cx >= this.width || cy < 0 || cy >= this.height) continue;
-      const row = this.pixels[cy];
-      if (!row || row[cx] !== targetColor) continue;
-
-      row[cx] = fillColor;
-      filledPixels.push({ x: cx, y: cy });
-      stack.push([cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]);
-    }
-
-    return filledPixels;
-  }
-
   private handlePointerDown(e: MouseEvent | TouchEvent) {
     e.preventDefault();
     this.isDrawing = true;
@@ -276,7 +244,7 @@ export class PixelEditor extends LitElement {
   }
 
   private handlePointerMove(e: MouseEvent | TouchEvent) {
-    if (!this.isDrawing || this.tool === "fill") return;
+    if (!this.isDrawing) return;
     e.preventDefault();
     const coords = this.getPixelCoords(e);
     if (coords) {
@@ -288,18 +256,7 @@ export class PixelEditor extends LitElement {
     this.isDrawing = false;
   }
 
-  private clearCanvas() {
-    this.initPixels();
-    this.drawPixels();
-    this.dispatchEvent(
-      new CustomEvent("canvas-cleared", {
-        bubbles: true,
-        composed: true,
-      }),
-    );
-  }
-
-  private setTool(tool: "draw" | "erase" | "fill") {
+  private setTool(tool: "draw" | "erase") {
     this.tool = tool;
   }
 
@@ -396,12 +353,7 @@ export class PixelEditor extends LitElement {
             <button class=${this.tool === "erase" ? "active" : ""} @click=${() => this.setTool("erase")} title="Erase">
               🧹
             </button>
-            <button class=${this.tool === "fill" ? "active" : ""} @click=${() => this.setTool("fill")} title="Fill">
-              🪣
-            </button>
           </div>
-
-          <button @click=${this.clearCanvas}>Clear</button>
         </div>
       </div>
     `;
