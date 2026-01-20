@@ -18,10 +18,7 @@ export class PixelEditor extends LitElement {
 
     .canvas-wrapper {
       position: relative;
-      border: 2px solid #333;
-      border-radius: 4px;
       overflow: hidden;
-      background: #111;
     }
 
     canvas {
@@ -50,38 +47,6 @@ export class PixelEditor extends LitElement {
       border-radius: 4px;
       cursor: pointer;
       padding: 0;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-      background: #333;
-      color: white;
-      transition: background 0.2s;
-    }
-
-    button:hover {
-      background: #555;
-    }
-
-    button:active {
-      background: #666;
-    }
-
-    .tool-buttons {
-      display: flex;
-      gap: 0.25rem;
-    }
-
-    .tool-buttons button {
-      padding: 0.5rem 0.75rem;
-    }
-
-    .tool-buttons button.active {
-      background: #0066cc;
     }
 
     .presets {
@@ -117,22 +82,28 @@ export class PixelEditor extends LitElement {
   @state() private pixels: string[][] = [];
 
   @query("canvas") private canvas!: HTMLCanvasElement;
+  @query('slot[name="draw-button"]') private drawButtonSlot!: HTMLSlotElement;
+  @query('slot[name="erase-button"]') private eraseButtonSlot!: HTMLSlotElement;
   private ctx: CanvasRenderingContext2D | null = null;
   private isDrawing = false;
 
   private presetColors = [
-    "#000000",
     "#ffffff",
-    "#ff0000",
-    "#00ff00",
-    "#0000ff",
-    "#ffff00",
-    "#ff00ff",
-    "#00ffff",
-    "#ff8000",
-    "#8000ff",
-    "#00ff80",
-    "#ff0080",
+    "#bbbbbb",
+    "#888888",
+    "#444444",
+    "#FF0000",
+    "#FF8000",
+    "#FFFF00",
+    "#80FF00",
+    "#00FF00",
+    "#00FF80",
+    "#00FFFF",
+    "#0080FF",
+    "#0000FF",
+    "#8000FF",
+    "#FF00FF",
+    "#FF0080",
   ];
 
   override connectedCallback() {
@@ -143,6 +114,7 @@ export class PixelEditor extends LitElement {
   override firstUpdated() {
     this.ctx = this.canvas.getContext("2d");
     this.render2D();
+    this.updateToolButtonStates();
   }
 
   private initPixels() {
@@ -166,6 +138,9 @@ export class PixelEditor extends LitElement {
   private drawPixels() {
     if (!this.ctx) return;
 
+    // Get grid color from CSS variable
+    const gridColor = getComputedStyle(this).getPropertyValue("--color-primary-120").trim() || "#6a4a3c";
+
     // Clear the canvas first
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -177,8 +152,8 @@ export class PixelEditor extends LitElement {
         this.ctx.fillRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize);
 
         // Draw grid lines
-        this.ctx.strokeStyle = "#222";
-        this.ctx.lineWidth = 0.5;
+        this.ctx.strokeStyle = gridColor;
+        this.ctx.lineWidth = 1;
         this.ctx.strokeRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize);
       }
     }
@@ -258,6 +233,28 @@ export class PixelEditor extends LitElement {
 
   private setTool(tool: "draw" | "erase") {
     this.tool = tool;
+    this.updateToolButtonStates();
+  }
+
+  private updateToolButtonStates() {
+    const drawElements = this.drawButtonSlot?.assignedElements() || [];
+    const eraseElements = this.eraseButtonSlot?.assignedElements() || [];
+
+    drawElements.forEach((el) => {
+      if (this.tool === "draw") {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+
+    eraseElements.forEach((el) => {
+      if (this.tool === "erase") {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
   }
 
   private setColor(color: string) {
@@ -347,12 +344,12 @@ export class PixelEditor extends LitElement {
           </div>
 
           <div class="tool-buttons">
-            <button class=${this.tool === "draw" ? "active" : ""} @click=${() => this.setTool("draw")} title="Draw">
-              ✏️
-            </button>
-            <button class=${this.tool === "erase" ? "active" : ""} @click=${() => this.setTool("erase")} title="Erase">
-              🧹
-            </button>
+            <slot name="draw-button" @click=${() => this.setTool("draw")}>
+              <button class=${this.tool === "draw" ? "active" : ""} title="Draw">✏️</button>
+            </slot>
+            <slot name="erase-button" @click=${() => this.setTool("erase")}>
+              <button class=${this.tool === "erase" ? "active" : ""} title="Erase">🧹</button>
+            </slot>
           </div>
         </div>
       </div>

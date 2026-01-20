@@ -6,6 +6,7 @@
   --color-text: #071212;
   --color-primary: #6a4a3c;
   --color-primary-80: hsl(from var(--color-primary) h s calc(l - 20));
+  --color-primary-95: hsl(from var(--color-primary) h s calc(l - 5));
   --color-primary-105: hsl(from var(--color-primary) h s calc(l + 5));
   --color-primary-120: hsl(from var(--color-primary) h s calc(l + 20));
   --color-secondary: #eb6841;

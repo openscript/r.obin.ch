@@ -1,24 +1,43 @@
 ---
 type Props = {
-  href: string;
+  href?: string;
+  slotName?: string;
 };
 
-const { href } = Astro.props;
+const { href, slotName } = Astro.props;
 ---
 
 <style>
-  a {
+  a,
+  button {
     display: inline-block;
     background-color: var(--color-primary);
     color: var(--color-white);
     text-decoration: none;
     border-radius: var(--border-radius);
+    border: none;
     padding: var(--gap-tiny) var(--gap);
-  }
+    user-select: none;
 
-  a:hover {
-    background-color: var(--color-primary-80);
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-primary-95);
+    }
+    &.active,
+    &:active {
+      background-color: var(--color-primary-105);
+    }
   }
 </style>
 
-<a href={href}><slot /></a>
+{
+  !href ? (
+    <button type="button" slot={slotName}>
+      <slot />
+    </button>
+  ) : (
+    <a href={href} slot={slotName} draggable="false">
+      <slot />
+    </a>
+  )
+}
