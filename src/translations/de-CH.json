@@ -1,4 +1,8 @@
 {
+  "components.interactive.pixelDisplay": {
+    "draw": "Zeichnen",
+    "erase": "Löschen"
+  },
   "components.pagination": {
     "next": "Weiter",
     "pageOf": "Seite {current} von {total}",

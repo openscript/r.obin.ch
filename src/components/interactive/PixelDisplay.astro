@@ -1,0 +1,76 @@
+---
+import { useI18n } from "astro-nanostores-i18n:runtime";
+import Button from "../Button.astro";
+
+const messages = useI18n("components.interactive.pixelDisplay", {
+  draw: "Draw",
+  erase: "Erase",
+});
+---
+
+<pixel-editor id="pixel-editor" width="32" height="8" pixelSize="22">
+  <Button slotName="draw-button">{messages.draw}</Button>
+  <Button slotName="erase-button">{messages.erase}</Button>
+</pixel-editor>
+
+<script>
+  import "../../components/web/PixelEditor";
+  import type { PixelEditor } from "../../components/web/PixelEditor";
+  import { upsertPixel, fetchAllPixels, subscribeToPixelChanges, unsubscribeFromChannel } from "../../utils/supabase";
+
+  // Get the pixel editor element
+  const pixelEditor = document.getElementById("pixel-editor") as PixelEditor | null;
+
+  if (pixelEditor) {
+    // Track pending pixels to avoid updating own pixels from realtime
+    const pendingPixels = new Set<string>();
+
+    // Load existing pixels from Supabase
+    async function loadInitialPixels() {
+      try {
+        const pixels = await fetchAllPixels();
+        for (const pixel of pixels) {
+          pixelEditor?.setPixelExternal(pixel.x, pixel.y, pixel.color);
+        }
+      } catch (error) {
+        console.error("Failed to load initial pixels:", error);
+      }
+    }
+
+    // Handle pixel-drawn events (from user drawing)
+    pixelEditor.addEventListener("pixel-drawn", async (event: Event) => {
+      const customEvent = event as CustomEvent<{ x: number; y: number; color: string }>;
+      const { x, y, color } = customEvent.detail;
+
+      // Mark this pixel as pending (to avoid realtime feedback loop)
+      const key = `${x},${y}`;
+      pendingPixels.add(key);
+
+      try {
+        await upsertPixel(x, y, color);
+      } catch (error) {
+        console.error("Failed to upsert pixel:", error);
+      } finally {
+        // Remove from pending after a short delay to allow realtime to process
+        setTimeout(() => pendingPixels.delete(key), 500);
+      }
+    });
+
+    // Subscribe to realtime changes from other users
+    const channel = subscribeToPixelChanges((pixel) => {
+      const key = `${pixel.x},${pixel.y}`;
+      // Only update if this wasn't a pixel we just drew
+      if (!pendingPixels.has(key)) {
+        pixelEditor?.setPixelExternal(pixel.x, pixel.y, pixel.color);
+      }
+    });
+
+    // Load initial state
+    loadInitialPixels();
+
+    // Cleanup on page unload
+    window.addEventListener("beforeunload", () => {
+      unsubscribeFromChannel(channel);
+    });
+  }
+</script>
