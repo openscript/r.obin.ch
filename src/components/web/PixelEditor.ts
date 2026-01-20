@@ -13,23 +13,30 @@ export class PixelEditor extends LitElement {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 100%;
+      max-width: fit-content;
     }
 
     .canvas-wrapper {
       position: relative;
       overflow: hidden;
+      border: 5px solid #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      background-color: #000;
     }
 
     canvas {
       display: block;
       image-rendering: pixelated;
       cursor: crosshair;
+      background-color: #444;
     }
 
     .controls {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.5rem;
       align-items: center;
     }
@@ -47,6 +54,19 @@ export class PixelEditor extends LitElement {
       border-radius: 4px;
       cursor: pointer;
       padding: 0;
+    }
+
+    input[type="color"]::-moz-color-swatch {
+      border: none;
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+      border-radius: 0;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+      border: none;
     }
 
     .presets {
@@ -70,6 +90,12 @@ export class PixelEditor extends LitElement {
 
     .preset-color.active {
       border-color: #0066cc;
+    }
+
+    .tool-buttons {
+      display: flex;
+
+      gap: 0.5rem;
     }
   `;
 
@@ -138,23 +164,29 @@ export class PixelEditor extends LitElement {
   private drawPixels() {
     if (!this.ctx) return;
 
-    // Get grid color from CSS variable
-    const gridColor = getComputedStyle(this).getPropertyValue("--color-primary-120").trim() || "#6a4a3c";
-
     // Clear the canvas first
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+    // Draw pixels with a 1px gap so the canvas background forms the grid.
+    // Each cell leaves a 1px gap at its top/left edge; the right/bottom edge
+    // aligns exactly with the next cell boundary to keep the gap 1px (not 2px).
     for (let y = 0; y < this.height; y++) {
       const row = this.pixels[y];
       if (!row) continue;
       for (let x = 0; x < this.width; x++) {
-        this.ctx.fillStyle = row[x] ?? "#000000";
-        this.ctx.fillRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize);
+        const color = row[x] ?? "#000000";
+        this.ctx.fillStyle = color;
+        // Internal 1px gaps only; remove outer border gaps
+        const marginLeft = x === 0 ? 0 : 1;
+        const marginTop = y === 0 ? 0 : 1;
+        const marginRight = x === this.width - 1 ? 0 : 1;
+        const marginBottom = y === this.height - 1 ? 0 : 1;
 
-        // Draw grid lines
-        this.ctx.strokeStyle = gridColor;
-        this.ctx.lineWidth = 1;
-        this.ctx.strokeRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize);
+        const px = x * this.pixelSize + marginLeft;
+        const py = y * this.pixelSize + marginTop;
+        const pw = this.pixelSize - marginLeft - marginRight;
+        const ph = this.pixelSize - marginTop - marginBottom;
+        this.ctx.fillRect(px, py, pw, ph);
       }
     }
   }
