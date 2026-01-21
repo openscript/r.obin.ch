@@ -11,7 +11,7 @@ const {
 } = Astro.props;
 const { Content: IntroSection } = await render(await getEntry("sections", `${locale}/intro`)!);
 const { Content: ProjectsSection } = await render(await getEntry("sections", `${locale}/projects`)!);
-const { Content: LatestSection } = await render(await getEntry("sections", `${locale}/latest`)!);
+const { Content: PostsSection } = await render(await getEntry("sections", `${locale}/posts`)!);
 ---
 
 <style>
@@ -23,5 +23,5 @@ const { Content: LatestSection } = await render(await getEntry("sections", `${lo
 <DefaultLayout translations={translations}>
   <IntroSection />
   <ProjectsSection />
-  <LatestSection />
+  <PostsSection />
 </DefaultLayout>
