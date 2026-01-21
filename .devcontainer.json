@@ -22,5 +22,8 @@
   },
   "containerEnv": {
     "ASTRO_TELEMETRY_DISABLED": "1"
+  },
+  "features": {
+    "ghcr.io/devcontainers-community/features/deno:1": {}
   }
 }
