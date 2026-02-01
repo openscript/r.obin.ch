@@ -1,12 +1,21 @@
 import { defineCollection, z } from "astro:content";
 import { localeSlugs } from "./site.config";
 import { glob } from "astro/loaders";
-import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as localizedSchema } from "astro-loader-i18n";
+import {
+  extendI18nLoaderSchema,
+  i18nContentLoader,
+  i18nLoader,
+  localized as localizedSchema,
+} from "astro-loader-i18n";
 
-const localized = <T extends z.ZodTypeAny>(schema: T) => localizedSchema(schema, localeSlugs);
+const localized = <T extends z.ZodTypeAny>(schema: T) =>
+  localizedSchema(schema, localeSlugs);
 
 const blogCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/blog",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -24,7 +33,10 @@ const blogCollection = defineCollection({
     ),
 });
 const notesCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes" }),
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/notes",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       title: z.string(),
@@ -32,7 +44,10 @@ const notesCollection = defineCollection({
   ),
 });
 const galleryCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/gallery" }),
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/gallery",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -49,7 +64,10 @@ const galleryCollection = defineCollection({
     ),
 });
 const projectsCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/projects" }),
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/projects",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -76,7 +94,10 @@ const projectsCollection = defineCollection({
     ),
 });
 const projectsContentCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
+  loader: i18nLoader({
+    pattern: ["**/[^_]*.{md,mdx}", "!**/**.spotlight.{md,mdx}"],
+    base: "./src/content/projects",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       title: z.string(),
@@ -85,17 +106,25 @@ const projectsContentCollection = defineCollection({
   ),
 });
 const pagesCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/pages",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       path: z.string(),
       title: z.string(),
-      template: z.enum(["article", "article-with-aside"]).optional().default("article"),
+      template: z.enum(["article", "article-with-aside"]).optional().default(
+        "article",
+      ),
     }),
   ),
 });
 const navigationCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/navigation" }),
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/navigation",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -112,7 +141,10 @@ const navigationCollection = defineCollection({
     ),
 });
 const sectionsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections" }),
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/sections",
+  }),
   schema: z.object({}),
 });
 

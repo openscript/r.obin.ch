@@ -14,8 +14,8 @@ const messages = useI18n("components.interactive.pixelDisplay", {
 </pixel-editor>
 
 <script>
-  import "../../components/web/PixelEditor";
-  import type { PixelEditor } from "../../components/web/PixelEditor";
+  import "./PixelEditor";
+  import type { PixelEditor } from "./PixelEditor";
   import { upsertPixel, fetchAllPixels, subscribeToPixelChanges, unsubscribeFromChannel } from "../../utils/supabase";
 
   // Get the pixel editor element
