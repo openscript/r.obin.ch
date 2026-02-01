@@ -6,7 +6,8 @@
   ],
   "exclude": [
     "dist",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "supabase"
   ],
   "compilerOptions": {
     "moduleResolution": "bundler",
