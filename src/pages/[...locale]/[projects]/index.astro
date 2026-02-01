@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import { defaultPropsAndParamsOptions, generateGetStaticIndexPaths } from "../../../utils/paths";
@@ -8,6 +7,7 @@ import { i18nProps } from "astro-loader-i18n";
 import { defaultProjectsCollection } from "../../../collections/projects";
 import Card from "../../../components/Card.astro";
 import DateTime from "../../../components/DateTime.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[projects]");
 
@@ -15,7 +15,6 @@ const {
   translations,
   data: { locale },
 } = Astro.props;
-const t = useTranslations(parseLocale(locale));
 
 const filteredProjects = defaultProjectsCollection.filter((project) => project.data.locale === locale);
 
@@ -46,17 +45,24 @@ Object.keys(projectsByStatus).forEach((status) => {
     return dateB.getTime() - dateA.getTime();
   });
 });
+const messages = useI18n("pages.projects", {
+  title: "Projects",
+  active: "Active",
+  maintenance: "Maintenance",
+  archived: "Archived",
+  idea: "Idea",
+});
 ---
 
 <DefaultLayout translations={translations}>
-  <Meta slot="meta" title={t("projectsTitle")} />
+  <Meta slot="meta" title={messages.title} />
   <Page>
-    <h1 slot="title">{t("projectsTitle")}</h1>
+    <h1 slot="title">{messages.title}</h1>
 
     {
       Object.entries(projectsByStatus).map(([status, statusProjects]) => (
         <section>
-          <h2>{t(status as "active" | "archived")}</h2>
+          <h2>{messages[status as "active" | "archived"]}</h2>
           <div class="projects-grid">
             {statusProjects.map((project) => (
               <Card title={project.data.title} cover={project.data.cover} link={project.translatedPath}>

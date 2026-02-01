@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { parseLocale, useTranslations } from "../../../utils/i18n";
+import { parseLocale } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import CardList from "../../../components/CardList.astro";
 import Pagination from "../../../components/Pagination.astro";
@@ -14,6 +14,7 @@ import { C } from "../../../site.config";
 import { render } from "astro:content";
 import Card from "../../../components/Card.astro";
 import DateTime from "../../../components/DateTime.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const routePattern = "[...locale]/[blog]/[...slug]";
@@ -60,8 +61,10 @@ export const getStaticPaths = (async ({ paginate }) => {
   });
 }) satisfies GetStaticPaths;
 
-const { page, locale, translations } = Astro.props;
-const t = useTranslations(parseLocale(locale));
+const { page, translations } = Astro.props;
+const messages = useI18n("pages.blog", {
+  title: "Blog",
+});
 ---
 
 <style>
@@ -74,9 +77,9 @@ const t = useTranslations(parseLocale(locale));
 </style>
 
 <DefaultLayout translations={translations}>
-  <Meta slot="meta" title={t("blogTitle")} />
+  <Meta slot="meta" title={messages.title} />
   <Page>
-    <h1 slot="title">{t("blogTitle")}</h1>
+    <h1 slot="title">{messages.title}</h1>
     <Pagination page={page} />
     <CardList classNames="vertical">
       {

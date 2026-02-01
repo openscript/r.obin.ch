@@ -1,12 +1,15 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { localeSlugs } from "./site.config";
 import { glob } from "astro/loaders";
 import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as localizedSchema } from "astro-loader-i18n";
 
 const localized = <T extends z.ZodTypeAny>(schema: T) => localizedSchema(schema, localeSlugs);
 
-const blogCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
+const blog = defineCollection({
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/blog",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -23,16 +26,22 @@ const blogCollection = defineCollection({
       }),
     ),
 });
-const notesCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes" }),
+const notes = defineCollection({
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/notes",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       title: z.string(),
     }),
   ),
 });
-const galleryCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/gallery" }),
+const gallery = defineCollection({
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/gallery",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -48,8 +57,11 @@ const galleryCollection = defineCollection({
       }),
     ),
 });
-const projectsCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/projects" }),
+const projects = defineCollection({
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/projects",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -75,17 +87,31 @@ const projectsCollection = defineCollection({
       }),
     ),
 });
-const projectsContentCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/projects" }),
+const projectsContent = defineCollection({
+  loader: i18nLoader({
+    pattern: ["**/[^_]*.{md,mdx}", "!**/**.spotlight.*{md,mdx}"],
+    base: "./src/content/projects",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       title: z.string(),
       summary: z.string(),
+      spotlight: reference("projectsSpotlight").optional(),
     }),
   ),
 });
-const pagesCollection = defineCollection({
-  loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
+const projectsSpotlight = defineCollection({
+  loader: i18nLoader({
+    pattern: "**/[^_]*.spotlight.*{md,mdx}",
+    base: "./src/content/projects",
+  }),
+  schema: extendI18nLoaderSchema(z.object({})),
+});
+const pages = defineCollection({
+  loader: i18nLoader({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/pages",
+  }),
   schema: extendI18nLoaderSchema(
     z.object({
       path: z.string(),
@@ -94,8 +120,11 @@ const pagesCollection = defineCollection({
     }),
   ),
 });
-const navigationCollection = defineCollection({
-  loader: i18nContentLoader({ pattern: "**/[^_]*.yml", base: "./src/content/navigation" }),
+const navigation = defineCollection({
+  loader: i18nContentLoader({
+    pattern: "**/[^_]*.yml",
+    base: "./src/content/navigation",
+  }),
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
@@ -111,18 +140,22 @@ const navigationCollection = defineCollection({
       }),
     ),
 });
-const sectionsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/sections" }),
+const sections = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/sections",
+  }),
   schema: z.object({}),
 });
 
 export const collections = {
-  blog: blogCollection,
-  notes: notesCollection,
-  gallery: galleryCollection,
-  projects: projectsCollection,
-  projectsContent: projectsContentCollection,
-  pages: pagesCollection,
-  navigation: navigationCollection,
-  sections: sectionsCollection,
+  blog: blog,
+  notes: notes,
+  gallery: gallery,
+  projects: projects,
+  projectsContent: projectsContent,
+  projectsSpotlight: projectsSpotlight,
+  pages: pages,
+  navigation: navigation,
+  sections: sections,
 };

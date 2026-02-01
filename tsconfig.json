@@ -6,11 +6,16 @@
   ],
   "exclude": [
     "dist",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "supabase"
   ],
   "compilerOptions": {
     "moduleResolution": "bundler",
     "exactOptionalPropertyTypes": false,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "module": "esnext",
+    "target": "esnext",
     "types": [
       "unplugin-icons/types/astro"
     ],

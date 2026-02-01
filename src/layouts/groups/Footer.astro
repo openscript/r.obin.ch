@@ -12,3 +12,20 @@ const navigation = await prepareNavigation(`footer/${locale}`);
   <span>Version {version}</span>
   <Navigation items={navigation} />
 </footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    nav ul {
+      display: flex;
+      gap: var(--gap);
+
+      .active {
+        font-weight: bold;
+      }
+    }
+  }
+</style>

@@ -1,17 +1,21 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { localeSlugs } from "../../site.config";
-import { getFullLocale, parseLocale, useTranslations } from "../../utils/i18n";
-import { getMessage } from "../../utils/i18n";
+import { getFullLocale, parseLocale, getNameFromLocale } from "../../utils/i18n";
 import { resolvePath } from "astro-loader-i18n";
+import { useI18n } from "astro-nanostores-i18n:runtime";
+import { params } from "@nanostores/i18n";
 
 type Props = {
   translations?: Record<string, string>;
 };
 
+const messages = useI18n("layouts.head", {
+  title: "Robins Blog",
+  filteredByLanguage: params("Robins Blog: {language} posts only"),
+});
 const locale = parseLocale(Astro.params.locale);
 const { translations } = Astro.props;
-const t = useTranslations(locale);
 let base = `${import.meta.env.SITE || ""}${import.meta.env.BASE_URL || ""}`;
 base = base.endsWith("/") ? base : `${base}/`;
 ---
@@ -35,14 +39,14 @@ base = base.endsWith("/") ? base : `${base}/`;
         </Fragment>
       ))
   }
-  <link rel="alternate" type="application/rss+xml" title={t("feedTitle")} href={resolvePath("rss.xml")} />
+  <link rel="alternate" type="application/rss+xml" title={messages.title} href={resolvePath("rss.xml")} />
   {
     localeSlugs.map((l) => {
       return (
         <link
           rel="alternate"
           type="application/rss+xml"
-          title={getMessage("feedLanguage", l)}
+          title={messages.filteredByLanguage({ language: getNameFromLocale(l) || l })}
           href={resolvePath(`rss-${l}.xml`)}
         />
       );

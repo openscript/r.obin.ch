@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import { getCollection } from "astro:content";
 import CardList from "../../../components/CardList.astro";
@@ -9,6 +8,7 @@ import { C } from "../../../site.config";
 import slug from "limax";
 import Meta from "../../../layouts/groups/Meta.astro";
 import Card from "../../../components/Card.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[gallery]");
 const {
@@ -18,7 +18,9 @@ const {
 
 const localeParam = locale === C.DEFAULT_LOCALE ? undefined : locale;
 const collection = await getCollection("gallery", (category) => category.data.locale === locale);
-const t = useTranslations(parseLocale(locale));
+const messages = useI18n("pages.gallery", {
+  title: "Gallery",
+});
 ---
 
 <style>
@@ -30,9 +32,9 @@ const t = useTranslations(parseLocale(locale));
 </style>
 
 <DefaultLayout translations={translations}>
-  <Meta slot="meta" title={t("galleryTitle")} />
+  <Meta slot="meta" title={messages.title} />
   <Page>
-    <h1 slot="title">{t("galleryTitle")}</h1>
+    <h1 slot="title">{messages.title}</h1>
     <CardList classNames="grid">
       {
         collection

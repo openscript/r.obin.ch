@@ -1,0 +1,47 @@
+---
+
+---
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "content";
+  }
+
+  header {
+    grid-area: title;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      a {
+        display: flex;
+      }
+    }
+  }
+
+  .content {
+    font-size: 1.2rem;
+    grid-area: content;
+  }
+</style>
+
+<section>
+  <header>
+    <h2>
+      <slot name="title" />
+    </h2>
+    <div>
+      <slot name="actions" />
+    </div>
+  </header>
+  <div class="content">
+    <slot />
+  </div>
+</section>

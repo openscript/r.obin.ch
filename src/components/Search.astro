@@ -1,10 +1,11 @@
 ---
-import { parseLocale, useTranslations } from "../utils/i18n";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
-const locale = parseLocale(Astro.currentLocale);
-const t = useTranslations(locale);
+const messages = useI18n("components.search", {
+  searching: "Searching...",
+  placeholder: "Type to search...",
+});
 const bundle = `/pagefind/pagefind.js`;
-const loadingText = t("searchLoading");
 ---
 
 <script>
@@ -69,15 +70,58 @@ const loadingText = t("searchLoading");
   document.addEventListener("DOMContentLoaded", initialize);
 </script>
 
+<div class="search" data-search-ui data-search-bundle={bundle}>
+  <input type="search" placeholder={messages.placeholder} />
+  <ul class="results" data-loading-text={messages.searching}>{messages.searching}</ul>
+</div>
+
 <style>
   .search {
     display: flex;
     position: relative;
-  }
+    width: calc(100% - 2 * var(--gap));
+    justify-content: center;
 
-  .search,
-  .search input {
-    width: 100%;
+    input {
+      width: calc(100% - 2 * var(--gap));
+      background-color: var(--color-primary);
+      font-size: 1.2rem;
+      padding: 0.656rem var(--gap);
+      border: var(--border-width) solid var(--color-primary-120);
+      border-radius: var(--border-radius);
+      color: var(--color-white);
+      transition: var(--transition-duration);
+    }
+
+    input::placeholder {
+      color: var(--color-primary-120);
+    }
+
+    input:focus,
+    input:hover {
+      border-color: var(--color-white);
+      outline: none;
+    }
+
+    input:not(:focus)::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    input::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input::-webkit-search-cancel-button {
+      height: 1.5rem;
+      width: 1.5rem;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E")
+        no-repeat center;
+      background-size: 1.5rem 1.5rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: var(--transition-duration);
+    }
   }
 
   .results {
@@ -85,12 +129,11 @@ const loadingText = t("searchLoading");
     position: absolute;
     list-style: none;
     z-index: 10;
-    padding: 0;
-    margin: 0;
+    margin: 0 1rem;
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--color-primary-120);
+    background-color: var(--color-primary-105);
     font-size: 1.2rem;
     flex-direction: column;
     gap: 1rem;
@@ -102,8 +145,3 @@ const loadingText = t("searchLoading");
     display: flex;
   }
 </style>
-
-<div class="search" data-search-ui data-search-bundle={bundle}>
-  <input type="search" placeholder={t("searchPlaceholder")} />
-  <ul class="results" data-loading-text={loadingText}>{loadingText}</ul>
-</div>

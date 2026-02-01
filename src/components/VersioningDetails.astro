@@ -1,33 +1,40 @@
 ---
 import type { GitInfoFrontmatter } from "../remark/remark-git-info";
-import { parseLocale, useTranslations } from "../utils/i18n";
 import Button from "./Button.astro";
 import DateTime from "./DateTime.astro";
 import Details from "./Details.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 type Props = { gitInfo?: GitInfoFrontmatter };
 
 const { gitInfo } = Astro.props;
-const locale = parseLocale(Astro.currentLocale);
-const t = useTranslations(locale);
+const messages = useI18n("components.versioningDetails", {
+  title: "Versioning",
+  author: "Author",
+  lastUpdated: "Last updated",
+  links: "Links",
+  source: "Source",
+  history: "History",
+  edit: "Edit",
+});
 ---
 
-<Details title={t("versioningLabel")}>
+<Details title={messages.title}>
   <dl>
     {
       gitInfo?.lastCommit && (
         <Fragment>
-          <dt>{t("authorLabel")}</dt>
+          <dt>{messages.author}</dt>
           <dd>{gitInfo.lastCommit.authorName}</dd>
-          <dt>{t("lastUpdatedLabel")}</dt>
+          <dt>{messages.lastUpdated}</dt>
           <dd>
             <DateTime date={new Date(gitInfo.lastCommit.date)} />
           </dd>
-          <dt>{t("linksLabel")}</dt>
+          <dt>{messages.links}</dt>
           <dd>
-            <Button href={gitInfo.remoteViewUrl}>{t("sourceLabel")}</Button>
-            <Button href={gitInfo.remoteHistoryUrl}>{t("historyLabel")}</Button>
-            <Button href={gitInfo.remoteEditUrl}>{t("editLabel")}</Button>
+            <Button href={gitInfo.remoteViewUrl}>{messages.source}</Button>
+            <Button href={gitInfo.remoteHistoryUrl}>{messages.history}</Button>
+            <Button href={gitInfo.remoteEditUrl}>{messages.edit}</Button>
           </dd>
         </Fragment>
       )

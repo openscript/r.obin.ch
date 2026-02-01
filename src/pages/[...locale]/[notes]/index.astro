@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
-import { parseLocale, useTranslations } from "../../../utils/i18n";
 import Page from "../../../layouts/pages/Page.astro";
 import Meta from "../../../layouts/groups/Meta.astro";
 import NotesList from "../../../components/NoteList.astro";
@@ -10,14 +9,11 @@ import slug from "limax";
 import { defaultNotesCollection } from "../../../collections/notes";
 import { getGitInfo, type GitInfoFrontmatter } from "../../../remark/remark-git-info";
 import { render } from "astro:content";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 export const getStaticPaths = generateGetStaticIndexPaths("[...locale]/[notes]");
 
-const {
-  translations,
-  data: { locale },
-} = Astro.props;
-const t = useTranslations(parseLocale(locale));
+const { translations } = Astro.props;
 
 const collection = defaultNotesCollection;
 const notes = i18nProps(collection, {
@@ -64,12 +60,15 @@ const nestedNotes = notesWithGitInfo.reduce<NestedNotes>((acc, note) => {
 
   return acc;
 }, {});
+const messages = useI18n("pages.notes", {
+  title: "Notes",
+});
 ---
 
 <DefaultLayout translations={translations}>
-  <Meta slot="meta" title={t("notesTitle")} />
+  <Meta slot="meta" title={messages.title} />
   <Page>
-    <h1 slot="title">{t("notesTitle")}</h1>
+    <h1 slot="title">{messages.title}</h1>
     <NotesList notes={nestedNotes} />
   </Page>
 </DefaultLayout>

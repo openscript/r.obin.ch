@@ -1,17 +1,24 @@
 ---
 ---
 
-import IntroSection from '../../../layouts/sections/IntroSection.astro';
-import FidgetCheckboxes from '../../../components/fidget/FidgetCheckboxes.astro';
+import SpotlightSection from '../../../layouts/sections/SpotlightSection.astro';
 import Button from '../../../components/Button.astro';
+import EndlessVideo from '../../../components/EndlessVideo.astro';
+import Video from '../../assets/windmill.webm';
+import Poster from '../../assets/windmill.webp';
 
-<IntroSection>
+<SpotlightSection>
 
   <Fragment slot="title">Mein Leben zwischen Bits and Bytes.</Fragment>
-  <FidgetCheckboxes slot="spotlight" />
 
   **Schön dich hier zu haben.** Auf dieser Webseite findest du von mir erstellte Inhalte wie Artikel, Projekte und einige Fotos oder andere Medien. Dabei verzichte ich auf die Unterstützung künstlicher Intelligenz und erstelle alles von Hand.
 
   <Button href="/de/webseite">Mehr erfahren</Button>
 
-</IntroSection>
+  <EndlessVideo
+    slot="spotlight"
+    videoSrc={Video}
+    posterSrc={Poster.src}
+  />
+
+</SpotlightSection>

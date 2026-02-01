@@ -1,6 +1,6 @@
 ---
-import { parseLocale, useTranslations } from "../utils/i18n";
 import Details from "./Details.astro";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 type Props = {
   fromDepth?: number;
@@ -10,8 +10,9 @@ type Props = {
 const { headings: headingsProp, fromDepth: fromDepthProp } = Astro.props;
 const fromDepth = fromDepthProp || 2;
 const headings = headingsProp.filter((heading) => heading.depth >= fromDepth);
-const locale = parseLocale(Astro.currentLocale);
-const t = useTranslations(locale);
+const messages = useI18n("components.tableOfContents", {
+  title: "Table of Contents",
+});
 ---
 
 <style>
@@ -90,7 +91,7 @@ const t = useTranslations(locale);
   });
 </script>
 
-<Details defaultOpen={true} title={t("tableOfContentsLabel")}>
+<Details defaultOpen={true} title={messages.title}>
   <nav class="table-of-contents">
     <ul>
       {

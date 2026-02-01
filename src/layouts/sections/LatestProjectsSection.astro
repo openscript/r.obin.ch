@@ -1,0 +1,67 @@
+---
+import { currentLocale } from "astro-nanostores-i18n:runtime";
+import { i18nProps } from "astro-loader-i18n";
+import { defaultProjectsCollection } from "../../collections/projects";
+import { defaultPropsAndParamsOptions } from "../../utils/paths";
+import slug from "limax";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const locale = currentLocale.get();
+const localeProjects = defaultProjectsCollection.filter((project) => project.data.locale === locale);
+const projects = i18nProps(localeProjects, {
+  ...defaultPropsAndParamsOptions,
+  routePattern: `[...locale]/[projects]/[...slug]`,
+  generateSegments: (entry) => ({ slug: `${entry.data.contentPath}/${slug(entry.data.title)}` }),
+});
+
+const spotlightProject = projects.find((project) => project.data.spotlight);
+const spotlightEntry = spotlightProject?.data.spotlight ? await getEntry(spotlightProject.data.spotlight) : null;
+const spotlightRendered = spotlightEntry ? await render(spotlightEntry) : null;
+const Spotlight = spotlightRendered?.Content;
+---
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "content";
+    min-height: 5rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      a {
+        display: flex;
+      }
+    }
+  }
+
+  .content {
+    font-size: 1.2rem;
+    grid-area: content;
+  }
+</style>
+
+<section>
+  <header>
+    <h2>
+      <slot name="title" />
+    </h2>
+    <div>
+      <slot name="call-to-action" />
+    </div>
+  </header>
+  <div class="content">
+    {Spotlight && <Spotlight />}
+    {spotlightProject?.data.summary}
+  </div>
+</section>

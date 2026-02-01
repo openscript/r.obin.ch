@@ -1,6 +1,6 @@
 ---
-import { parseLocale, useTranslations } from "../../utils/i18n";
 import { author as packageAuthor } from "../../../package.json";
+import { useI18n } from "astro-nanostores-i18n:runtime";
 
 type Props = {
   title?: string;
@@ -9,13 +9,15 @@ type Props = {
   keywords?: string;
 };
 
-const locale = parseLocale(Astro.params.locale);
 const props = Astro.props;
-const t = useTranslations(locale);
-
-const title = props.title ? `${props.title} - r.obin.ch` : t("title");
+const messages = useI18n("layouts.meta", {
+  title: "Robin Bühlers Website",
+  description:
+    "On this website I collect interesting things from my adventures in the world of bits and bytes and also share some things from the analog reality.",
+});
+const title = props.title ? `${props.title} - r.obin.ch` : messages.title;
 const author = props.author || packageAuthor;
-const description = props.description || t("description");
+const description = props.description || messages.description;
 const keywords = props.keywords;
 ---
 
