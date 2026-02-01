@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.13
+
+### Patch Changes
+
+- fd89022: Embed supabase environment
+
 ## 0.4.12
 
 ### Patch Changes
