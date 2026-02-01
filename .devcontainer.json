@@ -20,6 +20,14 @@
       ]
     }
   },
+  "forwardPorts": [
+    4321
+  ],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro Dev Server"
+    }
+  },
   "containerEnv": {
     "ASTRO_TELEMETRY_DISABLED": "1"
   },

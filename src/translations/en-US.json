@@ -28,9 +28,6 @@
     "filteredByLanguage": "Robins Blog: {language} posts only",
     "title": "Robins Blog"
   },
-  "layouts.latestSection": {
-    "title": "Latest posts"
-  },
   "layouts.meta": {
     "description": "On this website I collect interesting things from my adventures in the world of bits and bytes and also share some things from the analog reality.",
     "title": "Robin Bühlers Website"

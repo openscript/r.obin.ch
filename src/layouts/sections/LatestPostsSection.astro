@@ -1,5 +1,4 @@
 ---
-import { parseLocale } from "../../utils/i18n";
 import CardList from "../../components/CardList.astro";
 import { defaultBlogCollection } from "../../collections/blog";
 import { i18nProps } from "astro-loader-i18n";
@@ -9,16 +8,9 @@ import slug from "limax";
 import Card from "../../components/Card.astro";
 import DateTime from "../../components/DateTime.astro";
 import TablerRss from "~icons/tabler/rss";
-import { useI18n } from "astro-nanostores-i18n:runtime";
+import { currentLocale } from "astro-nanostores-i18n:runtime";
 
-type Props = {
-  locale: string;
-};
-
-const locale = parseLocale(Astro.props.locale);
-const messages = useI18n("layouts.latestSection", {
-  title: "Latest posts",
-});
+const locale = currentLocale.get();
 const posts = i18nProps(defaultBlogCollection, {
   ...defaultPropsAndParamsOptions,
   routePattern: `[...locale]/[blog]/[...slug]`,
@@ -60,7 +52,9 @@ const filteredPosts = posts.slice(0, 4);
 
 <section>
   <header>
-    <h2>{messages.title}</h2>
+    <h2>
+      <slot name="title" />
+    </h2>
     <div>
       <a href={`/rss-${locale}.xml`}>
         <TablerRss style={{ fontSize: "1.5rem" }} />
