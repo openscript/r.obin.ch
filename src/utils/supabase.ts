@@ -1,8 +1,8 @@
 import { createClient, type RealtimeChannel } from "@supabase/supabase-js";
 
 // These will be replaced with actual environment variables
-const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL || "";
-const SUPABASE_ANON_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || "";
+const SUPABASE_URL = "https://ebazfrryxabwtqaiezir.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_BnfPS3NmFKJC1rwKTHgs3w_EPkMGv6S";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
