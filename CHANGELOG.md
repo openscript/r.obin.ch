@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.12
+
+### Patch Changes
+
+- ed6048d: Add pixel display
+
 ## 0.4.11
 
 ### Patch Changes
