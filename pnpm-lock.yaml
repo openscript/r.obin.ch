@@ -140,7 +140,7 @@ importers:
         version: 3.0.2
       supabase:
         specifier: ^2.74.5
-        version: 2.75.5
+        version: 2.76.3
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -3744,8 +3744,8 @@ packages:
   suf-log@2.5.3:
     resolution: {integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==}
 
-  supabase@2.75.5:
-    resolution: {integrity: sha512-gjCFvMTJ51HDPEGkvLroGgA4GEB5VhU136Gc/9BZgaHogqAKvTs7M28xlPcG5flGzmZjiqlNP1PcgzuQdw9fxQ==}
+  supabase@2.76.3:
+    resolution: {integrity: sha512-xJLyTiPo0WfBwHvNeLcDhyV+A0qyo/VfzL0lijXbvPL0QCY5+aLoiSwJqLempMynMvhq4Hl9EGL00B2LYmvpmQ==}
     engines: {npm: '>=8'}
     hasBin: true
 
@@ -8742,7 +8742,7 @@ snapshots:
     dependencies:
       s.color: 0.0.15
 
-  supabase@2.75.5:
+  supabase@2.76.3:
     dependencies:
       bin-links: 6.0.0
       https-proxy-agent: 7.0.6
