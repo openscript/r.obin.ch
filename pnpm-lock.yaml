@@ -86,7 +86,7 @@ importers:
         version: 9.39.2
       '@iconify/json':
         specifier: ^2.2.434
-        version: 2.2.436
+        version: 2.2.437
       '@openscript/unplugin-favicons':
         specifier: ^1.1.8
         version: 1.1.8(@types/node@24.10.12)(esbuild@0.25.12)(favicons@7.2.0)(rollup@4.57.1)(vite@6.4.1(@types/node@24.10.12)(jiti@2.6.1)(yaml@2.8.2))(yaml@2.8.2)
@@ -140,7 +140,7 @@ importers:
         version: 3.0.2
       supabase:
         specifier: ^2.74.5
-        version: 2.76.3
+        version: 2.76.4
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -686,8 +686,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.436':
-    resolution: {integrity: sha512-g8/uXu9yrsmMj6oQY7AglROQ7R4VVPdvsUrIdmpkj5pQf1K5tNeZBBCeHuSSuqKiJm/qsZL54HxTkMwa+q+4QQ==}
+  '@iconify/json@2.2.437':
+    resolution: {integrity: sha512-N/vAGFj0gSU4KQBCFlUur0Zo41KhqVFU3MlbuYcZVbQQR23aOPHgDNbrulucpsKsCnNFSTO4w/We0okJNbYhTQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3744,8 +3744,8 @@ packages:
   suf-log@2.5.3:
     resolution: {integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==}
 
-  supabase@2.76.3:
-    resolution: {integrity: sha512-xJLyTiPo0WfBwHvNeLcDhyV+A0qyo/VfzL0lijXbvPL0QCY5+aLoiSwJqLempMynMvhq4Hl9EGL00B2LYmvpmQ==}
+  supabase@2.76.4:
+    resolution: {integrity: sha512-zpiC6awtf2lqo7+oBwTQ53BJuQ8nM5nkNUxesLcS3BmLta3D/Ln3L/7Hqbj2P0FgnmdOyIJg1fmtglQH4B46LA==}
     engines: {npm: '>=8'}
     hasBin: true
 
@@ -4943,7 +4943,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify/json@2.2.436':
+  '@iconify/json@2.2.437':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
@@ -8742,7 +8742,7 @@ snapshots:
     dependencies:
       s.color: 0.0.15
 
-  supabase@2.76.3:
+  supabase@2.76.4:
     dependencies:
       bin-links: 6.0.0
       https-proxy-agent: 7.0.6
