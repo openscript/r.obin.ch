@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "pnpm@10.33.2",
   "pnpm": {
     "overrides": {
       "@astrojs/compiler": "npm:@openscript/astrojs-compiler@2.14.0"
@@ -43,8 +43,8 @@
     "@nanostores/i18n": "^1.2.2",
     "@supabase/supabase-js": "^2.93.3",
     "astro": "^5.17.1",
-    "astro-loader-i18n": "^0.10.11",
-    "astro-nanostores-i18n": "^0.4.0",
+    "astro-loader-i18n": "^0.11.0",
+    "astro-nanostores-i18n": "^0.5.0",
     "limax": "^4.2.2",
     "lit": "^3.3.2",
     "nanostores": "^1.1.0",
@@ -64,7 +64,7 @@
     "@types/mdast": "^4.0.4",
     "@types/node": "^24.10.6",
     "@typescript-eslint/parser": "^8.54.0",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/coverage-v8": "4.1.5",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
@@ -80,6 +80,6 @@
     "supabase": "^2.74.5",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0",
-    "vitest": "4.0.18"
+    "vitest": "4.1.5"
   }
 }
