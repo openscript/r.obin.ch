@@ -3,12 +3,11 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import { getEntry } from "astro:content";
 import { render } from "astro:content";
 import { generateGetStaticIndexPaths } from "../../utils/paths";
+import { parseLocale } from "../../utils/i18n";
 
 export const getStaticPaths = generateGetStaticIndexPaths("[...locale]");
-const {
-  translations,
-  data: { locale },
-} = Astro.props;
+const { translations } = Astro.props;
+const locale = parseLocale(Astro.currentLocale);
 const { Content: IntroSection } = await render(await getEntry("sections", `${locale}/intro`)!);
 const { Content: ProjectsSection } = await render(await getEntry("sections", `${locale}/projects`)!);
 const { Content: PostsSection } = await render(await getEntry("sections", `${locale}/posts`)!);

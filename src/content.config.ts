@@ -1,7 +1,8 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, reference } from "astro:content";
 import { localeSlugs } from "./site.config";
 import { glob } from "astro/loaders";
 import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as localizedSchema } from "astro-loader-i18n";
+import { z } from "astro/zod";
 
 const localized = <T extends z.ZodTypeAny>(schema: T) => localizedSchema(schema, localeSlugs);
 
@@ -65,8 +66,8 @@ const projects = defineCollection({
   schema: ({ image }) =>
     extendI18nLoaderSchema(
       z.object({
-        homepage: z.string().url().optional(),
-        source: z.string().url().optional(),
+        homepage: z.url().optional(),
+        source: z.url().optional(),
         cover: z
           .object({
             src: image(),
@@ -132,7 +133,7 @@ const navigation = defineCollection({
           z.array(
             z.object({
               title: z.string(),
-              path: z.string().url().or(z.string()),
+              path: z.url().or(z.string()),
               icon: image().optional(),
             }),
           ),

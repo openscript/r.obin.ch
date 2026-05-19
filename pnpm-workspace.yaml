@@ -1,4 +1,6 @@
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
-  - supabase
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  msgpackr-extract: true
+  sharp: true
+  supabase: true

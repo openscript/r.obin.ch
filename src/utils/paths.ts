@@ -1,12 +1,21 @@
 import { createI18nCollection, i18nPropsAndParams, resolvePath as originalResolvePath } from "astro-loader-i18n";
-import { C, localeSlugs } from "../site.config";
+import { C, localeSlugs, type Locale } from "../site.config";
 import { getEntry, type CollectionKey, type DataEntryMap } from "astro:content";
+import type { ImageMetadata } from "astro";
+import { parseLocale } from "./i18n";
 
 const PROTOCOL_DELIMITER = "://";
 
 export const defaultPropsAndParamsOptions = {
   defaultLocale: C.DEFAULT_LOCALE,
   segmentTranslations: C.SEGMENT_TRANSLATIONS,
+};
+
+export const replaceSegmentsInPath = (path: string, locale: Locale) => {
+  Object.entries(C.SEGMENT_TRANSLATIONS[locale]).forEach(([key, value]) => {
+    path = path.replace(key, value);
+  });
+  return path;
 };
 
 export const resolvePath = (...path: Array<string | number | undefined>) => {
@@ -27,24 +36,14 @@ export const generateGetStaticIndexPaths = (routePattern: string) => {
   };
 };
 
-export const prepareNavigation = async <E extends keyof DataEntryMap["navigation"] | (string & {})>(id: E) => {
-  const navigation = await getEntry("navigation", id);
-
-  if (!navigation) throw new Error(`Navigation entry not found`);
-
-  return Array.isArray(navigation.data.items)
-    ? await Promise.all(
-        navigation.data.items.map(async (item) => {
-          const { title, path, icon } = item;
-          return {
-            title,
-            icon,
-            path: await convertReferenceToPath(path),
-          };
-        }),
-      )
-    : [];
+type NavigationItem = {
+  path: string;
+  title: string;
+  icon?: ImageMetadata;
+  children?: NavigationItem[];
 };
+
+type RawNavigationItems = Array<{ title: string; path: string; icon?: ImageMetadata; children?: RawNavigationItems }>;
 
 export const convertReferenceToPath = async (path: string) => {
   if (!path.includes(PROTOCOL_DELIMITER)) return path;
@@ -62,6 +61,31 @@ export const convertReferenceToPath = async (path: string) => {
   if (typeof entry.data.path !== "string") throw new Error("Entry title is not a string");
 
   const localeSlug = entry.data.locale === C.DEFAULT_LOCALE ? undefined : entry.data.locale;
+  const contentPath = replaceSegmentsInPath(entry.data.contentPath, parseLocale(entry.data.locale));
 
-  return originalResolvePath(localeSlug, entry.data.contentPath, entry.data.path);
+  return originalResolvePath(localeSlug, contentPath, entry.data.path);
+};
+
+const processNavigationItems = async (items: RawNavigationItems): Promise<NavigationItem[]> => {
+  return Array.isArray(items)
+    ? await Promise.all(
+        items.map(async (item) => {
+          const { path, children, ...rest } = item;
+          const processedChildren = children ? await processNavigationItems(children) : undefined;
+          return {
+            ...rest,
+            children: processedChildren,
+            path: await convertReferenceToPath(path),
+          };
+        }),
+      )
+    : [];
+};
+
+export const prepareNavigation = async <E extends keyof DataEntryMap["navigation"] | (string & {})>(id: E) => {
+  const navigation = await getEntry("navigation", id);
+
+  if (!navigation) throw new Error(`Navigation entry not found`);
+
+  return await processNavigationItems(navigation.data.items as RawNavigationItems);
 };
