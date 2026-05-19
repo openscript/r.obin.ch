@@ -254,6 +254,3 @@ declare global {
     location: number;
   };
 }
-
-declare module "@fontsource/poppins";
-declare module "@fontsource/ibm-plex-mono";
