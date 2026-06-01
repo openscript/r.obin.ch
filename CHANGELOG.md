@@ -1,5 +1,11 @@
 # r.obin.ch
 
+## 0.4.15
+
+### Patch Changes
+
+- 25a21d6: Enable lockfile maintenance
+
 ## 0.4.14
 
 ### Patch Changes
