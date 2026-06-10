@@ -11,7 +11,7 @@
     "url": "https://github.com/openscript/r.obin.ch/issues"
   },
   "repository": "github:openscript/r.obin.ch",
-  "packageManager": "pnpm@11.5.2",
+  "packageManager": "pnpm@11.5.3",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev --host",
@@ -46,7 +46,7 @@
     "pagefind": "^1.5.2",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.0",
     "simple-git": "^3.36.0",
     "unplugin-icons": "^23.0.1",
     "vfile": "^6.0.3"
