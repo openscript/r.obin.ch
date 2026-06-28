@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import unpluginFavicons from "@anolilab/unplugin-favicons/vite";
+import { unified } from "@astrojs/markdown-remark";
 import { C } from "./src/site.config";
 import mdx from "@astrojs/mdx";
 import rehypeSlug from "rehype-slug";
@@ -31,11 +32,13 @@ export default defineConfig({
         dark: "github-dark",
       },
     },
-    remarkPlugins: [
-      [remarkExcerpt, { length: C.SETTINGS.BLOG.EXCERPT_LENGTH }],
-      [remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }],
-    ],
-    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
+    processor: unified({
+      remarkPlugins: [
+        [remarkExcerpt, { length: C.SETTINGS.BLOG.EXCERPT_LENGTH }],
+        [remarkGitInfo, { remoteUrlBase: C.SETTINGS.REMOTE.BASE_URL }],
+      ],
+      rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
+    }),
   },
   vite: {
     plugins: [
