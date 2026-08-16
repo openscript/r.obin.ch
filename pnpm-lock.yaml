@@ -89,7 +89,7 @@ importers:
         version: 10.0.1(eslint@10.8.1(jiti@2.7.0)(supports-color@7.2.0))
       '@iconify/json':
         specifier: ^2.2.492
-        version: 2.2.516
+        version: 2.2.517
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -713,8 +713,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.516':
-    resolution: {integrity: sha512-mtYele8PmlAO/Vpeu984VemT5GsdtMNqJsnlFKUG/63kOuDmKaD6WKpu4KWiP953qooiG2P9U7j23Q8uOmQOnw==}
+  '@iconify/json@2.2.517':
+    resolution: {integrity: sha512-lLw2kuor7knAHlrvl4XSPLOFTOY6HG7S/kGJEzh0oZfBz7+mxEeHS9V4BhyjllANHCTHDWluLEXKud+2/dBohg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -4468,7 +4468,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify/json@2.2.516':
+  '@iconify/json@2.2.517':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
