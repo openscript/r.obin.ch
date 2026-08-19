@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@anolilab/unplugin-favicons": "^3.0.0",
-    "@changesets/cli": "^2.31.0",
+    "@changesets/cli": "^3.0.0",
     "@eslint/js": "^10.0.1",
     "@iconify/json": "^2.2.492",
     "@types/mdast": "^4.0.4",
