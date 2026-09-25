@@ -103,8 +103,8 @@ importers:
         specifier: 4.1.11
         version: 4.1.11(vitest@4.1.11)
       astro-eslint-parser:
-        specifier: ^2.1.0
-        version: 2.1.0(supports-color@7.2.0)
+        specifier: ^3.0.0
+        version: 3.2.0(supports-color@7.2.0)
       eslint:
         specifier: ^10.6.0
         version: 10.11.0(jiti@2.7.0)(supports-color@7.2.0)
@@ -1630,6 +1630,10 @@ packages:
 
   astro-eslint-parser@2.1.0:
     resolution: {integrity: sha512-poUfd66bOTY59rQajtusj/+i6kaBc4pKXkBa2XHYjwBZyhWThS1sdlgxLrnmo7NQqLUpvhmEtkOONUBs9WIp9Q==}
+    engines: {node: ^22.22.3 || ^24.16.0 || >=26.3.0}
+
+  astro-eslint-parser@3.2.0:
+    resolution: {integrity: sha512-WavQUarfgwSbpCq4xsdcIBdX5KArfI2d6DD8EIloJIMthnB1508iNpx4C77EhUyMd03LpEt8HAPzwF/cG0V39g==}
     engines: {node: ^22.22.3 || ^24.16.0 || >=26.3.0}
 
   astro-loader-i18n@1.0.0:
@@ -5374,6 +5378,20 @@ snapshots:
       astrojs-compiler-sync: 1.1.1(@astrojs/compiler@4.0.0)
       debug: 4.4.3(supports-color@7.2.0)
       entities: 8.1.0
+      eslint-scope: 9.1.2
+      eslint-visitor-keys: 5.0.1
+      espree: 11.2.0
+      semver: 7.8.5
+      tinyglobby: 0.2.17
+    transitivePeerDependencies:
+      - supports-color
+
+  astro-eslint-parser@3.2.0(supports-color@7.2.0):
+    dependencies:
+      '@astrojs/compiler-rs': 0.5.0
+      '@typescript-eslint/scope-manager': 8.70.1
+      '@typescript-eslint/types': 8.70.1
+      debug: 4.4.3(supports-color@7.2.0)
       eslint-scope: 9.1.2
       eslint-visitor-keys: 5.0.1
       espree: 11.2.0
