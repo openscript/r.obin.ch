@@ -4,7 +4,7 @@ import { glob } from "astro/loaders";
 import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized as localizedSchema } from "astro-loader-i18n";
 import { z } from "astro/zod";
 
-const localized = <T extends z.ZodTypeAny>(schema: T) => localizedSchema(schema, localeSlugs);
+const localized = <T extends z.ZodType>(schema: T) => localizedSchema(schema, localeSlugs);
 
 const blog = defineCollection({
   loader: i18nLoader({

@@ -6,6 +6,7 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "minimumReleaseAge": "1 day",
   "packageRules": [
     {
       "matchPackagePatterns": [

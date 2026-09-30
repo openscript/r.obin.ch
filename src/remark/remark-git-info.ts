@@ -1,6 +1,6 @@
 import type { Root } from "mdast";
 import type { VFile } from "vfile";
-import simpleGit, { type SimpleGitOptions } from "simple-git";
+import { simpleGit, type SimpleGitOptions } from "simple-git";
 import { isAstroData } from "./common";
 
 export type GitInfoFrontmatter = {
