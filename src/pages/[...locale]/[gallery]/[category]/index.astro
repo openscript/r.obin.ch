@@ -41,11 +41,9 @@ const {
   <Page>
     <h1 slot="title">{title}</h1>
     <CardList classNames="grid">
-      {
-        images.map((image, index) => (
-          <Card title={image.title?.toString() || ""} cover={image} link={`${translatedPath}/${index.toString()}`} />
-        ))
-      }
+      {images.map((image, index) => (
+        <Card title={image.title?.toString() || ""} cover={image} link={`${translatedPath}/${index.toString()}`} />
+      ))}
     </CardList>
   </Page>
 </DefaultLayout>

@@ -25,15 +25,13 @@ const { items } = Astro.props;
 
 <nav class="rounded">
   <ul>
-    {
-      items?.map((item) => (
-        <li>
-          <Link href={item.path}>
-            {item.icon ? <Image src={item.icon} alt={`${item.title} Icon`} width="16" /> : null}
-            {item.title}
-          </Link>
-        </li>
-      ))
-    }
+    {items?.map((item) => (
+      <li>
+        <Link href={item.path}>
+          {item.icon ? <Image src={item.icon} alt={`${item.title} Icon`} width="16" /> : null}
+          {item.title}
+        </Link>
+      </li>
+    ))}
   </ul>
 </nav>

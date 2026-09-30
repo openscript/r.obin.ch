@@ -30,14 +30,12 @@ const { href, slotName } = Astro.props;
   }
 </style>
 
-{
-  !href ? (
-    <button type="button" slot={slotName}>
-      <slot />
-    </button>
-  ) : (
-    <a href={href} slot={slotName} draggable="false">
-      <slot />
-    </a>
-  )
-}
+{!href ? (
+  <button type="button" slot={slotName}>
+    <slot />
+  </button>
+) : (
+  <a href={href} slot={slotName} draggable="false">
+    <slot />
+  </a>
+)}

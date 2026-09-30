@@ -59,22 +59,20 @@ const messages = useI18n("pages.projects", {
   <Page>
     <h1 slot="title">{messages.title}</h1>
 
-    {
-      Object.entries(projectsByStatus).map(([status, statusProjects]) => (
-        <section>
-          <h2>{messages[status as "active" | "archived"]}</h2>
-          <div class="projects-grid">
-            {statusProjects.map((project) => (
-              <Card title={project.data.title} cover={project.data.cover} link={project.translatedPath}>
-                {project.data.gitInfo?.lastCommit?.date && (
-                  <DateTime slot="super-title" date={new Date(project.data.gitInfo.lastCommit.date)} />
-                )}
-                {project.data.summary}
-              </Card>
-            ))}
-          </div>
-        </section>
-      ))
-    }
+    {Object.entries(projectsByStatus).map(([status, statusProjects]) => (
+      <section>
+        <h2>{messages[status as "active" | "archived"]}</h2>
+        <div class="projects-grid">
+          {statusProjects.map((project) => (
+            <Card title={project.data.title} cover={project.data.cover} link={project.translatedPath}>
+              {project.data.gitInfo?.lastCommit?.date && (
+                <DateTime slot="super-title" date={new Date(project.data.gitInfo.lastCommit.date)} />
+              )}
+              {project.data.summary}
+            </Card>
+          ))}
+        </div>
+      </section>
+    ))}
   </Page>
 </DefaultLayout>

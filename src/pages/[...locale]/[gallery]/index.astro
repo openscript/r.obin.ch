@@ -36,17 +36,15 @@ const messages = useI18n("pages.gallery", {
   <Page>
     <h1 slot="title">{messages.title}</h1>
     <CardList classNames="grid">
-      {
-        collection
-          .map(({ data: { cover, title } }) => {
-            if (typeof title !== "string") {
-              return null;
-            }
-            const url = resolvePath(localeParam, Astro.params.gallery, slug(title));
-            return <Card title={title} cover={{ src: cover }} link={url} />;
-          })
-          .filter(Boolean)
-      }
+      {collection
+        .map(({ data: { cover, title } }) => {
+          if (typeof title !== "string") {
+            return null;
+          }
+          const url = resolvePath(localeParam, Astro.params.gallery, slug(title));
+          return <Card title={title} cover={{ src: cover }} link={url} />;
+        })
+        .filter(Boolean)}
     </CardList>
   </Page>
 </DefaultLayout>

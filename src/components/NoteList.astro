@@ -32,18 +32,16 @@ const { notes } = Astro.props;
 </style>
 
 <ul class="note-root">
-  {
-    Object.entries(notes).map(([key, value]) => (
-      <li>
-        {hasNote(value) ? (
-          <NoteListEntry title={value.note.title} path={value.note.path} gitInfo={value.note.gitInfo} />
-        ) : (
-          <Fragment>
-            <span class="note-category">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-            <Astro.self notes={value} />
-          </Fragment>
-        )}
-      </li>
-    ))
-  }
+  {Object.entries(notes).map(([key, value]) => (
+    <li>
+      {hasNote(value) ? (
+        <NoteListEntry title={value.note.title} path={value.note.path} gitInfo={value.note.gitInfo} />
+      ) : (
+        <Fragment>
+          <span class="note-category">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+          <Astro.self notes={value} />
+        </Fragment>
+      )}
+    </li>
+  ))}
 </ul>

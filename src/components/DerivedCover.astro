@@ -36,7 +36,12 @@ const gradientId = `grad-${intToRGB(hashString(value))}`;
       <stop offset="100%" style={`stop-color:${endColor};stop-opacity:1`}></stop>
     </linearGradient>
     <filter id="fractalNoise">
-      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="6" result="noise" stitchTiles="stitch"
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.5"
+        numOctaves="6"
+        result="noise"
+        stitchTiles="stitch"
       ></feTurbulence>
       <feBlend in="SourceGraphic" in2="noise" mode="multiply"></feBlend>
       <feColorMatrix in="noisy" type="saturate" values="0.7"></feColorMatrix>

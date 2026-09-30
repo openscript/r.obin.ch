@@ -21,23 +21,21 @@ const messages = useI18n("components.versioningDetails", {
 
 <Details title={messages.title}>
   <dl>
-    {
-      gitInfo?.lastCommit && (
-        <Fragment>
-          <dt>{messages.author}</dt>
-          <dd>{gitInfo.lastCommit.authorName}</dd>
-          <dt>{messages.lastUpdated}</dt>
-          <dd>
-            <DateTime date={new Date(gitInfo.lastCommit.date)} />
-          </dd>
-          <dt>{messages.links}</dt>
-          <dd>
-            <Button href={gitInfo.remoteViewUrl}>{messages.source}</Button>
-            <Button href={gitInfo.remoteHistoryUrl}>{messages.history}</Button>
-            <Button href={gitInfo.remoteEditUrl}>{messages.edit}</Button>
-          </dd>
-        </Fragment>
-      )
-    }
+    {gitInfo?.lastCommit && (
+      <Fragment>
+        <dt>{messages.author}</dt>
+        <dd>{gitInfo.lastCommit.authorName}</dd>
+        <dt>{messages.lastUpdated}</dt>
+        <dd>
+          <DateTime date={new Date(gitInfo.lastCommit.date)} />
+        </dd>
+        <dt>{messages.links}</dt>
+        <dd>
+          <Button href={gitInfo.remoteViewUrl}>{messages.source}</Button>
+          <Button href={gitInfo.remoteHistoryUrl}>{messages.history}</Button>
+          <Button href={gitInfo.remoteEditUrl}>{messages.edit}</Button>
+        </dd>
+      </Fragment>
+    )}
   </dl>
 </Details>

@@ -10,10 +10,8 @@ const locale = Astro.currentLocale;
 ---
 
 <time datetime={date.toISOString()}>
-  {
-    date.toLocaleString(locale, {
-      dateStyle: dateStyle || "long",
-      timeStyle: timeStyle || "short",
-    })
-  }
+  {date.toLocaleString(locale, {
+    dateStyle: dateStyle || "long",
+    timeStyle: timeStyle || "short",
+  })}
 </time>

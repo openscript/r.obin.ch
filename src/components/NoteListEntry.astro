@@ -22,11 +22,9 @@ const { path, title, gitInfo } = Astro.props;
 
 <a href={path}>
   <span class="note-title">{title}</span>
-  {
-    gitInfo?.lastCommit && (
-      <span class="note-modified">
-        <DateTime date={new Date(gitInfo.lastCommit?.date)} dateStyle="short" />
-      </span>
-    )
-  }
+  {gitInfo?.lastCommit && (
+    <span class="note-modified">
+      <DateTime date={new Date(gitInfo.lastCommit?.date)} dateStyle="short" />
+    </span>
+  )}
 </a>

@@ -94,13 +94,11 @@ const messages = useI18n("components.tableOfContents", {
 <Details defaultOpen={true} title={messages.title}>
   <nav class="table-of-contents">
     <ul>
-      {
-        headings.map((heading) => (
-          <li class={`depth-${heading.depth}`}>
-            <a href={`#${heading.slug}`}>{heading.text}</a>
-          </li>
-        ))
-      }
+      {headings.map((heading) => (
+        <li class={`depth-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))}
     </ul>
   </nav>
 </Details>

@@ -64,9 +64,15 @@ const messages = useI18n("pages.blogTag", {
       <Details defaultOpen title={messages.details}>
         <dl>
           <dt>{messages.createdAt}</dt>
-          <dd><DateTime date={publishedAt} /></dd>
+          <dd>
+            <DateTime date={publishedAt} />
+          </dd>
           <dt>{messages.categorizedWith}</dt>
-          <dd>{tags.map((tag) => <Button href={resolvePath(blogPath, slug(tag))}>{tag}</Button>)}</dd>
+          <dd>
+            {tags.map((tag) => (
+              <Button href={resolvePath(blogPath, slug(tag))}>{tag}</Button>
+            ))}
+          </dd>
         </dl>
       </Details>
       <VersioningDetails gitInfo={gitInfo} />

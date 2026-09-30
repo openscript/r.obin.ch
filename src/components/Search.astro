@@ -72,7 +72,9 @@ const bundle = `/pagefind/pagefind.js`;
 
 <div class="search" data-search-ui data-search-bundle={bundle}>
   <input type="search" placeholder={messages.placeholder} />
-  <ul class="results" data-loading-text={messages.searching}>{messages.searching}</ul>
+  <ul class="results" data-loading-text={messages.searching}>
+    {messages.searching}
+  </ul>
 </div>
 
 <style>

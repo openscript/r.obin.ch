@@ -90,24 +90,17 @@ const messages = useI18n("pages.blogTag", {
   <Page>
     <h1 slot="title">{messages.title({ tag })}</h1>
     <CardList classNames="vertical">
-      {
-        page.data.map(async (post, i) => {
-          const { remarkPluginFrontmatter } = await render(post);
-          return (
-            <li>
-              <Card
-                title={post.data.title}
-                cover={post.data.cover}
-                link={post.translatedPath}
-                dividerFlip={i % 2 === 0}
-              >
-                <DateTime slot="super-title" date={post.data.publishedAt} />
-                {remarkPluginFrontmatter.excerpt}...
-              </Card>
-            </li>
-          );
-        })
-      }
+      {page.data.map(async (post, i) => {
+        const { remarkPluginFrontmatter } = await render(post);
+        return (
+          <li>
+            <Card title={post.data.title} cover={post.data.cover} link={post.translatedPath} dividerFlip={i % 2 === 0}>
+              <DateTime slot="super-title" date={post.data.publishedAt} />
+              {remarkPluginFrontmatter.excerpt}...
+            </Card>
+          </li>
+        );
+      })}
     </CardList>
     <Pagination page={page} />
   </Page>

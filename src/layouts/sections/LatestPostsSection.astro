@@ -63,18 +63,16 @@ const filteredPosts = posts.slice(0, 4);
     </div>
   </header>
   <CardList>
-    {
-      filteredPosts.map(async (post, i) => {
-        const { remarkPluginFrontmatter } = await render(post);
-        return (
-          <li>
-            <Card title={post.data.title} cover={post.data.cover} link={post.translatedPath} dividerFlip={i % 2 === 0}>
-              <DateTime slot="super-title" date={post.data.publishedAt} />
-              {remarkPluginFrontmatter.excerpt}...
-            </Card>
-          </li>
-        );
-      })
-    }
+    {filteredPosts.map(async (post, i) => {
+      const { remarkPluginFrontmatter } = await render(post);
+      return (
+        <li>
+          <Card title={post.data.title} cover={post.data.cover} link={post.translatedPath} dividerFlip={i % 2 === 0}>
+            <DateTime slot="super-title" date={post.data.publishedAt} />
+            {remarkPluginFrontmatter.excerpt}...
+          </Card>
+        </li>
+      );
+    })}
   </CardList>
 </section>
