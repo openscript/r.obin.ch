@@ -73,7 +73,7 @@
     "prettier-plugin-astro": "^1.1.0",
     "sirv": "^3.0.2",
     "supabase": "^2.118.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.0",
     "typescript-eslint": "^8.71.0",
     "vitest": "5.0.2"
   }
