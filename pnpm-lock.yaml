@@ -237,8 +237,8 @@ importers:
         version: 6.0.3
     devDependencies:
       '@anolilab/unplugin-favicons':
-        specifier: ^4.0.1
-        version: 4.0.1(@types/node@26.6.5)(favicons@7.3.1(@types/node@26.6.5))(rolldown@1.2.15)(vite@8.3.5(@types/node@26.6.5)(jiti@2.7.0)(yaml@2.9.1))
+        specifier: ^6.0.0
+        version: 6.0.0(@types/node@26.6.5)(favicons@7.3.1(@types/node@26.6.5))(rolldown@1.2.15)(vite@8.3.5(@types/node@26.6.5)(jiti@2.7.0)(yaml@2.9.1))
       '@changesets/cli':
         specifier: ^3.0.2
         version: 3.0.3
@@ -308,16 +308,16 @@ importers:
 
 packages:
 
-  '@anolilab/unplugin-favicons@4.0.1':
-    resolution: {integrity: sha512-GUiUOzGDZjWao3DGPGPcieTqNCp3GwynOPHTZlJXRmR8c3Hj1iNJhwZV9xoOK8oAxsVPzzFRXWo/8RK23x7h2Q==}
+  '@anolilab/unplugin-favicons@6.0.0':
+    resolution: {integrity: sha512-TiKvHfOoHu78/SRnBwwKEyC0dtbtXR2k3yfKTVPdiSEk81A3J3A3Q5ZmSWQFH6p5v9ykLHRtPfi0NOs89SRHmA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@nuxt/kit': ^3
-      '@nuxt/schema': ^3
-      '@rspack/cli': ^1.1.8
+      '@nuxt/kit': ^4.6.1
+      '@nuxt/schema': ^4.6.1
+      '@rspack/cli': ^1.7.12
       '@sveltejs/kit': '*'
       esbuild: '*'
-      favicons: ^7.2.0
+      favicons: ^7.3.1
       rollup: ^3.0.1
       vite: ^8.0.16
       webpack: ^4 || ^5
@@ -3753,7 +3753,7 @@ packages:
 
 snapshots:
 
-  '@anolilab/unplugin-favicons@4.0.1(@types/node@26.6.5)(favicons@7.3.1(@types/node@26.6.5))(rolldown@1.2.15)(vite@8.3.5(@types/node@26.6.5)(jiti@2.7.0)(yaml@2.9.1))':
+  '@anolilab/unplugin-favicons@6.0.0(@types/node@26.6.5)(favicons@7.3.1(@types/node@26.6.5))(rolldown@1.2.15)(vite@8.3.5(@types/node@26.6.5)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@visulima/find-cache-dir': 2.0.7
       '@visulima/package': 4.1.7(@types/node@26.6.5)
